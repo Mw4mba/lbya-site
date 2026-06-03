@@ -155,10 +155,10 @@ export default function AboutPage() {
         {/* Quote Section */}
         <div className="bg-[#F5F5DC] p-12 md:p-24 rounded-sm mb-32 text-center">
           <blockquote className="text-2xl md:text-3xl font-light text-[#2E7D32] leading-relaxed mb-8">
-            "We observed how the construction industry was drifting away from nature. Even the simplest projects ignored their environmental context. The fact that today's infrastructure was not resilient enough for tomorrow's climate ignited our desire to create <span style={{ fontFamily: "'Ruslan Display', serif" }}>LBYA</span>."
+            "We observed how the construction industry was drifting away from nature. Even the simplest projects ignored their environmental context. The fact that today's infrastructure was not resilient enough for tomorrow's climate ignited our desire to create <span style={{ fontFamily: "'Tektur', sans-serif" }}>LBYA</span>."
           </blockquote>
           <cite className="text-[#37474F] font-medium not-italic block">
-            <span style={{ fontFamily: "'Ruslan Display', serif" }}>LBYA</span>
+            <span style={{ fontFamily: "'Tektur', sans-serif" }}>LBYA</span>
           </cite>
         </div>
 
@@ -200,7 +200,7 @@ export default function AboutPage() {
             <h2
               ref={textRef}
               className="text-[25vw] leading-[0.8] font-bold text-[#2E7D32] tracking-tighter text-center"
-              style={{ fontFamily: "'Ruslan Display', serif" }}
+              style={{ fontFamily: "'Tektur', sans-serif" }}
             >
               LBYA
             </h2>

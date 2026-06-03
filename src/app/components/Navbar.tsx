@@ -404,7 +404,7 @@ export default function Navbar() {
           <span
             ref={labelRef}
             className="font-bold tracking-[0.15em] text-white leading-none text-2xl md:text-[42px]"
-            style={{ fontFamily: displayText === 'LBYA' ? "'Ruslan Display', serif" : "inherit" }}
+            style={{ fontFamily: displayText === 'LBYA' ? "'Tektur', sans-serif" : "inherit" }}
           >
             {displayText}
           </span>

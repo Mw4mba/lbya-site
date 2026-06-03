@@ -121,7 +121,7 @@ export default function HeroSection() {
           >
             <span
               className="block font-bold tracking-[0.15em] text-white leading-none text-4xl md:text-6xl mb-4"
-              style={{ fontFamily: "'Ruslan Display', serif" }}
+              style={{ fontFamily: "'Tektur', sans-serif" }}
             >
               LBYA
             </span>

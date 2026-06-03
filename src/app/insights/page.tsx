@@ -241,7 +241,7 @@ function InsightsPageContent() {
               <h2
                 ref={textRef}
                 className="text-[25vw] leading-[0.8] font-bold text-[#2E7D32] tracking-tighter text-center"
-                style={{ fontFamily: "'Ruslan Display', serif" }}
+                style={{ fontFamily: "'Tektur', sans-serif" }}
               >
                 LBYA
               </h2>

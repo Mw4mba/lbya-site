@@ -103,7 +103,7 @@ export default function Footer() {
         <div className="border-t border-white/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-[#A5D6A7] text-sm">
-              2025 <span style={{ fontFamily: "'Ruslan Display', serif", fontSize: '1.3em', lineHeight: '1' }}>LBYA</span> AB. {t.footer.copyright.replace('2025 LBYA AB. ', '')}
+              2025 <span style={{ fontFamily: "'Tektur', sans-serif", fontSize: '1.3em', lineHeight: '1' }}>LBYA</span> AB. {t.footer.copyright.replace('2025 LBYA AB. ', '')}
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <a href="/privacy" className="text-[#A5D6A7] hover:text-white transition-colors">
