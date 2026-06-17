@@ -1,17 +1,17 @@
 'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import TransitionLink from './TransitionLink';
+import { Link as LocaleLink, usePathname } from '@/i18n/navigation';
+import { useLocale } from 'next-intl';
 import gsap from 'gsap';
-import Logo from './Logo';
-import { useTranslation, type Language } from '../i18n/I18nContext';
+import { useTranslation } from '../i18n/I18nContext';
 import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar() {
-  const { language, setLanguage, t } = useTranslation();
+  const { t } = useTranslation();
   const { theme, toggleTheme } = useTheme();
+  const activeLocale = useLocale();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -32,14 +32,17 @@ export default function Navbar() {
   const getPageName = useCallback(() => {
     const routeMap: Record<string, string> = {
       '/': 'Home',
+      '/products': 'Products',
+      '/services': 'Services',
       '/about': 'About',
-      '/solutions': 'Solutions',
       '/insights': 'Insights',
       '/careers': 'Careers',
       '/contact': 'Contact',
       '/privacy': 'Privacy',
+      '/consent': 'Consent',
     };
     // Check for dynamic routes
+    if (pathname.startsWith('/products/')) return 'Products';
     if (pathname.startsWith('/services/')) return 'Services';
     if (pathname.startsWith('/insights/')) return 'Insights';
     return routeMap[pathname] || 'LBYA';
@@ -159,18 +162,20 @@ export default function Navbar() {
     };
   }, []);
 
-  const languageOptions = [
-    { code: 'EN' as Language, name: 'English (Global)' },
-    { code: 'FR' as Language, name: 'Français' },
-    { code: 'SV' as Language, name: 'Svenska' },
+  const localeOptions = [
+    { code: 'en', label: 'EN', name: 'English (Global)' },
+    { code: 'sv', label: 'SV', name: 'Svenska' },
+    { code: 'fr', label: 'FR', name: 'Français' },
+    { code: 'de', label: 'DE', name: 'Deutsch' },
   ];
+  // Locale-prefixed so primary navigation preserves the active locale.
   const menuItems = [
-    { label: 'Solutions', href: '/solutions' },
-    { label: t.navbar.about, href: '/about' },
-    { label: t.navbar.insights, href: '/insights' },
-    { label: t.navbar.careers, href: '/careers' },
-    { label: t.navbar.contact, href: '/contact' },
-    { label: 'Privacy', href: '/privacy' },
+    { label: t.navbar.products, href: `/${activeLocale}/products` },
+    { label: t.navbar.services, href: `/${activeLocale}/services` },
+    { label: t.navbar.insights, href: `/${activeLocale}/insights` },
+    { label: t.navbar.about, href: `/${activeLocale}/about` },
+    { label: t.navbar.careers, href: `/${activeLocale}/careers` },
+    { label: t.navbar.contact, href: `/${activeLocale}/contact` },
   ];
 
   useEffect(() => {
@@ -252,10 +257,6 @@ export default function Navbar() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLanguageClick = (lang: Language) => {
-    setLanguage(lang);
-  };
-
   return (
     <>
       {/* Mobile Menu Overlay - Slide from Top */}
@@ -333,33 +334,33 @@ export default function Navbar() {
         suppressHydrationWarning
         className="fixed top-0 left-0 right-0 lg:right-14 h-20 bg-[#2E7D32] backdrop-blur-md z-[70] lg:z-50 flex items-center justify-between px-6 border-b border-white/10"
       >
-        {/* Language Selection (Left) */}
+        {/* Language Selection (Left) - URL-based locale links */}
         <div className="flex items-center gap-1">
-          {/* Main Language Buttons - Hidden on Mobile */}
+          {/* Main Locale Links - Hidden on Mobile */}
           <div className="hidden md:flex items-center">
-            {(['EN', 'FR', 'SV'] as Language[]).map((lang, index) => (
-              <button
-                key={lang}
-                className={`px-3 py-1.5 text-sm font-medium transition-colors ${lang === language
+            {localeOptions.map((loc, index) => (
+              <LocaleLink
+                key={loc.code}
+                href={pathname}
+                locale={loc.code}
+                className={`px-3 py-1.5 text-sm font-medium transition-colors ${loc.code === activeLocale
                   ? 'text-white'
                   : 'text-white/60 hover:text-white'
-                  } ${index < 2 ? 'border-r border-white/30' : ''}`}
-                onClick={() => handleLanguageClick(lang)}
+                  } ${index < localeOptions.length - 1 ? 'border-r border-white/30' : ''}`}
               >
-                {lang}
-              </button>
+                {loc.label}
+              </LocaleLink>
             ))}
           </div>
 
-          {/* Dropdown for additional languages (desktop) / Main dropdown (mobile) */}
-          <div className="relative md:ml-1">
+          {/* Dropdown (mobile) */}
+          <div className="relative md:hidden">
             <button
               onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
               className="flex items-center justify-center gap-1 text-white/80 hover:text-white transition-colors focus:outline-none"
               aria-label="Select language"
             >
-              {/* Show current language code on mobile */}
-              <span className="md:hidden text-sm font-medium">{language}</span>
+              <span className="text-sm font-medium uppercase">{activeLocale}</span>
               <svg
                 className={`w-4 h-4 transition-transform duration-300 ${isLangMenuOpen ? 'rotate-180' : ''}`}
                 fill="none"
@@ -377,20 +378,19 @@ export default function Navbar() {
                   onClick={() => setIsLangMenuOpen(false)}
                 />
                 <div className="absolute top-full left-0 mt-2 py-2 w-48 bg-white shadow-lg rounded-sm border border-[#2E7D32]/10 flex flex-col z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                  {languageOptions.map((lang) => (
-                    <button
-                      key={lang.code}
-                      className={`text-sm px-4 py-2.5 hover:bg-[#F5F5DC] transition-colors text-left ${lang.code === language
+                  {localeOptions.map((loc) => (
+                    <LocaleLink
+                      key={loc.code}
+                      href={pathname}
+                      locale={loc.code}
+                      onClick={() => setIsLangMenuOpen(false)}
+                      className={`text-sm px-4 py-2.5 hover:bg-[#F5F5DC] transition-colors text-left ${loc.code === activeLocale
                         ? 'text-[#2E7D32] font-semibold bg-[#F5F5DC]/50'
                         : 'text-[#37474F]/70 font-medium'
                         }`}
-                      onClick={() => {
-                        handleLanguageClick(lang.code);
-                        setIsLangMenuOpen(false);
-                      }}
                     >
-                      {lang.name}
-                    </button>
+                      {loc.name}
+                    </LocaleLink>
                   ))}
                 </div>
               </>
@@ -399,7 +399,7 @@ export default function Navbar() {
         </div>
 
         {/* Center - Logo and LBYA Label */}
-        <TransitionLink href="/" className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 md:gap-4 overflow-hidden">
+        <TransitionLink href={`/${activeLocale}`} className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 md:gap-4 overflow-hidden">
 
           <span
             ref={labelRef}

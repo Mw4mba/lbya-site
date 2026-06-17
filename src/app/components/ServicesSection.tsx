@@ -3,64 +3,33 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useTranslation } from '../i18n/I18nContext';
+import { useLocale } from 'next-intl';
+import { getSite } from '../content/site';
 
 export default function ServicesSection() {
-  const { t, language } = useTranslation();
+  const site = getSite(useLocale());
   const carouselRef = useRef<HTMLDivElement>(null);
-
-  // Image mapping for services
-  const serviceImages: Record<keyof typeof t.services.items, string> = {
-    sustainable: '/Website/background.png',
-    structural: '/Website/STRUCTURAL.png',
-    bim: '/Website/2eff78f1-25dd-4e64-8868-938ea919ab70.png',
-    it: '/images/insights/digital-twin.jpg',
-    mining: '/Website/MINING.jpg',
-  };
-
-  // Slug mapping for service detail pages
-  const serviceSlugs: Record<keyof typeof t.services.items, string> = {
-    sustainable: 'sustainable-architecture',
-    structural: 'structural-engineering',
-    bim: 'building-information-modelling',
-    it: 'it-solutions',
-    mining: 'mining-consulting',
-  };
-
-  // We need to access keys safely
-  const serviceKeys = Object.keys(t.services.items) as Array<keyof typeof t.services.items>;
-  const [activeKey, setActiveKey] = useState<keyof typeof t.services.items>(serviceKeys[0]);
-
-  // Update active key if language changes or keys change
-  useEffect(() => {
-    setActiveKey(serviceKeys[0]);
-  }, [language]);
+  const categories = site.services.categories;
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // Navigate to previous/next slide with looping
   const goToSlide = (direction: 'prev' | 'next') => {
-    const currentIndex = serviceKeys.indexOf(activeKey);
-    let newIndex: number;
-
-    if (direction === 'next') {
-      newIndex = (currentIndex + 1) % serviceKeys.length; // Loop to first
-    } else {
-      newIndex = (currentIndex - 1 + serviceKeys.length) % serviceKeys.length; // Loop to last
-    }
-
-    setActiveKey(serviceKeys[newIndex]);
+    setActiveIndex((current) => {
+      if (direction === 'next') return (current + 1) % categories.length;
+      return (current - 1 + categories.length) % categories.length;
+    });
   };
 
   // Scroll active slide into center view
   useEffect(() => {
     if (carouselRef.current) {
-      const activeIndex = serviceKeys.indexOf(activeKey);
       const cards = carouselRef.current.children;
       if (cards[activeIndex]) {
         const card = cards[activeIndex] as HTMLElement;
         const containerWidth = carouselRef.current.offsetWidth;
         const cardLeft = card.offsetLeft;
         const cardWidth = card.offsetWidth;
-        const scrollPosition = cardLeft - (containerWidth / 2) + (cardWidth / 2);
+        const scrollPosition = cardLeft - containerWidth / 2 + cardWidth / 2;
 
         carouselRef.current.scrollTo({
           left: scrollPosition,
@@ -68,7 +37,9 @@ export default function ServicesSection() {
         });
       }
     }
-  }, [activeKey, serviceKeys]);
+  }, [activeIndex]);
+
+  const active = categories[activeIndex];
 
   return (
     <section id="services" className="py-24 bg-neutral-50">
@@ -76,10 +47,10 @@ export default function ServicesSection() {
         {/* Header - Aligned Center */}
         <div className="mb-12 text-center flex flex-col items-center">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2E7D32] mb-6">
-            {t.services.title}
+            {site.home.servicesTeaser.heading}
           </h2>
           <p className="text-[#37474F]/70 text-lg max-w-xl font-light mb-8">
-            {t.services.subtitle}
+            {site.home.servicesTeaser.body}
           </p>
 
           {/* Controls - Centered below subtitle */}
@@ -107,20 +78,18 @@ export default function ServicesSection() {
 
         {/* Carousel / Tabs Container */}
         <div className="flex flex-col gap-12">
-
           {/* The Strip of Cards */}
           <div className="w-full">
             <div
               ref={carouselRef}
               className="flex overflow-x-auto gap-6 pb-2 snap-x scrollbar-hide px-2 scroll-smooth"
             >
-              {serviceKeys.map((key) => {
-                const item = t.services.items[key];
-                const isActive = activeKey === key;
+              {categories.map((item, index) => {
+                const isActive = activeIndex === index;
                 return (
                   <button
-                    key={key}
-                    onClick={() => setActiveKey(key)}
+                    key={item.title}
+                    onClick={() => setActiveIndex(index)}
                     className={`
                       relative group flex-none flex flex-col text-left rounded-sm transition-all duration-500 ease-in-out snap-center
                       ${isActive
@@ -132,22 +101,19 @@ export default function ServicesSection() {
                     {/* Image Container */}
                     <div className="relative w-full h-56 mb-4 overflow-hidden rounded-sm bg-gray-200">
                       <Image
-                        src={serviceImages[key]}
+                        src={item.image}
                         alt={item.title}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 384px"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      {/* Overlay for inactive state if needed, or visual cue */}
                       {!isActive && <div className="absolute inset-0 bg-white/10" />}
                     </div>
 
                     {/* Content */}
-                    <div className={`pt-2 transition-colors duration-300`}>
-                      <h3 className={`text-xl font-bold mb-2 text-black hover:text-[#2E7D32] transition-colors`}>
-                        <Link href={`/services/${serviceSlugs[key]}`}>
-                          {item.title}
-                        </Link>
+                    <div className="pt-2 transition-colors duration-300">
+                      <h3 className="text-xl font-bold mb-2 text-black group-hover:text-[#2E7D32] transition-colors">
+                        {item.title}
                       </h3>
                     </div>
                   </button>
@@ -160,12 +126,12 @@ export default function ServicesSection() {
               <div className="max-w-4xl">
                 {/* Description Text */}
                 <p className="text-[#37474F] font-light text-lg leading-relaxed mb-6">
-                  {t.services.items[activeKey].description}
+                  {active.body}
                 </p>
 
                 {/* Tags - Pill-shaped buttons */}
                 <div className="flex flex-wrap gap-3 mb-6">
-                  {t.services.items[activeKey].subtext.map((tag, idx) => (
+                  {active.tags.map((tag, idx) => (
                     <span
                       key={idx}
                       className="px-4 py-2 border border-[#2E7D32] text-[#2E7D32] text-sm font-medium rounded-full"
@@ -175,13 +141,13 @@ export default function ServicesSection() {
                   ))}
                 </div>
 
-                {/* Learn More link to service detail page */}
+                {/* Learn More link to services index */}
                 <div className="pt-2">
                   <Link
-                    href={`/services/${serviceSlugs[activeKey]}`}
+                    href="/services"
                     className="inline-flex items-center gap-2 text-[#2E7D32] text-sm font-medium hover:gap-3 transition-all"
                   >
-                    <span>{t.services.learnMore}</span>
+                    <span>Learn more</span>
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

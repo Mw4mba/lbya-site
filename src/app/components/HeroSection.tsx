@@ -3,10 +3,11 @@
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import gsap from 'gsap';
-import { useTranslation } from '../i18n/I18nContext';
+import { useLocale } from 'next-intl';
+import { getSite } from '../content/site';
 
 export default function HeroSection() {
-  const { t } = useTranslation();
+  const home = getSite(useLocale()).home;
   const titleRef = useRef<HTMLHeadingElement>(null);
   const bottomContentRef = useRef<HTMLDivElement>(null);
   const [currentTextIndex, setCurrentTextIndex] = React.useState(0);
@@ -21,7 +22,7 @@ export default function HeroSection() {
     "https://images.unsplash.com/photo-1577948000111-9c970dfe3743?q=80&w=2070&auto=format&fit=crop" // Johannesburg
   ];
 
-  const carouselItems = t.hero.carouselItems;
+  const carouselItems = home.hero.carousel;
 
   // Text Carousel Interval
   useEffect(() => {
@@ -91,7 +92,7 @@ export default function HeroSection() {
           >
             <Image
               src={src}
-              alt="Background"
+              alt=""
               fill
               className="object-cover"
               priority={index === 0}
@@ -126,7 +127,7 @@ export default function HeroSection() {
               LBYA
             </span>
             <span className="block text-lg md:text-2xl text-white/90 font-light tracking-wide">
-              {t.hero.slogan}
+              {home.hero.slogan}
             </span>
           </h1>
         </div>
@@ -134,26 +135,44 @@ export default function HeroSection() {
         {/* Bottom Right Content - Text Carousel & Buttons */}
         <div className="flex justify-end items-center lg:items-end w-full pr-0 lg:pr-16 xl:pr-24">
           <div ref={bottomContentRef} className="max-w-xl text-center lg:text-right flex flex-col items-center lg:items-end">
-            <div className="h-24 md:h-28 mb-8 flex items-end justify-center lg:justify-end">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-light text-white leading-snug mb-6 drop-shadow-md">
+              {home.hero.headline}
+            </h2>
+            <div className="h-20 md:h-24 mb-8 flex items-start justify-center lg:justify-end">
               <p
                 ref={textRef}
-                className="text-base md:text-lg lg:text-xl text-white/95 font-light leading-relaxed drop-shadow-md"
+                className="text-base md:text-lg text-white/90 font-light leading-relaxed drop-shadow-md"
               >
                 {carouselItems[currentTextIndex]}
               </p>
             </div>
 
-            <div className="flex flex-row gap-4 justify-center lg:justify-end w-full">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-end w-full">
               <a
-                href="#services"
-                className="btn-slide-fill group px-6 py-4 font-medium rounded-sm shadow-xl hover:shadow-2xl inline-flex items-center gap-2 justify-center flex-1 sm:flex-none sm:px-8"
+                href={home.hero.primaryCtas[0].href}
+                className="bg-white text-[#2E7D32] hover:bg-[#A5D6A7] group px-6 py-4 font-medium rounded-sm shadow-xl hover:shadow-2xl inline-flex items-center gap-2 justify-center transition-colors"
               >
-                <span>{t.hero.ctaWhatWeDo}</span>
+                <span>{home.hero.primaryCtas[0].label}</span>
+                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </a>
+              <a
+                href={home.hero.primaryCtas[1].href}
+                className="btn-slide-fill group px-6 py-4 font-medium rounded-sm shadow-xl hover:shadow-2xl inline-flex items-center gap-2 justify-center"
+              >
+                <span>{home.hero.primaryCtas[1].label}</span>
                 <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </a>
             </div>
+            <a
+              href={home.hero.secondaryCta.href}
+              className="mt-4 text-white/80 hover:text-white text-sm font-medium underline-offset-4 hover:underline transition-colors"
+            >
+              {home.hero.secondaryCta.label}
+            </a>
           </div>
         </div>
       </div>

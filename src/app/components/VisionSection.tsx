@@ -83,10 +83,10 @@ export default function VisionSection() {
     }, []);
 
     const visionPoints = [
-        "Our vision is inspired by nature and shaping a sustainable future.",
-        "We design with purpose, precision, and long-term resilience in mind.",
-        "Every solution we create reflects harmony between innovation and the environment.",
-        "Together, we build spaces that endure, inspire, and respect the world around us."
+        "Most teams lose time in the gaps between tools, where information scatters and ownership blurs.",
+        "LBYA builds digital control platforms that connect data, documents, and decisions.",
+        "Clarity, traceability, and decision readiness, so teams act on a record they can trust.",
+        "Rooted in nature, designed for the future, and built for connected industries."
     ];
 
     return (

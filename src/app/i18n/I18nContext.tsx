@@ -1,48 +1,33 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, ReactNode } from 'react';
 import { Language, translations, Translations } from './translations';
 
 export type { Language };
 
+// Map next-intl URL locales to the legacy translation Language keys.
+const localeToLanguage: Record<string, Language> = {
+  en: 'EN',
+  fr: 'FR',
+  sv: 'SV',
+  de: 'DE',
+};
+
+export function localeToLang(locale: string): Language {
+  return localeToLanguage[locale] ?? 'EN';
+}
+
 interface I18nContextType {
   language: Language;
-  setLanguage: (lang: Language) => void;
   t: Translations;
 }
 
 const I18nContext = createContext<I18nContextType | undefined>(undefined);
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('EN');
-  const [mounted, setMounted] = useState(false);
-
-  // Load language from localStorage on mount
-  useEffect(() => {
-    setMounted(true);
-    const savedLanguage = localStorage.getItem('language') as Language;
-    if (savedLanguage && ['EN', 'FR', 'SV'].includes(savedLanguage)) {
-      setLanguage(savedLanguage);
-    }
-  }, []);
-
-  // Save language to localStorage when it changes
-  const handleSetLanguage = (lang: Language) => {
-    setLanguage(lang);
-    localStorage.setItem('language', lang);
-  };
-
-  const value: I18nContextType = {
-    language,
-    setLanguage: handleSetLanguage,
-    t: translations[language],
-  };
-
-  // Prevent hydration mismatch by not rendering until mounted
-  if (!mounted) {
-    return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
-  }
-
+// Language is now driven by the URL locale (provided by next-intl), not localStorage.
+export function I18nProvider({ children, locale }: { children: ReactNode; locale: string }) {
+  const language = localeToLang(locale);
+  const value: I18nContextType = { language, t: translations[language] };
   return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>;
 }
 
