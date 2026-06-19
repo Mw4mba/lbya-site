@@ -1,0 +1,8 @@
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3001
+- PID:          50272
+- Dir:          C:\Users\silha\Documents\LBYA\lbya-site-main
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 50272 /F to stop it.

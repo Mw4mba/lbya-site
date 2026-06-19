@@ -1,0 +1,465 @@
+
+> silh@0.1.0 dev
+> next dev -p 3001
+
+▲ Next.js 16.2.7 (Turbopack)
+- Local:         http://localhost:3001
+- Network:       http://192.168.1.127:3001
+✓ Ready in 1449ms
+
+⚠ Blocked cross-origin request to Next.js dev resource /_next/webpack-hmr from "127.0.0.1".
+Cross-origin access to Next.js dev resources is blocked by default for safety.
+
+To allow this host in development, add it to "allowedDevOrigins" in next.config.js and restart the dev server:
+
+// next.config.js
+module.exports = {
+  allowedDevOrigins: ['127.0.0.1'],
+}
+
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /en 200 in 1748ms (next.js: 858ms, proxy.ts: 307ms, generate-params: 672ms, application-code: 583ms)
+ GET /en 200 in 302ms (next.js: 31ms, proxy.ts: 16ms, generate-params: 15ms, application-code: 255ms)
+ GET /en/products 200 in 3.2s (next.js: 1862ms, proxy.ts: 18ms, generate-params: 1669ms, application-code: 1365ms)
+ GET /en/products/mct 200 in 3.5s (next.js: 1394ms, proxy.ts: 12ms, generate-params: 1319ms, application-code: 2.1s)
+ GET /en/products/mct/pricing 200 in 2.1s (next.js: 884ms, proxy.ts: 9ms, generate-params: 822ms, application-code: 1242ms)
+ GET /en/products/nayeli-bim-control 200 in 2.2s (next.js: 1122ms, proxy.ts: 10ms, generate-params: 1005ms, application-code: 1103ms)
+ GET /en/solutions/transport-logistics-africa 200 in 1416ms (next.js: 892ms, proxy.ts: 10ms, generate-params: 812ms, application-code: 513ms)
+ GET /en/about 200 in 767ms (next.js: 645ms, proxy.ts: 6ms, generate-params: 596ms, application-code: 116ms)
+ GET /en/contact 200 in 950ms (next.js: 796ms, proxy.ts: 9ms, generate-params: 733ms, application-code: 145ms)
+ GET /en/careers 200 in 893ms (next.js: 727ms, proxy.ts: 6ms, generate-params: 674ms, application-code: 160ms)
+ GET /en/insights 200 in 1054ms (next.js: 873ms, proxy.ts: 13ms, generate-params: 819ms, application-code: 168ms)
+ GET /en/insights/bim-control-why-model-checking-is-not-enough 200 in 1062ms (next.js: 851ms, proxy.ts: 8ms, application-code: 202ms)
+ GET /en/privacy 200 in 978ms (next.js: 844ms, proxy.ts: 9ms, generate-params: 781ms, application-code: 125ms)
+ GET /en/consent 200 in 941ms (next.js: 824ms, proxy.ts: 6ms, generate-params: 779ms, application-code: 111ms)
+✓ Compiled in 1647ms
+✓ Compiled in 507ms
+ GET /en/consent 200 in 414ms (next.js: 144ms, proxy.ts: 123ms, generate-params: 8ms, application-code: 147ms)
+ GET /en/consent 200 in 292ms (next.js: 26ms, proxy.ts: 27ms, generate-params: 76µs, application-code: 238ms)
+ GET /en/consent 200 in 407ms (next.js: 18ms, proxy.ts: 15ms, generate-params: 56µs, application-code: 374ms)
+ GET /en/consent 200 in 306ms (next.js: 47ms, proxy.ts: 29ms, generate-params: 49µs, application-code: 231ms)
+ GET /en/consent 200 in 302ms (next.js: 159ms, proxy.ts: 32ms, generate-params: 50µs, application-code: 111ms)
+ GET /en/consent 200 in 306ms (next.js: 104ms, proxy.ts: 30ms, generate-params: 47µs, application-code: 172ms)
+ GET /en/consent 200 in 301ms (next.js: 204ms, proxy.ts: 33ms, generate-params: 131µs, application-code: 64ms)
+✓ Compiled in 1219ms
+ GET /en/consent 200 in 840ms (next.js: 249ms, proxy.ts: 158ms, generate-params: 13ms, application-code: 434ms)
+ GET /en/consent 200 in 1058ms (next.js: 16ms, proxy.ts: 17ms, generate-params: 60µs, application-code: 1025ms)
+ GET /en/consent 200 in 1063ms (next.js: 87ms, proxy.ts: 101ms, generate-params: 63µs, application-code: 875ms)
+ GET /en/consent 200 in 1056ms (next.js: 184ms, proxy.ts: 96ms, generate-params: 56µs, application-code: 776ms)
+ GET /en/consent 200 in 1049ms (next.js: 249ms, proxy.ts: 101ms, generate-params: 55µs, application-code: 699ms)
+ GET /en/consent 200 in 1207ms (next.js: 397ms, proxy.ts: 96ms, generate-params: 160µs, application-code: 714ms)
+ GET /en/consent 200 in 1190ms (next.js: 588ms, proxy.ts: 74ms, generate-params: 63µs, application-code: 528ms)
+ GET /en/consent 200 in 952ms (next.js: 72ms, proxy.ts: 36ms, generate-params: 72µs, application-code: 844ms)
+ GET /en/consent 200 in 751ms (next.js: 72ms, proxy.ts: 47ms, generate-params: 132µs, application-code: 632ms)
+ GET /en/consent 200 in 742ms (next.js: 158ms, proxy.ts: 45ms, generate-params: 53µs, application-code: 539ms)
+ GET /en/consent 200 in 742ms (next.js: 259ms, proxy.ts: 44ms, generate-params: 50µs, application-code: 439ms)
+ GET /en/consent 200 in 733ms (next.js: 422ms, proxy.ts: 40ms, generate-params: 17ms, application-code: 271ms)
+✓ Compiled in 474ms
+ GET /en/consent 200 in 852ms (next.js: 426ms, proxy.ts: 12ms, generate-params: 15ms, application-code: 414ms)
+ GET /en/consent 200 in 405ms (next.js: 19ms, proxy.ts: 163ms, generate-params: 68µs, application-code: 223ms)
+ GET /en/consent 200 in 142ms (next.js: 22ms, proxy.ts: 24ms, generate-params: 57µs, application-code: 96ms)
+✓ Compiled in 965ms
+ GET /en/consent 200 in 955ms (next.js: 250ms, proxy.ts: 445ms, generate-params: 17ms, application-code: 260ms)
+ GET /en/consent 200 in 238ms (next.js: 18ms, proxy.ts: 14ms, generate-params: 386µs, application-code: 206ms)
+ GET /en/consent 200 in 121ms (next.js: 15ms, proxy.ts: 14ms, generate-params: 56µs, application-code: 91ms)
+✓ Compiled in 955ms
+ GET /en/consent 200 in 1182ms (next.js: 370ms, proxy.ts: 401ms, generate-params: 20ms, application-code: 411ms)
+ GET /en/consent 200 in 236ms (next.js: 65ms, proxy.ts: 37ms, generate-params: 60µs, application-code: 135ms)
+ GET /en/consent 200 in 1306ms (next.js: 417ms, proxy.ts: 265ms, generate-params: 30ms, application-code: 624ms)
+ GET /en/consent 200 in 430ms (next.js: 89ms, proxy.ts: 26ms, generate-params: 374µs, application-code: 315ms)
+ GET /en/consent 200 in 1020ms (next.js: 384ms, proxy.ts: 168ms, generate-params: 16ms, application-code: 468ms)
+ GET /en/consent 200 in 310ms (next.js: 28ms, proxy.ts: 159ms, generate-params: 66µs, application-code: 123ms)
+ GET /en/consent 200 in 1198ms (next.js: 446ms, proxy.ts: 203ms, generate-params: 20ms, application-code: 548ms)
+ GET /en/consent 200 in 402ms (next.js: 175ms, proxy.ts: 62ms, generate-params: 71µs, application-code: 165ms)
+✓ Compiled in 47ms
+ GET /en/consent 200 in 1767ms (next.js: 353ms, proxy.ts: 473ms, generate-params: 14ms, application-code: 940ms)
+ GET /en/consent 200 in 969ms (next.js: 410ms, proxy.ts: 151ms, generate-params: 57µs, application-code: 408ms)
+ GET /en/products/mct/integrations 200 in 6.7s (next.js: 2.1s, proxy.ts: 48ms, generate-params: 1729ms, application-code: 4.5s)
+ GET /en/consent 200 in 1793ms (next.js: 746ms, proxy.ts: 278ms, generate-params: 131ms, application-code: 769ms)
+ GET /en/consent 200 in 646ms (next.js: 133ms, proxy.ts: 176ms, generate-params: 61µs, application-code: 337ms)
+ GET /sv/products/mct/integrations 200 in 2.7s (next.js: 457ms, proxy.ts: 399ms, generate-params: 269µs, application-code: 1855ms)
+ GET /fr/products/mct/integrations 200 in 7.8s (next.js: 933ms, proxy.ts: 101ms, generate-params: 148ms, application-code: 6.8s)
+ GET /en/products/mct/integrations 200 in 4.2s (next.js: 96ms, proxy.ts: 73ms, generate-params: 59ms, application-code: 4.0s)
+ GET /en 200 in 1751ms (next.js: 598ms, proxy.ts: 123ms, generate-params: 23ms, application-code: 1030ms)
+ GET /en 200 in 669ms (next.js: 37ms, proxy.ts: 15ms, generate-params: 18ms, application-code: 617ms)
+ GET /en/solutions/global-bim-control 200 in 1440ms (next.js: 499ms, proxy.ts: 14ms, generate-params: 28ms, application-code: 928ms)
+ GET /en 200 in 259ms (next.js: 27ms, proxy.ts: 10ms, generate-params: 11ms, application-code: 221ms)
+ GET /en 200 in 143ms (next.js: 21ms, proxy.ts: 10ms, generate-params: 13ms, application-code: 112ms)
+ GET /en/products 200 in 1512ms (next.js: 236ms, proxy.ts: 9ms, generate-params: 13ms, application-code: 1268ms)
+ GET /en/products/mct 200 in 727ms (next.js: 209ms, proxy.ts: 11ms, generate-params: 12ms, application-code: 508ms)
+ GET /en/solutions/global-bim-control 200 in 500ms (next.js: 31ms, proxy.ts: 12ms, generate-params: 15ms, application-code: 457ms)
+ GET /en/products/mct/pricing 200 in 2.2s (next.js: 306ms, proxy.ts: 20ms, generate-params: 11ms, application-code: 1882ms)
+ GET /en/products/mct/basic 200 in 1842ms (next.js: 1082ms, proxy.ts: 9ms, generate-params: 935ms, application-code: 751ms)
+ GET /en/products/mct/professional 200 in 508ms (next.js: 24ms, proxy.ts: 10ms, generate-params: 11ms, application-code: 474ms)
+ GET /en/products/mct/premium 200 in 383ms (next.js: 9ms, proxy.ts: 14ms, generate-params: 41µs, application-code: 359ms)
+ GET /en/products/mct/enterprise 200 in 401ms (next.js: 19ms, proxy.ts: 11ms, generate-params: 10ms, application-code: 371ms)
+ GET /en/products/mct/integrations 200 in 486ms (next.js: 28ms, proxy.ts: 8ms, generate-params: 14ms, application-code: 450ms)
+ GET /en/products/nayeli-bim-control 200 in 1347ms (next.js: 198ms, proxy.ts: 9ms, generate-params: 9ms, application-code: 1140ms)
+ GET /en/solutions/transport-logistics-africa 200 in 337ms (next.js: 22ms, proxy.ts: 18ms, generate-params: 13ms, application-code: 297ms)
+ GET /en/solutions/global-bim-control 200 in 286ms (next.js: 12ms, proxy.ts: 9ms, generate-params: 48µs, application-code: 265ms)
+ GET /en/about 200 in 608ms (next.js: 217ms, proxy.ts: 6ms, generate-params: 8ms, application-code: 385ms)
+ GET /en/contact 200 in 876ms (next.js: 235ms, proxy.ts: 7ms, generate-params: 10ms, application-code: 634ms)
+ GET /en/careers 200 in 778ms (next.js: 236ms, proxy.ts: 8ms, generate-params: 11ms, application-code: 534ms)
+ GET /en/insights 200 in 924ms (next.js: 274ms, proxy.ts: 7ms, generate-params: 13ms, application-code: 642ms)
+ GET /en/privacy 200 in 821ms (next.js: 310ms, proxy.ts: 13ms, generate-params: 10ms, application-code: 498ms)
+ GET /en/consent 200 in 208ms (next.js: 19ms, proxy.ts: 8ms, generate-params: 10ms, application-code: 181ms)
+ GET /en/careers 200 in 231ms (next.js: 29ms, proxy.ts: 13ms, generate-params: 13ms, application-code: 188ms)
+ GET /en/solutions/global-bim-control 200 in 391ms (next.js: 32ms, proxy.ts: 21ms, generate-params: 14ms, application-code: 339ms)
+ GET /en 200 in 264ms (next.js: 41ms, proxy.ts: 11ms, generate-params: 17ms, application-code: 212ms)
+✓ Compiled in 2.9s
+ GET /en/careers 200 in 1845ms (next.js: 721ms, proxy.ts: 590ms, generate-params: 24ms, application-code: 534ms)
+ GET /en 200 in 4.4s (next.js: 1078ms, proxy.ts: 60ms, generate-params: 156ms, application-code: 3.3s)
+ GET /en/solutions/global-bim-control 200 in 4.3s (next.js: 1074ms, proxy.ts: 94ms, generate-params: 39ms, application-code: 3.1s)
+ GET /en 200 in 386ms (next.js: 35ms, proxy.ts: 13ms, generate-params: 20ms, application-code: 337ms)
+ GET /en 200 in 361ms (next.js: 34ms, proxy.ts: 15ms, generate-params: 15ms, application-code: 312ms)
+ GET /en/solutions/global-bim-control 200 in 335ms (next.js: 29ms, proxy.ts: 20ms, generate-params: 15ms, application-code: 286ms)
+ GET /en 200 in 421ms (next.js: 28ms, proxy.ts: 14ms, generate-params: 14ms, application-code: 379ms)
+ GET /en 200 in 272ms (next.js: 26ms, proxy.ts: 14ms, generate-params: 13ms, application-code: 232ms)
+ GET /en/products 200 in 1455ms (next.js: 340ms, proxy.ts: 11ms, generate-params: 13ms, application-code: 1104ms)
+ GET /en/products/mct 200 in 1796ms (next.js: 402ms, proxy.ts: 15ms, generate-params: 14ms, application-code: 1379ms)
+ GET /en/products/mct/pricing 200 in 1878ms (next.js: 326ms, proxy.ts: 12ms, generate-params: 12ms, application-code: 1540ms)
+ GET /en/products/mct/basic 200 in 1738ms (next.js: 323ms, proxy.ts: 12ms, generate-params: 18ms, application-code: 1403ms)
+ GET /en/products/mct/professional 200 in 521ms (next.js: 31ms, proxy.ts: 10ms, generate-params: 17ms, application-code: 480ms)
+ GET /en/products/mct/premium 200 in 440ms (next.js: 28ms, proxy.ts: 10ms, generate-params: 12ms, application-code: 402ms)
+ GET /en/products/mct/enterprise 200 in 760ms (next.js: 22ms, proxy.ts: 11ms, generate-params: 9ms, application-code: 727ms)
+ GET /en/products/mct/integrations 200 in 1204ms (next.js: 316ms, proxy.ts: 9ms, generate-params: 13ms, application-code: 879ms)
+ GET /en/products/nayeli-bim-control 200 in 1300ms (next.js: 322ms, proxy.ts: 10ms, generate-params: 11ms, application-code: 968ms)
+[browser] Image with src "http://localhost:3001/images/products/nbc-logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /en/solutions/transport-logistics-africa 200 in 491ms (next.js: 22ms, proxy.ts: 9ms, generate-params: 11ms, application-code: 460ms)
+ GET /en/solutions/global-bim-control 200 in 631ms (next.js: 30ms, proxy.ts: 11ms, generate-params: 14ms, application-code: 590ms)
+ GET /en/about 200 in 1195ms (next.js: 355ms, proxy.ts: 14ms, generate-params: 14ms, application-code: 826ms)
+ GET /en/contact 200 in 1017ms (next.js: 333ms, proxy.ts: 11ms, generate-params: 16ms, application-code: 673ms)
+ GET /en/careers 200 in 419ms (next.js: 27ms, proxy.ts: 11ms, generate-params: 12ms, application-code: 381ms)
+ GET /en/insights 200 in 1118ms (next.js: 338ms, proxy.ts: 14ms, generate-params: 12ms, application-code: 766ms)
+ GET /en/privacy 200 in 928ms (next.js: 294ms, proxy.ts: 10ms, generate-params: 14ms, application-code: 624ms)
+ GET /en/consent 200 in 821ms (next.js: 258ms, proxy.ts: 9ms, generate-params: 12ms, application-code: 553ms)
+ GET /en/solutions/global-bim-control 200 in 945ms (next.js: 77ms, proxy.ts: 23ms, generate-params: 41ms, application-code: 845ms)
+ GET /en/consent 200 in 910ms (next.js: 352ms, proxy.ts: 306ms, generate-params: 17ms, application-code: 253ms)
+ GET /en 200 in 1838ms (next.js: 468ms, proxy.ts: 372ms, generate-params: 97ms, application-code: 999ms)
+ GET /en/products 200 in 1052ms (next.js: 240ms, proxy.ts: 24ms, generate-params: 26ms, application-code: 789ms)
+ GET /en/products/mct 200 in 2.8s (next.js: 327ms, proxy.ts: 26ms, generate-params: 100ms, application-code: 2.5s)
+ GET /en/products/mct/pricing 200 in 3.5s (next.js: 205ms, proxy.ts: 27ms, generate-params: 25ms, application-code: 3.3s)
+ GET /en/products/nayeli-bim-control 200 in 1532ms (next.js: 159ms, proxy.ts: 22ms, generate-params: 33ms, application-code: 1351ms)
+[browser] Image with src "http://localhost:3001/images/products/nbc-logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /en/solutions/transport-logistics-africa 200 in 1636ms (next.js: 198ms, proxy.ts: 49ms, generate-params: 20ms, application-code: 1389ms)
+ GET /en/solutions/global-bim-control 200 in 1469ms (next.js: 90ms, proxy.ts: 25ms, generate-params: 45ms, application-code: 1354ms)
+ GET /en/about 200 in 1035ms (next.js: 211ms, proxy.ts: 26ms, generate-params: 44ms, application-code: 798ms)
+ GET /en/contact 200 in 1106ms (next.js: 107ms, proxy.ts: 17ms, generate-params: 30ms, application-code: 982ms)
+ GET /en/careers 200 in 557ms (next.js: 121ms, proxy.ts: 14ms, generate-params: 26ms, application-code: 422ms)
+ GET /en/insights 200 in 1017ms (next.js: 175ms, proxy.ts: 18ms, generate-params: 48ms, application-code: 823ms)
+ GET /en/privacy 200 in 1526ms (next.js: 521ms, proxy.ts: 22ms, generate-params: 46ms, application-code: 983ms)
+ GET /en/consent 200 in 422ms (next.js: 43ms, proxy.ts: 14ms, generate-params: 18ms, application-code: 365ms)
+ GET /en 200 in 327ms (next.js: 24ms, proxy.ts: 12ms, generate-params: 11ms, application-code: 291ms)
+ GET /en/products 200 in 468ms (next.js: 43ms, proxy.ts: 12ms, generate-params: 21ms, application-code: 414ms)
+ GET /en/products/mct 200 in 889ms (next.js: 33ms, proxy.ts: 11ms, generate-params: 16ms, application-code: 845ms)
+ GET /en/about 200 in 270ms (next.js: 28ms, proxy.ts: 9ms, generate-params: 14ms, application-code: 233ms)
+ GET /en/contact 200 in 275ms (next.js: 26ms, proxy.ts: 14ms, generate-params: 10ms, application-code: 235ms)
+ GET /en/careers 200 in 316ms (next.js: 28ms, proxy.ts: 10ms, generate-params: 12ms, application-code: 278ms)
+ GET /en 200 in 262ms (next.js: 26ms, proxy.ts: 12ms, generate-params: 12ms, application-code: 224ms)
+✓ Compiled in 498ms
+ GET /en/careers 200 in 545ms (next.js: 179ms, proxy.ts: 150ms, generate-params: 17ms, application-code: 216ms)
+ GET /en/careers 200 in 546ms (next.js: 13ms, proxy.ts: 23ms, generate-params: 49µs, application-code: 510ms)
+ GET /en/careers 200 in 325ms (next.js: 43ms, proxy.ts: 29ms, generate-params: 34µs, application-code: 253ms)
+ GET /en/careers 200 in 381ms (next.js: 93ms, proxy.ts: 31ms, generate-params: 53µs, application-code: 256ms)
+ GET /en/careers 200 in 376ms (next.js: 176ms, proxy.ts: 34ms, generate-params: 44µs, application-code: 167ms)
+ GET /en/careers 200 in 379ms (next.js: 134ms, proxy.ts: 33ms, generate-params: 31µs, application-code: 212ms)
+ GET /en/careers 200 in 387ms (next.js: 226ms, proxy.ts: 32ms, generate-params: 34µs, application-code: 129ms)
+ GET /en/careers 200 in 208ms (next.js: 28ms, proxy.ts: 9ms, generate-params: 80µs, application-code: 171ms)
+ GET /en/careers 200 in 125ms (next.js: 18ms, proxy.ts: 12ms, generate-params: 27µs, application-code: 95ms)
+ GET /en/careers 200 in 124ms (next.js: 59ms, proxy.ts: 13ms, generate-params: 31µs, application-code: 53ms)
+ GET /en 200 in 1755ms (next.js: 655ms, proxy.ts: 13ms, generate-params: 49ms, application-code: 1087ms)
+ GET /en/products/mct 200 in 3.4s (next.js: 1056ms, proxy.ts: 37ms, generate-params: 37ms, application-code: 2.3s)
+ GET /en/products/mct/enterprise 200 in 3.5s (next.js: 2.2s, proxy.ts: 16ms, generate-params: 14ms, application-code: 1313ms)
+ GET /en/products/mct/enterprise 200 in 436ms (next.js: 12ms, proxy.ts: 16ms, generate-params: 50µs, application-code: 407ms)
+✓ Finished filesystem cache database compaction in 21.7s
+ GET /en/products/mct/pricing 200 in 3.6s (next.js: 478ms, proxy.ts: 20ms, generate-params: 19ms, application-code: 3.1s)
+ GET /en 200 in 499ms (next.js: 53ms, proxy.ts: 18ms, generate-params: 26ms, application-code: 427ms)
+ GET /en 200 in 355ms (next.js: 36ms, proxy.ts: 14ms, generate-params: 16ms, application-code: 305ms)
+ GET /en/careers 200 in 504ms (next.js: 34ms, proxy.ts: 10ms, generate-params: 16ms, application-code: 460ms)
+✓ Compiled in 1203ms
+ GET /en/careers 200 in 625ms (next.js: 314ms, proxy.ts: 13ms, generate-params: 19ms, application-code: 299ms)
+ GET /en/careers 200 in 366ms (next.js: 39ms, proxy.ts: 13ms, generate-params: 57µs, application-code: 314ms)
+ GET /en/careers 200 in 915ms (next.js: 101ms, proxy.ts: 88ms, generate-params: 49µs, application-code: 726ms)
+ GET /en/careers 200 in 920ms (next.js: 199ms, proxy.ts: 85ms, generate-params: 50µs, application-code: 635ms)
+ GET /en/careers 200 in 925ms (next.js: 316ms, proxy.ts: 83ms, generate-params: 64µs, application-code: 526ms)
+ GET /en/careers 200 in 911ms (next.js: 400ms, proxy.ts: 83ms, generate-params: 45µs, application-code: 428ms)
+ GET /en/careers 200 in 879ms (next.js: 514ms, proxy.ts: 63ms, generate-params: 60µs, application-code: 302ms)
+ GET /en/careers 200 in 699ms (next.js: 24ms, proxy.ts: 17ms, generate-params: 56µs, application-code: 658ms)
+ GET /en/careers 200 in 740ms (next.js: 66ms, proxy.ts: 73ms, generate-params: 43µs, application-code: 600ms)
+ GET /en/careers 200 in 734ms (next.js: 236ms, proxy.ts: 79ms, generate-params: 53µs, application-code: 419ms)
+ GET /en/careers 200 in 739ms (next.js: 155ms, proxy.ts: 75ms, generate-params: 40µs, application-code: 509ms)
+ GET /en/careers 200 in 733ms (next.js: 341ms, proxy.ts: 78ms, generate-params: 57µs, application-code: 314ms)
+ GET /en/careers 200 in 482ms (next.js: 33ms, proxy.ts: 22ms, generate-params: 57µs, application-code: 427ms)
+ GET /en/careers 200 in 647ms (next.js: 97ms, proxy.ts: 25ms, generate-params: 48µs, application-code: 525ms)
+ GET /en/careers 200 in 573ms (next.js: 65ms, proxy.ts: 33ms, generate-params: 10ms, application-code: 475ms)
+ GET /en/careers 200 in 570ms (next.js: 137ms, proxy.ts: 40ms, generate-params: 56µs, application-code: 394ms)
+ GET /en/careers 200 in 653ms (next.js: 217ms, proxy.ts: 36ms, generate-params: 49µs, application-code: 401ms)
+ GET /en/careers 200 in 652ms (next.js: 293ms, proxy.ts: 42ms, generate-params: 48µs, application-code: 317ms)
+ GET /en/careers 200 in 321ms (next.js: 45ms, proxy.ts: 24ms, generate-params: 74µs, application-code: 252ms)
+ GET /en/careers 200 in 621ms (next.js: 120ms, proxy.ts: 32ms, generate-params: 97µs, application-code: 469ms)
+ GET /en/careers 200 in 518ms (next.js: 53ms, proxy.ts: 34ms, generate-params: 30µs, application-code: 431ms)
+ GET /en/careers 200 in 517ms (next.js: 116ms, proxy.ts: 35ms, generate-params: 45µs, application-code: 366ms)
+ GET /en/careers 200 in 583ms (next.js: 177ms, proxy.ts: 31ms, generate-params: 46µs, application-code: 375ms)
+ GET /en/careers 200 in 582ms (next.js: 245ms, proxy.ts: 32ms, generate-params: 50µs, application-code: 305ms)
+ GET /en/careers 200 in 371ms (next.js: 30ms, proxy.ts: 18ms, generate-params: 45µs, application-code: 323ms)
+ GET /en/careers 200 in 721ms (next.js: 114ms, proxy.ts: 19ms, generate-params: 54µs, application-code: 588ms)
+ GET /en/careers 200 in 651ms (next.js: 65ms, proxy.ts: 21ms, generate-params: 42µs, application-code: 565ms)
+ GET /en/careers 200 in 652ms (next.js: 133ms, proxy.ts: 26ms, generate-params: 58µs, application-code: 493ms)
+ GET /en/careers 200 in 792ms (next.js: 209ms, proxy.ts: 26ms, generate-params: 49µs, application-code: 556ms)
+ GET /en/careers 200 in 805ms (next.js: 283ms, proxy.ts: 29ms, generate-params: 49µs, application-code: 493ms)
+ GET /en/careers 200 in 579ms (next.js: 49ms, proxy.ts: 221ms, generate-params: 13ms, application-code: 309ms)
+ GET /en/careers 200 in 507ms (next.js: 106ms, proxy.ts: 26ms, generate-params: 32µs, application-code: 375ms)
+ GET /en/careers 200 in 344ms (next.js: 70ms, proxy.ts: 25ms, generate-params: 42µs, application-code: 249ms)
+ GET /en/careers 200 in 339ms (next.js: 125ms, proxy.ts: 22ms, generate-params: 39µs, application-code: 193ms)
+ GET /en/careers 200 in 492ms (next.js: 19ms, proxy.ts: 17ms, generate-params: 55µs, application-code: 457ms)
+ GET /en/careers 200 in 471ms (next.js: 69ms, proxy.ts: 34ms, generate-params: 49µs, application-code: 369ms)
+ GET /en/careers 200 in 470ms (next.js: 143ms, proxy.ts: 36ms, generate-params: 49µs, application-code: 292ms)
+ GET /en/careers 200 in 468ms (next.js: 205ms, proxy.ts: 43ms, generate-params: 42µs, application-code: 219ms)
+ GET /en/careers 200 in 526ms (next.js: 257ms, proxy.ts: 41ms, generate-params: 42µs, application-code: 229ms)
+ GET /en/careers 200 in 516ms (next.js: 315ms, proxy.ts: 35ms, generate-params: 28µs, application-code: 166ms)
+ GET /en/careers 200 in 112ms (next.js: 26ms, proxy.ts: 12ms, generate-params: 40µs, application-code: 74ms)
+✓ Compiled in 370ms
+ GET /en/careers 200 in 612ms (next.js: 217ms, proxy.ts: 172ms, generate-params: 12ms, application-code: 223ms)
+ GET /en/careers 200 in 479ms (next.js: 16ms, proxy.ts: 15ms, generate-params: 51µs, application-code: 449ms)
+ GET /en/careers 200 in 490ms (next.js: 56ms, proxy.ts: 49ms, generate-params: 90µs, application-code: 385ms)
+ GET /en/careers 200 in 488ms (next.js: 109ms, proxy.ts: 52ms, generate-params: 39µs, application-code: 328ms)
+ GET /en/careers 200 in 487ms (next.js: 173ms, proxy.ts: 53ms, generate-params: 46µs, application-code: 261ms)
+ GET /en/careers 200 in 490ms (next.js: 230ms, proxy.ts: 56ms, generate-params: 42µs, application-code: 203ms)
+ GET /en/careers 200 in 463ms (next.js: 284ms, proxy.ts: 35ms, generate-params: 29µs, application-code: 143ms)
+ GET /en/careers 200 in 174ms (next.js: 15ms, proxy.ts: 13ms, generate-params: 30µs, application-code: 146ms)
+ GET /en/careers 200 in 143ms (next.js: 18ms, proxy.ts: 15ms, generate-params: 33µs, application-code: 110ms)
+ GET /en/careers 200 in 136ms (next.js: 69ms, proxy.ts: 14ms, generate-params: 30µs, application-code: 53ms)
+✓ Compiled in 466ms
+ GET /en/careers 200 in 1100ms (next.js: 252ms, proxy.ts: 233ms, generate-params: 10ms, application-code: 616ms)
+ GET /en/careers 200 in 967ms (next.js: 348ms, proxy.ts: 19ms, generate-params: 31µs, application-code: 600ms)
+ GET /en/careers 200 in 1101ms (next.js: 25ms, proxy.ts: 405ms, generate-params: 48µs, application-code: 670ms)
+ GET /en/careers 200 in 998ms (next.js: 123ms, proxy.ts: 55ms, generate-params: 48µs, application-code: 819ms)
+ GET /en/careers 200 in 1002ms (next.js: 206ms, proxy.ts: 53ms, generate-params: 55µs, application-code: 743ms)
+ GET /en/careers 200 in 1001ms (next.js: 256ms, proxy.ts: 57ms, generate-params: 44µs, application-code: 688ms)
+ GET /en/careers 200 in 996ms (next.js: 317ms, proxy.ts: 60ms, generate-params: 33µs, application-code: 619ms)
+ GET /en/careers 200 in 1076ms (next.js: 386ms, proxy.ts: 56ms, generate-params: 211µs, application-code: 635ms)
+ GET /en/careers 200 in 649ms (next.js: 236ms, proxy.ts: 119ms, generate-params: 10ms, application-code: 294ms)
+ GET /en/careers 200 in 225ms (next.js: 33ms, proxy.ts: 28ms, generate-params: 44µs, application-code: 164ms)
+ GET /en/careers 200 in 222ms (next.js: 112ms, proxy.ts: 29ms, generate-params: 46µs, application-code: 80ms)
+✓ Compiled in 1433ms
+ GET /en/careers 200 in 499ms (next.js: 218ms, proxy.ts: 197ms, generate-params: 10ms, application-code: 85ms)
+✓ Compiled in 577ms
+ GET /en/careers 200 in 593ms (next.js: 266ms, proxy.ts: 218ms, generate-params: 11ms, application-code: 109ms)
+○ Compiling /[locale]/legal ...
+ GET /en/privacy 200 in 2.6s (next.js: 925ms, proxy.ts: 33ms, generate-params: 54ms, application-code: 1650ms)
+ GET /en 200 in 2.5s (next.js: 827ms, proxy.ts: 28ms, generate-params: 41ms, application-code: 1620ms)
+✓ Finished filesystem cache database compaction in 10.8s
+ GET /en 200 in 388ms (next.js: 51ms, proxy.ts: 21ms, generate-params: 15ms, application-code: 317ms)
+ GET /en/legal 200 in 528ms (next.js: 43ms, proxy.ts: 18ms, generate-params: 17ms, application-code: 468ms)
+ GET /sv/legal 200 in 909ms (next.js: 28ms, proxy.ts: 13ms, generate-params: 13ms, application-code: 868ms)
+ GET /fr/legal 200 in 732ms (next.js: 58ms, proxy.ts: 20ms, generate-params: 24ms, application-code: 654ms)
+ GET /en 200 in 1108ms (next.js: 56ms, proxy.ts: 16ms, generate-params: 28ms, application-code: 1036ms)
+✓ Compiled in 596ms
+ GET /fr/legal 200 in 927ms (next.js: 256ms, proxy.ts: 268ms, generate-params: 16ms, application-code: 404ms)
+ GET /fr/legal 200 in 745ms (next.js: 28ms, proxy.ts: 14ms, generate-params: 50µs, application-code: 703ms)
+ GET /fr/legal 200 in 974ms (next.js: 78ms, proxy.ts: 44ms, generate-params: 55µs, application-code: 852ms)
+ GET /fr/legal 200 in 977ms (next.js: 185ms, proxy.ts: 46ms, generate-params: 42µs, application-code: 746ms)
+ GET /fr/legal 200 in 976ms (next.js: 278ms, proxy.ts: 49ms, generate-params: 62µs, application-code: 650ms)
+ GET /fr/legal 200 in 987ms (next.js: 391ms, proxy.ts: 52ms, generate-params: 52µs, application-code: 544ms)
+ GET /fr/legal 200 in 943ms (next.js: 30ms, proxy.ts: 443ms, generate-params: 231µs, application-code: 471ms)
+ GET /fr/legal 200 in 629ms (next.js: 74ms, proxy.ts: 28ms, generate-params: 60µs, application-code: 527ms)
+ GET /fr/legal 200 in 401ms (next.js: 38ms, proxy.ts: 31ms, generate-params: 47µs, application-code: 332ms)
+ GET /fr/legal 200 in 402ms (next.js: 189ms, proxy.ts: 32ms, generate-params: 50µs, application-code: 180ms)
+ GET /en 200 in 2.1s (next.js: 562ms, proxy.ts: 13ms, generate-params: 25ms, application-code: 1514ms)
+ GET /en 200 in 580ms (next.js: 49ms, proxy.ts: 13ms, generate-params: 28ms, application-code: 518ms)
+ GET /en 200 in 321ms (next.js: 21ms, proxy.ts: 9ms, generate-params: 10ms, application-code: 292ms)
+ GET /en 200 in 529ms (next.js: 69ms, proxy.ts: 25ms, generate-params: 28ms, application-code: 436ms)
+ GET /en/products 200 in 1759ms (next.js: 519ms, proxy.ts: 19ms, generate-params: 33ms, application-code: 1221ms)
+ GET /en/products/mct 200 in 2.2s (next.js: 384ms, proxy.ts: 21ms, generate-params: 13ms, application-code: 1754ms)
+ GET /en/products/mct/pricing 200 in 2.4s (next.js: 375ms, proxy.ts: 22ms, generate-params: 15ms, application-code: 1997ms)
+ GET /en/products/mct/basic 200 in 1801ms (next.js: 343ms, proxy.ts: 23ms, generate-params: 16ms, application-code: 1435ms)
+ GET /en/products/mct/professional 200 in 1073ms (next.js: 27ms, proxy.ts: 16ms, generate-params: 12ms, application-code: 1029ms)
+ GET /en/products/mct/premium 200 in 668ms (next.js: 21ms, proxy.ts: 16ms, generate-params: 66µs, application-code: 631ms)
+ GET /en/products/mct/enterprise 200 in 990ms (next.js: 43ms, proxy.ts: 14ms, generate-params: 25ms, application-code: 933ms)
+ GET /en/products/mct/integrations 200 in 2.4s (next.js: 427ms, proxy.ts: 29ms, generate-params: 22ms, application-code: 1940ms)
+ GET /en/products/nayeli-bim-control 200 in 1528ms (next.js: 502ms, proxy.ts: 31ms, generate-params: 27ms, application-code: 995ms)
+ GET /en/solutions/transport-logistics-africa 200 in 2.0s (next.js: 511ms, proxy.ts: 15ms, generate-params: 17ms, application-code: 1510ms)
+ GET /en/solutions/global-bim-control 200 in 806ms (next.js: 39ms, proxy.ts: 18ms, generate-params: 17ms, application-code: 748ms)
+ GET /en/about 200 in 1227ms (next.js: 377ms, proxy.ts: 14ms, generate-params: 20ms, application-code: 837ms)
+ GET /en/contact 200 in 1091ms (next.js: 353ms, proxy.ts: 15ms, generate-params: 20ms, application-code: 722ms)
+ GET /en/careers 200 in 1322ms (next.js: 422ms, proxy.ts: 12ms, generate-params: 21ms, application-code: 888ms)
+ GET /en/legal 200 in 661ms (next.js: 62ms, proxy.ts: 18ms, generate-params: 22ms, application-code: 582ms)
+ GET /en/privacy 200 in 1503ms (next.js: 398ms, proxy.ts: 26ms, generate-params: 21ms, application-code: 1079ms)
+ GET /en/consent 200 in 1065ms (next.js: 353ms, proxy.ts: 18ms, generate-params: 23ms, application-code: 694ms)
+ GET /sv 200 in 486ms (next.js: 55ms, proxy.ts: 18ms, generate-params: 25ms, application-code: 412ms)
+ GET /sv/legal 200 in 747ms (next.js: 60ms, proxy.ts: 15ms, generate-params: 36ms, application-code: 671ms)
+ GET /fr 200 in 542ms (next.js: 56ms, proxy.ts: 18ms, generate-params: 28ms, application-code: 469ms)
+ GET /fr/legal 200 in 599ms (next.js: 51ms, proxy.ts: 30ms, generate-params: 27ms, application-code: 518ms)
+ GET /en 200 in 760ms (next.js: 75ms, proxy.ts: 22ms, generate-params: 34ms, application-code: 664ms)
+ GET /en 200 in 457ms (next.js: 34ms, proxy.ts: 11ms, generate-params: 17ms, application-code: 412ms)
+ GET /en 200 in 349ms (next.js: 27ms, proxy.ts: 15ms, generate-params: 13ms, application-code: 308ms)
+ GET /en/products 200 in 624ms (next.js: 59ms, proxy.ts: 14ms, generate-params: 28ms, application-code: 551ms)
+ GET /en/products/mct 200 in 1755ms (next.js: 42ms, proxy.ts: 17ms, generate-params: 22ms, application-code: 1696ms)
+ GET /en/products/mct/pricing 200 in 1727ms (next.js: 45ms, proxy.ts: 21ms, generate-params: 22ms, application-code: 1661ms)
+ GET /en/products/mct/basic 200 in 1375ms (next.js: 52ms, proxy.ts: 15ms, generate-params: 27ms, application-code: 1307ms)
+ GET /en/products/mct/professional 200 in 820ms (next.js: 33ms, proxy.ts: 19ms, generate-params: 60µs, application-code: 769ms)
+ GET /en/products/mct/premium 200 in 1178ms (next.js: 49ms, proxy.ts: 15ms, generate-params: 22ms, application-code: 1114ms)
+ GET /en/products/mct/enterprise 200 in 893ms (next.js: 55ms, proxy.ts: 15ms, generate-params: 55µs, application-code: 823ms)
+ GET /en/products/mct/integrations 200 in 845ms (next.js: 34ms, proxy.ts: 12ms, generate-params: 16ms, application-code: 799ms)
+ GET /en/products/nayeli-bim-control 200 in 1048ms (next.js: 98ms, proxy.ts: 15ms, generate-params: 52ms, application-code: 935ms)
+[browser] Image with src "http://localhost:3001/images/products/nbc-logo.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /en/solutions/transport-logistics-africa 200 in 813ms (next.js: 41ms, proxy.ts: 17ms, generate-params: 24ms, application-code: 756ms)
+ GET /en/solutions/global-bim-control 200 in 1157ms (next.js: 57ms, proxy.ts: 25ms, generate-params: 79µs, application-code: 1075ms)
+ GET /en 200 in 1647ms (next.js: 53ms, proxy.ts: 17ms, generate-params: 27ms, application-code: 1578ms)
+ GET /en/about 200 in 2.2s (next.js: 253ms, proxy.ts: 111ms, generate-params: 27ms, application-code: 1796ms)
+ GET /en/contact 200 in 435ms (next.js: 42ms, proxy.ts: 15ms, generate-params: 21ms, application-code: 378ms)
+ GET /en/careers 200 in 559ms (next.js: 69ms, proxy.ts: 19ms, generate-params: 32ms, application-code: 471ms)
+ GET /en/legal 200 in 1230ms (next.js: 62ms, proxy.ts: 17ms, generate-params: 29ms, application-code: 1151ms)
+ GET /en/privacy 200 in 458ms (next.js: 41ms, proxy.ts: 14ms, generate-params: 24ms, application-code: 402ms)
+ GET /en/consent 200 in 542ms (next.js: 37ms, proxy.ts: 12ms, generate-params: 19ms, application-code: 492ms)
+ GET /sv 200 in 487ms (next.js: 39ms, proxy.ts: 10ms, generate-params: 23ms, application-code: 438ms)
+ GET /sv/legal 200 in 789ms (next.js: 41ms, proxy.ts: 13ms, generate-params: 22ms, application-code: 734ms)
+ GET /fr 200 in 419ms (next.js: 29ms, proxy.ts: 10ms, generate-params: 17ms, application-code: 380ms)
+ GET /fr/legal 200 in 742ms (next.js: 109ms, proxy.ts: 16ms, generate-params: 29ms, application-code: 616ms)
+ GET /en 200 in 205ms (next.js: 18ms, proxy.ts: 7ms, generate-params: 8ms, application-code: 180ms)
+ GET /en 200 in 278ms (next.js: 20ms, proxy.ts: 11ms, generate-params: 10ms, application-code: 247ms)
+ GET /en 200 in 1004ms (next.js: 118ms, proxy.ts: 13ms, generate-params: 74µs, application-code: 873ms)
+ GET /en 200 in 404ms (next.js: 34ms, proxy.ts: 10ms, generate-params: 18ms, application-code: 360ms)
+✓ Compiled in 2.5s
+ GET /en 200 in 1972ms (next.js: 553ms, proxy.ts: 384ms, generate-params: 26ms, application-code: 1036ms)
+✓ Compiled in 1524ms
+ GET /en 200 in 1451ms (next.js: 532ms, proxy.ts: 380ms, generate-params: 25ms, application-code: 539ms)
+ GET /en 200 in 1231ms (next.js: 122ms, proxy.ts: 37ms, generate-params: 190µs, application-code: 1072ms)
+ GET /en 200 in 1214ms (next.js: 355ms, proxy.ts: 118ms, generate-params: 59µs, application-code: 740ms)
+ GET /en 200 in 1231ms (next.js: 148ms, proxy.ts: 117ms, generate-params: 55µs, application-code: 966ms)
+ GET /en 200 in 1224ms (next.js: 480ms, proxy.ts: 127ms, generate-params: 56µs, application-code: 617ms)
+ GET /en 200 in 1375ms (next.js: 586ms, proxy.ts: 137ms, generate-params: 56µs, application-code: 651ms)
+ GET /en 200 in 1370ms (next.js: 809ms, proxy.ts: 118ms, generate-params: 62µs, application-code: 442ms)
+ GET /en 200 in 698ms (next.js: 60ms, proxy.ts: 51ms, generate-params: 69µs, application-code: 587ms)
+ GET /en 200 in 519ms (next.js: 165ms, proxy.ts: 133ms, generate-params: 135µs, application-code: 221ms)
+ GET /en 200 in 527ms (next.js: 85ms, proxy.ts: 102ms, generate-params: 74µs, application-code: 341ms)
+ GET /en 200 in 1556ms (next.js: 85ms, proxy.ts: 49ms, generate-params: 45ms, application-code: 1422ms)
+✓ Compiled in 1616ms
+ GET /en 200 in 1534ms (next.js: 584ms, proxy.ts: 441ms, generate-params: 25ms, application-code: 508ms)
+ GET /en 200 in 1629ms (next.js: 58ms, proxy.ts: 18ms, generate-params: 62µs, application-code: 1553ms)
+ GET /en 200 in 2.3s (next.js: 299ms, proxy.ts: 110ms, generate-params: 127µs, application-code: 1917ms)
+ GET /en 200 in 2.3s (next.js: 612ms, proxy.ts: 97ms, generate-params: 57µs, application-code: 1629ms)
+ GET /en 200 in 2.4s (next.js: 722ms, proxy.ts: 112ms, generate-params: 64µs, application-code: 1571ms)
+ GET /en 200 in 2.4s (next.js: 853ms, proxy.ts: 133ms, generate-params: 61µs, application-code: 1418ms)
+ GET /en 200 in 2.4s (next.js: 1003ms, proxy.ts: 147ms, generate-params: 48µs, application-code: 1268ms)
+ GET /en 200 in 1578ms (next.js: 374ms, proxy.ts: 325ms, generate-params: 54µs, application-code: 880ms)
+ GET /en 200 in 748ms (next.js: 85ms, proxy.ts: 51ms, generate-params: 83µs, application-code: 612ms)
+ GET /en 200 in 752ms (next.js: 321ms, proxy.ts: 51ms, generate-params: 104µs, application-code: 381ms)
+ GET /en 200 in 780ms (next.js: 38ms, proxy.ts: 11ms, generate-params: 22ms, application-code: 731ms)
+ GET /en 200 in 362ms (next.js: 34ms, proxy.ts: 29ms, generate-params: 16ms, application-code: 300ms)
+ GET /en 200 in 506ms (next.js: 71ms, proxy.ts: 40ms, generate-params: 17ms, application-code: 395ms)
+ GET /en 200 in 556ms (next.js: 61ms, proxy.ts: 17ms, generate-params: 21ms, application-code: 478ms)
+ GET /en 200 in 321ms (next.js: 25ms, proxy.ts: 11ms, generate-params: 12ms, application-code: 285ms)
+ GET /en 200 in 335ms (next.js: 36ms, proxy.ts: 12ms, generate-params: 16ms, application-code: 287ms)
+ GET /en 200 in 181ms (next.js: 15ms, proxy.ts: 10ms, generate-params: 7ms, application-code: 157ms)
+ GET /en 200 in 8.0s (next.js: 1857ms, proxy.ts: 707ms, generate-params: 1036ms, application-code: 5.4s)
+ GET /en 200 in 711ms (next.js: 128ms, proxy.ts: 25ms, generate-params: 19ms, application-code: 559ms)
+ GET /en 200 in 422ms (next.js: 29ms, proxy.ts: 11ms, generate-params: 14ms, application-code: 383ms)
+ GET /sv 200 in 1453ms (next.js: 361ms, proxy.ts: 455ms, generate-params: 14ms, application-code: 637ms)
+ GET /fr 200 in 532ms (next.js: 38ms, proxy.ts: 30ms, generate-params: 19ms, application-code: 464ms)
+ GET /en 200 in 1000ms (next.js: 106ms, proxy.ts: 27ms, generate-params: 62ms, application-code: 866ms)
+ GET /en 200 in 519ms (next.js: 32ms, proxy.ts: 19ms, generate-params: 13ms, application-code: 468ms)
+ GET /en 200 in 368ms (next.js: 56ms, proxy.ts: 19ms, generate-params: 21ms, application-code: 293ms)
+ GET /en 200 in 832ms (next.js: 137ms, proxy.ts: 43ms, generate-params: 80µs, application-code: 652ms)
+ GET /en 200 in 410ms (next.js: 29ms, proxy.ts: 31ms, generate-params: 13ms, application-code: 351ms)
+ GET /en 200 in 419ms (next.js: 33ms, proxy.ts: 18ms, generate-params: 14ms, application-code: 368ms)
+ GET /en 200 in 2.4s (next.js: 140ms, proxy.ts: 29ms, generate-params: 66ms, application-code: 2.2s)
+ GET /en 200 in 1044ms (next.js: 128ms, proxy.ts: 51ms, generate-params: 98ms, application-code: 866ms)
+ GET /en 200 in 1510ms (next.js: 129ms, proxy.ts: 32ms, generate-params: 60ms, application-code: 1348ms)
+ GET /en/about 200 in 400ms (next.js: 299ms, proxy.ts: 10ms, generate-params: 15ms, application-code: 91ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /en 200 in 467ms (next.js: 32ms, proxy.ts: 14ms, generate-params: 14ms, application-code: 421ms)
+ GET /en 200 in 809ms (next.js: 51ms, proxy.ts: 19ms, generate-params: 17ms, application-code: 738ms)
+ GET /en 200 in 324ms (next.js: 26ms, proxy.ts: 12ms, generate-params: 11ms, application-code: 285ms)
+ GET /en 200 in 832ms (next.js: 158ms, proxy.ts: 56ms, generate-params: 81ms, application-code: 618ms)
+ GET /en/about 200 in 1641ms (next.js: 126ms, proxy.ts: 21ms, generate-params: 36ms, application-code: 1495ms)
+ GET /en/about 200 in 810ms (next.js: 63ms, proxy.ts: 17ms, generate-params: 36ms, application-code: 730ms)
+ GET /en 200 in 972ms (next.js: 77ms, proxy.ts: 22ms, generate-params: 41ms, application-code: 874ms)
+ GET /en/about 200 in 554ms (next.js: 64ms, proxy.ts: 20ms, generate-params: 29ms, application-code: 471ms)
+✓ Compiled in 3.7s
+ GET /en/about 200 in 2.6s (next.js: 1541ms, proxy.ts: 720ms, generate-params: 25ms, application-code: 300ms)
+[browser] Uncaught TypeError: Cannot read properties of undefined (reading 'map')
+    at AboutPage (src/app/[locale]/about/page.tsx:538:27)
+  536 |
+  537 |             <div className="mt-10 grid gap-px overflow-hidden border border-[#1F3529]/10 ...
+> 538 |               {copy.goals.map((goal, index) => (
+      |                           ^
+  539 |                 <article key={goal.title} className="group relative min-h-[250px] bg-whit...
+  540 |                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text...
+  541 |                     Goal 0{index + 1}
+✓ Compiled in 296ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+⨯ TypeError: Cannot read properties of undefined (reading 'map')
+    at AboutPage (src\app\[locale]\about\page.tsx:538:27)
+  536 |
+  537 |             <div className="mt-10 grid gap-px overflow-hidden border border-[#1F3529]/10 ...
+> 538 |               {copy.goals.map((goal, index) => (
+      |                           ^
+  539 |                 <article key={goal.title} className="group relative min-h-[250px] bg-whit...
+  540 |                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text...
+  541 |                     0{index + 1} {
+  digest: '1258985209'
+}
+[browser] Uncaught TypeError: Cannot read properties of undefined (reading 'map')
+    at AboutPage (src/app/[locale]/about/page.tsx:538:27)
+    at Set.forEach (<anonymous>)
+  536 |
+  537 |             <div className="mt-10 grid gap-px overflow-hidden border border-[#1F3529]/10 ...
+> 538 |               {copy.goals.map((goal, index) => (
+      |                           ^
+  539 |                 <article key={goal.title} className="group relative min-h-[250px] bg-whit...
+  540 |                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text...
+  541 |                     0{index + 1}
+ GET /en/about 500 in 2.1s (next.js: 468ms, proxy.ts: 558ms, generate-params: 38ms, application-code: 1052ms)
+[browser] Uncaught TypeError: Cannot read properties of undefined (reading 'map')
+    at AboutPage (src/app/[locale]/about/page.tsx:538:27)
+  536 |
+  537 |             <div className="mt-10 grid gap-px overflow-hidden border border-[#1F3529]/10 ...
+> 538 |               {copy.goals.map((goal, index) => (
+      |                           ^
+  539 |                 <article key={goal.title} className="group relative min-h-[250px] bg-whit...
+  540 |                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text...
+  541 |                     0{index + 1}
+⨯ TypeError: Cannot read properties of undefined (reading 'map')
+    at AboutPage (src\app\[locale]\about\page.tsx:538:27)
+  536 |
+  537 |             <div className="mt-10 grid gap-px overflow-hidden border border-[#1F3529]/10 ...
+> 538 |               {copy.goals.map((goal, index) => (
+      |                           ^
+  539 |                 <article key={goal.title} className="group relative min-h-[250px] bg-whit...
+  540 |                   <span className="text-xs font-semibold uppercase tracking-[0.18em] text...
+  541 |                     0{index + 1} {
+  digest: '1258985209'
+}
+ GET /en/about 500 in 227ms (next.js: 20ms, proxy.ts: 10ms, generate-params: 9ms, application-code: 198ms)
+✓ Compiled in 152ms
+⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /en/about 200 in 1304ms (next.js: 186ms, proxy.ts: 156ms, generate-params: 10ms, application-code: 963ms)
+ GET /en/about 200 in 326ms (next.js: 25ms, proxy.ts: 13ms, generate-params: 14ms, application-code: 288ms)
+✓ Compiled in 613ms
+ GET /en/about 200 in 817ms (next.js: 370ms, proxy.ts: 284ms, generate-params: 15ms, application-code: 162ms)
+✓ Compiled in 497ms
+ GET /en/about 200 in 973ms (next.js: 384ms, proxy.ts: 359ms, generate-params: 14ms, application-code: 230ms)
+ GET /en/contact 200 in 1285ms (next.js: 592ms, proxy.ts: 45ms, generate-params: 29ms, application-code: 649ms)
+[browser] Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+ GET /en/about 200 in 1923ms (next.js: 58ms, proxy.ts: 53ms, generate-params: 97µs, application-code: 1813ms)
+✓ Compiled in 340ms
+ GET /en/contact 200 in 621ms (next.js: 237ms, proxy.ts: 273ms, generate-params: 17ms, application-code: 111ms)
+ GET /en/about 200 in 1527ms (next.js: 317ms, proxy.ts: 16ms, generate-params: 13ms, application-code: 1195ms)
+ GET /en 200 in 198ms (next.js: 101ms, proxy.ts: 16ms, generate-params: 19ms, application-code: 81ms)
+ GET /en/about 200 in 417ms (next.js: 31ms, proxy.ts: 16ms, generate-params: 15ms, application-code: 370ms)
+ GET /en/about 200 in 326ms (next.js: 39ms, proxy.ts: 13ms, generate-params: 15ms, application-code: 274ms)
+ GET /sv/about 200 in 452ms (next.js: 56ms, proxy.ts: 18ms, generate-params: 89µs, application-code: 378ms)
+ GET /en/about 200 in 475ms (next.js: 28ms, proxy.ts: 11ms, generate-params: 14ms, application-code: 436ms)
+ GET /en/about 200 in 1046ms (next.js: 41ms, proxy.ts: 16ms, generate-params: 16ms, application-code: 990ms)
+ GET /en/about 200 in 10.2s (next.js: 8.1s, proxy.ts: 21ms, generate-params: 107ms, application-code: 2.1s)
+ GET /en/about 200 in 3.3s (next.js: 650ms, proxy.ts: 596ms, generate-params: 29ms, application-code: 2.1s)
+✓ Finished filesystem cache database compaction in 12.1s
+ GET /en/legal 200 in 7.3s (next.js: 867ms, proxy.ts: 637ms, generate-params: 27ms, application-code: 5.8s)
+ GET /en/privacy 200 in 1707ms (next.js: 621ms, proxy.ts: 16ms, generate-params: 28ms, application-code: 1070ms)
+ GET /en/legal 200 in 905ms (next.js: 77ms, proxy.ts: 16ms, generate-params: 52ms, application-code: 812ms)
+ GET /en/privacy 200 in 1118ms (next.js: 263ms, proxy.ts: 16ms, generate-params: 233ms, application-code: 839ms)
+ GET /en/legal 200 in 500ms (next.js: 34ms, proxy.ts: 15ms, generate-params: 14ms, application-code: 451ms)
+ GET /en/consent 200 in 1044ms (next.js: 391ms, proxy.ts: 13ms, generate-params: 20ms, application-code: 639ms)
+ GET /en/consent 200 in 265ms (next.js: 25ms, proxy.ts: 9ms, generate-params: 14ms, application-code: 231ms)
+ GET /en/consent 200 in 1253ms (next.js: 329ms, proxy.ts: 225ms, generate-params: 17ms, application-code: 699ms)
