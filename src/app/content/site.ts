@@ -14,6 +14,9 @@ export interface ServiceCategory {
   body: string;
   image: string;
   tags: string[];
+  deliverables?: string[];
+  outcome?: string;
+  relatedProduct?: string;
 }
 
 export interface CaseStudy {
@@ -57,6 +60,8 @@ export interface SiteContent {
     intro: { heading: string; body: string };
     evolution: { heading: string; body: string; body2: string };
     vision: { heading: string; points: { title: string; detail: string }[] };
+    philosophy?: { heading: string; body: string };
+    founder?: { heading: string; body: string; points: string[] };
     closing: string;
   };
   caseStudies: { heading: string; subtitle: string; items: CaseStudy[] };
@@ -76,120 +81,132 @@ const IMG = {
 const en: SiteContent = {
   home: {
     hero: {
-      headline: 'Digital control platforms for connected industries.',
+      headline: 'We build digital control platforms for connected industries.',
       subheadline:
-        'LBYA builds digital platforms that help teams control information, coordinate work, and verify what matters. We work across construction, BIM, and African logistics, where clear decisions depend on trustworthy data.',
+        'We help teams keep logistics and BIM work clear, organised, and easy to trust, from requests and documents to responsibilities and decisions.',
       slogan: 'Rooted in Nature, Designed for the Future.',
       carousel: [
-        'Digital control platforms for connected industries.',
-        'Control information, coordinate work, and verify what matters.',
-        'Built for construction, BIM, and African logistics.',
-        'Turning complexity into clarity, structure, and trusted decisions.',
+        'Keep logistics and BIM work clear from request to decision.',
+        'Connect teams, documents, checks, and responsibility in one product workflow.',
+        'Turn scattered updates into a record people can trust.',
+        'Know what is ready, what needs attention, and who owns the next step.',
       ],
       primaryCtas: [
-        { label: 'Explore MCT', href: '/products/malaika-control-tower' },
-        { label: 'Discover Nayeli BIM Control', href: '/products/nayeli-bim-control' },
+        { label: 'Explore our products', href: '#products' },
+        { label: 'Request a demo', href: '/contact' },
       ],
-      secondaryCta: { label: 'Partner with LBYA', href: '/contact' },
+      secondaryCta: { label: 'Explore MCT and NBC', href: '/products' },
     },
     problem: {
-      heading: 'The work happens in the gaps between tools',
-      body: 'Most teams lose time in the gaps between tools. Information is scattered, ownership is unclear, and there is rarely a reliable record of what was checked or decided.',
+      heading: 'Important work gets lost between tools',
+      body: 'Many teams still manage critical work through messages, spreadsheets, and disconnected files. That makes ownership unclear and leaves people unsure about what was checked, approved, or still waiting.',
       points: ['Fragmented information', 'Disconnected tools', 'Weak verification', 'Unclear responsibility'],
     },
     answer: {
-      heading: 'LBYA closes those gaps',
-      body: 'Our platforms connect the people, documents, and decisions that move work forward, so nothing important lives only in a chat thread or a spreadsheet.',
+      heading: 'LBYA brings the record together',
+      body: 'Our products give teams one place to follow the work, attach the evidence, and see the decision trail, so important details are easier to find and easier to trust.',
     },
     why: {
       heading: 'Why it matters',
-      body: 'Clarity, traceability, and decision readiness. Teams act faster when they can trust the record in front of them.',
+      body: 'When the record is clear, teams spend less time chasing updates and more time making the right call.',
       points: [
-        { title: 'Clarity', detail: 'One structured place for requests, documents, and decisions.' },
-        { title: 'Traceability', detail: 'A record of checks, evidence, and status changes you can review.' },
-        { title: 'Coordination', detail: 'People, responsibilities, and updates connected around the work.' },
-        { title: 'Decision readiness', detail: 'Act with confidence because the record can be trusted.' },
+        { title: 'Clarity', detail: 'Requests, documents, and decisions stay in one organised place.' },
+        { title: 'Traceability', detail: 'Checks, evidence, and status changes are easy to review later.' },
+        { title: 'Coordination', detail: 'People know what changed, who is responsible, and what comes next.' },
+        { title: 'Decision readiness', detail: 'Teams can act because the record is clear enough to trust.' },
       ],
     },
     servicesTeaser: {
-      heading: 'Services that support adoption',
-      body: 'Expert services that help teams adopt our products and modernise how they work. Products lead, and services support implementation, BIM strategy, integration, and African market operations.',
-      cta: { label: 'Explore services', href: '/services' },
+      heading: 'Find the product path that fits',
+      body: 'Use MCT for logistics control, NBC for BIM control, or bring both into a connected product workflow.',
+      cta: { label: 'Compare products', href: '/products' },
     },
     finalCta: {
-      heading: "Let's build connected digital control systems together",
-      body: 'Become a pilot partner, book a demo, or talk to LBYA.',
-      primaryCta: { label: 'Become a pilot partner', href: '/contact' },
-      secondaryCta: { label: 'Book a demo', href: '/contact' },
+      heading: 'Explore the right LBYA product for your team',
+      body: 'Request a demo, compare MCT and NBC, or talk through a pilot with us.',
+      primaryCta: { label: 'Request a demo', href: '/contact' },
+      secondaryCta: { label: 'Compare products', href: '/products' },
     },
   },
   productsOverview: {
-    seoTitle: 'LBYA Products | Digital Control Platforms',
+    seoTitle: 'LBYA AB - Digital Control Products for Connected Industries',
     metaDescription:
-      'Explore LBYA digital control platforms for logistics, BIM, construction, and operations in the African market.',
+      'Explore Malaika Control Tower and Nayeli BIM Control, LBYA AB digital control products for logistics and BIM teams.',
     hero: 'Products',
     intro:
-      'LBYA builds digital control platforms that turn fragmented information into structured, traceable decisions. Malaika Control Tower leads in transport and logistics, and Nayeli BIM Control brings the same discipline to BIM.',
+      'LBYA builds digital control products that help teams turn scattered information into clear, traceable decisions. Malaika Control Tower focuses on transport and logistics. Nayeli BIM Control brings the same discipline to BIM.',
   },
   services: {
-    seoTitle: 'LBYA Services | Implementation and Digital Transformation Support',
+    seoTitle: 'LBYA Services | BIM, Integration, Engineering, and African Operations Advisory',
     metaDescription:
-      'Expert services supporting BIM, software integration, structural engineering, and African market operations.',
+      'LBYA services support BIM and digital construction advisory, structural and BIM engineering, software/API integration, and African market operations.',
     hero: 'Services',
     intro:
-      'Expert services that help teams adopt our products and modernise how they work. Services support implementation and advisory, not the other way around.',
+      'Commercial advisory and implementation services that help teams map control gaps, prepare product adoption, and modernise how work gets done.',
     rule: 'Every service supports product implementation, digital transformation, or market adoption.',
     categories: [
-      { title: 'BIM and Digital Construction Advisory', body: 'Support for BIM strategy, model coordination, and information management, including IFC, BCF, and IDS oriented workflows, BIM quality control, and preparation for NBC adoption.', image: IMG.bimDigital, tags: ['BIM strategy', 'IFC / BCF / IDS', 'Quality control'] },
-      { title: 'Structural and BIM Engineering Support', body: 'Specialist support for structural engineering, model-based delivery, coordination, and Eurocode oriented design documentation where relevant.', image: IMG.structural, tags: ['Structural design', 'Model-based delivery', 'Eurocode'] },
-      { title: 'Software and API Integration', body: 'Development and integration support for BIM tools, dashboards, automation, data workflows, and product implementation.', image: IMG.digitalTwin, tags: ['Integrations', 'Dashboards', 'Automation'] },
-      { title: 'African Market and Operations Advisory', body: 'Support for companies working with African logistics, transport coordination, mining-related business connections, and operational market entry linked to MCT and the LBYA network.', image: IMG.mining, tags: ['Logistics', 'Market entry', 'Partnerships'] },
+      { title: 'BIM and Digital Construction Advisory', body: 'For BIM managers, clients, consultants, and contractors who need clearer information requirements, model coordination workflows, IFC/BCF/IDS support, BIM quality control, delivery readiness, and NBC preparation.', image: IMG.bimDigital, tags: ['BIM strategy', 'IFC / BCF / IDS', 'Quality control'], relatedProduct: 'Nayeli BIM Control', outcome: 'A practical BIM control framework that teams can implement, review, and improve.', deliverables: ['Workshop and discovery report', 'BIM control framework', 'Implementation roadmap', 'Training and handover notes'] },
+      { title: 'Structural and BIM Engineering Support', body: 'For teams that need support with structural modelling, coordination, drawing and model quality, BIM deliverables, and engineering workflow improvement.', image: IMG.structural, tags: ['Structural design', 'Model-based delivery', 'Eurocode'], relatedProduct: 'Nayeli BIM Control', outcome: 'Cleaner deliverables, clearer responsibilities, and stronger engineering coordination.', deliverables: ['Model and drawing quality review', 'Coordination workflow map', 'Requirements and user stories', 'Support documentation'] },
+      { title: 'Software and API Integration', body: 'For organisations that need connections between BIM tools, dashboards, databases, automation scripts, CDEs, logistics platforms, and business systems.', image: IMG.digitalTwin, tags: ['Integrations', 'Dashboards', 'Automation'], relatedProduct: 'MCT and NBC', outcome: 'A technical roadmap that turns scattered systems into a connected workflow.', deliverables: ['System and data-flow diagnosis', 'Dashboard or prototype concept', 'API and integration roadmap', 'Developer-ready requirements'] },
+      { title: 'African Market and Operations Advisory', body: 'For companies working with African logistics, transporter coordination, documentation workflows, market entry, and MCT implementation strategy.', image: IMG.mining, tags: ['Logistics', 'Market entry', 'Partnerships'], relatedProduct: 'Malaika Control Tower', outcome: 'A grounded operating model for coordination, documentation, verification, and local partnerships.', deliverables: ['Workflow and process map', 'Control gap diagnosis', 'MCT pilot path', 'Market and operations advisory notes'] },
     ],
   },
   contact: {
-    headline: "Let's build connected digital control systems together.",
+    headline: 'Tell us what you want to explore.',
     paragraph:
-      'Contact LBYA to discuss MCT, Nayeli BIM Control, product partnerships, pilot projects, digital transformation support, or strategic collaboration.',
+      'Share what you need: MCT access, NBC early access, a product demo, a comparison, or a pilot conversation.',
     inquiryTypes: [
-      'I want to learn about MCT',
-      'I want to learn about Nayeli BIM Control',
-      'I want to become a pilot partner',
-      'I need BIM or digital construction support',
-      'I need African market or logistics support',
-      'I want to discuss software or API integration',
-      'I want to discuss investment or partnership',
-      'Other',
+      'Request MCT access',
+      'Join NBC early access',
+      'Compare MCT and NBC',
+      'Request a product demo',
+      'Discuss product integration',
+      'Discuss product partnership',
+      'General inquiry',
     ],
   },
   about: {
     heroHeading: 'Our Story',
     intro: {
       heading: 'Everything is connected',
-      body: 'LBYA was founded on the belief that everything is connected: people, nature, infrastructure, information, and markets. Today, LBYA develops digital control platforms that help organisations manage complexity with clarity, structure, and trust.',
+      body: 'LBYA began with a simple belief: people, nature, infrastructure, information, and markets are connected. Today, we build digital control products that help teams manage complexity with more clarity and trust.',
     },
     evolution: {
-      heading: 'From services to products',
-      body: 'Our work is rooted in nature-inspired thinking and designed for the future. LBYA began by delivering expert engineering and digital construction services, and that experience shaped a clear conviction: teams need better ways to control information, not just more tools.',
+      heading: 'From fragmented work to focused products',
+      body: 'Our work is rooted in nature-inspired thinking and designed for the future. LBYA grew from direct experience with fragmented engineering, BIM, logistics, and market workflows. That experience made one thing clear: teams need better control of information, not just more tools.',
       body2:
-        'Through products such as Malaika Control Tower and Nayeli BIM Control, LBYA now builds software that connects fragmented information, strengthens coordination, and supports better decisions across construction, BIM, logistics, and African market operations.',
+        'Through Malaika Control Tower and Nayeli BIM Control, LBYA builds software that brings information, responsibility, and decisions into clearer product workflows.',
     },
     vision: {
       heading: 'Our product vision',
       points: [
-        { title: 'Malaika Control Tower', detail: 'Transport and logistics control for connected African trade, in early access today.' },
-        { title: 'Nayeli BIM Control', detail: 'The next strategic step: a control layer that makes BIM more accountable and easier to act on.' },
-        { title: 'Global ambition', detail: 'Products lead and services support, so LBYA can grow from a focused start into connected industries worldwide.' },
+        { title: 'Malaika Control Tower', detail: 'A ready logistics control product for connected African trade, available for demo requests.' },
+        { title: 'Nayeli BIM Control', detail: 'A BIM control product in early development, built to make model information more accountable.' },
+        { title: 'Global ambition', detail: 'Products lead the company, with room to grow into connected industries worldwide.' },
+      ],
+    },
+    philosophy: {
+      heading: 'Our philosophy',
+      body: 'Natural systems work because signals, resources, risks, and adaptation stay connected. LBYA brings that thinking into software. We design products that help teams see what is connected, check what is reliable, and act before complexity becomes disorder.',
+    },
+    founder: {
+      heading: 'Why LBYA exists',
+      body: 'LBYA brings together lived experience, engineering thinking, African opportunity, Swedish structure, and the ambition to build useful digital products. The company grew from seeing fragmented workflows in construction, BIM, logistics, and market operations, then asking what kind of control layer would make those systems easier to trust.',
+      points: [
+        'From engineering and BIM experience to product development.',
+        'From fragmented workflows to digital control layers.',
+        'From local knowledge of African logistics and markets to scalable products.',
+        'From one-project problem solving to products that can support many teams.',
       ],
     },
     closing: 'Rooted in Nature, Designed for the Future.',
   },
   caseStudies: {
     heading: 'Case studies',
-    subtitle: 'Representative use cases for our platforms, from African logistics coordination to BIM information control.',
+    subtitle: 'MCT shows African logistics coordination in practice. NBC shows how BIM Control can support project teams anywhere.',
     items: [
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Coordinating cross-border transport', context: 'African logistics corridors', description: 'A coordinator juggling requests across chats, email, and spreadsheets brings every transport request into one structured workflow. Clear statuses, assigned ownership, and a record of each decision turn scattered communication into traceable coordination.', image: IMG.kinshasa, href: '/products/malaika-control-tower' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'Controlling information on a multidisciplinary project', context: 'BIM coordination', description: 'When requirements, model issues, and responsibilities span several disciplines, NBC links each requirement to the issues it raises, the checks that close them, and the person accountable. The team can see what is resolved and what is ready for a decision.', image: IMG.stockholm, href: '/products/nayeli-bim-control' },
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Verifying truck packs and building trust', context: 'Document control and verification', description: 'Before goods move, transporter profiles, truck packs, permits, and expiry dates are kept in one place. When a document does not match official verification, the status stays unresolved until corrected, so clients can trust the process behind every shipment.', image: IMG.capetown, href: '/products/malaika-control-tower' },
+      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'African logistics coordination', context: 'MCT for African logistics corridors', description: 'MCT brings transport requests, transporter data, truck documents, quotes, verification notes, and operational decisions into one workflow. The focus is simple: clearer ownership, better traceability, and more trust across cross-border logistics.', image: IMG.kinshasa, href: '/products/mct' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control for global project teams', context: 'Global BIM information control', description: 'NBC is designed for BIM teams anywhere: clients, BIM managers, consultants, contractors, and multidisciplinary delivery teams that need clearer requirements, model quality, issue ownership, evidence, and decision readiness.', image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
     ],
   },
 };
@@ -197,60 +214,60 @@ const en: SiteContent = {
 const sv: SiteContent = {
   home: {
     hero: {
-      headline: 'Digitala kontrollplattformar för sammankopplade branscher.',
+      headline: 'Vi bygger digitala kontrollplattformar för sammankopplade branscher.',
       subheadline:
-        'LBYA bygger digitala plattformar som hjälper team att kontrollera information, samordna arbete och verifiera det som är viktigt. Vi arbetar inom bygg, BIM och afrikansk logistik, där tydliga beslut bygger på tillförlitliga data.',
+        'Vi hjälper team att hålla logistik- och BIM-arbete tydligt, organiserat och lätt att lita på, från förfrågningar och dokument till ansvar och beslut.',
       slogan: 'Rotad i naturen, designad för framtiden.',
       carousel: [
-        'Digitala kontrollplattformar för sammankopplade branscher.',
-        'Kontrollera information, samordna arbete och verifiera det som är viktigt.',
-        'Byggd för bygg, BIM och afrikansk logistik.',
-        'Förvandlar komplexitet till tydlighet, struktur och pålitliga beslut.',
+        'Håll logistik- och BIM-arbete tydligt från förfrågan till beslut.',
+        'Koppla samman team, dokument, kontroller och ansvar i ett produktflöde.',
+        'Gör spridda uppdateringar till ett underlag människor kan lita på.',
+        'Se vad som är klart, vad som behöver åtgärdas och vem som ansvarar för nästa steg.',
       ],
       primaryCtas: [
-        { label: 'Utforska MCT', href: '/products/malaika-control-tower' },
-        { label: 'Upptäck Nayeli BIM Control', href: '/products/nayeli-bim-control' },
+        { label: 'Utforska våra produkter', href: '#products' },
+        { label: 'Begär demo', href: '/contact' },
       ],
-      secondaryCta: { label: 'Samarbeta med LBYA', href: '/contact' },
+      secondaryCta: { label: 'Utforska MCT och NBC', href: '/products' },
     },
     problem: {
-      heading: 'Arbetet sker i glappen mellan verktygen',
-      body: 'De flesta team förlorar tid i glappen mellan verktyg. Informationen är spridd, ansvaret oklart, och det finns sällan en tillförlitlig dokumentation av vad som kontrollerats eller beslutats.',
+      heading: 'Viktigt arbete försvinner mellan verktygen',
+      body: 'Många team hanterar fortfarande kritiskt arbete i meddelanden, kalkylark och fristående filer. Då blir ansvaret otydligt och det är svårt att veta vad som är kontrollerat, godkänt eller fortfarande väntar.',
       points: ['Fragmenterad information', 'Frånkopplade verktyg', 'Svag verifiering', 'Oklart ansvar'],
     },
     answer: {
-      heading: 'LBYA sluter de glappen',
-      body: 'Våra plattformar kopplar samman människorna, dokumenten och besluten som driver arbetet framåt, så att inget viktigt bara lever i en chatt eller ett kalkylark.',
+      heading: 'LBYA samlar underlaget',
+      body: 'Våra produkter ger team en plats där de kan följa arbetet, lägga till underlag och se beslutshistoriken, så att viktiga detaljer blir lättare att hitta och lita på.',
     },
     why: {
       heading: 'Varför det spelar roll',
-      body: 'Tydlighet, spårbarhet och beslutsberedskap. Team agerar snabbare när de kan lita på underlaget framför sig.',
+      body: 'När underlaget är tydligt lägger team mindre tid på att jaga uppdateringar och mer tid på att fatta rätt beslut.',
       points: [
-        { title: 'Tydlighet', detail: 'En strukturerad plats för förfrågningar, dokument och beslut.' },
-        { title: 'Spårbarhet', detail: 'En dokumentation av kontroller, bevis och statusändringar som du kan granska.' },
-        { title: 'Samordning', detail: 'Människor, ansvar och uppdateringar samlade kring arbetet.' },
-        { title: 'Beslutsberedskap', detail: 'Agera med självförtroende eftersom underlaget går att lita på.' },
+        { title: 'Tydlighet', detail: 'Förfrågningar, dokument och beslut hålls på en organiserad plats.' },
+        { title: 'Spårbarhet', detail: 'Kontroller, underlag och statusändringar går enkelt att granska i efterhand.' },
+        { title: 'Samordning', detail: 'Team ser vad som har ändrats, vem som ansvarar och vad nästa steg är.' },
+        { title: 'Beslutsberedskap', detail: 'Team kan agera eftersom underlaget är tillräckligt tydligt för att lita på.' },
       ],
     },
     servicesTeaser: {
-      heading: 'Tjänster som stödjer införandet',
-      body: 'Experttjänster som hjälper team att införa våra produkter och modernisera sitt arbetssätt. Produkterna leder, och tjänsterna stödjer implementering, BIM-strategi, integration och verksamhet på den afrikanska marknaden.',
-      cta: { label: 'Utforska tjänster', href: '/services' },
+      heading: 'Hitta produktvägen som passar',
+      body: 'Använd MCT för logistikkontroll, NBC för BIM-kontroll eller båda i ett sammanhängande produktflöde.',
+      cta: { label: 'Jämför produkter', href: '/products' },
     },
     finalCta: {
-      heading: 'Låt oss bygga sammankopplade digitala kontrollsystem tillsammans',
-      body: 'Bli en pilotpartner, boka en demo eller prata med LBYA.',
-      primaryCta: { label: 'Bli pilotpartner', href: '/contact' },
-      secondaryCta: { label: 'Boka en demo', href: '/contact' },
+      heading: 'Utforska rätt LBYA-produkt för ert team',
+      body: 'Begär demo, jämför MCT och NBC eller prata med oss om en pilot.',
+      primaryCta: { label: 'Begär demo', href: '/contact' },
+      secondaryCta: { label: 'Jämför produkter', href: '/products' },
     },
   },
   productsOverview: {
     seoTitle: 'LBYA Produkter | Digitala kontrollplattformar',
     metaDescription:
-      'Utforska LBYA:s digitala kontrollplattformar för logistik, BIM, bygg och verksamhet på den afrikanska marknaden.',
+      'Utforska LBYA:s digitala kontrollprodukter för logistik- och BIM-team.',
     hero: 'Produkter',
     intro:
-      'LBYA bygger digitala kontrollplattformar som förvandlar fragmenterad information till strukturerade, spårbara beslut. Malaika Control Tower leder inom transport och logistik, och Nayeli BIM Control för samma disciplin till BIM.',
+      'LBYA bygger digitala kontrollprodukter som hjälper team att göra spridd information till tydliga, spårbara beslut. Malaika Control Tower fokuserar på transport och logistik. Nayeli BIM Control för samma disciplin till BIM.',
   },
   services: {
     seoTitle: 'LBYA Tjänster | Stöd för implementering och digital transformation',
@@ -268,49 +285,47 @@ const sv: SiteContent = {
     ],
   },
   contact: {
-    headline: 'Låt oss bygga sammankopplade digitala kontrollsystem tillsammans.',
+    headline: 'Berätta vad du vill utforska.',
     paragraph:
-      'Kontakta LBYA för att diskutera MCT, Nayeli BIM Control, produktpartnerskap, pilotprojekt, stöd för digital transformation eller strategiskt samarbete.',
+      'Berätta vad du behöver: MCT-åtkomst, tidig NBC-åtkomst, en produktdemo, en jämförelse eller ett samtal om pilotprojekt.',
     inquiryTypes: [
-      'Jag vill veta mer om MCT',
-      'Jag vill veta mer om Nayeli BIM Control',
-      'Jag vill bli pilotpartner',
-      'Jag behöver stöd med BIM eller digitalt byggande',
-      'Jag behöver stöd med afrikansk marknad eller logistik',
-      'Jag vill diskutera mjukvaru- eller API-integration',
-      'Jag vill diskutera investering eller partnerskap',
-      'Annat',
+      'Begär MCT-åtkomst',
+      'Gå med i NBC:s tidiga åtkomst',
+      'Jämför MCT och NBC',
+      'Begär en produktdemo',
+      'Diskutera produktintegration',
+      'Diskutera produktpartnerskap',
+      'Allmän fråga',
     ],
   },
   about: {
     heroHeading: 'Vår historia',
     intro: {
       heading: 'Allt hänger ihop',
-      body: 'LBYA grundades på övertygelsen att allt hänger ihop: människor, natur, infrastruktur, information och marknader. Idag utvecklar LBYA digitala kontrollplattformar som hjälper organisationer att hantera komplexitet med tydlighet, struktur och tillit.',
+      body: 'LBYA började med en enkel övertygelse: människor, natur, infrastruktur, information och marknader hänger ihop. Idag bygger vi digitala kontrollprodukter som hjälper team att hantera komplexitet med mer tydlighet och tillit.',
     },
     evolution: {
-      heading: 'Från tjänster till produkter',
-      body: 'Vårt arbete är rotat i naturinspirerat tänkande och designat för framtiden. LBYA började med att leverera expertis inom ingenjörs- och digitala byggtjänster, och den erfarenheten formade en tydlig övertygelse: team behöver bättre sätt att kontrollera information, inte bara fler verktyg.',
+      heading: 'Från fragmenterat arbete till fokuserade produkter',
+      body: 'Vårt arbete är rotat i naturinspirerat tänkande och designat för framtiden. LBYA växte fram ur direkt erfarenhet av splittrade arbetsflöden inom teknik, BIM, logistik och marknadsarbete. Det gjorde en sak tydlig: team behöver bättre kontroll över information, inte bara fler verktyg.',
       body2:
-        'Genom produkter som Malaika Control Tower och Nayeli BIM Control bygger LBYA nu mjukvara som kopplar samman fragmenterad information, stärker samordningen och stödjer bättre beslut inom bygg, BIM, logistik och verksamhet på den afrikanska marknaden.',
+        'Genom Malaika Control Tower och Nayeli BIM Control bygger LBYA mjukvara som samlar information, ansvar och beslut i tydligare produktflöden.',
     },
     vision: {
       heading: 'Vår produktvision',
       points: [
-        { title: 'Malaika Control Tower', detail: 'Transport- och logistikkontroll för sammankopplad afrikansk handel, i tidig åtkomst idag.' },
-        { title: 'Nayeli BIM Control', detail: 'Nästa strategiska steg: ett kontrollager som gör BIM mer ansvarstagande och lättare att agera på.' },
-        { title: 'Global ambition', detail: 'Produkterna leder och tjänsterna stödjer, så att LBYA kan växa från en fokuserad start till sammankopplade branscher världen över.' },
+        { title: 'Malaika Control Tower', detail: 'En färdig logistikkontrollprodukt för sammankopplad afrikansk handel, tillgänglig för demoförfrågningar.' },
+        { title: 'Nayeli BIM Control', detail: 'En BIM-kontrollprodukt i tidig utveckling, byggd för att göra modellinformation tydligare och mer spårbar.' },
+        { title: 'Global ambition', detail: 'Produkterna leder bolaget, med utrymme att växa in i sammankopplade branscher världen över.' },
       ],
     },
     closing: 'Rotad i naturen, designad för framtiden.',
   },
   caseStudies: {
     heading: 'Fallstudier',
-    subtitle: 'Representativa användningsfall för våra plattformar, från afrikansk logistiksamordning till BIM-informationskontroll.',
+    subtitle: 'MCT visar afrikansk logistiksamordning i praktiken. NBC visar hur BIM Control kan stödja projektteam var som helst.',
     items: [
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Samordna gränsöverskridande transport', context: 'Afrikanska logistikkorridorer', description: 'En koordinator som jonglerar förfrågningar mellan chattar, e-post och kalkylark samlar varje transportförfrågan i ett strukturerat arbetsflöde. Tydliga statusar, tilldelat ansvar och dokumentation av varje beslut förvandlar spridd kommunikation till spårbar samordning.', image: IMG.kinshasa, href: '/products/malaika-control-tower' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'Kontrollera information i ett tvärvetenskapligt projekt', context: 'BIM-koordinering', description: 'När krav, modellfrågor och ansvar sträcker sig över flera discipliner kopplar NBC varje krav till de frågor det väcker, kontrollerna som stänger dem och den ansvariga personen. Teamet ser vad som är löst och vad som är klart för beslut.', image: IMG.stockholm, href: '/products/nayeli-bim-control' },
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Verifiera lastbilsdokument och bygga tillit', context: 'Dokumentkontroll och verifiering', description: 'Innan gods flyttas hålls transportörsprofiler, lastbilsdokument, tillstånd och utgångsdatum på ett ställe. När ett dokument inte matchar den officiella verifieringen förblir statusen olöst tills det korrigerats, så att kunderna kan lita på processen bakom varje sändning.', image: IMG.capetown, href: '/products/malaika-control-tower' },
+      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Afrikansk logistiksamordning', context: 'MCT för afrikanska logistikkorridorer', description: 'MCT samlar transportförfrågningar, transportörsdata, lastbilsdokument, offerter, verifieringsanteckningar och operativa beslut i ett arbetsflöde. Fokus är enkelt: tydligare ägarskap, bättre spårbarhet och mer tillit i gränsöverskridande logistik.', image: IMG.kinshasa, href: '/products/mct' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control för globala projektteam', context: 'Global BIM-informationskontroll', description: 'NBC är utformat för BIM-team överallt: beställare, BIM-ansvariga, konsulter, entreprenörer och multidisciplinära leveransteam som behöver tydligare krav, modellkvalitet, ärendeägarskap, underlag och beslutsberedskap.', image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
     ],
   },
 };
@@ -318,60 +333,60 @@ const sv: SiteContent = {
 const fr: SiteContent = {
   home: {
     hero: {
-      headline: 'Plateformes de contrôle numérique pour des industries connectées.',
+      headline: 'Nous construisons des plateformes de contrôle numérique pour des industries connectées.',
       subheadline:
-        "LBYA conçoit des plateformes numériques qui aident les équipes à contrôler l'information, coordonner le travail et vérifier l'essentiel. Nous intervenons dans la construction, le BIM et la logistique africaine, où des décisions claires reposent sur des données fiables.",
+        "Nous aidons les équipes à garder la logistique et le BIM clairs, organisés et faciles à vérifier, des demandes et documents jusqu'aux responsabilités et décisions.",
       slogan: "Enraciné dans la nature, conçu pour l'avenir.",
       carousel: [
-        'Plateformes de contrôle numérique pour des industries connectées.',
-        "Contrôler l'information, coordonner le travail et vérifier l'essentiel.",
-        'Conçu pour la construction, le BIM et la logistique africaine.',
-        'Transformer la complexité en clarté, structure et décisions fiables.',
+        'Gardez la logistique et le BIM clairs, de la demande à la décision.',
+        'Reliez équipes, documents, contrôles et responsabilités dans un même flux opérationnel.',
+        'Transformez des mises à jour dispersées en un dossier fiable.',
+        'Voyez ce qui est prêt, ce qui demande attention et qui est responsable de la prochaine étape.',
       ],
       primaryCtas: [
-        { label: 'Explorer MCT', href: '/products/malaika-control-tower' },
-        { label: 'Découvrir Nayeli BIM Control', href: '/products/nayeli-bim-control' },
+        { label: 'Explorer nos produits', href: '#products' },
+        { label: 'Demander une démo', href: '/contact' },
       ],
-      secondaryCta: { label: 'Devenir partenaire de LBYA', href: '/contact' },
+      secondaryCta: { label: 'Explorer MCT et NBC', href: '/products' },
     },
     problem: {
-      heading: "Le travail se joue dans les interstices entre les outils",
-      body: "La plupart des équipes perdent du temps dans les interstices entre les outils. L'information est dispersée, les responsabilités sont floues, et il existe rarement une trace fiable de ce qui a été vérifié ou décidé.",
+      heading: "Le travail important se perd entre les outils",
+      body: "Beaucoup d'équipes gèrent encore le travail critique dans des messages, tableurs et fichiers séparés. Les responsabilités deviennent floues et il devient difficile de savoir ce qui a été vérifié, approuvé ou reste en attente.",
       points: ['Information fragmentée', 'Outils déconnectés', 'Vérification insuffisante', 'Responsabilités floues'],
     },
     answer: {
-      heading: 'LBYA comble ces interstices',
-      body: "Nos plateformes relient les personnes, les documents et les décisions qui font avancer le travail, afin que rien d'important ne vive uniquement dans une conversation ou un tableur.",
+      heading: 'LBYA rassemble le dossier',
+      body: "Nos produits donnent aux équipes un endroit pour suivre le travail, joindre les preuves et voir l'historique des décisions, afin que les détails importants soient plus faciles à retrouver et à valider.",
     },
     why: {
-      heading: 'Pourquoi est-ce important',
-      body: "Clarté, traçabilité et préparation à la décision. Les équipes agissent plus vite lorsqu'elles peuvent se fier au dossier devant elles.",
+      heading: "Pourquoi c'est important",
+      body: "Lorsque le dossier est clair, les équipes passent moins de temps à chercher des mises à jour et plus de temps à prendre les bonnes décisions.",
       points: [
-        { title: 'Clarté', detail: 'Un seul endroit structuré pour les demandes, les documents et les décisions.' },
-        { title: 'Traçabilité', detail: 'Un historique des vérifications, des preuves et des changements de statut, consultable.' },
-        { title: 'Coordination', detail: 'Personnes, responsabilités et mises à jour reliées autour du travail.' },
-        { title: 'Préparation à la décision', detail: 'Agir avec confiance car le dossier est fiable.' },
+        { title: 'Clarté', detail: 'Les demandes, documents et décisions restent dans un espace organisé.' },
+        { title: 'Traçabilité', detail: 'Les contrôles, preuves et changements de statut restent faciles à revoir.' },
+        { title: 'Coordination', detail: 'Les équipes voient ce qui a changé, qui est responsable et quelle est la prochaine étape.' },
+        { title: 'Préparation à la décision', detail: 'Les équipes peuvent agir parce que le dossier est assez clair pour être fiable.' },
       ],
     },
     servicesTeaser: {
-      heading: "Des services qui soutiennent l'adoption",
-      body: "Des services experts qui aident les équipes à adopter nos produits et à moderniser leur façon de travailler. Les produits mènent, et les services soutiennent la mise en œuvre, la stratégie BIM, l'intégration et les opérations sur le marché africain.",
-      cta: { label: 'Explorer les services', href: '/services' },
+      heading: 'Trouvez le parcours produit adapté',
+      body: "Utilisez MCT pour le contrôle logistique, NBC pour le contrôle BIM, ou les deux dans un flux produit connecté.",
+      cta: { label: 'Comparer les produits', href: '/products' },
     },
     finalCta: {
-      heading: 'Construisons ensemble des systèmes de contrôle numérique connectés',
-      body: 'Devenez partenaire pilote, réservez une démo ou contactez LBYA.',
-      primaryCta: { label: 'Devenir partenaire pilote', href: '/contact' },
-      secondaryCta: { label: 'Réserver une démo', href: '/contact' },
+      heading: "Explorez le bon produit LBYA pour votre équipe",
+      body: "Demandez une démo, comparez MCT et NBC, ou échangez avec nous sur un pilote.",
+      primaryCta: { label: 'Demander une démo', href: '/contact' },
+      secondaryCta: { label: 'Comparer les produits', href: '/products' },
     },
   },
   productsOverview: {
     seoTitle: 'Produits LBYA | Plateformes de contrôle numérique',
     metaDescription:
-      'Découvrez les plateformes de contrôle numérique de LBYA pour la logistique, le BIM, la construction et les opérations sur le marché africain.',
+      'Découvrez les produits de contrôle numérique de LBYA pour les équipes logistiques et BIM.',
     hero: 'Produits',
     intro:
-      "LBYA conçoit des plateformes de contrôle numérique qui transforment l'information fragmentée en décisions structurées et traçables. Malaika Control Tower est leader dans le transport et la logistique, et Nayeli BIM Control apporte la même rigueur au BIM.",
+      "LBYA conçoit des produits de contrôle numérique qui aident les équipes à transformer l'information dispersée en décisions claires et traçables. Malaika Control Tower se concentre sur le transport et la logistique. Nayeli BIM Control apporte la même rigueur au BIM.",
   },
   services: {
     seoTitle: 'Services LBYA | Soutien à la mise en œuvre et à la transformation numérique',
@@ -389,49 +404,47 @@ const fr: SiteContent = {
     ],
   },
   contact: {
-    headline: 'Construisons ensemble des systèmes de contrôle numérique connectés.',
+    headline: 'Dites-nous ce que vous voulez explorer.',
     paragraph:
-      'Contactez LBYA pour discuter de MCT, Nayeli BIM Control, de partenariats produits, de projets pilotes, du soutien à la transformation numérique ou de collaboration stratégique.',
+      "Partagez votre besoin : accès MCT, accès anticipé NBC, démonstration produit, comparaison ou échange autour d'un pilote.",
     inquiryTypes: [
-      'Je souhaite en savoir plus sur MCT',
-      'Je souhaite en savoir plus sur Nayeli BIM Control',
-      'Je souhaite devenir partenaire pilote',
-      "J'ai besoin de soutien en BIM ou construction numérique",
-      "J'ai besoin de soutien sur le marché ou la logistique en Afrique",
-      "Je souhaite discuter d'intégration logicielle ou API",
-      'Je souhaite discuter investissement ou partenariat',
-      'Autre',
+      'Demander un accès MCT',
+      "Rejoindre l'accès anticipé NBC",
+      'Comparer MCT et NBC',
+      'Demander une démonstration produit',
+      "Discuter d'une intégration produit",
+      "Discuter d'un partenariat produit",
+      'Demande générale',
     ],
   },
   about: {
     heroHeading: 'Notre histoire',
     intro: {
       heading: 'Tout est connecté',
-      body: "LBYA est née de la conviction que tout est connecté : les personnes, la nature, les infrastructures, l'information et les marchés. Aujourd'hui, LBYA développe des plateformes de contrôle numérique qui aident les organisations à gérer la complexité avec clarté, structure et confiance.",
+      body: "LBYA est née d'une conviction simple : les personnes, la nature, les infrastructures, l'information et les marchés sont connectés. Aujourd'hui, nous construisons des produits de contrôle numérique qui aident les équipes à gérer la complexité avec plus de clarté et de confiance.",
     },
     evolution: {
-      heading: 'Des services aux produits',
-      body: "Notre travail est enraciné dans une pensée inspirée par la nature et conçu pour l'avenir. LBYA a commencé par fournir des services experts en ingénierie et construction numérique, et cette expérience a forgé une conviction claire : les équipes ont besoin de meilleurs moyens de contrôler l'information, pas seulement de plus d'outils.",
+      heading: 'Du travail fragmenté aux produits ciblés',
+      body: "Notre travail est enraciné dans une pensée inspirée par la nature et conçu pour l'avenir. LBYA vient d'une expérience directe des flux fragmentés dans l'ingénierie, le BIM, la logistique et les marchés. Cette expérience a rendu une chose claire : les équipes ont besoin d'un meilleur contrôle de l'information, pas seulement de plus d'outils.",
       body2:
-        "À travers des produits comme Malaika Control Tower et Nayeli BIM Control, LBYA conçoit désormais des logiciels qui relient l'information fragmentée, renforcent la coordination et soutiennent de meilleures décisions dans la construction, le BIM, la logistique et les opérations sur le marché africain.",
+        "Avec Malaika Control Tower et Nayeli BIM Control, LBYA construit des logiciels qui rassemblent information, responsabilité et décisions dans des flux produit plus clairs.",
     },
     vision: {
       heading: 'Notre vision produit',
       points: [
-        { title: 'Malaika Control Tower', detail: "Contrôle du transport et de la logistique pour un commerce africain connecté, en accès anticipé aujourd'hui." },
-        { title: 'Nayeli BIM Control', detail: "La prochaine étape stratégique : une couche de contrôle qui rend le BIM plus responsable et plus facile à exploiter." },
-        { title: 'Ambition mondiale', detail: 'Les produits mènent et les services soutiennent, afin que LBYA puisse grandir d’un départ ciblé vers des industries connectées dans le monde entier.' },
+        { title: 'Malaika Control Tower', detail: 'Un produit prêt pour le contrôle logistique du commerce africain connecté, disponible sur demande de démonstration.' },
+        { title: 'Nayeli BIM Control', detail: "Un produit de contrôle BIM en développement précoce, conçu pour rendre l'information du modèle plus claire et plus traçable." },
+        { title: 'Ambition mondiale', detail: "Les produits guident l'entreprise, avec la capacité de grandir vers des industries connectées dans le monde entier." },
       ],
     },
     closing: "Enraciné dans la nature, conçu pour l'avenir.",
   },
   caseStudies: {
     heading: 'Études de cas',
-    subtitle: "Cas d'usage représentatifs de nos plateformes, de la coordination logistique africaine au contrôle de l'information BIM.",
+    subtitle: "MCT montre la coordination logistique africaine en pratique. NBC montre comment BIM Control peut soutenir les équipes projet partout.",
     items: [
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Coordonner le transport transfrontalier', context: 'Corridors logistiques africains', description: "Un coordinateur jonglant avec des demandes entre messageries, e-mails et tableurs regroupe chaque demande de transport dans un flux structuré. Statuts clairs, responsabilités attribuées et trace de chaque décision transforment une communication dispersée en une coordination traçable.", image: IMG.kinshasa, href: '/products/malaika-control-tower' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: "Contrôler l'information sur un projet pluridisciplinaire", context: 'Coordination BIM', description: "Lorsque les exigences, les problèmes de modèle et les responsabilités s'étendent à plusieurs disciplines, NBC relie chaque exigence aux problèmes qu'elle soulève, aux vérifications qui les clôturent et à la personne responsable. L'équipe voit ce qui est résolu et ce qui est prêt pour une décision.", image: IMG.stockholm, href: '/products/nayeli-bim-control' },
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Vérifier les dossiers de camions et bâtir la confiance', context: 'Contrôle documentaire et vérification', description: "Avant le déplacement des marchandises, les profils des transporteurs, les dossiers de camions, les permis et les dates d'expiration sont réunis en un seul endroit. Lorsqu'un document ne correspond pas à la vérification officielle, le statut reste non résolu jusqu'à correction, afin que les clients puissent faire confiance au processus derrière chaque expédition.", image: IMG.capetown, href: '/products/malaika-control-tower' },
+      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Coordination logistique africaine', context: 'MCT pour les corridors logistiques africains', description: "MCT rassemble les demandes de transport, les données transporteurs, les dossiers de camions, les devis, les notes de vérification et les décisions opérationnelles dans un même flux. L'objectif est simple : plus de responsabilité, une meilleure traçabilité et plus de confiance dans la logistique transfrontalière.", image: IMG.kinshasa, href: '/products/mct' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control pour les équipes projet internationales', context: "Contrôle global de l'information BIM", description: "NBC est conçu pour les équipes BIM partout dans le monde : clients, BIM managers, consultants, entrepreneurs et équipes de livraison multidisciplinaires qui ont besoin d'exigences plus claires, de qualité de modèle, de responsabilité des problèmes, de preuves et de préparation à la décision.", image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
     ],
   },
 };
@@ -439,60 +452,60 @@ const fr: SiteContent = {
 const de: SiteContent = {
   home: {
     hero: {
-      headline: 'Digitale Kontrollplattformen für vernetzte Branchen.',
+      headline: 'Wir entwickeln digitale Kontrollplattformen für vernetzte Branchen.',
       subheadline:
-        'LBYA entwickelt digitale Plattformen, die Teams helfen, Informationen zu kontrollieren, Arbeit zu koordinieren und das Wesentliche zu verifizieren. Wir arbeiten in den Bereichen Bau, BIM und afrikanische Logistik, wo klare Entscheidungen auf verlässlichen Daten beruhen.',
+        'Wir helfen Teams, Logistik- und BIM-Arbeit klar, organisiert und verlässlich zu halten, von Anfragen und Dokumenten bis zu Verantwortlichkeiten und Entscheidungen.',
       slogan: 'Verwurzelt in der Natur, gestaltet für die Zukunft.',
       carousel: [
-        'Digitale Kontrollplattformen für vernetzte Branchen.',
-        'Informationen kontrollieren, Arbeit koordinieren und das Wesentliche verifizieren.',
-        'Entwickelt für Bau, BIM und afrikanische Logistik.',
-        'Komplexität in Klarheit, Struktur und verlässliche Entscheidungen verwandeln.',
+        'Logistik- und BIM-Arbeit klar halten, von der Anfrage bis zur Entscheidung.',
+        'Teams, Dokumente, Prüfungen und Verantwortlichkeiten in einem Produktworkflow verbinden.',
+        'Verstreute Updates in eine verlässliche Aufzeichnung verwandeln.',
+        'Sehen, was bereit ist, was Aufmerksamkeit braucht und wer den nächsten Schritt übernimmt.',
       ],
       primaryCtas: [
-        { label: 'MCT entdecken', href: '/products/malaika-control-tower' },
-        { label: 'Nayeli BIM Control entdecken', href: '/products/nayeli-bim-control' },
+        { label: 'Unsere Produkte entdecken', href: '#products' },
+        { label: 'Demo anfragen', href: '/contact' },
       ],
-      secondaryCta: { label: 'Partner von LBYA werden', href: '/contact' },
+      secondaryCta: { label: 'MCT und NBC entdecken', href: '/products' },
     },
     problem: {
-      heading: 'Die Arbeit passiert in den Lücken zwischen den Werkzeugen',
-      body: 'Die meisten Teams verlieren Zeit in den Lücken zwischen Werkzeugen. Informationen sind verstreut, Verantwortlichkeiten unklar, und es gibt selten eine verlässliche Aufzeichnung darüber, was geprüft oder entschieden wurde.',
+      heading: 'Wichtige Arbeit geht zwischen Werkzeugen verloren',
+      body: 'Viele Teams steuern kritische Arbeit noch über Nachrichten, Tabellen und getrennte Dateien. Dadurch werden Verantwortlichkeiten unklar, und niemand sieht schnell genug, was geprüft, freigegeben oder noch offen ist.',
       points: ['Fragmentierte Informationen', 'Getrennte Werkzeuge', 'Schwache Verifizierung', 'Unklare Verantwortung'],
     },
     answer: {
-      heading: 'LBYA schließt diese Lücken',
-      body: 'Unsere Plattformen verbinden die Menschen, Dokumente und Entscheidungen, die die Arbeit voranbringen, damit nichts Wichtiges nur in einem Chat oder einer Tabelle existiert.',
+      heading: 'LBYA bringt die Aufzeichnung zusammen',
+      body: 'Unsere Produkte geben Teams einen Ort, an dem sie Arbeit verfolgen, Nachweise anhängen und den Entscheidungsverlauf sehen können, damit wichtige Details leichter zu finden und zu vertrauen sind.',
     },
     why: {
       heading: 'Warum es wichtig ist',
-      body: 'Klarheit, Nachvollziehbarkeit und Entscheidungsreife. Teams handeln schneller, wenn sie der Aufzeichnung vor sich vertrauen können.',
+      body: 'Wenn die Aufzeichnung klar ist, verbringen Teams weniger Zeit mit dem Suchen nach Updates und mehr Zeit mit den richtigen Entscheidungen.',
       points: [
-        { title: 'Klarheit', detail: 'Ein strukturierter Ort für Anfragen, Dokumente und Entscheidungen.' },
-        { title: 'Nachvollziehbarkeit', detail: 'Eine überprüfbare Aufzeichnung von Prüfungen, Nachweisen und Statusänderungen.' },
-        { title: 'Koordination', detail: 'Menschen, Verantwortlichkeiten und Aktualisierungen rund um die Arbeit verbunden.' },
-        { title: 'Entscheidungsreife', detail: 'Mit Vertrauen handeln, weil die Aufzeichnung verlässlich ist.' },
+        { title: 'Klarheit', detail: 'Anfragen, Dokumente und Entscheidungen bleiben an einem organisierten Ort.' },
+        { title: 'Nachvollziehbarkeit', detail: 'Prüfungen, Nachweise und Statusänderungen lassen sich später leicht überprüfen.' },
+        { title: 'Koordination', detail: 'Teams sehen, was sich geändert hat, wer verantwortlich ist und was als Nächstes kommt.' },
+        { title: 'Entscheidungsreife', detail: 'Teams können handeln, weil die Aufzeichnung klar genug ist, um ihr zu vertrauen.' },
       ],
     },
     servicesTeaser: {
-      heading: 'Dienstleistungen, die die Einführung unterstützen',
-      body: 'Expertendienstleistungen, die Teams helfen, unsere Produkte einzuführen und ihre Arbeitsweise zu modernisieren. Die Produkte führen, und die Dienstleistungen unterstützen Implementierung, BIM-Strategie, Integration und Betrieb auf dem afrikanischen Markt.',
-      cta: { label: 'Dienstleistungen entdecken', href: '/services' },
+      heading: 'Den passenden Produktpfad finden',
+      body: 'Nutzen Sie MCT für Logistikkontrolle, NBC für BIM-Kontrolle oder beide in einem vernetzten Produktworkflow.',
+      cta: { label: 'Produkte vergleichen', href: '/products' },
     },
     finalCta: {
-      heading: 'Lassen Sie uns gemeinsam vernetzte digitale Kontrollsysteme aufbauen',
-      body: 'Werden Sie Pilotpartner, buchen Sie eine Demo oder sprechen Sie mit LBYA.',
-      primaryCta: { label: 'Pilotpartner werden', href: '/contact' },
-      secondaryCta: { label: 'Demo buchen', href: '/contact' },
+      heading: 'Das richtige LBYA-Produkt für Ihr Team entdecken',
+      body: 'Fragen Sie eine Demo an, vergleichen Sie MCT und NBC oder sprechen Sie mit uns über einen Pilot.',
+      primaryCta: { label: 'Demo anfragen', href: '/contact' },
+      secondaryCta: { label: 'Produkte vergleichen', href: '/products' },
     },
   },
   productsOverview: {
     seoTitle: 'LBYA Produkte | Digitale Kontrollplattformen',
     metaDescription:
-      'Entdecken Sie die digitalen Kontrollplattformen von LBYA für Logistik, BIM, Bau und Betrieb auf dem afrikanischen Markt.',
+      'Entdecken Sie die digitalen Kontrollprodukte von LBYA für Logistik- und BIM-Teams.',
     hero: 'Produkte',
     intro:
-      'LBYA entwickelt digitale Kontrollplattformen, die fragmentierte Informationen in strukturierte, nachvollziehbare Entscheidungen verwandeln. Malaika Control Tower führt in Transport und Logistik, und Nayeli BIM Control bringt dieselbe Disziplin ins BIM.',
+      'LBYA entwickelt digitale Kontrollprodukte, die Teams helfen, verstreute Informationen in klare, nachvollziehbare Entscheidungen zu verwandeln. Malaika Control Tower konzentriert sich auf Transport und Logistik. Nayeli BIM Control bringt dieselbe Disziplin ins BIM.',
   },
   services: {
     seoTitle: 'LBYA Dienstleistungen | Unterstützung für Implementierung und digitale Transformation',
@@ -510,49 +523,47 @@ const de: SiteContent = {
     ],
   },
   contact: {
-    headline: 'Lassen Sie uns gemeinsam vernetzte digitale Kontrollsysteme aufbauen.',
+    headline: 'Sagen Sie uns, was Sie erkunden möchten.',
     paragraph:
-      'Kontaktieren Sie LBYA, um über MCT, Nayeli BIM Control, Produktpartnerschaften, Pilotprojekte, Unterstützung bei der digitalen Transformation oder strategische Zusammenarbeit zu sprechen.',
+      'Teilen Sie uns mit, was Sie brauchen: MCT-Zugang, frühen NBC-Zugang, eine Produktdemo, einen Vergleich oder ein Gespräch über einen Pilot.',
     inquiryTypes: [
-      'Ich möchte mehr über MCT erfahren',
-      'Ich möchte mehr über Nayeli BIM Control erfahren',
-      'Ich möchte Pilotpartner werden',
-      'Ich brauche Unterstützung bei BIM oder digitalem Bauen',
-      'Ich brauche Unterstützung beim afrikanischen Markt oder bei Logistik',
-      'Ich möchte über Software- oder API-Integration sprechen',
-      'Ich möchte über Investition oder Partnerschaft sprechen',
-      'Sonstiges',
+      'MCT-Zugang anfragen',
+      'Frühen NBC-Zugang anfragen',
+      'MCT und NBC vergleichen',
+      'Produktdemo anfragen',
+      'Produktintegration besprechen',
+      'Produktpartnerschaft besprechen',
+      'Allgemeine Anfrage',
     ],
   },
   about: {
     heroHeading: 'Unsere Geschichte',
     intro: {
       heading: 'Alles ist verbunden',
-      body: 'LBYA wurde aus der Überzeugung gegründet, dass alles verbunden ist: Menschen, Natur, Infrastruktur, Information und Märkte. Heute entwickelt LBYA digitale Kontrollplattformen, die Organisationen helfen, Komplexität mit Klarheit, Struktur und Vertrauen zu bewältigen.',
+      body: 'LBYA begann mit einer einfachen Überzeugung: Menschen, Natur, Infrastruktur, Information und Märkte sind verbunden. Heute bauen wir digitale Kontrollprodukte, die Teams helfen, Komplexität mit mehr Klarheit und Vertrauen zu bewältigen.',
     },
     evolution: {
-      heading: 'Von Dienstleistungen zu Produkten',
-      body: 'Unsere Arbeit ist in naturinspiriertem Denken verwurzelt und für die Zukunft gestaltet. LBYA begann mit der Erbringung von Experten-Engineering- und digitalen Bauleistungen, und diese Erfahrung formte eine klare Überzeugung: Teams brauchen bessere Wege, Informationen zu kontrollieren, nicht nur mehr Werkzeuge.',
+      heading: 'Von fragmentierter Arbeit zu fokussierten Produkten',
+      body: 'Unsere Arbeit ist in naturinspiriertem Denken verwurzelt und für die Zukunft gestaltet. LBYA entstand aus direkter Erfahrung mit fragmentierten Workflows in Engineering, BIM, Logistik und Marktprozessen. Diese Erfahrung machte eines klar: Teams brauchen bessere Kontrolle über Informationen, nicht nur mehr Werkzeuge.',
       body2:
-        'Mit Produkten wie Malaika Control Tower und Nayeli BIM Control entwickelt LBYA nun Software, die fragmentierte Informationen verbindet, die Koordination stärkt und bessere Entscheidungen in Bau, BIM, Logistik und Betrieb auf dem afrikanischen Markt unterstützt.',
+        'Mit Malaika Control Tower und Nayeli BIM Control baut LBYA Software, die Informationen, Verantwortung und Entscheidungen in klarere Produktworkflows bringt.',
     },
     vision: {
       heading: 'Unsere Produktvision',
       points: [
-        { title: 'Malaika Control Tower', detail: 'Transport- und Logistikkontrolle für vernetzten afrikanischen Handel, heute im Early Access.' },
-        { title: 'Nayeli BIM Control', detail: 'Der nächste strategische Schritt: eine Kontrollebene, die BIM verantwortlicher und leichter umsetzbar macht.' },
-        { title: 'Globale Ambition', detail: 'Produkte führen und Dienstleistungen unterstützen, sodass LBYA von einem fokussierten Start zu vernetzten Branchen weltweit wachsen kann.' },
+        { title: 'Malaika Control Tower', detail: 'Ein fertiges Logistikkontrollprodukt für vernetzten afrikanischen Handel, verfügbar für Demo-Anfragen.' },
+        { title: 'Nayeli BIM Control', detail: 'Ein BIM-Kontrollprodukt in früher Entwicklung, entwickelt für verantwortungsvollere Modellinformationen.' },
+        { title: 'Globale Ambition', detail: 'Produkte führen das Unternehmen, mit Raum für Wachstum in vernetzte Branchen weltweit.' },
       ],
     },
     closing: 'Verwurzelt in der Natur, gestaltet für die Zukunft.',
   },
   caseStudies: {
     heading: 'Fallstudien',
-    subtitle: 'Repräsentative Anwendungsfälle für unsere Plattformen, von der afrikanischen Logistikkoordination bis zur BIM-Informationskontrolle.',
+    subtitle: 'MCT zeigt afrikanische Logistikkoordination in der Praxis. NBC zeigt, wie BIM Control Projektteams überall unterstützen kann.',
     items: [
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Grenzüberschreitenden Transport koordinieren', context: 'Afrikanische Logistikkorridore', description: 'Ein Koordinator, der Anfragen zwischen Chats, E-Mails und Tabellen jongliert, bringt jede Transportanfrage in einen strukturierten Arbeitsablauf. Klare Status, zugewiesene Verantwortung und eine Aufzeichnung jeder Entscheidung verwandeln verstreute Kommunikation in nachvollziehbare Koordination.', image: IMG.kinshasa, href: '/products/malaika-control-tower' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'Informationen in einem multidisziplinären Projekt kontrollieren', context: 'BIM-Koordination', description: 'Wenn Anforderungen, Modellprobleme und Verantwortlichkeiten mehrere Disziplinen umfassen, verknüpft NBC jede Anforderung mit den Problemen, die sie aufwirft, den Prüfungen, die sie schließen, und der verantwortlichen Person. Das Team sieht, was gelöst ist und was für eine Entscheidung bereit ist.', image: IMG.stockholm, href: '/products/nayeli-bim-control' },
-      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Lkw-Unterlagen verifizieren und Vertrauen aufbauen', context: 'Dokumentenkontrolle und Verifizierung', description: 'Bevor Waren bewegt werden, werden Transporteurprofile, Lkw-Unterlagen, Genehmigungen und Ablaufdaten an einem Ort geführt. Wenn ein Dokument nicht mit der offiziellen Verifizierung übereinstimmt, bleibt der Status ungelöst, bis er korrigiert ist, sodass Kunden dem Prozess hinter jeder Sendung vertrauen können.', image: IMG.capetown, href: '/products/malaika-control-tower' },
+      { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Afrikanische Logistikkoordination', context: 'MCT für afrikanische Logistikkorridore', description: 'MCT bringt Transportanfragen, Transporteurdaten, Lkw-Dokumente, Angebote, Verifizierungsnotizen und operative Entscheidungen in einen Workflow. Der Fokus ist einfach: klarere Verantwortung, bessere Nachvollziehbarkeit und mehr Vertrauen in grenzüberschreitender Logistik.', image: IMG.kinshasa, href: '/products/mct' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control für globale Projektteams', context: 'Globale BIM-Informationskontrolle', description: 'NBC ist für BIM-Teams überall konzipiert: Auftraggeber, BIM-Manager, Berater, Bauunternehmen und multidisziplinäre Lieferteams, die klarere Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Entscheidungsreife benötigen.', image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
     ],
   },
 };

@@ -21,9 +21,9 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = {
-  title: "LBYA | Digital Control Platforms",
+  title: "LBYA | Digital Control Products",
   description:
-    "LBYA builds digital control platforms that turn fragmented information into structured, traceable decisions. Explore Malaika Control Tower and Nayeli BIM Control.",
+    "LBYA builds digital control products that turn fragmented information into clear, traceable decisions. Explore Malaika Control Tower and Nayeli BIM Control.",
 };
 
 export default async function LocaleLayout({

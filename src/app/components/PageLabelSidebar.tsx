@@ -14,26 +14,14 @@ export default function PageLabelSidebar() {
                 return 'About Us';
             case '/projects':
                 return 'Projects';
-            case '/services':
-                return 'Services';
             case '/contact':
                 return 'Contact';
             case '/careers':
                 return 'Careers';
             case '/privacy':
                 return 'Privacy Policy';
-
-            // Service sub-pages
-            case '/services/sustainable':
-                return 'Sustainable Architecture';
-            case '/services/structural':
-                return 'Structural Engineering';
-            case '/services/bim':
-                return 'BIM & VDC Services';
-            case '/services/it':
-                return 'IT Solutions';
-            case '/services/mining':
-                return 'Mining Consulting';
+            case '/legal':
+                return 'Policies & Terms';
 
             // Explicitly check for other known paths or fall back to formatting
             default:

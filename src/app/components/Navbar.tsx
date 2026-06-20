@@ -5,13 +5,53 @@ import TransitionLink from './TransitionLink';
 import { Link as LocaleLink, usePathname } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
 import gsap from 'gsap';
-import { useTranslation } from '../i18n/I18nContext';
 import { useTheme } from '../context/ThemeContext';
+import Wordmark from './Wordmark';
+import { asLocale, type Locale } from '../content/locale';
+
+type SidebarNavCopy = {
+  solutions: string;
+  products: string;
+  career: string;
+  about: string;
+  contact: string;
+};
+
+const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
+  en: {
+    solutions: 'Solutions',
+    products: 'Products',
+    career: 'Career',
+    about: 'About',
+    contact: 'Contact',
+  },
+  sv: {
+    solutions: 'L\u00f6sningar',
+    products: 'Produkter',
+    career: 'Karri\u00e4r',
+    about: 'Om oss',
+    contact: 'Kontakt',
+  },
+  fr: {
+    solutions: 'Solutions',
+    products: 'Produits',
+    career: 'Carri\u00e8re',
+    about: '\u00c0 propos',
+    contact: 'Contact',
+  },
+  de: {
+    solutions: 'L\u00f6sungen',
+    products: 'Produkte',
+    career: 'Karriere',
+    about: '\u00dcber uns',
+    contact: 'Kontakt',
+  },
+};
 
 export default function Navbar() {
-  const { t } = useTranslation();
   const { theme, toggleTheme } = useTheme();
-  const activeLocale = useLocale();
+  const activeLocale = asLocale(useLocale());
+  const navCopy = sidebarNavCopyByLocale[activeLocale];
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -33,17 +73,18 @@ export default function Navbar() {
     const routeMap: Record<string, string> = {
       '/': 'Home',
       '/products': 'Products',
-      '/services': 'Services',
+      '/solutions': 'Solutions',
       '/about': 'About',
       '/insights': 'Insights',
-      '/careers': 'Careers',
+      '/careers': 'Career',
       '/contact': 'Contact',
       '/privacy': 'Privacy',
+      '/legal': 'Policies',
       '/consent': 'Consent',
     };
     // Check for dynamic routes
     if (pathname.startsWith('/products/')) return 'Products';
-    if (pathname.startsWith('/services/')) return 'Services';
+    if (pathname.startsWith('/solutions/')) return 'Solutions';
     if (pathname.startsWith('/insights/')) return 'Insights';
     return routeMap[pathname] || 'LBYA';
   }, [pathname]);
@@ -166,16 +207,14 @@ export default function Navbar() {
     { code: 'en', label: 'EN', name: 'English (Global)' },
     { code: 'sv', label: 'SV', name: 'Svenska' },
     { code: 'fr', label: 'FR', name: 'Français' },
-    { code: 'de', label: 'DE', name: 'Deutsch' },
   ];
   // Locale-prefixed so primary navigation preserves the active locale.
   const menuItems = [
-    { label: t.navbar.products, href: `/${activeLocale}/products` },
-    { label: t.navbar.services, href: `/${activeLocale}/services` },
-    { label: t.navbar.insights, href: `/${activeLocale}/insights` },
-    { label: t.navbar.about, href: `/${activeLocale}/about` },
-    { label: t.navbar.careers, href: `/${activeLocale}/careers` },
-    { label: t.navbar.contact, href: `/${activeLocale}/contact` },
+    { label: navCopy.solutions, href: `/${activeLocale}#solutions` },
+    { label: navCopy.products, href: `/${activeLocale}/products` },
+    { label: navCopy.career, href: `/${activeLocale}/careers` },
+    { label: navCopy.about, href: `/${activeLocale}/about` },
+    { label: navCopy.contact, href: `/${activeLocale}/contact` },
   ];
 
   useEffect(() => {
@@ -201,21 +240,21 @@ export default function Navbar() {
         }
       }
 
-      // Desktop Animation
-      if (desktopMenuRef.current) {
-        tl.to(desktopMenuRef.current, {
-          x: 0,
-          duration: 0.5,
-          ease: 'power3.out'
-        });
-      }
-
       if (menuItemsRef.current) {
         const items = menuItemsRef.current.querySelectorAll('a');
         gsap.fromTo(items,
           { opacity: 0, x: 20 },
           { opacity: 1, x: 0, duration: 0.4, stagger: 0.1, delay: 0.2, ease: 'power2.out' }
         );
+      }
+
+      if (desktopMenuRef.current) {
+        tl.to(desktopMenuRef.current, {
+          x: 0,
+          duration: 0.5,
+          ease: 'power3.out',
+          pointerEvents: 'auto',
+        });
       }
     } else {
       if (menuRef.current) {
@@ -228,12 +267,12 @@ export default function Navbar() {
         });
       }
 
-      // Desktop Close Animation
       if (desktopMenuRef.current) {
         tl.to(desktopMenuRef.current, {
-          x: '100%',
+          x: 384,
           duration: 0.5,
-          ease: 'power3.inOut'
+          ease: 'power3.inOut',
+          pointerEvents: 'none',
         });
       }
     }
@@ -254,7 +293,7 @@ export default function Navbar() {
   }, []);
 
   const handleMenuClick = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((open) => !open);
   };
 
   return (
@@ -289,6 +328,8 @@ export default function Navbar() {
           onClick={handleMenuClick}
           className="flex flex-col items-center justify-center w-12 h-12 group"
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
+          aria-controls="desktop-sidebar-menu"
         >
           <span className="block h-0.5 w-7 bg-white mb-1.5 transition-all group-hover:w-8"></span>
           <span className="block h-0.5 w-7 bg-white mb-1.5 transition-all"></span>
@@ -305,8 +346,10 @@ export default function Navbar() {
       {/* Desktop Slide-out Menu - COWI Style */}
       <div
         ref={desktopMenuRef}
-        className="hidden lg:block fixed right-14 top-0 h-screen w-80 bg-[#37474F] shadow-2xl z-30"
-        style={{ transform: 'translateX(100%)' }}
+        id="desktop-sidebar-menu"
+        aria-hidden={!isMenuOpen}
+        className="fixed right-14 top-0 z-[60] hidden h-screen w-80 bg-[#37474F] shadow-2xl lg:block"
+        style={{ transform: 'translateX(384px)', pointerEvents: 'none' }}
       >
         <div className="flex flex-col h-full justify-center px-12">
           <nav ref={menuItemsRef} className="flex flex-col gap-6">
@@ -403,10 +446,17 @@ export default function Navbar() {
 
           <span
             ref={labelRef}
-            className="font-bold tracking-[0.15em] text-white leading-none text-2xl md:text-[42px]"
-            style={{ fontFamily: displayText === 'LBYA' ? "'Tektur', sans-serif" : "inherit" }}
+            className={displayText === 'LBYA'
+              ? 'block leading-none'
+              : 'font-bold tracking-[0.15em] text-white leading-none text-2xl md:text-[42px]'}
           >
-            {displayText}
+            {displayText === 'LBYA' ? (
+              <Wordmark
+                className="h-8 w-28 md:h-10 md:w-36"
+                priority
+                sizes="(max-width: 768px) 112px, 144px"
+              />
+            ) : displayText}
           </span>
         </TransitionLink>
 
@@ -415,6 +465,7 @@ export default function Navbar() {
           onClick={handleMenuClick}
           className="lg:hidden flex flex-col gap-1.5 p-2"
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
           <span
             className={`h-0.5 w-6 bg-white rounded transition-transform origin-center ${isMenuOpen ? 'rotate-45 translate-y-2' : ''

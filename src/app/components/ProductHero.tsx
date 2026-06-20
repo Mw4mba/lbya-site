@@ -1,5 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
+import type { Locale } from '../content/locale';
+import { localizePath } from '../content/paths';
+import { pageFrameStyle } from './LayoutFrame';
 
 interface Cta {
   label: string;
@@ -13,6 +16,8 @@ export default function ProductHero({
   tagline,
   body,
   image,
+  logo,
+  locale,
   primaryCta,
   secondaryCta,
   liveCta,
@@ -22,6 +27,8 @@ export default function ProductHero({
   tagline: string;
   body?: string;
   image?: string;
+  logo?: string;
+  locale: Locale;
   primaryCta?: Cta;
   secondaryCta?: Cta;
   liveCta?: Cta;
@@ -37,7 +44,7 @@ export default function ProductHero({
     return (
       <a
         key={cta.label}
-        href={cta.href}
+        href={cta.external ? cta.href : localizePath(locale, cta.href)}
         {...(cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
         className={`${base} ${styles}`}
       >
@@ -56,14 +63,27 @@ export default function ProductHero({
   };
 
   return (
-    <section className="relative bg-[#2E7D32] px-6 pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+    <section className="relative overflow-hidden bg-[#2E7D32] pb-20 pt-32 lg:pb-28 lg:pt-40">
       {image && (
         <div className="absolute inset-0">
           <Image src={image} alt="" fill sizes="100vw" className="object-cover opacity-20" priority />
           <div className="absolute inset-0 bg-linear-to-t from-[#2E7D32] via-[#2E7D32]/70 to-[#2E7D32]/40" />
         </div>
       )}
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="content-frame relative z-10" style={pageFrameStyle}>
+        {logo && (
+          <div className="mb-7 w-full max-w-[360px] drop-shadow-[0_18px_34px_rgba(0,0,0,0.35)] sm:max-w-[540px]">
+            <Image
+              src={logo}
+              alt={`${title} logo`}
+              width={620}
+              height={180}
+              className="h-auto w-full object-contain"
+              priority
+              unoptimized
+            />
+          </div>
+        )}
         {eyebrow && (
           <p className="text-white/70 text-sm font-medium uppercase tracking-widest mb-4">{eyebrow}</p>
         )}

@@ -3,11 +3,8 @@
 import Navbar from '@/app/components/Navbar';
 import HeroSection from '@/app/components/HeroSection';
 import ProductsShowcase from '@/app/components/ProductsShowcase';
-import VisionSection from '@/app/components/VisionSection';
-import ServicesSection from '@/app/components/ServicesSection';
-import InsightsSection from '@/app/components/InsightsSection';
-import CaseStudiesSection from '@/app/components/CaseStudiesSection';
-import CTASection from '@/app/components/CTASection';
+import SolutionsTeaserSection from '@/app/components/SolutionsTeaserSection';
+import CareerTeaserSection from '@/app/components/CareerTeaserSection';
 import Footer from '@/app/components/Footer';
 
 export default function Home() {
@@ -16,11 +13,8 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <ProductsShowcase />
-      <VisionSection />
-      <ServicesSection />
-      <InsightsSection />
-      <CaseStudiesSection />
-      <CTASection />
+      <SolutionsTeaserSection />
+      <CareerTeaserSection />
       <Footer />
     </main>
   );

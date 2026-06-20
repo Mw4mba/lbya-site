@@ -4,6 +4,8 @@
 // FR/SV/DE for insight article bodies are machine translations, flagged for review.
 export type Language = 'EN' | 'FR' | 'SV' | 'DE';
 
+const currentYear = new Date().getFullYear();
+
 interface InsightItem {
   title: string;
   category: string;
@@ -59,7 +61,7 @@ export const translations: Record<Language, Translations> = {
       readArticle: 'Read article',
       readAll: 'Read all insights',
       items: {
-        aiConstruction: { title: 'The Role of AI in Optimizing Construction Workflows', category: 'Technology', excerpt: 'How artificial intelligence is revolutionizing project management, safety protocols, and operational efficiency in modern construction.', date: 'December 2025' },
+        aiConstruction: { title: 'The Role of AI in Construction Workflows', category: 'Technology', excerpt: 'How artificial intelligence can support project management, safety routines, and operational efficiency in modern construction.', date: 'December 2025' },
         urbanBiodiversity: { title: 'Integrating Biodiversity into Urban Planning', category: 'Sustainability', excerpt: 'Strategies for creating living cities that support local ecosystems through green corridors and biophilic design.', date: 'November 2025' },
         climate: { title: 'Designing for Climate Resilience in Urban Environments', category: 'Climate', excerpt: 'How nature-based solutions and green infrastructure are transforming city resilience strategies.', date: 'October 2025' },
         materials: { title: 'The Future of Structural Engineering: Carbon-Negative Materials', category: 'Innovation', excerpt: 'Exploring bio-based composites and engineered timber that sequester more carbon than they emit.', date: 'September 2025' },
@@ -67,19 +69,19 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '2025 LBYA AB. All rights reserved.',
+      copyright: `${currentYear} LBYA AB. All rights reserved.`,
       company: { title: 'Company', about: 'About Us', careers: 'Careers', contact: 'Contact' },
       resources: { insights: 'Insights' },
       legal: { privacy: 'Privacy Policy' },
     },
   },
   FR: {
-    navbar: { products: 'Produits', services: 'Services', about: 'À propos', insights: 'Insights', careers: 'Carrières', contact: 'Contact' },
+    navbar: { products: 'Produits', services: 'Services', about: 'À propos', insights: 'Analyses', careers: 'Carrières', contact: 'Contact' },
     insights: {
-      title: 'Insights',
+      title: 'Analyses',
       subtitle: 'Perspectives sur les plateformes de contrôle numérique, le contrôle BIM et la logistique africaine.',
       readArticle: "Lire l'article",
-      readAll: 'Tous les insights',
+      readAll: 'Toutes les analyses',
       items: {
         aiConstruction: { title: "Le rôle de l'IA dans l'optimisation des flux de travail de construction", category: 'Technologie', excerpt: "Comment l'intelligence artificielle révolutionne la gestion de projet, la sécurité et l'efficacité opérationnelle.", date: 'Décembre 2025' },
         urbanBiodiversity: { title: 'Intégrer la biodiversité dans la planification urbaine', category: 'Durabilité', excerpt: 'Stratégies pour créer des villes vivantes qui soutiennent les écosystèmes locaux grâce à la conception biophilique.', date: 'Novembre 2025' },
@@ -89,9 +91,9 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '2025 LBYA AB. Tous droits réservés.',
+      copyright: `${currentYear} LBYA AB. Tous droits réservés.`,
       company: { title: 'Entreprise', about: 'À Propos', careers: 'Carrières', contact: 'Contact' },
-      resources: { insights: 'Insights' },
+      resources: { insights: 'Analyses' },
       legal: { privacy: 'Politique de Confidentialité' },
     },
   },
@@ -111,7 +113,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '2025 LBYA AB. Alla rättigheter förbehållna.',
+      copyright: `${currentYear} LBYA AB. Alla rättigheter förbehållna.`,
       company: { title: 'Företag', about: 'Om Oss', careers: 'Karriärer', contact: 'Kontakt' },
       resources: { insights: 'Insikter' },
       legal: { privacy: 'Integritetspolicy' },
@@ -133,7 +135,7 @@ export const translations: Record<Language, Translations> = {
       },
     },
     footer: {
-      copyright: '2025 LBYA AB. Alle Rechte vorbehalten.',
+      copyright: `${currentYear} LBYA AB. Alle Rechte vorbehalten.`,
       company: { title: 'Unternehmen', about: 'Über uns', careers: 'Karriere', contact: 'Kontakt' },
       resources: { insights: 'Einblicke' },
       legal: { privacy: 'Datenschutzerklärung' },

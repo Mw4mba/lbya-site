@@ -6,11 +6,14 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLocale } from 'next-intl';
 import { getSite } from '../content/site';
+import { asLocale } from '../content/locale';
+import { localizePath } from '../content/paths';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CTASection() {
-  const HOME = getSite(useLocale()).home;
+  const activeLocale = asLocale(useLocale());
+  const HOME = getSite(activeLocale).home;
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -61,7 +64,7 @@ export default function CTASection() {
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <a
-            href={HOME.finalCta.primaryCta.href}
+            href={localizePath(activeLocale, HOME.finalCta.primaryCta.href)}
             className="btn-slide-fill group px-10 py-5 font-medium rounded-sm shadow-xl hover:shadow-2xl inline-flex items-center gap-3 justify-center"
           >
             <span>{HOME.finalCta.primaryCta.label}</span>
@@ -70,7 +73,7 @@ export default function CTASection() {
             </svg>
           </a>
           <a
-            href={HOME.finalCta.secondaryCta.href}
+            href={localizePath(activeLocale, HOME.finalCta.secondaryCta.href)}
             className="btn-slide-fill group px-10 py-5 font-medium rounded-sm shadow-xl hover:shadow-2xl inline-flex items-center gap-3 justify-center"
           >
             <span>{HOME.finalCta.secondaryCta.label}</span>

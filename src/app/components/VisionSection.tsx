@@ -83,9 +83,9 @@ export default function VisionSection() {
     }, []);
 
     const visionPoints = [
-        "Most teams lose time in the gaps between tools, where information scatters and ownership blurs.",
-        "LBYA builds digital control platforms that connect data, documents, and decisions.",
-        "Clarity, traceability, and decision readiness, so teams act on a record they can trust.",
+        "Important work often gets lost between tools, messages, and files.",
+        "LBYA builds digital control products that connect data, documents, responsibility, and decisions.",
+        "When the record is clear, teams can act with more confidence.",
         "Rooted in nature, designed for the future, and built for connected industries."
     ];
 

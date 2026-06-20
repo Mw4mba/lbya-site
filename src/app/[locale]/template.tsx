@@ -11,10 +11,10 @@ export default function Template({ children }: { children: React.ReactNode }) {
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(elementRef.current,
-        { opacity: 0, x: 50 },
+        { opacity: 0, y: 16 },
         {
           opacity: 1,
-          x: 0,
+          y: 0,
           duration: 0.6,
           ease: 'power3.out',
           clearProps: 'all'

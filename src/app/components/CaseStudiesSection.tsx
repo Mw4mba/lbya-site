@@ -6,11 +6,27 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLocale } from 'next-intl';
 import { getSite } from '../content/site';
+import { asLocale, type Locale } from '../content/locale';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const exploreCopyByLocale: Record<Locale, string> = {
+  en: 'Explore',
+  sv: 'Utforska',
+  fr: 'Découvrir',
+  de: 'Entdecken',
+};
+
+function localizePath(locale: Locale, href: string) {
+  if (!href.startsWith('/')) return href;
+  if (href === '/') return `/${locale}`;
+  return `/${locale}${href}`;
+}
+
 export default function CaseStudiesSection() {
-  const CASE_STUDIES = getSite(useLocale()).caseStudies;
+  const activeLocale = asLocale(useLocale());
+  const CASE_STUDIES = getSite(activeLocale).caseStudies;
+  const exploreLabel = exploreCopyByLocale[activeLocale];
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -92,10 +108,10 @@ export default function CaseStudiesSection() {
                   {study.description}
                 </p>
                 <a
-                  href={study.href}
+                  href={localizePath(activeLocale, study.href)}
                   className="inline-flex items-center gap-2 text-white font-semibold text-sm hover:gap-3 transition-all"
                 >
-                  <span>Explore {study.product}</span>
+                  <span>{exploreLabel} {study.product}</span>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>

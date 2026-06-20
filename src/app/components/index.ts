@@ -1,13 +1,14 @@
 export { default as Navbar } from './Navbar';
 export { default as Logo } from './Logo';
 export { default as HeroSection } from './HeroSection';
-export { default as ServicesSection } from './ServicesSection';
-export { default as ITServicesSection } from './ITServicesSection';
 export { default as InsightsSection } from './InsightsSection';
 export { default as CaseStudiesSection } from './CaseStudiesSection';
+export { default as LatestNewsSection } from './LatestNewsSection';
+export { default as CareerTeaserSection } from './CareerTeaserSection';
 export { default as CTASection } from './CTASection';
 export { default as VisionSection } from './VisionSection';
 export { default as Footer } from './Footer';
+export { default as BrandLockup } from './BrandLockup';
 export { default as ProductCard } from './ProductCard';
 export { default as PackageTierCard } from './PackageTierCard';
 export { default as FeatureMatrix } from './FeatureMatrix';

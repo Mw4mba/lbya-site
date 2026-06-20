@@ -14,6 +14,8 @@ export default function TransitionLink({ children, href, ...props }: TransitionL
   const { navigate } = useTransition();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (href.includes('#')) return;
+
     // Only handle internal links and left clicks
     if (href.startsWith('/') && !href.startsWith('http') && e.button === 0 && !e.metaKey && !e.ctrlKey) {
       e.preventDefault();

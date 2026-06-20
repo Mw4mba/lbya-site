@@ -3,18 +3,16 @@
 import React from 'react';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
-import { useTranslation } from '@/app/i18n/I18nContext';
+import { pageFrameStyle } from '@/app/components/LayoutFrame';
 
 export default function PrivacyPage() {
-  const { t } = useTranslation();
-
   return (
     <main className="w-full overflow-x-hidden">
       <Navbar />
 
       {/* Hero Section - Insights Style */}
-      <section className="relative min-h-[40vh] flex items-center justify-center bg-[#2E7D32] py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 text-center">
+      <section className="relative bg-[#2E7D32] py-24">
+        <div className="content-frame text-center" style={pageFrameStyle}>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
             Data Privacy Policy
           </h1>
@@ -26,13 +24,14 @@ export default function PrivacyPage() {
 
       {/* Content Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+        <div className="content-frame" style={pageFrameStyle}>
+          <div className="max-w-4xl">
 
           {/* Introduction */}
-          <div className="mb-12">
+          <div id="cookies" className="mb-12 scroll-mt-28">
             <h2 className="text-3xl font-semibold text-[#2E7D32] mb-4">1. Introduction</h2>
             <p className="text-[#37474F] leading-relaxed mb-4">
-              LBYA AB, organization number [ORG-NUMBER] ("LBYA", "we", "us" or "our") processes your personal data when you interact with us in various contexts.
+              LBYA AB ("LBYA", "we", "us" or "our") is the data controller for personal data processed through this website and related inquiries.
             </p>
             <p className="text-[#37474F] leading-relaxed mb-4">
               We respect your privacy and protect the personal data we process about you. All processing of personal data is carried out in accordance with the requirements of the General Data Protection Regulation ("GDPR") and other applicable legislation on the protection of personal data.
@@ -51,11 +50,11 @@ export default function PrivacyPage() {
             </p>
             <h3 className="text-xl font-medium text-[#37474F] mb-3">Why do we process your data?</h3>
             <p className="text-[#37474F] leading-relaxed mb-4">
-              We process this data to improve our website functionality, analyze usage patterns, enhance user experience, and ensure website security.
+              We process this data to keep the website secure, understand how it is used, and make it easier to use over time.
             </p>
             <h3 className="text-xl font-medium text-[#37474F] mb-3">Legal basis</h3>
             <p className="text-[#37474F] leading-relaxed">
-              The processing is based on our legitimate interest in operating and improving our website and services.
+              The processing is based on our legitimate interest in operating and improving our website and products.
             </p>
           </div>
 
@@ -63,14 +62,13 @@ export default function PrivacyPage() {
           <div className="mb-12">
             <h2 className="text-3xl font-semibold text-[#2E7D32] mb-4">3. Cookies and Similar Technologies</h2>
             <p className="text-[#37474F] leading-relaxed mb-4">
-              We use cookies and similar technologies to enhance your browsing experience. Cookies are small text files stored on your device that help us remember your preferences and understand how you use our website.
+              We use cookies and similar technologies to keep the website working, remember preferences where enabled, and understand how visitors use the site. Cookies are small text files stored on your device.
             </p>
             <h3 className="text-xl font-medium text-[#37474F] mb-3">Types of cookies we use:</h3>
             <ul className="list-disc list-inside text-[#37474F] leading-relaxed mb-4 space-y-2">
               <li><strong>Essential cookies:</strong> Required for the website to function properly</li>
-              <li><strong>Functional cookies:</strong> Remember your preferences and settings</li>
-              <li><strong>Analytics cookies:</strong> Help us understand how visitors use our website</li>
-              <li><strong>Marketing cookies:</strong> Used to deliver relevant advertisements</li>
+              <li><strong>Functional cookies:</strong> Remember preferences such as language or consent choices where enabled</li>
+              <li><strong>Analytics cookies:</strong> Help us understand how visitors use the website, if analytics tools are enabled</li>
             </ul>
             <p className="text-[#37474F] leading-relaxed">
               You can manage your cookie preferences at any time through our cookie consent tool.
@@ -81,10 +79,10 @@ export default function PrivacyPage() {
           <div className="mb-12">
             <h2 className="text-3xl font-semibold text-[#2E7D32] mb-4">4. Contact and Inquiries</h2>
             <p className="text-[#37474F] leading-relaxed mb-4">
-              When you contact us through our website, email, or other channels, we collect the personal data you provide, such as your name, email address, phone number, and the content of your message.
+              When you contact us through our website, email, or other channels, we collect the personal data you provide, such as your name, email address, company, inquiry type, phone number if provided, and the content of your message.
             </p>
             <p className="text-[#37474F] leading-relaxed mb-4">
-              We process this data to respond to your inquiry, provide requested information, and maintain records of our communication. The legal basis is our legitimate interest in responding to inquiries and, where applicable, the performance of a contract.
+              We process this data to respond to your inquiry, route the conversation to the right product area, provide requested information, and maintain records of our communication. The legal basis is our legitimate interest in responding to inquiries and, where applicable, the performance of a contract.
             </p>
           </div>
 
@@ -203,16 +201,17 @@ export default function PrivacyPage() {
             <div className="bg-[#F5F5DC] p-6 rounded-sm">
               <p className="text-[#37474F] mb-2"><strong>LBYA AB</strong></p>
               <p className="text-[#37474F] mb-2">Email: info@lbya.se</p>
-              <p className="text-[#37474F] mb-2">Address: [Company Address]</p>
-              <p className="text-[#37474F]">Data Protection Officer: info@lbya.se</p>
+              <p className="text-[#37474F] mb-2">Address: Gamla Enköpingsvägen 150, 174 64 Sundbyberg</p>
+              <p className="text-[#37474F] mb-2">Data controller contact: info@lbya.se</p>
             </div>
           </div>
 
           {/* Last Updated */}
           <div className="text-sm text-[#37474F]/60 pt-8 border-t border-[#37474F]/10">
-            <p>Last updated: November 2025</p>
+            <p>Last updated: 19 June 2026</p>
           </div>
 
+          </div>
         </div>
       </section>
 

@@ -10,6 +10,20 @@
 
   --background: #F5F5DC;
   --foreground: #37474F;
+  --home-align-left: 1.5rem;
+  --home-align-right-gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --home-align-left: clamp(1.5rem, calc(9.14vw - 0.354rem), 7.875rem);
+    --home-align-right-gap: clamp(1.5rem, calc(11.43vw - 1.286rem), 9rem);
+  }
+}
+
+.content-frame {
+  margin-left: clamp(1.5rem, calc(9.14vw - 0.354rem), 7.875rem);
+  margin-right: clamp(1.5rem, calc(11.43vw - 1.286rem), 9rem);
 }
 
 /* Monochrome Theme */
@@ -68,6 +82,7 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Angular shapes using clip-path */
@@ -181,6 +196,66 @@ html {
   }
 }
 
+@keyframes hero-signal-flow {
+  from {
+    stroke-dashoffset: 96;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-root-grow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes hero-root-breathe {
+
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes hero-node-pulse {
+
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-grid-pan {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 96px 48px;
+  }
+}
+
+@keyframes hero-core-turn {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .animate-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -207,6 +282,59 @@ html {
 
 .animation-delay-4000 {
   animation-delay: 4s;
+}
+
+.hero-signal-line {
+  stroke-dasharray: 8 16;
+  animation: hero-signal-flow 18s linear infinite;
+}
+
+.hero-root-line {
+  opacity: 0.65;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  animation: hero-root-grow 2.8s ease-out forwards, hero-root-breathe 5s ease-in-out infinite 2.8s;
+}
+
+.hero-future-line {
+  opacity: 0.7;
+  stroke-dasharray: 7 13;
+  animation: hero-signal-flow 12s linear infinite;
+}
+
+.hero-signal-node {
+  opacity: 0.4;
+  animation: hero-node-pulse 3.8s ease-in-out infinite;
+}
+
+.hero-grid-scan {
+  animation: hero-grid-pan 16s linear infinite;
+}
+
+.hero-core-ring {
+  animation: hero-core-turn 22s linear infinite;
+  clip-path: polygon(50% 0, 100% 0, 100% 58%, 50% 100%, 0 100%, 0 42%);
+}
+
+.hero-core-ring-reverse {
+  animation-duration: 28s;
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-signal-line,
+  .hero-root-line,
+  .hero-future-line,
+  .hero-signal-node,
+  .hero-grid-scan,
+  .hero-core-ring {
+    animation: none !important;
+  }
+
+  .hero-root-line {
+    stroke-dashoffset: 0;
+  }
 }
 
 /* Stagger animations */
