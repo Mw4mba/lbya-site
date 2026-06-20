@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import { permanentRedirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+import { MctConvertedPrice, MctCurrencySwitcher } from '@/app/components/MctCurrencyPricing';
 import {
   ArrowIcon,
   CheckIcon,
@@ -33,6 +35,9 @@ export default async function MctPricingPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const activeLocale = asLocale(locale);
+  if (activeLocale === 'sv') {
+    permanentRedirect(localizePath(activeLocale, '/products/nbc'));
+  }
   const copy = getMctPricing(activeLocale);
   const packages = getMctPackages(activeLocale);
   const featureLabel = featureLabelByLocale[activeLocale];
@@ -54,6 +59,7 @@ export default async function MctPricingPage({ params }: Props) {
         >
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A5D6A7]">{copy.basisLabel}</p>
           <p className="mt-3 text-sm leading-6 text-white/72">{copy.noteBody}</p>
+          <MctCurrencySwitcher locale={activeLocale} tone="dark" className="mt-5" />
           <div className="mt-5 grid gap-3">
             {packages.map((tier) => (
               <a
@@ -62,7 +68,12 @@ export default async function MctPricingPage({ params }: Props) {
                 className="group flex items-center justify-between gap-4 border-t border-white/12 pt-3 text-sm"
               >
                 <span className="font-semibold text-white group-hover:text-[#A5D6A7]">{tier.name}</span>
-                <span className="text-white/60">{tier.priceMonthly.replace('From ', '')}</span>
+                <MctConvertedPrice
+                  source={tier.priceMonthly}
+                  locale={activeLocale}
+                  kind="monthly"
+                  className="text-right text-white/60"
+                />
               </a>
             ))}
           </div>
@@ -92,11 +103,15 @@ export default async function MctPricingPage({ params }: Props) {
                       <p className={`text-xs font-semibold uppercase tracking-[0.14em] ${featured ? 'text-white/54' : 'text-[#37474F]/54'}`}>
                         {copy.monthlyLabel}
                       </p>
-                      <p className="mt-2 text-2xl font-semibold">{tier.priceMonthly}</p>
+                      <p className="mt-2 text-2xl font-semibold">
+                        <MctConvertedPrice source={tier.priceMonthly} locale={activeLocale} kind="monthly" />
+                      </p>
                       <p className={`mt-4 text-xs font-semibold uppercase tracking-[0.14em] ${featured ? 'text-white/54' : 'text-[#37474F]/54'}`}>
                         {copy.setupLabel}
                       </p>
-                      <p className="mt-2 text-lg font-semibold">{tier.setupPrice}</p>
+                      <p className="mt-2 text-lg font-semibold">
+                        <MctConvertedPrice source={tier.setupPrice} locale={activeLocale} kind="setup" />
+                      </p>
                     </div>
 
                     <ul className="mt-6 grid gap-3">

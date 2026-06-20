@@ -11,7 +11,7 @@ import Wordmark from './Wordmark';
 
 const heroStatusByLocale: Record<Locale, string> = {
   en: 'MCT is ready for demo. NBC is in early development.',
-  sv: 'MCT \u00e4r redo f\u00f6r demo. NBC \u00e4r i tidig utveckling.',
+  sv: 'NBC \u00e4r i tidig utveckling f\u00f6r BIM-kontroll.',
   fr: 'MCT est pr\u00eat pour une d\u00e9mo. NBC est en d\u00e9veloppement pr\u00e9coce.',
   de: 'MCT ist demo-bereit. NBC befindet sich in fr\u00fcher Entwicklung.',
 };

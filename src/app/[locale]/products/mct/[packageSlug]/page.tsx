@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+import { MctConvertedPrice, MctCurrencySwitcher } from '@/app/components/MctCurrencyPricing';
 import {
   ArrowIcon,
   CheckIcon,
@@ -12,6 +13,7 @@ import {
   mctCommercialFrameStyle,
 } from '@/app/components/MctCommercialLayout';
 import { asLocale, type Locale } from '@/app/content/locale';
+import { localizePath } from '@/app/content/paths';
 import { getMctPackage, mctPackageOrder } from '@/app/content/mctCommercial';
 
 type Props = { params: Promise<{ locale: string; packageSlug: string }> };
@@ -113,6 +115,9 @@ export default async function MctPackagePage({ params }: Props) {
   const { locale, packageSlug } = await params;
   setRequestLocale(locale);
   const activeLocale = asLocale(locale);
+  if (activeLocale === 'sv') {
+    permanentRedirect(localizePath(activeLocale, '/products/nbc'));
+  }
   const labels = packagePageLabelsByLocale[activeLocale];
   const tier = getMctPackage(activeLocale, packageSlug);
 
@@ -135,11 +140,16 @@ export default async function MctPackagePage({ params }: Props) {
         >
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A5D6A7]">{tier.name}</p>
           <p className="mt-3 text-2xl font-semibold leading-tight text-white">{tier.shortLabel}</p>
+          <MctCurrencySwitcher locale={activeLocale} tone="dark" className="mt-5" />
           <div className="mt-5 border-y border-white/14 py-5">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/54">{labels.monthlyLabel}</p>
-            <p className="mt-2 text-2xl font-semibold text-white">{tier.priceMonthly}</p>
+            <p className="mt-2 text-2xl font-semibold text-white">
+              <MctConvertedPrice source={tier.priceMonthly} locale={activeLocale} kind="monthly" />
+            </p>
             <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-white/54">{labels.setupLabel}</p>
-            <p className="mt-2 text-lg font-semibold text-white">{tier.setupPrice}</p>
+            <p className="mt-2 text-lg font-semibold text-white">
+              <MctConvertedPrice source={tier.setupPrice} locale={activeLocale} kind="setup" />
+            </p>
           </div>
           <p className="mt-4 text-xs font-semibold uppercase tracking-[0.14em] text-[#A5D6A7]">{labels.basisLabel}</p>
           <p className="mt-2 text-sm leading-6 text-white/70">{tier.priceBasis}</p>

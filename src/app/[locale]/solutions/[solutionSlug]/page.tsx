@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -102,6 +102,9 @@ export default async function SolutionPage({ params }: Props) {
   const { locale, solutionSlug } = await params;
   setRequestLocale(locale);
   const activeLocale = asLocale(locale);
+  if (activeLocale === 'sv' && solutionSlug === 'transport-logistics-africa') {
+    permanentRedirect(localizePath(activeLocale, '/solutions/global-bim-control'));
+  }
   const solution = getSolution(activeLocale, solutionSlug);
 
   if (!solution) notFound();

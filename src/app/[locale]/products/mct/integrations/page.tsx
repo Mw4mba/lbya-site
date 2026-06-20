@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { permanentRedirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
@@ -11,6 +12,7 @@ import {
   mctCommercialFrameStyle,
 } from '@/app/components/MctCommercialLayout';
 import { asLocale } from '@/app/content/locale';
+import { localizePath } from '@/app/content/paths';
 import { getMctIntegrations } from '@/app/content/mctCommercial';
 
 type Props = { params: Promise<{ locale: string }> };
@@ -39,6 +41,9 @@ export default async function MctIntegrationsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const activeLocale = asLocale(locale);
+  if (activeLocale === 'sv') {
+    permanentRedirect(localizePath(activeLocale, '/products/nbc'));
+  }
   const copy = getMctIntegrations(activeLocale);
   const statLabels = statLabelsByLocale[activeLocale];
   const pricingLabel = pricingLabelByLocale[activeLocale];

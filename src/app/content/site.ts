@@ -206,7 +206,7 @@ const en: SiteContent = {
     subtitle: 'MCT shows African logistics coordination in practice. NBC shows how BIM Control can support project teams anywhere.',
     items: [
       { product: 'Malaika Control Tower', acronym: 'MCT', title: 'African logistics coordination', context: 'MCT for African logistics corridors', description: 'MCT brings transport requests, transporter data, truck documents, quotes, verification notes, and operational decisions into one workflow. The focus is simple: clearer ownership, better traceability, and more trust across cross-border logistics.', image: IMG.kinshasa, href: '/products/mct' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control for global project teams', context: 'Global BIM information control', description: 'NBC is designed for BIM teams anywhere: clients, BIM managers, consultants, contractors, and multidisciplinary delivery teams that need clearer requirements, model quality, issue ownership, evidence, and decision readiness.', image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control for global project teams', context: 'Global BIM information control', description: 'NBC is designed for BIM teams anywhere: clients, BIM managers, consultants, contractors, and multidisciplinary delivery teams that need clearer requirements, model quality, issue ownership, evidence, and decision readiness.', image: IMG.bimDigital, href: '/products/nbc' },
     ],
   },
 };
@@ -262,12 +262,12 @@ const sv: SiteContent = {
     },
   },
   productsOverview: {
-    seoTitle: 'LBYA Produkter | Digitala kontrollplattformar',
+    seoTitle: 'LBYA Produkter | Nayeli BIM Control',
     metaDescription:
-      'Utforska LBYA:s digitala kontrollprodukter för logistik- och BIM-team.',
+      'Utforska Nayeli BIM Control, LBYA:s digitala BIM-kontrollprodukt.',
     hero: 'Produkter',
     intro:
-      'LBYA bygger digitala kontrollprodukter som hjälper team att göra spridd information till tydliga, spårbara beslut. Malaika Control Tower fokuserar på transport och logistik. Nayeli BIM Control för samma disciplin till BIM.',
+      'LBYA bygger digitala kontrollprodukter som hjälper team att göra spridd information till tydliga, spårbara beslut. I den svenska versionen fokuserar vi på Nayeli BIM Control och dess roll inom BIM-samordning, modellinformation och beslutsunderlag.',
   },
   services: {
     seoTitle: 'LBYA Tjänster | Stöd för implementering och digital transformation',
@@ -325,7 +325,7 @@ const sv: SiteContent = {
     subtitle: 'MCT visar afrikansk logistiksamordning i praktiken. NBC visar hur BIM Control kan stödja projektteam var som helst.',
     items: [
       { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Afrikansk logistiksamordning', context: 'MCT för afrikanska logistikkorridorer', description: 'MCT samlar transportförfrågningar, transportörsdata, lastbilsdokument, offerter, verifieringsanteckningar och operativa beslut i ett arbetsflöde. Fokus är enkelt: tydligare ägarskap, bättre spårbarhet och mer tillit i gränsöverskridande logistik.', image: IMG.kinshasa, href: '/products/mct' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control för globala projektteam', context: 'Global BIM-informationskontroll', description: 'NBC är utformat för BIM-team överallt: beställare, BIM-ansvariga, konsulter, entreprenörer och multidisciplinära leveransteam som behöver tydligare krav, modellkvalitet, ärendeägarskap, underlag och beslutsberedskap.', image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control för globala projektteam', context: 'Global BIM-informationskontroll', description: 'NBC är utformat för BIM-team överallt: beställare, BIM-ansvariga, konsulter, entreprenörer och multidisciplinära leveransteam som behöver tydligare krav, modellkvalitet, ärendeägarskap, underlag och beslutsberedskap.', image: IMG.bimDigital, href: '/products/nbc' },
     ],
   },
 };
@@ -444,7 +444,7 @@ const fr: SiteContent = {
     subtitle: "MCT montre la coordination logistique africaine en pratique. NBC montre comment BIM Control peut soutenir les équipes projet partout.",
     items: [
       { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Coordination logistique africaine', context: 'MCT pour les corridors logistiques africains', description: "MCT rassemble les demandes de transport, les données transporteurs, les dossiers de camions, les devis, les notes de vérification et les décisions opérationnelles dans un même flux. L'objectif est simple : plus de responsabilité, une meilleure traçabilité et plus de confiance dans la logistique transfrontalière.", image: IMG.kinshasa, href: '/products/mct' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control pour les équipes projet internationales', context: "Contrôle global de l'information BIM", description: "NBC est conçu pour les équipes BIM partout dans le monde : clients, BIM managers, consultants, entrepreneurs et équipes de livraison multidisciplinaires qui ont besoin d'exigences plus claires, de qualité de modèle, de responsabilité des problèmes, de preuves et de préparation à la décision.", image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control pour les équipes projet internationales', context: "Contrôle global de l'information BIM", description: "NBC est conçu pour les équipes BIM partout dans le monde : clients, BIM managers, consultants, entrepreneurs et équipes de livraison multidisciplinaires qui ont besoin d'exigences plus claires, de qualité de modèle, de responsabilité des problèmes, de preuves et de préparation à la décision.", image: IMG.bimDigital, href: '/products/nbc' },
     ],
   },
 };
@@ -563,7 +563,7 @@ const de: SiteContent = {
     subtitle: 'MCT zeigt afrikanische Logistikkoordination in der Praxis. NBC zeigt, wie BIM Control Projektteams überall unterstützen kann.',
     items: [
       { product: 'Malaika Control Tower', acronym: 'MCT', title: 'Afrikanische Logistikkoordination', context: 'MCT für afrikanische Logistikkorridore', description: 'MCT bringt Transportanfragen, Transporteurdaten, Lkw-Dokumente, Angebote, Verifizierungsnotizen und operative Entscheidungen in einen Workflow. Der Fokus ist einfach: klarere Verantwortung, bessere Nachvollziehbarkeit und mehr Vertrauen in grenzüberschreitender Logistik.', image: IMG.kinshasa, href: '/products/mct' },
-      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control für globale Projektteams', context: 'Globale BIM-Informationskontrolle', description: 'NBC ist für BIM-Teams überall konzipiert: Auftraggeber, BIM-Manager, Berater, Bauunternehmen und multidisziplinäre Lieferteams, die klarere Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Entscheidungsreife benötigen.', image: IMG.bimDigital, href: '/products/nayeli-bim-control' },
+      { product: 'Nayeli BIM Control', acronym: 'NBC', title: 'BIM Control für globale Projektteams', context: 'Globale BIM-Informationskontrolle', description: 'NBC ist für BIM-Teams überall konzipiert: Auftraggeber, BIM-Manager, Berater, Bauunternehmen und multidisziplinäre Lieferteams, die klarere Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Entscheidungsreife benötigen.', image: IMG.bimDigital, href: '/products/nbc' },
     ],
   },
 };

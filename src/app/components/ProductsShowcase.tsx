@@ -25,21 +25,21 @@ const productShowcaseCopyByLocale: Record<Locale, ProductShowcaseCopy> = {
     requestDemoCta: 'Request demo',
     briefBySlug: {
       'mct':
-        'Ready for multimodal logistics coordination, document control, transporter records, quote comparison, status tracking, reporting, and operational evidence. JARIDAFRICA uses MCT with Enterprise Premium.',
-      'nayeli-bim-control':
+        'Ready for multimodal logistics coordination, document control, transporter records, quote comparison, status tracking, reporting, and operational evidence.',
+      'nbc':
         'An early-stage BIM control product for teams that need clearer model information, responsibility, and decision evidence.',
     },
   },
   sv: {
     eyebrow: 'Produkter',
-    heading: 'Produkter byggda f\u00f6r kontroll, inte brus.',
-    body: 'B\u00f6rja med produkten som passar ert arbete. MCT \u00e4r redo f\u00f6r demo inom logistikkontroll; NBC formas fortfarande som en fokuserad BIM-kontrollprodukt.',
+    heading: 'En produkt byggd f\u00f6r tydlig BIM-kontroll.',
+    body: 'NBC formas som en fokuserad BIM-kontrollprodukt f\u00f6r team som beh\u00f6ver b\u00e4ttre ansvar, modellinformation och beslutsunderlag.',
     learnMoreCta: 'L\u00e4s mer',
     requestDemoCta: 'Beg\u00e4r demo',
     briefBySlug: {
       'mct':
-        'Redo f\u00f6r multimodal logistiksamordning, dokumentkontroll, transport\u00f6rsregister, offertj\u00e4mf\u00f6relse, statusuppf\u00f6ljning, rapportering och operativa underlag. JARIDAFRICA anv\u00e4nder MCT med Enterprise Premium.',
-      'nayeli-bim-control':
+        'Redo f\u00f6r multimodal logistiksamordning, dokumentkontroll, transport\u00f6rsregister, offertj\u00e4mf\u00f6relse, statusuppf\u00f6ljning, rapportering och operativa underlag.',
+      'nbc':
         'En BIM-kontrollprodukt i tidig fas f\u00f6r team som beh\u00f6ver tydligare modellinformation, ansvar och beslutsunderlag.',
     },
   },
@@ -51,8 +51,8 @@ const productShowcaseCopyByLocale: Record<Locale, ProductShowcaseCopy> = {
     requestDemoCta: 'Demander une d\u00e9mo',
     briefBySlug: {
       'mct':
-        'Pr\u00eat pour la coordination logistique multimodale, le contr\u00f4le documentaire, les dossiers transporteurs, la comparaison de devis, le suivi de statut, les rapports et les preuves op\u00e9rationnelles. JARIDAFRICA utilise MCT avec Enterprise Premium.',
-      'nayeli-bim-control':
+        'Pr\u00eat pour la coordination logistique multimodale, le contr\u00f4le documentaire, les dossiers transporteurs, la comparaison de devis, le suivi de statut, les rapports et les preuves op\u00e9rationnelles.',
+      'nbc':
         'Un produit de contr\u00f4le BIM en phase initiale pour les \u00e9quipes qui veulent une information de mod\u00e8le, des responsabilit\u00e9s et des preuves de d\u00e9cision plus claires.',
     },
   },
@@ -64,8 +64,8 @@ const productShowcaseCopyByLocale: Record<Locale, ProductShowcaseCopy> = {
     requestDemoCta: 'Demo anfragen',
     briefBySlug: {
       'mct':
-        'Bereit f\u00fcr multimodale Logistikkoordination, Dokumentenkontrolle, Transporteurdaten, Angebotsvergleich, Statusverfolgung, Reporting und operative Nachweise. JARIDAFRICA nutzt MCT mit Enterprise Premium.',
-      'nayeli-bim-control':
+        'Bereit f\u00fcr multimodale Logistikkoordination, Dokumentenkontrolle, Transporteurdaten, Angebotsvergleich, Statusverfolgung, Reporting und operative Nachweise.',
+      'nbc':
         'Ein BIM-Kontrollprodukt in fr\u00fcher Phase f\u00fcr Teams, die klarere Modellinformationen, Verantwortlichkeit und Entscheidungsnachweise brauchen.',
     },
   },
@@ -120,14 +120,11 @@ function ProductsSignalLayer() {
       <svg
         className="absolute inset-x-0 top-4 h-[82%] w-full opacity-70"
         viewBox="0 0 1440 520"
-        preserveAspectRatio="none"
       >
         <defs>
           <linearGradient id="products-home-signal" x1="0%" y1="68%" x2="100%" y2="24%">
             <stop offset="0%" stopColor="#2E7D32" stopOpacity="0.12" />
             <stop offset="45%" stopColor="#2E7D32" stopOpacity="0.42" />
-            <stop offset="74%" stopColor="#81D4FA" stopOpacity="0.45" />
-            <stop offset="100%" stopColor="#F5C469" stopOpacity="0.48" />
           </linearGradient>
           <linearGradient id="products-home-soft" x1="0%" y1="35%" x2="100%" y2="65%">
             <stop offset="0%" stopColor="#A5D6A7" stopOpacity="0.18" />
@@ -201,7 +198,8 @@ function ProductLogo({ product }: { product: ProductSummary }) {
       alt={`${product.name} logo`}
       width={dimensions.width}
       height={dimensions.height}
-      className="max-h-12 w-full object-contain"
+      className="max-h-12 max-w-full object-contain"
+      style={{ width: 'auto', height: 'auto' }}
       unoptimized
     />
   );
@@ -269,11 +267,91 @@ function CompactProductCard({
   );
 }
 
+function SingleProductShowcase({
+  product,
+  description,
+  learnMore,
+  requestDemo,
+  locale,
+}: {
+  product: ProductSummary;
+  description: string;
+  learnMore: string;
+  requestDemo: string;
+  locale: Locale;
+}) {
+  return (
+    <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+      <div className="max-w-2xl">
+        <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#2E7D32]">
+          En produkt
+        </p>
+        <h3 className="mt-4 text-4xl font-semibold tracking-tight text-[#1F3529] md:text-5xl">
+          {product.name}
+        </h3>
+        <p className="mt-5 text-lg leading-8 text-[#37474F]/82">
+          {product.tagline}
+        </p>
+        <p className="mt-6 text-sm leading-7 text-[#37474F]/75">
+          {description}
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            href={localizePath(locale, product.href)}
+            className="inline-flex items-center gap-2 rounded-sm bg-[#1F3529] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2E7D32]"
+          >
+            <span>{learnMore}</span>
+            <ArrowIcon />
+          </a>
+          <a
+            href={localizePath(locale, '/contact')}
+            className="inline-flex items-center gap-2 rounded-sm border border-[#2E7D32]/40 bg-white px-5 py-3 text-sm font-semibold text-[#2E7D32] transition-colors hover:bg-[#2E7D32]/10"
+          >
+            <span>{requestDemo}</span>
+            <ArrowIcon />
+          </a>
+        </div>
+      </div>
+
+      <article className="overflow-hidden rounded-[2rem] border border-[#1F3529]/12 bg-[#F7FAF7] shadow-[0_28px_60px_rgba(31,53,41,0.08)]">
+        <div className="relative h-[26rem] overflow-hidden sm:h-[30rem]">
+          <Image
+            src={product.image}
+            alt=""
+            fill
+            className="object-cover object-center opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#2E7D32]/15 via-[#1F3529]/10 to-transparent" />
+          <div className="absolute inset-0 flex items-end p-8">
+            <div className="w-full rounded-[1.75rem] bg-white/92 p-8 shadow-xl backdrop-blur-sm">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-flex rounded-full bg-[#E8F5E9] px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#2E7D32]">
+                  {product.status}
+                </span>
+                <span className="text-xs font-semibold uppercase tracking-[0.24em] text-[#37474F]/60">
+                  {product.acronym}
+                </span>
+              </div>
+              <h4 className="mt-5 text-3xl font-semibold text-[#1F3529]">
+                {product.name}
+              </h4>
+              <p className="mt-4 text-sm leading-7 text-[#37474F]/80">
+                {product.cardCopy}
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  );
+}
+
 export default function ProductsShowcase() {
   const locale = useLocale();
   const activeLocale = asLocale(locale);
   const copy = productShowcaseCopyByLocale[activeLocale];
   const products = getProducts(locale);
+  const showSingleProductLayout = activeLocale === 'sv' && products.length === 1;
 
   return (
     <section id="products" aria-label="Products" className="relative overflow-hidden bg-white py-12 sm:py-14">
@@ -302,18 +380,28 @@ export default function ProductsShowcase() {
           </p>
         </div>
 
-        <div className="mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:overflow-visible md:pb-0">
-          {products.map((product) => (
-            <CompactProductCard
-              key={product.slug}
-              product={product}
-              description={copy.briefBySlug[product.slug] ?? product.tagline}
-              learnMore={copy.learnMoreCta}
-              requestDemo={copy.requestDemoCta}
-              locale={activeLocale}
-            />
-          ))}
-        </div>
+        {showSingleProductLayout ? (
+          <SingleProductShowcase
+            product={products[0]}
+            description={copy.briefBySlug[products[0].slug] ?? products[0].tagline}
+            learnMore={copy.learnMoreCta}
+            requestDemo={copy.requestDemoCta}
+            locale={activeLocale}
+          />
+        ) : (
+          <div className="mt-7 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 md:grid md:grid-cols-2 md:overflow-visible md:pb-0">
+            {products.map((product) => (
+              <CompactProductCard
+                key={product.slug}
+                product={product}
+                description={copy.briefBySlug[product.slug] ?? product.tagline}
+                learnMore={copy.learnMoreCta}
+                requestDemo={copy.requestDemoCta}
+                locale={activeLocale}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

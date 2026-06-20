@@ -8,6 +8,7 @@ import "../globals.css";
 import { Providers } from "../providers";
 import { TransitionProvider } from "../context/TransitionContext";
 import CookieConsent from "../components/CookieConsent";
+import CopyProtection from "../components/CopyProtection";
 import PageLabelSidebar from "../components/PageLabelSidebar";
 
 const inter = Inter({
@@ -40,13 +41,14 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale}>
+    <html lang={locale} data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Days+One&family=Tektur:wght@400..900&display=swap" rel="stylesheet" />
       </head>
       <body className={`${inter.variable} antialiased bg-[#F5F5DC]`}>
+        <CopyProtection />
         <PageLabelSidebar />
         <NextIntlClientProvider>
           <Providers locale={locale}>

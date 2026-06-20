@@ -77,6 +77,21 @@ body {
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+input,
+textarea,
+select,
+[contenteditable="true"],
+[data-allow-copy="true"] {
+  -webkit-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+  -webkit-touch-callout: default;
 }
 
 /* Smooth scrolling */
@@ -256,6 +271,51 @@ html {
   }
 }
 
+@keyframes nbc-bim-scan {
+
+  0% {
+    opacity: 0.08;
+    transform: translate3d(0, -118px, 0);
+  }
+
+  45% {
+    opacity: 0.44;
+  }
+
+  55% {
+    opacity: 0.36;
+  }
+
+  100% {
+    opacity: 0.08;
+    transform: translate3d(0, 220px, 0);
+  }
+}
+
+@keyframes footer-fingerprint-flow {
+  from {
+    stroke-dashoffset: 90;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes footer-fingerprint-node {
+
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.12);
+  }
+}
+
 .animate-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
@@ -321,6 +381,93 @@ html {
   animation-direction: reverse;
 }
 
+.footer-fingerprint-surface {
+  --footer-fingerprint-x: 50%;
+  --footer-fingerprint-y: 24%;
+}
+
+.footer-fingerprint-bg {
+  opacity: 0.9;
+}
+
+.footer-fingerprint-glow {
+  background:
+    radial-gradient(circle at var(--footer-fingerprint-x) var(--footer-fingerprint-y), rgba(165, 214, 167, 0.28), transparent 18rem),
+    radial-gradient(circle at calc(var(--footer-fingerprint-x) + 8rem) calc(var(--footer-fingerprint-y) + 3rem), rgba(129, 212, 250, 0.12), transparent 22rem);
+  transition: background 160ms ease-out;
+}
+
+.footer-fingerprint-svg {
+  filter: drop-shadow(0 18px 54px rgba(0, 0, 0, 0.22));
+}
+
+.footer-fingerprint-ridge {
+  stroke-dasharray: 22 18;
+  animation: footer-fingerprint-flow 24s linear infinite;
+}
+
+.footer-fingerprint-signal {
+  stroke-dasharray: 10 16;
+  animation: footer-fingerprint-flow 13s linear infinite;
+}
+
+.footer-fingerprint-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: footer-fingerprint-node 3.8s ease-in-out infinite;
+}
+
+.nbc-hero-interactive {
+  --nbc-pointer-x: 0.72;
+  --nbc-pointer-y: 0.28;
+  --nbc-offset-x: 0px;
+  --nbc-offset-y: 0px;
+}
+
+.nbc-hero-interactive svg {
+  transform: translate3d(var(--nbc-offset-x), var(--nbc-offset-y), 0);
+  transition: transform 260ms ease-out;
+}
+
+.nbc-hero-route-line {
+  filter: drop-shadow(0 0 10px rgba(129, 212, 250, 0.18));
+}
+
+.nbc-hero-model {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nbc-hero-slab {
+  opacity: 0.9;
+}
+
+.nbc-hero-model-line,
+.nbc-hero-inspection-line,
+.nbc-hero-facade-line,
+.nbc-hero-room-line {
+  filter: drop-shadow(0 0 9px rgba(129, 212, 250, 0.16));
+}
+
+.nbc-hero-scan-plane {
+  animation: nbc-bim-scan 7.2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nbc-hero-step-line {
+  opacity: 0.62;
+}
+
+.nbc-hero-static-node {
+  filter: drop-shadow(0 0 8px rgba(165, 214, 167, 0.22));
+}
+
+.nbc-hero-flow-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
 
   .hero-signal-line,
@@ -328,8 +475,21 @@ html {
   .hero-future-line,
   .hero-signal-node,
   .hero-grid-scan,
-  .hero-core-ring {
+  .hero-core-ring,
+  .nbc-hero-scan-plane,
+  .footer-fingerprint-ridge,
+  .footer-fingerprint-signal,
+  .footer-fingerprint-node {
     animation: none !important;
+  }
+
+  .nbc-hero-interactive svg {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .nbc-hero-flow-dot {
+    display: none;
   }
 
   .hero-root-line {
@@ -392,15 +552,15 @@ button {
   scrollbar-width: none;
 }
 
-/* Selection color */
+/* Disable normal text selection */
 ::selection {
-  background: var(--sage);
-  color: var(--charcoal);
+  background: transparent;
+  color: inherit;
 }
 
 ::-moz-selection {
-  background: var(--sage);
-  color: var(--charcoal);
+  background: transparent;
+  color: inherit;
 }
 
 /* Button Slide Fill Effect */

@@ -53,8 +53,8 @@ const homeCopyByLocale: Record<Locale, SolutionsHomeCopy> = {
   },
   sv: {
     eyebrow: 'L\u00f6sningar',
-    heading: 'Tv\u00e5 produktv\u00e4gar f\u00f6r tv\u00e5 helt olika kontrollproblem.',
-    body: 'MCT st\u00f6djer logistiksamordning i afrikanska korridorer. NBC fokuserar p\u00e5 BIM-samordning och kontroll av modellinformation f\u00f6r globala projektteam.',
+    heading: 'En fokuserad produktv\u00e4g f\u00f6r BIM-kontroll.',
+    body: 'NBC fokuserar p\u00e5 BIM-samordning, modellinformation, ansvar och beslutsunderlag f\u00f6r projektteam som beh\u00f6ver b\u00e4ttre kontroll.',
     cta: 'Utforska l\u00f6sningen',
   },
   fr: {
@@ -118,7 +118,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       ],
       proofHeading: 'Commercially ready',
       proofBody:
-        'MCT is ready for demo requests and is already trusted by JARIDAFRICA with the Enterprise Premium subscription.',
+        'MCT is ready for demo requests.',
       finalHeading: 'Start with one logistics workflow.',
       finalBody:
         'Use a demo to map your first controlled workflow, then scale the product around documents, partners, reporting, and integration needs.',
@@ -136,7 +136,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       heroTitle: 'Close the BIM control gap between models, issues, and decisions.',
       heroBody:
         'BIM teams already use powerful authoring, coordination, and common data tools. The gap is often between them: who owns the issue, what was checked, which requirement failed, and whether the model information is ready to support a decision.',
-      primaryCta: { label: 'Explore NBC', href: '/products/nayeli-bim-control' },
+      primaryCta: { label: 'Explore NBC', href: '/products/nbc' },
       secondaryCta: { label: 'Discuss early access', href: '/contact' },
       challengeEyebrow: 'The market gap',
       challengeHeading: 'BIM coordination still loses accountability between tools.',
@@ -220,7 +220,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       ],
       proofHeading: 'Kommersiellt redo',
       proofBody:
-        'MCT \u00e4r redo f\u00f6r demof\u00f6rfr\u00e5gningar och anv\u00e4nds redan av JARIDAFRICA med Enterprise Premium.',
+        'MCT \u00e4r redo f\u00f6r demof\u00f6rfr\u00e5gningar.',
       finalHeading: 'B\u00f6rja med ett logistikfl\u00f6de.',
       finalBody:
         'Anv\u00e4nd en demo f\u00f6r att kartl\u00e4gga ert f\u00f6rsta kontrollerade arbetsfl\u00f6de och skala sedan produkten kring dokument, partners, rapportering och integrationer.',
@@ -238,7 +238,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       heroTitle: 'Stäng BIM-kontrollglappet mellan modeller, ärenden och beslut.',
       heroBody:
         'BIM-team använder redan kraftfulla verktyg för modellering, samordning och gemensamma datamiljöer. Glappet finns ofta mellan dem: vem ansvarar för ärendet, vad kontrollerades, vilket krav brast och är modellinformationen redo för beslut?',
-      primaryCta: { label: 'Utforska NBC', href: '/products/nayeli-bim-control' },
+      primaryCta: { label: 'Utforska NBC', href: '/products/nbc' },
       secondaryCta: { label: 'Diskutera tidig \u00e5tkomst', href: '/contact' },
       challengeEyebrow: 'Luckan i marknaden',
       challengeHeading: 'BIM-samordning tappar fortfarande ansvar mellan verktyg.',
@@ -322,7 +322,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       ],
       proofHeading: 'Commercialement pr\u00eat',
       proofBody:
-        'MCT est pr\u00eat pour les demandes de d\u00e9mo et est d\u00e9j\u00e0 utilis\u00e9 par JARIDAFRICA avec Enterprise Premium.',
+        'MCT est pr\u00eat pour les demandes de d\u00e9mo.',
       finalHeading: 'Commencez par un flux logistique.',
       finalBody:
         'Utilisez une d\u00e9mo pour cartographier votre premier flux contr\u00f4l\u00e9, puis faites \u00e9voluer le produit autour des documents, partenaires, rapports et int\u00e9grations.',
@@ -340,7 +340,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       heroTitle: 'Fermer l\u2019\u00e9cart de contr\u00f4le BIM entre mod\u00e8les, points \u00e0 traiter et d\u00e9cisions.',
       heroBody:
         'Les \u00e9quipes BIM utilisent d\u00e9j\u00e0 des outils puissants de production, de coordination et d\u2019environnement commun de donn\u00e9es. L\u2019\u00e9cart se trouve souvent entre eux : qui est responsable du point, qu\u2019est-ce qui a \u00e9t\u00e9 contr\u00f4l\u00e9, quelle exigence n\u2019est pas respect\u00e9e, et l\u2019information du mod\u00e8le est-elle pr\u00eate pour une d\u00e9cision ?',
-      primaryCta: { label: 'Explorer NBC', href: '/products/nayeli-bim-control' },
+      primaryCta: { label: 'Explorer NBC', href: '/products/nbc' },
       secondaryCta: { label: 'Discuter acc\u00e8s anticip\u00e9', href: '/contact' },
       challengeEyebrow: 'L\u2019\u00e9cart du march\u00e9',
       challengeHeading: 'La coordination BIM perd encore la responsabilit\u00e9 entre les outils.',
@@ -424,7 +424,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       ],
       proofHeading: 'Kommerziell bereit',
       proofBody:
-        'MCT ist bereit f\u00fcr Demo-Anfragen und wird bereits von JARIDAFRICA mit Enterprise Premium genutzt.',
+        'MCT ist bereit f\u00fcr Demo-Anfragen.',
       finalHeading: 'Mit einem Logistikworkflow starten.',
       finalBody:
         'Nutzen Sie eine Demo, um den ersten kontrollierten Workflow zu definieren, und skalieren Sie das Produkt danach rund um Dokumente, Partner, Reporting und Integrationen.',
@@ -442,7 +442,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       heroTitle: 'Die BIM-Kontrolll\u00fccke zwischen Modellen, Problemen und Entscheidungen schlie\u00dfen.',
       heroBody:
         'BIM-Teams nutzen bereits starke Werkzeuge f\u00fcr Autorierung, Koordination und gemeinsame Daten. Die L\u00fccke liegt oft dazwischen: Wer besitzt das Problem, was wurde gepr\u00fcft, welche Anforderung ist fehlgeschlagen, und ist die Modellinformation entscheidungsbereit?',
-      primaryCta: { label: 'NBC entdecken', href: '/products/nayeli-bim-control' },
+      primaryCta: { label: 'NBC entdecken', href: '/products/nbc' },
       secondaryCta: { label: 'Early Access besprechen', href: '/contact' },
       challengeEyebrow: 'Die Marktl\u00fccke',
       challengeHeading: 'BIM-Koordination verliert Verantwortung noch immer zwischen Werkzeugen.',
@@ -487,7 +487,11 @@ export function getSolutionsHomeCopy(locale: string): SolutionsHomeCopy {
 }
 
 export function getSolutions(locale: string): SolutionDetail[] {
-  return solutionsByLocale[asLocale(locale)];
+  const activeLocale = asLocale(locale);
+  const solutions = solutionsByLocale[activeLocale];
+  return activeLocale === 'sv'
+    ? solutions.filter((solution) => solution.slug === 'global-bim-control')
+    : solutions;
 }
 
 export function getSolution(locale: string, slug: string): SolutionDetail | undefined {

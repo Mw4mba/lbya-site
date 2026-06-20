@@ -393,7 +393,7 @@ export default function ContactPage() {
                   <ArrowIcon />
                 </a>
                 <Link
-                  href={localizePath(activeLocale, '/products/nayeli-bim-control')}
+                  href={localizePath(activeLocale, '/products/nbc')}
                   className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/28 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-[#A5D6A7] hover:bg-white/10"
                 >
                   <span>{copy.secondaryCta}</span>

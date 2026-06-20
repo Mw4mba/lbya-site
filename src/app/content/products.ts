@@ -40,20 +40,19 @@ const NBC_LOGO = '/images/products/nbc-logo.png';
 
 const productsByLocale: Record<Locale, ProductSummary[]> = {
   en: [
-    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Ready product', tagline: 'A logistics control tower for African multimodal operations.', cardCopy: 'MCT is commercially ready and already used by JARIDAFRICA on the Enterprise Premium subscription. It brings shipment requests, transporter records, document verification, quotes, corridor status, and decision evidence into one structured logistics environment.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explore MCT', href: '/products/mct' }, liveCta: { label: 'View JARIDAFRICA platform', href: LIVE_MCT_URL } },
-    { slug: 'nayeli-bim-control', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Early-stage development', tagline: 'BIM control built for clarity, accountability, and trust.', cardCopy: 'NBC is in early development. It is being shaped around BIM information control: requirements, model quality, issue ownership, evidence, and decision readiness.', href: '/products/nayeli-bim-control', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Discover NBC', href: '/products/nayeli-bim-control' } },
+    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Ready product', tagline: 'A logistics control tower for African multimodal operations.', cardCopy: 'MCT is commercially ready. It brings shipment requests, transporter records, document verification, quotes, corridor status, and decision evidence into one structured logistics environment.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explore MCT', href: '/products/mct' }, liveCta: { label: 'View JARIDAFRICA platform', href: LIVE_MCT_URL } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Early-stage development', tagline: 'BIM control built for clarity, accountability, and trust.', cardCopy: 'NBC is in early development. It is being shaped around BIM information control: requirements, model quality, issue ownership, evidence, and decision readiness.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Discover NBC', href: '/products/nbc' } },
   ],
   sv: [
-    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Färdig produkt', tagline: 'Ett logistiskt kontrolltorn för afrikanska multimodala operationer.', cardCopy: 'MCT är kommersiellt redo och används redan av JARIDAFRICA med Enterprise Premium. Det samlar transportförfrågningar, transportörsregister, dokumentverifiering, offerter, korridorstatus och beslutsunderlag i en strukturerad logistikmiljö.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Utforska MCT', href: '/products/mct' }, liveCta: { label: 'Visa JARIDAFRICA-plattformen', href: LIVE_MCT_URL } },
-    { slug: 'nayeli-bim-control', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Tidigt utvecklingsskede', tagline: 'BIM-kontroll byggd för tydlighet, ansvar och tillit.', cardCopy: 'NBC är i tidig utveckling. Produkten formas kring BIM-informationskontroll: krav, modellkvalitet, ärendeansvar, underlag och beslutsberedskap.', href: '/products/nayeli-bim-control', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Upptäck NBC', href: '/products/nayeli-bim-control' } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Tidigt utvecklingsskede', tagline: 'BIM-kontroll byggd för tydlighet, ansvar och tillit.', cardCopy: 'NBC är i tidig utveckling. Produkten formas kring BIM-informationskontroll: krav, modellkvalitet, ärendeansvar, underlag och beslutsberedskap.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Upptäck NBC', href: '/products/nbc' } },
   ],
   fr: [
-    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Produit prêt', tagline: 'Une tour de contrôle logistique pour les opérations multimodales africaines.', cardCopy: "MCT est commercialement prêt et déjà utilisé par JARIDAFRICA avec Enterprise Premium. Il réunit demandes d'expédition, dossiers transporteurs, vérification documentaire, devis, statut de corridor et preuves de décision dans un environnement logistique structuré.", href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explorer MCT', href: '/products/mct' }, liveCta: { label: 'Voir la plateforme JARIDAFRICA', href: LIVE_MCT_URL } },
-    { slug: 'nayeli-bim-control', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Développement initial', tagline: 'Contrôle BIM conçu pour la clarté, la responsabilité et la confiance.', cardCopy: "NBC est en phase de développement initial. Le produit se construit autour du contrôle de l'information BIM : exigences, qualité du modèle, responsabilité des points à traiter, preuves et préparation à la décision.", href: '/products/nayeli-bim-control', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Découvrir NBC', href: '/products/nayeli-bim-control' } },
+    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Produit prêt', tagline: 'Une tour de contrôle logistique pour les opérations multimodales africaines.', cardCopy: "MCT est commercialement prêt. Il réunit demandes d'expédition, dossiers transporteurs, vérification documentaire, devis, statut de corridor et preuves de décision dans un environnement logistique structuré.", href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explorer MCT', href: '/products/mct' }, liveCta: { label: 'Voir la plateforme JARIDAFRICA', href: LIVE_MCT_URL } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Développement initial', tagline: 'Contrôle BIM conçu pour la clarté, la responsabilité et la confiance.', cardCopy: "NBC est en phase de développement initial. Le produit se construit autour du contrôle de l'information BIM : exigences, qualité du modèle, responsabilité des points à traiter, preuves et préparation à la décision.", href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Découvrir NBC', href: '/products/nbc' } },
   ],
   de: [
-    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Fertiges Produkt', tagline: 'Ein logistischer Control Tower für afrikanische multimodale Abläufe.', cardCopy: 'MCT ist kommerziell bereit und wird bereits von JARIDAFRICA mit Enterprise Premium genutzt. Es bündelt Sendungsanfragen, Transporteurdaten, Dokumentenverifizierung, Angebote, Korridorstatus und Entscheidungsnachweise in einer strukturierten Logistikumgebung.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'MCT entdecken', href: '/products/mct' }, liveCta: { label: 'JARIDAFRICA-Plattform ansehen', href: LIVE_MCT_URL } },
-    { slug: 'nayeli-bim-control', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Frühe Entwicklungsphase', tagline: 'BIM-Kontrolle für Klarheit, Verantwortung und Vertrauen.', cardCopy: 'NBC befindet sich in früher Entwicklung. Das Produkt wird rund um BIM-Informationskontrolle aufgebaut: Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Entscheidungsreife.', href: '/products/nayeli-bim-control', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'NBC entdecken', href: '/products/nayeli-bim-control' } },
+    { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Fertiges Produkt', tagline: 'Ein logistischer Control Tower für afrikanische multimodale Abläufe.', cardCopy: 'MCT ist kommerziell bereit. Es bündelt Sendungsanfragen, Transporteurdaten, Dokumentenverifizierung, Angebote, Korridorstatus und Entscheidungsnachweise in einer strukturierten Logistikumgebung.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'MCT entdecken', href: '/products/mct' }, liveCta: { label: 'JARIDAFRICA-Plattform ansehen', href: LIVE_MCT_URL } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Frühe Entwicklungsphase', tagline: 'BIM-Kontrolle für Klarheit, Verantwortung und Vertrauen.', cardCopy: 'NBC befindet sich in früher Entwicklung. Das Produkt wird rund um BIM-Informationskontrolle aufgebaut: Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Entscheidungsreife.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'NBC entdecken', href: '/products/nbc' } },
   ],
 };
 
@@ -78,7 +77,7 @@ const mctEN = {
   primaryCta: { label: 'Request a demo', href: '/contact' },
   secondaryCta: { label: 'Book a product discussion', href: '/contact' },
   liveCta: { label: 'Visit the live platform', href: LIVE_MCT_URL },
-  honestStatus: 'MCT is ready and available for demo requests. JARIDAFRICA currently uses MCT with the Enterprise Premium subscription.',
+  honestStatus: 'MCT is ready and available for demo requests.',
   packagesIntro: 'Choose the level of control that fits your operation. A demo can help you see which package makes sense for your team.',
   whatIs: [
     'MCT is a digital logistics control-tower platform designed to monitor, verify, coordinate, and report transport operations from one structured environment.',
@@ -161,7 +160,7 @@ const mctOverrides: Partial<Record<Locale, Partial<MctContent>>> = {
     primaryCta: { label: 'Begär en demo', href: '/contact' },
     secondaryCta: { label: 'Boka ett produktsamtal', href: '/contact' },
     liveCta: { label: 'Besök live-plattformen', href: LIVE_MCT_URL },
-    honestStatus: 'MCT är redo och tillgängligt för demoförfrågningar. JARIDAFRICA använder redan MCT med prenumerationen Enterprise Premium.',
+    honestStatus: 'MCT är redo och tillgängligt för demoförfrågningar.',
     packagesIntro: 'Välj den nivå av kontroll som passar din verksamhet. En demo kan hjälpa dig att se vilket paket som passar ditt team.',
     whatIs: [
       'MCT är en praktisk kontrollprodukt för transportsamordning på den afrikanska marknaden. Den ersätter spridd kommunikation med ett strukturerat sätt att hantera förfrågningar, transportörer, lastbilsdokument, offerter, sändningsstatus och beslutsunderlag.',
@@ -189,7 +188,7 @@ const mctOverrides: Partial<Record<Locale, Partial<MctContent>>> = {
     primaryCta: { label: 'Demander une démo', href: '/contact' },
     secondaryCta: { label: 'Réserver un échange produit', href: '/contact' },
     liveCta: { label: 'Voir la plateforme en ligne', href: LIVE_MCT_URL },
-    honestStatus: "MCT est prêt et disponible pour les demandes de démonstration. JARIDAFRICA utilise déjà MCT avec l'abonnement Enterprise Premium.",
+    honestStatus: "MCT est prêt et disponible pour les demandes de démonstration.",
     packagesIntro: "Choisissez le niveau de contrôle adapté à votre activité. Une démonstration peut vous aider à voir quelle offre convient à votre équipe.",
     whatIs: [
       "MCT est un produit de contrôle pratique pour la coordination du transport sur le marché africain. Il remplace une communication dispersée par une manière structurée de gérer demandes, transporteurs, documents de camions, devis, statut des expéditions et preuves de décision.",
@@ -217,7 +216,7 @@ const mctOverrides: Partial<Record<Locale, Partial<MctContent>>> = {
     primaryCta: { label: 'Demo anfragen', href: '/contact' },
     secondaryCta: { label: 'Produktgespräch buchen', href: '/contact' },
     liveCta: { label: 'Live-Plattform besuchen', href: LIVE_MCT_URL },
-    honestStatus: 'MCT ist bereit und für Demo-Anfragen verfügbar. JARIDAFRICA nutzt MCT bereits mit dem Enterprise Premium-Abonnement.',
+    honestStatus: 'MCT ist bereit und für Demo-Anfragen verfügbar.',
     packagesIntro: 'Wählen Sie das Kontrollniveau, das zu Ihrem Betrieb passt. Eine Demo kann zeigen, welches Paket zu Ihrem Team passt.',
     whatIs: [
       'MCT ist ein praktisches Kontrollprodukt für die Transportkoordination auf dem afrikanischen Markt. Es ersetzt verstreute Kommunikation durch eine strukturierte Art, Anfragen, Transporteure, Lkw-Dokumente, Angebote, Sendungsstatus und Entscheidungsnachweise zu verwalten.',
@@ -257,7 +256,7 @@ export function getMct(locale: string): MctContent {
 // ---------------------------------------------------------------------------
 
 const nbcEN = {
-  slug: 'nayeli-bim-control',
+  slug: 'nbc',
   name: 'Nayeli BIM Control',
   acronym: 'NBC',
   seoTitle: 'Nayeli BIM Control | BIM Control Platform',

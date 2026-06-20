@@ -34,7 +34,7 @@ const articlePageCopyByLocale: Record<Locale, ArticlePageCopy> = {
     readAll: 'View all insights',
     related: [
       { title: 'Malaika Control Tower', body: 'Logistics control for requests, documents, verification, quotes, and decision evidence.', href: '/products/mct' },
-      { title: 'Nayeli BIM Control', body: 'BIM control for requirements, model quality, issue ownership, evidence, and readiness.', href: '/products/nayeli-bim-control' },
+      { title: 'Nayeli BIM Control', body: 'BIM control for requirements, model quality, issue ownership, evidence, and readiness.', href: '/products/nbc' },
     ],
   },
   sv: {
@@ -48,7 +48,7 @@ const articlePageCopyByLocale: Record<Locale, ArticlePageCopy> = {
     readAll: 'Visa alla insikter',
     related: [
       { title: 'Malaika Control Tower', body: 'Logistikkontroll för förfrågningar, dokument, verifiering, offerter och beslutsunderlag.', href: '/products/mct' },
-      { title: 'Nayeli BIM Control', body: 'BIM-kontroll för krav, modellkvalitet, ärendeägarskap, underlag och beredskap.', href: '/products/nayeli-bim-control' },
+      { title: 'Nayeli BIM Control', body: 'BIM-kontroll för krav, modellkvalitet, ärendeägarskap, underlag och beredskap.', href: '/products/nbc' },
     ],
   },
   fr: {
@@ -62,7 +62,7 @@ const articlePageCopyByLocale: Record<Locale, ArticlePageCopy> = {
     readAll: 'Voir toutes les analyses',
     related: [
       { title: 'Malaika Control Tower', body: 'Contrôle logistique pour demandes, documents, vérification, devis et preuves de décision.', href: '/products/mct' },
-      { title: 'Nayeli BIM Control', body: 'Contrôle BIM pour exigences, qualité du modèle, responsabilité des problèmes, preuves et préparation.', href: '/products/nayeli-bim-control' },
+      { title: 'Nayeli BIM Control', body: 'Contrôle BIM pour exigences, qualité du modèle, responsabilité des problèmes, preuves et préparation.', href: '/products/nbc' },
     ],
   },
   de: {
@@ -76,7 +76,7 @@ const articlePageCopyByLocale: Record<Locale, ArticlePageCopy> = {
     readAll: 'Alle Einblicke ansehen',
     related: [
       { title: 'Malaika Control Tower', body: 'Logistikkontrolle für Anfragen, Dokumente, Prüfung, Angebote und Entscheidungsnachweise.', href: '/products/mct' },
-      { title: 'Nayeli BIM Control', body: 'BIM-Kontrolle für Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Bereitschaft.', href: '/products/nayeli-bim-control' },
+      { title: 'Nayeli BIM Control', body: 'BIM-Kontrolle für Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Bereitschaft.', href: '/products/nbc' },
     ],
   },
 };

@@ -72,11 +72,11 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       'Our goal is to build useful digital control platforms for industries where information moves across many people, places, documents, and decisions.',
     productStatus: {
       mct: 'Ready product',
-      'nayeli-bim-control': 'Early-stage development',
+      'nbc': 'Early-stage development',
     },
     productBriefs: {
       mct: 'A ready logistics control tower for transport requests, transporter records, document verification, quote coordination, status tracking, and operational reporting.',
-      'nayeli-bim-control': 'An early-stage BIM control product for model information, issue ownership, evidence, and decision readiness.',
+      'nbc': 'An early-stage BIM control product for model information, issue ownership, evidence, and decision readiness.',
     },
     goals: [
       { title: 'Make work visible', body: 'Give teams a clearer view of what is happening, what is missing, and what needs attention.' },
@@ -94,10 +94,10 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       { title: 'Rooted in Nature', body: 'We look at connection, balance, adaptation, and long-term resilience before deciding what a digital system should do.' },
       { title: 'Designed for the Future', body: 'We build for industries that are becoming more data-driven, more connected, and more dependent on trustworthy records.' },
       { title: 'Human control', body: 'The goal is not technology for its own sake. The goal is to help people coordinate work with more confidence.' },
-      { title: 'Global ambition', body: 'LBYA is Swedish in discipline and international in outlook, with a focus on connected industries that need better control.' },
+      { title: 'Global ambition', body: 'LBYA is rooted in strong technical discipline and shaped by an international outlook, with a focus on connected industries that need better control.' },
     ],
     proofLabel: 'Where we are going',
-    proofText: 'LBYA aims to become a trusted technology company for connected industries: disciplined in how we build, international in outlook, and focused on products that make complex coordination easier to trust.',
+    proofText: 'LBYA is a trusted technology company for connected industries: disciplined in how we build, international in outlook, and focused on products that make complex coordination easier to trust.',
     closingHeading: 'Rooted in Nature, Designed for the Future.',
     closingBody:
       'The company is moving from broad services to focused products, while keeping the same foundation: responsible systems thinking, practical engineering, and respect for the environments where our technology is used.',
@@ -128,11 +128,11 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       'V\u00e5rt m\u00e5l \u00e4r att bygga anv\u00e4ndbara digitala kontrollplattformar f\u00f6r branscher d\u00e4r information r\u00f6r sig mellan m\u00e5nga personer, platser, dokument och beslut.',
     productStatus: {
       mct: 'F\u00e4rdig produkt',
-      'nayeli-bim-control': 'Tidigt utvecklingsskede',
+      'nbc': 'Tidigt utvecklingsskede',
     },
     productBriefs: {
       mct: 'Ett redo kontrolltorn f\u00f6r logistik med transportf\u00f6rfr\u00e5gningar, transport\u00f6rsregister, dokumentverifiering, offerthantering, statusuppf\u00f6ljning och rapportering.',
-      'nayeli-bim-control': 'En BIM-kontrollprodukt i tidig utveckling f\u00f6r modellinformation, \u00e4rendeansvar, underlag och beslutsberedskap.',
+      'nbc': 'En BIM-kontrollprodukt i tidig utveckling f\u00f6r modellinformation, \u00e4rendeansvar, underlag och beslutsberedskap.',
     },
     goals: [
       { title: 'G\u00f6ra arbete synligt', body: 'Ge team en tydligare bild av vad som h\u00e4nder, vad som saknas och vad som beh\u00f6ver uppm\u00e4rksamhet.' },
@@ -150,10 +150,10 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       { title: 'Rooted in Nature', body: 'Vi ser p\u00e5 samband, balans, anpassning och l\u00e5ngsiktig motst\u00e5ndskraft innan vi avg\u00f6r vad ett digitalt system ska g\u00f6ra.' },
       { title: 'Designed for the Future', body: 'Vi bygger f\u00f6r branscher som blir mer datadrivna, mer sammankopplade och mer beroende av tillf\u00f6rlitliga underlag.' },
       { title: 'M\u00e4nsklig kontroll', body: 'M\u00e5let \u00e4r inte teknik f\u00f6r teknikens skull. M\u00e5let \u00e4r att hj\u00e4lpa m\u00e4nniskor samordna arbete med st\u00f6rre trygghet.' },
-      { title: 'Global ambition', body: 'LBYA \u00e4r svenskt i disciplin och internationellt i utblick, med fokus p\u00e5 sammankopplade branscher som beh\u00f6ver b\u00e4ttre kontroll.' },
+      { title: 'Global ambition', body: 'LBYA \u00e4r rotat i stark teknisk disciplin och format av en internationell utblick, med fokus p\u00e5 sammankopplade branscher som beh\u00f6ver b\u00e4ttre kontroll.' },
     ],
     proofLabel: 'Vart vi \u00e4r p\u00e5 v\u00e4g',
-    proofText: 'LBYA vill bli ett f\u00f6rtroendeingivande teknikbolag f\u00f6r sammankopplade branscher: disciplinerat i hur vi bygger, internationellt i utblick och fokuserat p\u00e5 produkter som g\u00f6r komplex samordning l\u00e4ttare att lita p\u00e5.',
+    proofText: 'LBYA \u00e4r ett f\u00f6rtroendeingivande teknikbolag f\u00f6r sammankopplade branscher: disciplinerat i hur vi bygger, internationellt i utblick och fokuserat p\u00e5 produkter som g\u00f6r komplex samordning l\u00e4ttare att lita p\u00e5.',
     closingHeading: 'Rooted in Nature, Designed for the Future.',
     closingBody:
       'F\u00f6retaget r\u00f6r sig fr\u00e5n breda tj\u00e4nster till fokuserade produkter, men beh\u00e5ller samma grund: ansvarsfullt systemt\u00e4nkande, praktisk ingenj\u00f6rskonst och respekt f\u00f6r milj\u00f6erna d\u00e4r tekniken anv\u00e4nds.',
@@ -184,11 +184,11 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       'Notre objectif est de construire des plateformes de contr\u00f4le num\u00e9rique utiles pour les secteurs o\u00f9 l\u2019information circule entre de nombreuses personnes, lieux, documents et d\u00e9cisions.',
     productStatus: {
       mct: 'Produit pr\u00eat',
-      'nayeli-bim-control': 'D\u00e9veloppement pr\u00e9coce',
+      'nbc': 'D\u00e9veloppement pr\u00e9coce',
     },
     productBriefs: {
       mct: 'Une tour de contr\u00f4le logistique pr\u00eate pour les demandes transport, dossiers transporteurs, v\u00e9rification documentaire, coordination des devis, suivi de statut et rapports.',
-      'nayeli-bim-control': 'Un produit BIM en d\u00e9veloppement pr\u00e9coce pour l\u2019information mod\u00e8le, la responsabilit\u00e9 des sujets, les preuves et la pr\u00e9paration des d\u00e9cisions.',
+      'nbc': 'Un produit BIM en d\u00e9veloppement pr\u00e9coce pour l\u2019information mod\u00e8le, la responsabilit\u00e9 des sujets, les preuves et la pr\u00e9paration des d\u00e9cisions.',
     },
     goals: [
       { title: 'Rendre le travail visible', body: 'Donner aux \u00e9quipes une vision plus claire de ce qui avance, de ce qui manque et de ce qui demande attention.' },
@@ -206,10 +206,10 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       { title: 'Rooted in Nature', body: 'Nous regardons les liens, l\u2019\u00e9quilibre, l\u2019adaptation et la r\u00e9silience avant de d\u00e9cider ce qu\u2019un syst\u00e8me num\u00e9rique doit faire.' },
       { title: 'Designed for the Future', body: 'Nous construisons pour des secteurs plus connect\u00e9s, plus orient\u00e9s donn\u00e9es et plus d\u00e9pendants de dossiers fiables.' },
       { title: 'Contr\u00f4le humain', body: 'Le but n\u2019est pas la technologie pour elle-m\u00eame. Le but est d\u2019aider les personnes \u00e0 coordonner le travail avec plus de confiance.' },
-      { title: 'Ambition globale', body: 'LBYA est su\u00e9doise par sa discipline et internationale par son regard, avec un focus sur les secteurs connect\u00e9s qui ont besoin de plus de contr\u00f4le.' },
+      { title: 'Ambition globale', body: 'LBYA est ancr\u00e9e dans une forte discipline technique et fa\u00e7onn\u00e9e par une perspective internationale, avec un focus sur les secteurs connect\u00e9s qui ont besoin de plus de contr\u00f4le.' },
     ],
     proofLabel: 'Notre direction',
-    proofText: 'LBYA vise \u00e0 devenir une entreprise technologique de confiance pour les industries connect\u00e9es : disciplin\u00e9e dans sa fa\u00e7on de construire, internationale dans son ambition et concentr\u00e9e sur des produits qui rendent la coordination complexe plus fiable.',
+    proofText: 'LBYA est une entreprise technologique de confiance pour les industries connect\u00e9es : disciplin\u00e9e dans sa fa\u00e7on de construire, internationale dans son ambition et concentr\u00e9e sur des produits qui rendent la coordination complexe plus fiable.',
     closingHeading: 'Rooted in Nature, Designed for the Future.',
     closingBody:
       'L\u2019entreprise passe de services larges \u00e0 des produits cibl\u00e9s, tout en gardant la m\u00eame base : pens\u00e9e syst\u00e8me responsable, ing\u00e9nierie pratique et respect des environnements o\u00f9 la technologie est utilis\u00e9e.',
@@ -240,11 +240,11 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       'Unser Ziel ist es, n\u00fctzliche digitale Kontrollplattformen f\u00fcr Branchen zu bauen, in denen Informationen zwischen vielen Menschen, Orten, Dokumenten und Entscheidungen flie\u00dfen.',
     productStatus: {
       mct: 'Fertiges Produkt',
-      'nayeli-bim-control': 'Fr\u00fche Entwicklungsphase',
+      'nbc': 'Fr\u00fche Entwicklungsphase',
     },
     productBriefs: {
       mct: 'Ein einsatzbereiter Logistik-Control-Tower f\u00fcr Transportanfragen, Transporteurdaten, Dokumentenpr\u00fcfung, Angebotskoordination, Statusverfolgung und Reporting.',
-      'nayeli-bim-control': 'Ein BIM-Kontrollprodukt in fr\u00fcher Entwicklung f\u00fcr Modellinformationen, Themenverantwortung, Nachweise und Entscheidungsreife.',
+      'nbc': 'Ein BIM-Kontrollprodukt in fr\u00fcher Entwicklung f\u00fcr Modellinformationen, Themenverantwortung, Nachweise und Entscheidungsreife.',
     },
     goals: [
       { title: 'Arbeit sichtbar machen', body: 'Teams einen klareren Blick darauf geben, was passiert, was fehlt und was Aufmerksamkeit braucht.' },
@@ -262,10 +262,10 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       { title: 'Rooted in Nature', body: 'Wir betrachten Verbindung, Gleichgewicht, Anpassung und langfristige Widerstandskraft, bevor wir entscheiden, was ein digitales System leisten soll.' },
       { title: 'Designed for the Future', body: 'Wir bauen f\u00fcr Branchen, die datengetriebener, vernetzter und abh\u00e4ngiger von vertrauensw\u00fcrdigen Aufzeichnungen werden.' },
       { title: 'Menschliche Kontrolle', body: 'Das Ziel ist nicht Technologie um ihrer selbst willen. Das Ziel ist, Menschen zu helfen, Arbeit mit mehr Vertrauen zu koordinieren.' },
-      { title: 'Globale Ambition', body: 'LBYA ist schwedisch in der Disziplin und international im Blick, mit Fokus auf vernetzte Branchen, die bessere Kontrolle brauchen.' },
+      { title: 'Globale Ambition', body: 'LBYA ist in starker technischer Disziplin verwurzelt und von einem internationalen Blick gepr\u00e4gt, mit Fokus auf vernetzte Branchen, die bessere Kontrolle brauchen.' },
     ],
     proofLabel: 'Wohin wir gehen',
-    proofText: 'LBYA will ein vertrauensw\u00fcrdiges Technologieunternehmen f\u00fcr vernetzte Branchen werden: diszipliniert im Aufbau, international im Blick und fokussiert auf Produkte, die komplexe Koordination verl\u00e4sslicher machen.',
+    proofText: 'LBYA ist ein vertrauensw\u00fcrdiges Technologieunternehmen f\u00fcr vernetzte Branchen: diszipliniert im Aufbau, international im Blick und fokussiert auf Produkte, die komplexe Koordination verl\u00e4sslicher machen.',
     closingHeading: 'Rooted in Nature, Designed for the Future.',
     closingBody:
       'Das Unternehmen entwickelt sich von breiten Dienstleistungen zu fokussierten Produkten und bewahrt dabei dieselbe Grundlage: verantwortungsvolles Systemdenken, praktische Ingenieursarbeit und Respekt vor den Umgebungen, in denen Technologie genutzt wird.',

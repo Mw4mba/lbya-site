@@ -76,9 +76,10 @@ export default function ProductHero({
             <Image
               src={logo}
               alt={`${title} logo`}
-              width={620}
-              height={180}
+              width={840}
+              height={280}
               className="h-auto w-full object-contain"
+              style={{ width: '100%', height: 'auto' }}
               priority
               unoptimized
             />

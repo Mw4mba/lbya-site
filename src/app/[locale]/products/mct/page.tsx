@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import { permanentRedirect } from 'next/navigation';
 import { setRequestLocale } from 'next-intl/server';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+import { MctConvertedPrice, MctCurrencySwitcher } from '@/app/components/MctCurrencyPricing';
 import MctHeroInteractiveBackdrop from '@/app/components/MctHeroInteractiveBackdrop';
 import { getMct } from '@/app/content/products';
 import { asLocale, type Locale } from '@/app/content/locale';
@@ -35,6 +37,7 @@ type SolutionFamily = TextBlock & {
   audience: string;
   capabilities: string[];
   cta: string;
+  actionLabel?: string;
 };
 
 type MctCommercialCopy = {
@@ -95,7 +98,7 @@ const mctPageCopyByLocale: Record<Locale, MctPageCopy> = {
     demoBadge: 'Ready for demo',
     subscriptionBadge: 'Enterprise Premium in use',
     proofLine:
-      'MCT is commercially ready for demo requests. JARIDAFRICA currently uses it with the Enterprise Premium subscription.',
+      'MCT is commercially ready for demo requests.',
     metrics: [
       { value: 'Ready', label: 'Product status', detail: 'Available for commercial demos now.' },
       { value: 'Live', label: 'Customer proof', detail: 'JARIDAFRICA runs MCT in production.' },
@@ -200,7 +203,7 @@ const mctPageCopyByLocale: Record<Locale, MctPageCopy> = {
     demoBadge: 'Redo f\u00f6r demo',
     subscriptionBadge: 'Enterprise Premium anv\u00e4nds',
     proofLine:
-      'MCT \u00e4r kommersiellt redo f\u00f6r demof\u00f6rfr\u00e5gningar. JARIDAFRICA anv\u00e4nder produkten med Enterprise Premium-prenumerationen.',
+      'MCT \u00e4r kommersiellt redo f\u00f6r demof\u00f6rfr\u00e5gningar.',
     metrics: [
       { value: 'Redo', label: 'Produktstatus', detail: 'Tillg\u00e4nglig f\u00f6r kommersiella demos nu.' },
       { value: 'Live', label: 'Kundreferens', detail: 'JARIDAFRICA anv\u00e4nder MCT i produktion.' },
@@ -515,7 +518,7 @@ const mctCommercialCopyEN: MctCommercialCopy = {
       'MCT gives logistics teams one operating layer for requests, documents, partners, and decisions across African multimodal transport.',
     demoBadge: 'Commercially ready',
     proofLine:
-      'Trusted by JARIDAFRICA with the Enterprise package.',
+      'Trusted by JARIDAFRICA.',
     metrics: [
       { value: 'Ready', label: 'Product status', detail: 'Available for commercial demos now.' },
       { value: 'Multi', label: 'Transport scope', detail: 'Road freight, sea freight, and rail-ready coordination.' },
@@ -605,7 +608,7 @@ const mctCommercialCopyEN: MctCommercialCopy = {
   solutionsEyebrow: 'Logistics control scope',
   solutionsHeading: 'One platform for multimodal logistics work.',
   solutionsBody:
-    'MCT supports road freight, sea freight, rail-ready handovers, and cross-border coordination without reducing the product to simple tracking.',
+    'MCT supports road freight, sea freight, rail freight, and cross-border coordination without reducing the product to simple tracking.',
   solutionFamilies: [
     {
       title: 'Road Freight Control',
@@ -618,20 +621,36 @@ const mctCommercialCopyEN: MctCommercialCopy = {
         'Transporter and driver records',
         'Quote and evidence tracking',
       ],
+      actionLabel: 'Inspect route, permit, and truck pack flow',
       cta: 'Request a road freight demo',
     },
     {
-      title: 'Sea Freight and Rail-Ready Control',
-      audience: 'For import/export teams, ports, shipping agents, mining companies, industrial groups, and commodity traders.',
+      title: 'Sea Freight Control',
+      audience: 'For import/export teams, ports, shipping agents, and terminal operators.',
       body:
-        'Coordinate container references, vessel dates, bills of lading, customs files, port updates, terminal handovers, and future rail-road-sea workflows.',
+        'Keep cargo records, port handovers, customs documents, container tracking, and partner follow-up connected to the same operating record.',
       capabilities: [
         'Container and shipment references',
         'Bills of lading and customs documents',
-        'Port, border, and terminal visibility',
-        'Rail-ready handover records',
+        'Port and terminal visibility',
+        'Carrier and handover coordination',
       ],
-      cta: 'Discuss a 90-day logistics pilot',
+      actionLabel: 'Explore port handover and customs coordination',
+      cta: 'Request a sea freight demo',
+    },
+    {
+      title: 'Rail Freight Control',
+      audience: 'For rail operators, corridor managers, intermodal planners, and logistics teams creating handover workflows.',
+      body:
+        'Manage rail shipment handovers, corridor handoffs, partner responsibilities, and evidence trails across intermodal freight movements.',
+      capabilities: [
+        'Rail shipment and handover records',
+        'Intermodal corridor visibility',
+        'Partner handoff and status tracking',
+        'Delivery document and evidence workflows',
+      ],
+      actionLabel: 'Review rail corridor handover workflows',
+      cta: 'Request a rail freight demo',
     },
   ],
 };
@@ -648,7 +667,7 @@ const mctCommercialCopyByLocale: Record<Locale, MctCommercialCopy> = {
       demoBadge: 'Kommersiellt redo',
       subscriptionBadge: 'Enterprise Premium anv\u00e4nds',
       proofLine:
-        'Betrodd av JARIDAFRICA med Enterprise-paketet.',
+        'Betrodd av JARIDAFRICA.',
       outcomesHeading: 'Fem pelare f\u00f6r komplex logistik.',
       outcomesBody:
         'N\u00e4r logistikarbete delas mellan meddelanden, filer och samtal g\u00f6r MCT de r\u00f6rliga delarna till ett tydligare operativt underlag.',
@@ -684,6 +703,7 @@ const mctCommercialCopyByLocale: Record<Locale, MctCommercialCopy> = {
           'Transport\u00f6rs- och f\u00f6rarregister',
           'Sp\u00e5rning av offerter och beslutsunderlag',
         ],
+        actionLabel: 'Inspektera rutt-, tillst\u00e5nds- och lastbilsfl\u00f6den',
         cta: 'Beg\u00e4r demo f\u00f6r v\u00e4gfrakt',
       },
       {
@@ -711,7 +731,7 @@ const mctCommercialCopyByLocale: Record<Locale, MctCommercialCopy> = {
       demoBadge: 'Commercialement pr\u00eat',
       subscriptionBadge: 'Enterprise Premium en usage',
       proofLine:
-        'Approuv\u00e9 par JARIDAFRICA avec l\u2019offre Enterprise.',
+        'Approuv\u00e9 par JARIDAFRICA.',
       outcomesHeading: 'Cinq piliers pour une logistique complexe.',
       outcomesBody:
         'Quand le travail logistique est dispers\u00e9 entre messages, fichiers et appels, MCT transforme les \u00e9l\u00e9ments mobiles en dossier op\u00e9rationnel plus clair.',
@@ -747,6 +767,7 @@ const mctCommercialCopyByLocale: Record<Locale, MctCommercialCopy> = {
           'Dossiers transporteurs et conducteurs',
           'Suivi des devis et preuves de d\u00e9cision',
         ],
+        actionLabel: 'Inspectez le flux de route, permis et dossiers camion',
         cta: 'Demander une d\u00e9mo fret routier',
       },
       {
@@ -775,7 +796,7 @@ const mctCommercialCopyByLocale: Record<Locale, MctCommercialCopy> = {
       demoBadge: 'Kommerziell bereit',
       subscriptionBadge: 'Enterprise Premium im Einsatz',
       proofLine:
-        'Vertraut von JARIDAFRICA mit dem Enterprise-Paket.',
+        'Vertraut von JARIDAFRICA.',
       outcomesHeading: 'F\u00fcnf S\u00e4ulen f\u00fcr komplexe Logistik.',
       outcomesBody:
         'Wenn Logistikarbeit \u00fcber Nachrichten, Dateien und Anrufe verteilt ist, macht MCT die beweglichen Teile zu einem klareren operativen Datensatz.',
@@ -866,6 +887,9 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const activeLocale = asLocale(locale);
+  if (activeLocale === 'sv') {
+    permanentRedirect(localizePath(activeLocale, '/products/nbc'));
+  }
   const MCT = getMct(locale);
   const commercialCopy = mctCommercialCopyByLocale[activeLocale];
   const copy: MctPageCopy = { ...mctPageCopyByLocale[activeLocale], ...commercialCopy.page };
@@ -923,6 +947,7 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A5D6A7]">{copy.demoBadge}</p>
               <p className="mt-2 text-xl font-semibold leading-tight text-white sm:mt-3 sm:text-2xl">{copy.subscriptionBadge}</p>
               <p className="mt-2 text-xs leading-5 text-white/72 sm:mt-3 sm:text-sm sm:leading-6">{copy.proofLine}</p>
+
               <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-5">
                 <a
                   href={demoHref}
@@ -948,73 +973,50 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="bg-white py-20">
+        <section className="bg-white py-24">
           <div className="mct-home-frame" style={mctHomeFrameStyle}>
-            <div className="grid gap-10 lg:grid-cols-[0.62fr_1.38fr]">
+            <div className="grid gap-10">
               <SectionIntro
                 eyebrow={commercialCopy.solutionsEyebrow}
                 heading={commercialCopy.solutionsHeading}
                 body={commercialCopy.solutionsBody}
               />
 
-              <div className="grid gap-5 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
                 {commercialCopy.solutionFamilies.map((solution) => (
                   <article
                     key={solution.title}
-                    className="group flex min-h-[520px] flex-col overflow-hidden border border-[#1F3529]/10 bg-[#F6F8F4] shadow-[0_18px_55px_rgba(31,53,41,0.08)]"
+                    className="flex min-h-[430px] flex-col border border-[#1F3529]/10 bg-white p-6 shadow-[0_18px_55px_rgba(31,53,41,0.08)]"
                   >
-                    <div className="relative h-28 overflow-hidden bg-[#37474F]">
-                      <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(55,71,79,0.96),rgba(46,125,50,0.56)),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:auto,38px_38px]" />
-                      <div className="absolute inset-y-0 right-0 w-2/3 opacity-70">
-                        <svg className="h-full w-full" viewBox="0 0 360 120" preserveAspectRatio="none" aria-hidden="true">
-                          <path
-                            className="hero-signal-line"
-                            d="M8 94 C74 28 128 72 190 40 C244 12 292 24 352 8"
-                            fill="none"
-                            stroke="#A5D6A7"
-                            strokeLinecap="round"
-                            strokeWidth="1.8"
-                            vectorEffect="non-scaling-stroke"
-                          />
-                          <path
-                            className="hero-future-line"
-                            d="M42 36 H116 V70 H206 H292"
-                            fill="none"
-                            stroke="#81D4FA"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="1.4"
-                            vectorEffect="non-scaling-stroke"
-                          />
-                        </svg>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2E7D32]">{MCT.acronym}</p>
+                    <h3 className="mt-4 text-2xl font-semibold text-[#1F3529]">{solution.title}</h3>
+                    <p className="mt-4 text-sm leading-7 text-[#37474F]/74">{solution.body}</p>
+                    <p className="mt-4 border-l-2 border-[#2E7D32] pl-4 text-sm leading-6 text-[#37474F]/66">
+                      {solution.audience}
+                    </p>
+
+                    <ul className="mt-7 grid gap-3">
+                      {solution.capabilities.map((capability) => (
+                        <li key={capability} className="flex gap-3 text-sm leading-6 text-[#37474F]/78">
+                          <CheckIcon className="mt-1 h-4 w-4 flex-none text-[#2E7D32]" />
+                          <span>{capability}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    {solution.actionLabel ? (
+                      <div className="mt-7 rounded-sm bg-[#F6F8F4] p-4 text-sm leading-6 text-[#37474F]/88">
+                        {solution.actionLabel}
                       </div>
-                    </div>
+                    ) : null}
 
-                    <div className="flex flex-1 flex-col p-6">
-                      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">{MCT.acronym}</p>
-                      <h3 className="mt-4 text-2xl font-semibold text-[#1F3529]">{solution.title}</h3>
-                      <p className="mt-4 text-sm leading-7 text-[#37474F]/74">{solution.body}</p>
-                      <p className="mt-4 border-l-2 border-[#2E7D32] pl-4 text-sm leading-6 text-[#37474F]/66">
-                        {solution.audience}
-                      </p>
-
-                      <ul className="mt-6 grid gap-3">
-                        {solution.capabilities.map((capability) => (
-                          <li key={capability} className="flex gap-3 text-sm leading-6 text-[#37474F]/78">
-                            <CheckIcon className="mt-1 h-4 w-4 flex-none text-[#2E7D32]" />
-                            <span>{capability}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <a
-                        href={demoHref}
-                        className="mt-auto inline-flex items-center justify-center gap-3 rounded-sm border border-[#2E7D32]/35 px-5 py-3 text-sm font-semibold text-[#2E7D32] transition-colors hover:border-[#2E7D32] hover:bg-[#2E7D32]/6"
-                      >
-                        <span>{solution.cta}</span>
-                        <ArrowIcon />
-                      </a>
-                    </div>
+                    <a
+                      href={demoHref}
+                      className="mt-auto inline-flex items-center justify-center gap-3 rounded-sm border border-[#2E7D32]/30 px-5 py-3 text-sm font-semibold text-[#2E7D32] transition-colors hover:border-[#2E7D32] hover:bg-[#2E7D32]/6"
+                    >
+                      <span>{solution.cta}</span>
+                      <ArrowIcon />
+                    </a>
                   </article>
                 ))}
               </div>
@@ -1085,13 +1087,16 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
           <div className="mct-home-frame" style={mctHomeFrameStyle}>
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <SectionIntro eyebrow={copy.packagesEyebrow} heading={copy.packagesHeading} body={copy.packagesBody} />
-              <a
-                href={localizePath(activeLocale, '/products/mct/pricing')}
-                className="inline-flex w-fit items-center justify-center gap-3 rounded-sm border border-[#2E7D32]/30 px-5 py-3 text-sm font-semibold text-[#2E7D32] transition-colors hover:border-[#2E7D32] hover:bg-[#2E7D32]/6"
-              >
-                <span>{packageLinkCopy.pricing}</span>
-                <ArrowIcon />
-              </a>
+              <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end lg:min-w-[28rem] lg:grid-cols-1">
+                <MctCurrencySwitcher locale={activeLocale} />
+                <a
+                  href={localizePath(activeLocale, '/products/mct/pricing')}
+                  className="inline-flex w-fit items-center justify-center gap-3 rounded-sm border border-[#2E7D32]/30 px-5 py-3 text-sm font-semibold text-[#2E7D32] transition-colors hover:border-[#2E7D32] hover:bg-[#2E7D32]/6"
+                >
+                  <span>{packageLinkCopy.pricing}</span>
+                  <ArrowIcon />
+                </a>
+              </div>
             </div>
             <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
               {copy.packages.map((tier) => {
@@ -1113,12 +1118,12 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
                       <div className={`mt-5 border-y py-4 ${tier.featured ? 'border-white/16' : 'border-[#1F3529]/10'}`}>
                         {tier.price && (
                           <p className={`text-xl font-semibold ${tier.featured ? 'text-white' : 'text-[#1F3529]'}`}>
-                            {tier.price}
+                            <MctConvertedPrice source={tier.price} locale={activeLocale} kind="monthly" />
                           </p>
                         )}
                         {tier.setup && (
                           <p className={`mt-1 text-xs font-semibold uppercase tracking-[0.14em] ${tier.featured ? 'text-white/58' : 'text-[#37474F]/56'}`}>
-                            {tier.setup}
+                            <MctConvertedPrice source={tier.setup} locale={activeLocale} kind="setup" />
                           </p>
                         )}
                       </div>

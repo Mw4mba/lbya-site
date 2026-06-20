@@ -35,14 +35,14 @@ const productsPageCopyByLocale: Record<Locale, {
   },
   sv: {
     heroEyebrow: 'Digitala kontrollprodukter',
-    heroPrimaryCta: 'Utforska MCT',
-    heroSecondaryCta: 'Beg\u00e4r demo',
+    heroPrimaryCta: 'Utforska NBC',
+    heroSecondaryCta: 'Kontakta oss',
     signalLabel: 'Kontrollsignal',
     signalBridge: 'Sammankopplade underlag, kontroller och beslut',
     sectionEyebrow: 'Produktportf\u00f6lj',
-    sectionHeading: 'Tv\u00e5 fokuserade produkter, b\u00e5da byggda kring kontroll.',
+    sectionHeading: 'En fokuserad produkt byggd kring BIM-kontroll.',
     sectionBody:
-      'MCT \u00e4r kommersiellt redo f\u00f6r logistikkontroll. NBC \u00e4r en separat BIM-kontrollprodukt i tidig utveckling. Varje produkt har sitt eget arbetsfl\u00f6de, sin egen m\u00e5lgrupp och sin egen roll.',
+      'NBC \u00e4r LBYA:s svenska produktfokus: en BIM-kontrollprodukt i tidig utveckling med tydlig struktur f\u00f6r modellinformation, ansvar, underlag och beslutsberedskap.',
   },
   fr: {
     heroEyebrow: 'Produits de contr\u00f4le num\u00e9rique',
@@ -85,7 +85,8 @@ function ProductSignalField({
   signalLabel: string;
   signalBridge: string;
 }) {
-  const [mct, nbc] = products;
+  const mct = products.find((product) => product.slug === 'mct');
+  const nbc = products.find((product) => product.slug === 'nbc');
 
   return (
     <div
@@ -205,85 +206,88 @@ export default async function ProductsPage({ params }: Props) {
   const pageCopy = productsPageCopyByLocale[activeLocale];
   const PRODUCTS_OVERVIEW = getSite(locale).productsOverview;
   const PRODUCTS = getProducts(locale);
+  const PRODUCT_CARDS = PRODUCTS.map(({ liveCta: _liveCta, ...product }) => product);
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="relative overflow-hidden bg-[#37474F] pt-32 pb-16 lg:pt-40 lg:pb-20">
-        <Image
-          src="/hero-nature-digital-transition.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-[0.42]"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,#37474F_0%,rgba(55,71,79,0.94)_32%,rgba(55,71,79,0.62)_68%,rgba(55,71,79,0.82)_100%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_26%,rgba(245,196,105,0.20),transparent_28%),radial-gradient(circle_at_58%_72%,rgba(129,212,250,0.16),transparent_32%)]" />
+      <main>
+        <section className="relative overflow-hidden bg-[#37474F] pt-32 pb-16 lg:pt-40 lg:pb-20">
+          <Image
+            src="/hero-nature-digital-transition.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-[0.42]"
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#37474F_0%,rgba(55,71,79,0.94)_32%,rgba(55,71,79,0.62)_68%,rgba(55,71,79,0.82)_100%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_26%,rgba(245,196,105,0.20),transparent_28%),radial-gradient(circle_at_58%_72%,rgba(129,212,250,0.16),transparent_32%)]" />
 
-        <div
-          className="content-frame relative z-10 grid items-end gap-12 lg:grid-cols-[0.92fr_1.08fr]"
-          style={pageFrameStyle}
-        >
-          <div className="relative z-10">
-            <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-[#A5D6A7]">
-              {pageCopy.heroEyebrow}
-            </p>
-            <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-8xl lg:text-9xl">
-              {PRODUCTS_OVERVIEW.hero}
-            </h1>
-            <p className="mt-7 max-w-3xl text-xl font-light leading-snug text-white/86 md:text-2xl">
-              {PRODUCTS_OVERVIEW.intro}
-            </p>
+          <div
+            className="content-frame relative z-10 grid items-end gap-12 lg:grid-cols-[0.92fr_1.08fr]"
+            style={pageFrameStyle}
+          >
+            <div className="relative z-10">
+              <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-[#A5D6A7]">
+                {pageCopy.heroEyebrow}
+              </p>
+              <h1 className="max-w-4xl text-5xl font-semibold tracking-tight text-white md:text-8xl lg:text-9xl">
+                {PRODUCTS_OVERVIEW.hero}
+              </h1>
+              <p className="mt-7 max-w-3xl text-xl font-light leading-snug text-white/86 md:text-2xl">
+                {PRODUCTS_OVERVIEW.intro}
+              </p>
 
-            <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
-              <a
-                href={localizePath(activeLocale, '/products/mct')}
-                className="inline-flex items-center justify-center gap-3 rounded-sm bg-white px-6 py-4 text-sm font-semibold text-[#37474F] shadow-[0_18px_48px_rgba(0,0,0,0.22)] transition-colors hover:bg-[#A5D6A7]"
-              >
-                <span>{pageCopy.heroPrimaryCta}</span>
-                <ArrowIcon />
-              </a>
-              <a
-                href={localizePath(activeLocale, '/contact')}
-                className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/30 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-[#A5D6A7] hover:bg-white/10"
-              >
-                <span>{pageCopy.heroSecondaryCta}</span>
-                <ArrowIcon />
-              </a>
+              <div className="mt-9 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <a
+                  href={localizePath(activeLocale, activeLocale === 'sv' ? '/products/nbc' : '/products/mct')}
+                  className="inline-flex items-center justify-center gap-3 rounded-sm bg-white px-6 py-4 text-sm font-semibold text-[#37474F] shadow-[0_18px_48px_rgba(0,0,0,0.22)] transition-colors hover:bg-[#A5D6A7]"
+                >
+                  <span>{pageCopy.heroPrimaryCta}</span>
+                  <ArrowIcon />
+                </a>
+                <a
+                  href={localizePath(activeLocale, '/contact')}
+                  className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/30 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-[#A5D6A7] hover:bg-white/10"
+                >
+                  <span>{pageCopy.heroSecondaryCta}</span>
+                  <ArrowIcon />
+                </a>
+              </div>
+            </div>
+
+            <ProductSignalField
+              products={PRODUCTS}
+              signalLabel={pageCopy.signalLabel}
+              signalBridge={pageCopy.signalBridge}
+            />
+          </div>
+        </section>
+
+        <section className="relative overflow-hidden bg-[#F6F8F4] py-24">
+          <div className="absolute inset-x-0 top-0 h-px bg-[#1F3529]/12" />
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                {pageCopy.sectionEyebrow}
+              </p>
+              <h2 className="mt-4 text-4xl font-light leading-tight text-[#1F3529] md:text-6xl">
+                {pageCopy.sectionHeading}
+              </h2>
+              <p className="mt-6 max-w-3xl text-base leading-8 text-[#37474F]/72 md:text-lg">
+                {pageCopy.sectionBody}
+              </p>
+            </div>
+
+            <div className="mt-12 grid grid-cols-1 gap-8">
+              {PRODUCT_CARDS.map((product) => (
+                <ProductCard key={product.slug} product={product} locale={activeLocale} />
+              ))}
             </div>
           </div>
-
-          <ProductSignalField
-            products={PRODUCTS}
-            signalLabel={pageCopy.signalLabel}
-            signalBridge={pageCopy.signalBridge}
-          />
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-[#F6F8F4] py-24">
-        <div className="absolute inset-x-0 top-0 h-px bg-[#1F3529]/12" />
-        <div className="content-frame" style={pageFrameStyle}>
-          <div className="max-w-4xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
-              {pageCopy.sectionEyebrow}
-            </p>
-            <h2 className="mt-4 text-4xl font-light leading-tight text-[#1F3529] md:text-6xl">
-              {pageCopy.sectionHeading}
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[#37474F]/72 md:text-lg">
-              {pageCopy.sectionBody}
-            </p>
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-8">
-            {PRODUCTS.map((product) => (
-              <ProductCard key={product.slug} product={product} locale={activeLocale} />
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer />
     </div>

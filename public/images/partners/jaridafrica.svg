@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 180" preserveAspectRatio="xMinYMid meet">
+  <defs>
+    <linearGradient id="orangeGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF9F00" />
+      <stop offset="1" stop-color="#D9480F" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FFF3E0" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FF8A00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="100%" height="100%" fill="none" />
+  <circle cx="120" cy="80" r="72" fill="url(#glow)" opacity="0.75" />
+  <circle cx="120" cy="80" r="68" fill="url(#orangeGradient)" />
+  <path
+    d="M40 80 C46 40 78 26 118 24 C148 22 170 36 182 54 C190 86 176 98 160 110 C140 124 118 116 104 110 C88 102 78 92 68 88 C58 84 48 88 44 92 C40 96 38 112 42 124 C46 136 58 144 74 148 C88 152 106 150 118 148 C132 146 148 146 158 142 C168 138 172 124 166 112 C160 100 146 92 134 86 C122 80 110 82 100 92"
+    fill="#F9FAFB"
+    opacity="0.9"
+  />
+  <path
+    d="M42 82 C72 56 98 50 126 48 C142 46 158 54 168 66 C176 76 176 88 170 96 C164 104 150 108 138 110 C126 112 118 110 110 108 C98 106 90 104 80 104 C68 104 62 108 58 114"
+    fill="none"
+    stroke="#fff"
+    stroke-width="4"
+    stroke-linecap="round"
+    opacity="0.9"
+  />
+  <path
+    d="M48 96 C80 82 104 82 132 82 C148 82 162 90 170 104"
+    fill="none"
+    stroke="#FFF"
+    stroke-width="8"
+    stroke-linecap="round"
+  />
+  <path
+    d="M48 96 L86 92 L100 88 L116 90 L132 94 L148 104"
+    fill="none"
+    stroke="#D9480F"
+    stroke-width="6"
+    stroke-linecap="round"
+  />
+  <path
+    d="M56 100 L66 98 M80 96 L90 94 M106 92 L116 90 M132 96 L142 100"
+    fill="none"
+    stroke="#fff"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+
+  <g transform="translate(200,30)">
+    <text x="0" y="40" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="40" fill="#1F3529">Jarid</text>
+    <text x="132" y="40" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="40" fill="#F97316">·A·</text>
+    <text x="180" y="40" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="40" fill="#1F3529">frica</text>
+    <text x="0" y="66" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="12" fill="#4B5563">Roadside Services</text>
+  </g>
+</svg>

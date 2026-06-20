@@ -906,7 +906,7 @@ const pricingCopyByLocale: Record<Locale, MctPricingCopy> = {
     comparisonHeading: 'A simple way to compare the four MCT packages.',
     comparisonBody: 'Use the table as a starting point. The final setup is confirmed after a product discussion because workflows, users, data, and integrations change the implementation shape.',
     noteHeading: 'Pricing note',
-    noteBody: 'The prices shown are starting points in USD. Final pricing is confirmed after scoping users, workflows, document controls, reporting, integrations, and support expectations.',
+    noteBody: 'Base prices are starting points in USD. EUR and ZAR are shown as indicative conversions; final pricing is confirmed after scoping users, workflows, document controls, reporting, integrations, and support expectations.',
     featureRows: [
       { feature: 'Best for', basic: 'Small teams', professional: 'Growing operations', premium: 'Established operations', enterprise: 'Large or strategic clients' },
       { feature: 'Primary value', basic: 'Structured visibility', professional: 'Accountability and document control', premium: 'Partner visibility and risk control', enterprise: 'Custom operating infrastructure' },
@@ -934,7 +934,7 @@ const pricingCopyByLocale: Record<Locale, MctPricingCopy> = {
     comparisonHeading: 'Ett enkelt sätt att jämföra de fyra MCT-paketen.',
     comparisonBody: 'Använd tabellen som startpunkt. Slutligt upplägg bekräftas efter ett produktsamtal eftersom arbetsflöden, användare, data och integrationer påverkar implementeringen.',
     noteHeading: 'Prisnotering',
-    noteBody: 'Priserna visas som startpunkter i USD. Slutligt pris bekräftas efter avgränsning av användare, arbetsflöden, dokumentkontroller, rapportering, integrationer och supportnivå.',
+    noteBody: 'Grundpriserna är startpunkter i USD. EUR och ZAR visas som vägledande omräkningar; slutligt pris bekräftas efter avgränsning av användare, arbetsflöden, dokumentkontroller, rapportering, integrationer och supportnivå.',
     featureRows: [
       { feature: 'Passar bäst för', basic: 'Små team', professional: 'Växande verksamheter', premium: 'Etablerad drift', enterprise: 'Stora eller strategiska kunder' },
       { feature: 'Primärt värde', basic: 'Strukturerad överblick', professional: 'Ansvar och dokumentkontroll', premium: 'Partneröverblick och riskkontroll', enterprise: 'Anpassad operativ infrastruktur' },
@@ -962,7 +962,7 @@ const pricingCopyByLocale: Record<Locale, MctPricingCopy> = {
     comparisonHeading: 'Une manière simple de comparer les quatre offres MCT.',
     comparisonBody: 'Utilisez le tableau comme point de départ. La configuration finale est confirmée après une discussion produit, car les flux de travail, les utilisateurs, les données et les intégrations influencent la mise en œuvre.',
     noteHeading: 'Note tarifaire',
-    noteBody: 'Les prix affichés sont des points de départ en USD. Le prix final est confirmé après cadrage des utilisateurs, flux de travail, contrôles documentaires, rapports, intégrations et attentes de support.',
+    noteBody: 'Les prix de base sont des points de départ en USD. EUR et ZAR sont affichés comme conversions indicatives ; le prix final est confirmé après cadrage des utilisateurs, flux de travail, contrôles documentaires, rapports, intégrations et attentes de support.',
     featureRows: [
       { feature: 'Idéal pour', basic: 'Petites équipes', professional: 'Opérations en croissance', premium: 'Opérations établies', enterprise: 'Grands clients stratégiques' },
       { feature: 'Valeur principale', basic: 'Visibilité structurée', professional: 'Responsabilité et contrôle documentaire', premium: 'Visibilité partenaire et contrôle du risque', enterprise: 'Infrastructure opérationnelle personnalisée' },
@@ -990,7 +990,7 @@ const pricingCopyByLocale: Record<Locale, MctPricingCopy> = {
     comparisonHeading: 'Ein einfacher Vergleich der vier MCT-Pakete.',
     comparisonBody: 'Nutzen Sie die Tabelle als Startpunkt. Das finale Setup wird nach einem Produktgespräch bestätigt, weil Workflows, Nutzer, Daten und Integrationen die Implementierung prägen.',
     noteHeading: 'Preisnotiz',
-    noteBody: 'Die angezeigten Preise sind Startpunkte in USD. Der endgültige Preis wird nach Scope von Nutzern, Workflows, Dokumentenkontrollen, Reporting, Integrationen und Support bestätigt.',
+    noteBody: 'Base prices are starting points in USD. EUR and ZAR are shown as indicative conversions; final pricing is confirmed after scoping users, workflows, document controls, reporting, integrations, and support expectations.',
     featureRows: [
       { feature: 'Am besten für', basic: 'Kleine Teams', professional: 'Wachsende Abläufe', premium: 'Etablierte Abläufe', enterprise: 'Große oder strategische Kunden' },
       { feature: 'Hauptwert', basic: 'Strukturierte Sichtbarkeit', professional: 'Verantwortlichkeit und Dokumentenkontrolle', premium: 'Partnersichtbarkeit und Risikokontrolle', enterprise: 'Individuelle Betriebsinfrastruktur' },

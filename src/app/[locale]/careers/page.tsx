@@ -99,7 +99,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     formNote: 'For CV files, add a shareable link below or attach the file when your email client opens.',
     successTitle: 'Your application is addressed to info@lbya.se.',
     successBody: 'If your email client did not open, send the same details to info@lbya.se.',
-    submit: 'Send application to info@lbya.se',
+    submit: 'Send application',
     submitted: 'Email prepared',
     fields: {
       role: 'Area of interest',
@@ -595,7 +595,7 @@ export default function CareersPage() {
               </div>
 
               <button type="submit" className="mt-8 inline-flex w-full items-center justify-center gap-3 rounded-sm bg-[#2E7D32] px-7 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#1F5B25]">
-                <span>{submitted ? copy.submitted : copy.submit}</span>
+                <span>{copy.submit}</span>
                 <ArrowIcon />
               </button>
             </form>

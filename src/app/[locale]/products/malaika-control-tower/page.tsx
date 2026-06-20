@@ -6,5 +6,6 @@ type Props = { params: Promise<{ locale: string }> };
 
 export default async function MalaikaControlTowerRedirect({ params }: Props) {
   const { locale } = await params;
-  permanentRedirect(localizePath(asLocale(locale), '/products/mct'));
+  const activeLocale = asLocale(locale);
+  permanentRedirect(localizePath(activeLocale, activeLocale === 'sv' ? '/products/nbc' : '/products/mct'));
 }

@@ -153,22 +153,93 @@ export default function Footer() {
   const products = getProducts(activeLocale);
   const solutions = getSolutions(activeLocale);
   const currentYear = new Date().getFullYear();
+  const footerRef = React.useRef<HTMLElement>(null);
+
+  const handlePointerMove = React.useCallback((event: React.PointerEvent<HTMLElement>) => {
+    const footer = footerRef.current;
+    if (!footer) return;
+    const rect = footer.getBoundingClientRect();
+    footer.style.setProperty('--footer-fx-x', `${event.clientX - rect.left}px`);
+    footer.style.setProperty('--footer-fx-y', `${event.clientY - rect.top}px`);
+  }, []);
+
+  const handlePointerLeave = React.useCallback(() => {
+    const footer = footerRef.current;
+    if (!footer) return;
+    footer.style.setProperty('--footer-fx-x', '50%');
+    footer.style.setProperty('--footer-fx-y', '0%');
+  }, []);
 
   return (
-    <footer id="site-footer" className="relative overflow-hidden border-t border-white/10 bg-[#37474F] text-white">
-      <div className="pointer-events-none absolute inset-0 opacity-30" aria-hidden="true">
-        <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#A5D6A7]/70 to-transparent" />
-        <div className="absolute -top-24 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full border border-white/10" />
-        <div className="absolute -top-12 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full border border-white/5" />
+    <footer
+      ref={footerRef}
+      id="site-footer"
+      className="relative overflow-hidden border-t border-white/10 bg-[#37474F] text-white"
+      onPointerMove={handlePointerMove}
+      onPointerLeave={handlePointerLeave}
+      style={{
+        '--footer-fx-x': '50%',
+        '--footer-fx-y': '0%',
+      } as React.CSSProperties}
+    >
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_-10%,rgba(129,212,250,0.16),transparent_45%),radial-gradient(circle_at_85%_0%,rgba(165,214,167,0.14),transparent_42%)]" />
         <div
-          className="hero-grid-scan absolute inset-x-0 top-0 h-full opacity-20"
+          className="absolute inset-0 transition-opacity duration-300"
           style={{
-            backgroundImage:
-              'linear-gradient(rgba(165, 214, 167, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(129, 212, 250, 0.10) 1px, transparent 1px)',
-            backgroundSize: '48px 48px',
-            maskImage: 'linear-gradient(180deg, black, transparent 72%)',
+            background:
+              'radial-gradient(360px circle at var(--footer-fx-x) var(--footer-fx-y), rgba(129,212,250,0.24), transparent 62%), radial-gradient(420px circle at calc(var(--footer-fx-x) - 18%) calc(var(--footer-fx-y) + 14%), rgba(165,214,167,0.18), transparent 66%)',
           }}
         />
+        <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#A5D6A7]/60 to-transparent" />
+
+        {/* Mobile: compact organic terrain */}
+        <svg className="absolute inset-x-0 bottom-0 h-28 w-full sm:hidden" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="footer-hill-mobile" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#4F7378" stopOpacity="0.26" />
+              <stop offset="100%" stopColor="#3B5F69" stopOpacity="0.22" />
+            </linearGradient>
+            <linearGradient id="footer-root-mobile" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#A5D6A7" stopOpacity="0.26" />
+              <stop offset="100%" stopColor="#81D4FA" stopOpacity="0.22" />
+            </linearGradient>
+          </defs>
+          <path d="M0 118 C200 102 300 86 466 92 C628 98 760 124 924 116 C1060 110 1148 92 1200 88 V180 H0 Z" fill="url(#footer-hill-mobile)" />
+          <path d="M48 98 C196 78 356 72 510 84 C664 96 820 120 968 112 C1070 106 1140 96 1182 90" fill="none" stroke="url(#footer-root-mobile)" strokeWidth="3.2" strokeLinecap="round" />
+        </svg>
+
+        {/* Desktop: layered hills and root lines */}
+        <svg className="hidden sm:absolute sm:inset-0 sm:h-full sm:w-full" viewBox="0 0 1200 320" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="footer-hill-front" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#41636C" stopOpacity="0.34" />
+              <stop offset="100%" stopColor="#35545D" stopOpacity="0.28" />
+            </linearGradient>
+            <linearGradient id="footer-hill-back" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#5C7D84" stopOpacity="0.16" />
+              <stop offset="100%" stopColor="#4F707B" stopOpacity="0.16" />
+            </linearGradient>
+            <linearGradient id="footer-root-lines" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#A5D6A7" stopOpacity="0.3" />
+              <stop offset="100%" stopColor="#81D4FA" stopOpacity="0.24" />
+            </linearGradient>
+            <linearGradient id="footer-leaf-soft" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#A5D6A7" stopOpacity="0.22" />
+              <stop offset="100%" stopColor="#81D4FA" stopOpacity="0.14" />
+            </linearGradient>
+          </defs>
+          <path d="M0 226 C148 202 264 178 396 182 C544 186 652 226 794 230 C922 234 1060 208 1200 174 V320 H0 Z" fill="url(#footer-hill-front)" />
+          <path d="M0 190 C150 174 258 146 410 150 C552 154 678 192 826 192 C980 192 1084 170 1200 144 V320 H0 Z" fill="url(#footer-hill-back)" />
+          <path d="M62 204 C182 180 318 168 456 180 C594 192 736 222 868 214 C1008 206 1114 184 1176 170" fill="none" stroke="url(#footer-root-lines)" strokeWidth="4.5" strokeLinecap="round" />
+          <path d="M118 238 C238 220 362 214 482 226 C614 238 746 260 866 254 C972 248 1070 230 1152 216" fill="none" stroke="url(#footer-root-lines)" strokeWidth="3" strokeLinecap="round" opacity="0.74" />
+          <g transform="translate(174,92) scale(0.86)">
+            <path d="M0 12 C26 -11 54 -11 78 12 C54 35 26 35 0 12 Z" fill="url(#footer-leaf-soft)" />
+          </g>
+          <g transform="translate(820,68) scale(0.78)">
+            <path d="M0 12 C26 -11 54 -11 78 12 C54 35 26 35 0 12 Z" fill="url(#footer-leaf-soft)" />
+          </g>
+        </svg>
       </div>
 
       <div
