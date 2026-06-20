@@ -187,7 +187,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Create a dependable project view with model uploads, basic health signals, open issues, and a client-ready snapshot.',
         suitable: ['small BIM teams', 'BIM consultants', 'architecture offices', 'engineering offices', 'pilot projects', 'internal BIM quality reviews'],
-        includes: ['project command center', 'model upload overview', 'basic model health indicators', 'issue tracking overview', 'delivery readiness snapshot', 'client-friendly project summary'],
+        includes: ['project command center', 'model upload overview', 'basic model health indicators', 'issue tracking overview', 'delivery readiness snapshot', 'client-friendly project summary', 'basic readiness snapshot', 'basic issue overview', 'basic file tracking', 'simple report preview', 'Readiness Passport preview'],
         cta: 'Request Essential Introduction',
       },
       {
@@ -196,7 +196,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Add ownership, due dates, validation context, risk indicators, and export-ready reporting for active delivery.',
         suitable: ['BIM coordination teams', 'engineering consultants', 'multidisciplinary design teams', 'contractors', 'project managers', 'client-facing delivery teams'],
-        includes: ['advanced command center', 'model validation overview', 'issue intelligence dashboard', 'responsibility and due-date tracking', 'coordination risk indicators', 'export-ready report structure'],
+        includes: ['advanced command center', 'model validation overview', 'issue intelligence dashboard', 'responsibility and due-date tracking', 'coordination risk indicators', 'export-ready report structure', 'Readiness Passport', 'Decision Gates', 'Evidence Pack', 'What Changed Since Last Review', 'Next Best Action', 'single-project 3D Asset Readiness Snapshot'],
         inheritance: 'Includes all Essential controls.',
         cta: 'Request Professional Access',
       },
@@ -206,7 +206,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Standardize governance across projects with portfolio visibility, audit evidence, role structures, and integration-ready workspaces.',
         suitable: ['large contractors', 'public-sector clients', 'infrastructure owners', 'real estate developers', 'enterprise BIM departments', 'multi-project organizations'],
-        includes: ['portfolio control dashboard', 'multi-project risk overview', 'enterprise role structure', 'audit evidence overview', 'executive reporting structure', 'integration-ready workspace'],
+        includes: ['portfolio control dashboard', 'multi-project risk overview', 'enterprise role structure', 'audit evidence overview', 'executive reporting structure', 'integration-ready workspace', 'portfolio decision gates', 'multi-project evidence packs', 'executive weekly brief', 'secure review room', 'project memory', 'custom rule set templates', 'local standards templates', 'advanced 3D Asset Readiness filtering'],
         inheritance: 'Includes all Professional controls.',
         cta: 'Explore Enterprise',
       },
@@ -216,7 +216,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Keep model review, issue tracking, reporting, and evidence exports under local control for restricted environments.',
         suitable: ['sensitive public infrastructure', 'secure government projects', 'hospitals', 'airports', 'rail and metro projects', 'data centers', 'air-gapped IT networks'],
-        includes: ['local project control', 'local model validation overview', 'local issue and risk tracking', 'local report generation', 'local evidence export', 'controlled update process'],
+        includes: ['local project control', 'local model validation overview', 'local issue and risk tracking', 'local report generation', 'local evidence export', 'controlled update process', 'offline evidence packs', 'local project memory', 'deterministic validation records', 'no black box validation', 'local rule set versioning', 'local 3D Asset Readiness Snapshot', 'zero telemetry', 'controlled update cycle'],
         inheritance: 'Includes selected Enterprise capabilities for restricted environments.',
         cta: 'Discuss Secure Offline',
       },
@@ -369,7 +369,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Skapa en tillförlitlig projektvy med modelluppladdningar, grundläggande hälsosignaler, öppna ärenden och en kundredo översikt.',
         suitable: ['små BIM-team', 'BIM-konsulter', 'arkitektkontor', 'teknikkonsulter', 'pilotprojekt', 'interna BIM-kvalitetsgranskningar'],
-        includes: ['projektkommandocenter', 'översikt för modelluppladdning', 'grundläggande modellhälsoindikatorer', 'ärendeöversikt', 'leveransberedskap', 'kundvänlig projektsammanfattning'],
+        includes: ['projektkommandocenter', 'översikt för modelluppladdning', 'grundläggande modellhälsoindikatorer', 'ärendeöversikt', 'leveransberedskap', 'kundvänlig projektsammanfattning', 'grundläggande beredskapssnapshot', 'grundläggande ärendeöversikt', 'grundläggande filspårning', 'enkel rapportförhandsvisning', 'Readiness Passport-förhandsvisning'],
         cta: 'Begär Essential-introduktion',
       },
       {
@@ -378,7 +378,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Lägg till ansvar, datum, valideringskontext, riskindikatorer och exportrapporter för pågående leverans.',
         suitable: ['BIM-samordningsteam', 'teknikkonsulter', 'multidisciplinära designteam', 'entreprenörer', 'projektledare', 'kundnära leveransteam'],
-        includes: ['avancerat kommandocenter', 'modellvalideringsöversikt', 'ärendeintelligens', 'ansvars- och datumspårning', 'riskindikatorer', 'exportrapportstruktur'],
+        includes: ['avancerat kommandocenter', 'modellvalideringsöversikt', 'ärendeintelligens', 'ansvars- och datumspårning', 'riskindikatorer', 'exportrapportstruktur', 'Readiness Passport', 'Decision Gates', 'Evidence Pack', 'Vad som förändrats sedan senaste granskning', 'Nästa bästa åtgärd', 'enskilt projekts 3D Asset Readiness Snapshot'],
         inheritance: 'Innehåller alla kontroller från Essential.',
         cta: 'Begär Professional-introduktion',
       },
@@ -388,7 +388,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Standardisera styrning mellan projekt med portföljöversikt, revisionsunderlag, rollstruktur och integrationsredo arbetsytor.',
         suitable: ['stora entreprenörer', 'offentliga beställare', 'infrastrukturägare', 'fastighetsutvecklare', 'enterprise BIM-avdelningar', 'organisationer med flera projekt'],
-        includes: ['portföljdashboard', 'risköversikt över flera projekt', 'enterprise-rollstruktur', 'översikt för revisionsunderlag', 'ledningsrapportering', 'integrationsredo arbetsyta'],
+        includes: ['portföljdashboard', 'risköversikt över flera projekt', 'enterprise-rollstruktur', 'översikt för revisionsunderlag', 'ledningsrapportering', 'integrationsredo arbetsyta', 'portföljbeslutsgrindar', 'underlagspaket för flera projekt', 'exekutivt veckobrev', 'säkert granskningsrum', 'projektminne', 'anpassade regeluppsättningsmallar', 'lokala standardmallar', 'avancerad 3D Asset Readiness-filtrering'],
         inheritance: 'Innehåller alla kontroller från Professional.',
         cta: 'Utforska Enterprise',
       },
@@ -398,7 +398,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Håll modellgranskning, ärendespårning, rapportering och underlagsexport under lokal kontroll i begränsade miljöer.',
         suitable: ['känslig offentlig infrastruktur', 'säkra myndighetsprojekt', 'sjukhus', 'flygplatser', 'järnväg och tunnelbana', 'datacenter', 'air-gapped IT-nät'],
-        includes: ['lokal projektkontroll', 'lokal modellvalideringsöversikt', 'lokal ärende- och riskspårning', 'lokal rapportgenerering', 'lokal underlagsexport', 'kontrollerad uppdateringsprocess'],
+        includes: ['lokal projektkontroll', 'lokal modellvalideringsöversikt', 'lokal ärende- och riskspårning', 'lokal rapportgenerering', 'lokal underlagsexport', 'kontrollerad uppdateringsprocess', 'offlineunderlagspaket', 'lokalt projektminne', 'deterministiska valideringsposter', 'ingen svart låda-validering', 'lokal regeluppsättningsversionshantering', 'lokal 3D Asset Readiness Snapshot', 'nolltelemetri', 'kontrollerad uppdateringscykel'],
         inheritance: 'Innehåller utvalda Enterprise-funktioner för begränsade miljöer.',
         cta: 'Diskutera Secure Offline',
       },
@@ -551,7 +551,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Créer une vue projet fiable avec téléversements de modèles, premiers signaux de santé, sujets ouverts et synthèse prête pour le client.',
         suitable: ['petites équipes BIM', 'consultants BIM', 'agences d’architecture', 'bureaux d’ingénierie', 'projets pilotes', 'revues qualité BIM internes'],
-        includes: ['centre de commande projet', 'vue des téléversements de modèles', 'indicateurs de santé de base', 'vue des sujets', 'instantané de maturité livraison', 'résumé projet côté client'],
+        includes: ['centre de commande projet', 'vue des téléversements de modèles', 'indicateurs de santé de base', 'vue des sujets', 'instantané de maturité livraison', 'résumé projet côté client', 'instantané de maturité de base', 'vue des sujets de base', 'suivi de fichiers de base', 'aperçu de rapport simple', 'aperçu Readiness Passport'],
         cta: 'Demander une introduction Essential',
       },
       {
@@ -560,7 +560,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Ajouter responsabilités, échéances, contexte de validation, indicateurs de risque et reporting exportable pour la livraison en cours.',
         suitable: ['équipes de coordination BIM', 'consultants ingénierie', 'équipes de conception multidisciplinaires', 'entrepreneurs', 'chefs de projet', 'équipes de livraison client'],
-        includes: ['centre de commande avancé', 'vue de validation modèle', 'tableau d’intelligence des sujets', 'suivi responsabilités et échéances', 'indicateurs de risque', 'structure de rapport exportable'],
+        includes: ['centre de commande avancé', 'vue de validation modèle', 'tableau d’intelligence des sujets', 'suivi responsabilités et échéances', 'indicateurs de risque', 'structure de rapport exportable', 'Readiness Passport', 'Decision Gates', 'Evidence Pack', 'Ce qui a changé depuis la dernière revue', 'Prochaine meilleure action', 'instantané 3D Asset Readiness mono-projet'],
         inheritance: 'Inclut tous les contrôles Essential.',
         cta: 'Demander une introduction Professional',
       },
@@ -570,7 +570,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Standardiser la gouvernance entre projets avec visibilité portefeuille, preuves d’audit, structure de rôles et espaces prêts pour intégrations.',
         suitable: ['grands entrepreneurs', 'clients publics', 'propriétaires d’infrastructures', 'développeurs immobiliers', 'départements BIM Enterprise', 'organisations multi-projets'],
-        includes: ['dashboard portefeuille', 'vue risque multi-projets', 'structure de rôles Enterprise', 'vue preuves d’audit', 'reporting exécutif', 'espace prêt pour intégrations'],
+        includes: ['dashboard portefeuille', 'vue risque multi-projets', 'structure de rôles Enterprise', 'vue preuves d’audit', 'reporting exécutif', 'espace prêt pour intégrations', 'jalons de décision portefeuille', 'packs de preuves multi-projets', 'bref exécutif hebdomadaire', 'salle de revue sécurisée', 'mémoire projet', 'modèles de règles personnalisées', 'modèles de standards locaux', 'filtrage avancé 3D Asset Readiness'],
         inheritance: 'Inclut tous les contrôles Professional.',
         cta: 'Explorer Enterprise',
       },
@@ -580,7 +580,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
         summary:
           'Garder revue modèle, suivi des sujets, reporting et export des preuves sous contrôle local dans les environnements restreints.',
         suitable: ['infrastructures publiques sensibles', 'projets gouvernementaux sécurisés', 'hôpitaux', 'aéroports', 'rail et métro', 'data centers', 'réseaux IT air-gapped'],
-        includes: ['contrôle projet local', 'vue locale de validation modèle', 'suivi local sujets et risques', 'génération locale de rapports', 'export local des preuves', 'processus de mise à jour contrôlé'],
+        includes: ['contrôle projet local', 'vue locale de validation modèle', 'suivi local sujets et risques', 'génération locale de rapports', 'export local des preuves', 'processus de mise à jour contrôlé', 'packs de preuves hors ligne', 'mémoire projet locale', 'enregistrements de validation déterministes', 'aucune validation boîte noire', 'versionnage local des règles', 'instantané 3D Asset Readiness local', 'zéro télémétrie', 'cycle de mise à jour contrôlé'],
         inheritance: 'Inclut certaines capacités Enterprise pour les environnements restreints.',
         cta: 'Discuter Secure Offline',
       },
