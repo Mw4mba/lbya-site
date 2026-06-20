@@ -885,23 +885,21 @@ export default async function NayeliBimControlPage({ params }: Props) {
               {copy.packages.map((tier, index) => (
                 <article
                   key={tier.name}
-                  className={`flex min-h-full flex-col border p-6 ${
-                    index === 2
-                      ? 'border-[#2E7D32]/35 bg-[#F7FAF7] shadow-xl shadow-[#1F3529]/10'
-                      : 'border-[#1F3529]/10 bg-white'
+                  className={`flex h-full flex-col rounded-sm bg-white p-8 shadow-lg transition-all duration-500 hover:shadow-2xl ${
+                    index === 1
+                      ? 'border-2 border-[#2E7D32]'
+                      : 'border border-[#2E7D32]/10'
                   }`}
                 >
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">{tier.name}</p>
-                  <h3 className="mt-4 text-xl font-semibold leading-snug text-[#1F3529]">
-                    {tier.kicker}
-                  </h3>
+                  <h3 className="mb-2 text-xl font-semibold text-[#2E7D32]">{tier.name}</h3>
+                  <p className="mb-4 text-sm font-medium text-[#37474F]/60">{tier.kicker}</p>
                   {tier.inheritance && (
-                    <p className="mt-4 text-sm font-semibold leading-7 text-[#37474F]/82">
+                    <p className="mb-4 text-sm font-semibold leading-7 text-[#37474F]/82">
                       {tier.inheritance}
                     </p>
                   )}
 
-                  <div className="mt-6">
+                  <div className="mb-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#37474F]/55">
                       {copy.packageSuitableLabel}
                     </p>
@@ -918,11 +916,11 @@ export default async function NayeliBimControlPage({ params }: Props) {
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#37474F]/55">
                       {copy.packageIncludesLabel}
                     </p>
-                    <ul className="mt-3 space-y-2">
+                    <ul className="mt-3 mb-8 flex-1 space-y-3">
                       {tier.includes.map((feature) => (
-                        <li key={feature} className="flex gap-2 text-sm leading-6 text-[#37474F]/74">
-                          <CheckIcon className="mt-1 h-4 w-4 shrink-0 text-[#2E7D32]" />
-                          <span>{feature}</span>
+                        <li key={feature} className="flex items-start gap-3 text-[#37474F]">
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#2E7D32]" />
+                          <span className="text-sm font-light leading-relaxed">{feature}</span>
                         </li>
                       ))}
                     </ul>
@@ -931,7 +929,11 @@ export default async function NayeliBimControlPage({ params }: Props) {
                   <div className="mt-auto pt-8">
                     <a
                       href={contactHref}
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#37474F] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2E7D32]"
+                      className={`mt-auto inline-flex w-full items-center justify-center gap-2 rounded-sm px-6 py-3 font-medium transition-all ${
+                        index === 1
+                          ? 'bg-[#2E7D32] text-white shadow-lg hover:bg-[#1b5e20] hover:shadow-xl'
+                          : 'border-2 border-[#2E7D32] text-[#2E7D32] hover:bg-[#2E7D32] hover:text-white'
+                      }`}
                     >
                       <span>{tier.cta}</span>
                       <ArrowIcon />
