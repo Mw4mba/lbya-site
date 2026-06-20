@@ -900,7 +900,6 @@ export default async function NayeliBimControlPage({ params }: Props) {
                       {tier.inheritance}
                     </p>
                   )}
-                  <p className="mt-4 text-sm leading-7 text-[#37474F]/72">{tier.summary}</p>
 
                   <div className="mt-6">
                     <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#37474F]/55">
