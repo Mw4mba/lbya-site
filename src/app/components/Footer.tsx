@@ -15,6 +15,7 @@ type FooterCopy = {
   productsTitle: string;
   solutionsTitle: string;
   companyTitle: string;
+  academicPilot: string;
   contactTitle: string;
   career: string;
   about: string;
@@ -35,6 +36,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     productsTitle: 'Products',
     solutionsTitle: 'Solutions',
     companyTitle: 'Company',
+    academicPilot: 'Academic Pilot',
     contactTitle: 'Contact',
     career: 'Career',
     about: 'About LBYA',
@@ -53,6 +55,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     productsTitle: 'Produkter',
     solutionsTitle: 'L\u00f6sningar',
     companyTitle: 'F\u00f6retag',
+    academicPilot: 'Academic Pilot',
     contactTitle: 'Kontakt',
     career: 'Karri\u00e4r',
     about: 'Om LBYA',
@@ -71,6 +74,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     productsTitle: 'Produits',
     solutionsTitle: 'Solutions',
     companyTitle: 'Entreprise',
+    academicPilot: 'Academic Pilot',
     contactTitle: 'Contact',
     career: 'Carri\u00e8re',
     about: '\u00c0 propos de LBYA',
@@ -89,6 +93,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     productsTitle: 'Produkte',
     solutionsTitle: 'L\u00f6sungen',
     companyTitle: 'Unternehmen',
+    academicPilot: 'Academic Pilot',
     contactTitle: 'Kontakt',
     career: 'Karriere',
     about: '\u00dcber LBYA',
@@ -314,6 +319,7 @@ export default function Footer() {
                 {copy.companyTitle}
               </h2>
               <nav className="mt-5 flex flex-col gap-3" aria-label={copy.companyTitle}>
+                <FooterLink href={localizePath(activeLocale, '/academic-pilot')}>{copy.academicPilot}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/careers')}>{copy.career}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/about')}>{copy.about}</FooterLink>
                 <a

@@ -12,6 +12,7 @@ import { asLocale, type Locale } from '../content/locale';
 type SidebarNavCopy = {
   solutions: string;
   products: string;
+  academicPilot: string;
   career: string;
   about: string;
   contact: string;
@@ -21,6 +22,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   en: {
     solutions: 'Solutions',
     products: 'Products',
+    academicPilot: 'Academic Pilot',
     career: 'Career',
     about: 'About',
     contact: 'Contact',
@@ -28,6 +30,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   sv: {
     solutions: 'L\u00f6sningar',
     products: 'Produkter',
+    academicPilot: 'Academic Pilot',
     career: 'Karri\u00e4r',
     about: 'Om oss',
     contact: 'Kontakt',
@@ -35,6 +38,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   fr: {
     solutions: 'Solutions',
     products: 'Produits',
+    academicPilot: 'Academic Pilot',
     career: 'Carri\u00e8re',
     about: '\u00c0 propos',
     contact: 'Contact',
@@ -42,6 +46,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   de: {
     solutions: 'L\u00f6sungen',
     products: 'Produkte',
+    academicPilot: 'Academic Pilot',
     career: 'Karriere',
     about: '\u00dcber uns',
     contact: 'Kontakt',
@@ -212,6 +217,7 @@ export default function Navbar() {
   const menuItems = [
     { label: navCopy.solutions, href: `/${activeLocale}#solutions` },
     { label: navCopy.products, href: `/${activeLocale}/products` },
+    { label: navCopy.academicPilot, href: `/${activeLocale}/academic-pilot` },
     { label: navCopy.career, href: `/${activeLocale}/careers` },
     { label: navCopy.about, href: `/${activeLocale}/about` },
     { label: navCopy.contact, href: `/${activeLocale}/contact` },
