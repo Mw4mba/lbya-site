@@ -50,6 +50,39 @@ export default async function AcademicPilotPage({ params }: Props) {
       <main>
         <section className="relative overflow-hidden bg-[#37474F] pt-30 pb-20 text-white">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(129,212,250,0.2),transparent_40%),radial-gradient(circle_at_82%_8%,rgba(165,214,167,0.18),transparent_38%)]" />
+          <div
+            className="absolute inset-0 opacity-30"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(129, 212, 250, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(165, 214, 167, 0.1) 1px, transparent 1px)',
+              backgroundSize: '54px 54px',
+              maskImage: 'linear-gradient(180deg, black 0%, black 70%, transparent 100%)',
+            }}
+          />
+          <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[45%] items-center pr-8 lg:flex">
+            <div className="relative h-[340px] w-full overflow-hidden rounded-sm border border-white/18 bg-white/[0.05] backdrop-blur-sm">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(129,212,250,0.2),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(165,214,167,0.2),transparent_40%)]" />
+              <svg className="absolute inset-0 h-full w-full opacity-65" viewBox="0 0 520 340" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M16 278 H500" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />
+                <path d="M16 238 H500" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
+                <path d="M16 198 H500" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
+                <path d="M16 158 H500" stroke="rgba(255,255,255,0.22)" strokeWidth="1" />
+                <path d="M72 278 V78 H164 V278" stroke="rgba(165,214,167,0.65)" strokeWidth="2" fill="none" />
+                <path d="M198 278 V114 H298 V278" stroke="rgba(129,212,250,0.65)" strokeWidth="2" fill="none" />
+                <path d="M322 278 V96 H446 V278" stroke="rgba(165,214,167,0.6)" strokeWidth="2" fill="none" />
+                <path d="M72 132 L118 98 L164 132" stroke="rgba(165,214,167,0.65)" strokeWidth="2" fill="none" />
+                <path d="M322 120 L384 74 L446 120" stroke="rgba(165,214,167,0.6)" strokeWidth="2" fill="none" />
+              </svg>
+              <div className="absolute left-6 top-5 text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-white/72">Academic Studio Board</div>
+              <div className="absolute bottom-5 right-6 text-[0.66rem] font-semibold uppercase tracking-[0.22em] text-[#A5D6A7]">Model Readiness / Issue Review</div>
+            </div>
+          </div>
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            <p className="absolute left-[6%] top-[22%] text-[0.64rem] font-semibold uppercase tracking-[0.5em] text-white/20">Academic Pilot</p>
+            <p className="absolute left-[12%] top-[34%] text-[0.64rem] font-semibold uppercase tracking-[0.48em] text-[#A5D6A7]/30">BIM Studio</p>
+            <p className="absolute left-[18%] top-[46%] text-[0.64rem] font-semibold uppercase tracking-[0.5em] text-white/18">Thesis Workflow</p>
+            <p className="absolute left-[24%] top-[58%] text-[0.64rem] font-semibold uppercase tracking-[0.48em] text-[#81D4FA]/28">Digital Construction Lab</p>
+          </div>
           <div className="relative" style={pageFrameStyle}>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#A5D6A7]">Nayeli BIM Control</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">NBC Academic Pilot Program</h1>
