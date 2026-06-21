@@ -7,13 +7,38 @@ type FormCopy = {
   success: string;
 };
 
+const ACADEMIC_PILOT_EMAIL = 'info@lbya.se';
+
 export default function AcademicPilotApplicationForm({ copy }: { copy: FormCopy }) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const fullName = `${formData.get('fullName') ?? ''}`.trim();
+    const subject = `NBC Academic Pilot Application - ${fullName}`;
+    const lines = [
+      `Full name: ${formData.get('fullName') ?? ''}`,
+      `Email address: ${formData.get('email') ?? ''}`,
+      `School / university: ${formData.get('school') ?? ''}`,
+      `Program or field of study: ${formData.get('program') ?? ''}`,
+      `Country: ${formData.get('country') ?? ''}`,
+      `Current level: ${formData.get('level') ?? ''}`,
+      `Area of interest: ${formData.get('interest') ?? ''}`,
+      '',
+      'Why do you want to join the NBC Academic Pilot Program?',
+      `${formData.get('motivation') ?? ''}`,
+      '',
+      'Do you want to use NBC for a course, thesis, personal learning, or research project?',
+      `${formData.get('useCase') ?? ''}`,
+    ];
+
+    const mailto = `mailto:${ACADEMIC_PILOT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+
     setSubmitted(true);
     event.currentTarget.reset();
+    window.location.href = mailto;
   };
 
   return (
