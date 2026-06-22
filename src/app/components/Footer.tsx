@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl';
 import { asLocale, type Locale } from '../content/locale';
 import { getProducts } from '../content/products';
 import { getSolutions } from '../content/solutions';
+import { resourceAreas } from '@/data/mockResources';
 import Wordmark from './Wordmark';
 import FooterAccountLinks from './subscription/FooterAccountLinks';
 
@@ -15,6 +16,7 @@ type FooterCopy = {
   tagline: string;
   productsTitle: string;
   solutionsTitle: string;
+  resourcesTitle: string;
   companyTitle: string;
   academicPilot: string;
   contactTitle: string;
@@ -36,6 +38,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     tagline: 'Rooted in Nature, Designed for the Future.',
     productsTitle: 'Products',
     solutionsTitle: 'Solutions',
+    resourcesTitle: 'Resources',
     companyTitle: 'Company',
     academicPilot: 'Academic Pilot',
     contactTitle: 'Contact',
@@ -55,6 +58,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     tagline: 'Rooted in Nature, Designed for the Future.',
     productsTitle: 'Produkter',
     solutionsTitle: 'L\u00f6sningar',
+    resourcesTitle: 'Resurser',
     companyTitle: 'F\u00f6retag',
     academicPilot: 'Academic Pilot',
     contactTitle: 'Kontakt',
@@ -74,6 +78,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     tagline: 'Rooted in Nature, Designed for the Future.',
     productsTitle: 'Produits',
     solutionsTitle: 'Solutions',
+    resourcesTitle: 'Ressources',
     companyTitle: 'Entreprise',
     academicPilot: 'Academic Pilot',
     contactTitle: 'Contact',
@@ -93,6 +98,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     tagline: 'Rooted in Nature, Designed for the Future.',
     productsTitle: 'Produkte',
     solutionsTitle: 'L\u00f6sungen',
+    resourcesTitle: 'Ressourcen',
     companyTitle: 'Unternehmen',
     academicPilot: 'Academic Pilot',
     contactTitle: 'Kontakt',
@@ -278,7 +284,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <div className="grid gap-px overflow-hidden border-y border-white/12 bg-white/12 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-px overflow-hidden border-y border-white/12 bg-white/12 md:grid-cols-2 xl:grid-cols-5">
             <section aria-labelledby="footer-products">
               <div className="h-full bg-[#37474F] p-6 sm:p-7">
               <h2 id="footer-products" className="text-sm font-semibold uppercase tracking-[0.16em] text-[#A5D6A7]">
@@ -314,6 +320,21 @@ export default function Footer() {
               </div>
             </section>
 
+            <section aria-labelledby="footer-resources">
+              <div className="h-full bg-[#37474F] p-6 sm:p-7">
+              <h2 id="footer-resources" className="text-sm font-semibold uppercase tracking-[0.16em] text-[#A5D6A7]">
+                {copy.resourcesTitle}
+              </h2>
+              <nav className="mt-5 flex flex-col gap-3" aria-label={copy.resourcesTitle}>
+                {resourceAreas.map((resource) => (
+                  <FooterLink key={resource.id} href={localizePath(activeLocale, resource.href)}>
+                    {resource.title}
+                  </FooterLink>
+                ))}
+              </nav>
+              </div>
+            </section>
+
             <section aria-labelledby="footer-company">
               <div className="h-full bg-[#37474F] p-6 sm:p-7">
               <h2 id="footer-company" className="text-sm font-semibold uppercase tracking-[0.16em] text-[#A5D6A7]">
@@ -325,7 +346,6 @@ export default function Footer() {
                 <FooterLink href={localizePath(activeLocale, '/academic-pilot')}>{copy.academicPilot}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/contact')}>{copy.contact}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/legal')}>{copy.policiesTerms}</FooterLink>
-                <FooterLink href={localizePath(activeLocale, '/privacy')}>{copy.privacy}</FooterLink>
               </nav>
               </div>
             </section>
@@ -347,6 +367,7 @@ export default function Footer() {
             >
               <LinkedInIcon />
             </a>
+            <FooterLink href={localizePath(activeLocale, '/privacy')}>{copy.privacy}</FooterLink>
             <FooterLink href={localizePath(activeLocale, '/privacy#cookies')}>{copy.cookies}</FooterLink>
             <FooterLink href={localizePath(activeLocale, '/consent')}>{copy.consent}</FooterLink>
           </div>

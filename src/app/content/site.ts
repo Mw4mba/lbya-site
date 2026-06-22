@@ -181,7 +181,7 @@ const en: SiteContent = {
       heading: 'Our product vision',
       points: [
         { title: 'Malaika Control Tower', detail: 'A ready logistics control product for connected African trade, available for demo requests.' },
-        { title: 'Nayeli BIM Control', detail: 'A BIM control product in early development, built to make model information more accountable.' },
+        { title: 'Nayeli BIM Control', detail: 'A BIM control product in mid development, built to make model information more accountable.' },
         { title: 'Global ambition', detail: 'Products lead the company, with room to grow into connected industries worldwide.' },
       ],
     },

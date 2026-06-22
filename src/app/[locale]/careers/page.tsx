@@ -84,7 +84,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     rolesBody: 'We are not listing fixed vacancies today, but we welcome focused applications for the product areas below.',
     roles: [
       { title: 'MCT product and logistics', meta: 'Ready product', detail: 'For people who can help improve logistics workflows, customer onboarding, verification, and product operations.' },
-      { title: 'NBC BIM control', meta: 'Early development', detail: 'For BIM specialists and product thinkers who can help shape requirements, model quality, issues, and evidence workflows.' },
+      { title: 'NBC BIM control', meta: 'Mid development', detail: 'For BIM specialists and product thinkers who can help shape requirements, model quality, issues, and evidence workflows.' },
       { title: 'Software and product engineering', meta: 'Product build', detail: 'For developers who enjoy practical interfaces, clean workflows, data structure, integrations, and reliable product details.' },
     ],
     processTitle: 'Application process',

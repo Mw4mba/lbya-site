@@ -73,11 +73,11 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       'Our goal is to build useful digital control platforms for industries where information moves across many people, places, documents, and decisions.',
     productStatus: {
       mct: 'Ready product',
-      'nbc': 'Early-stage development',
+      'nbc': 'Mid-stage development',
     },
     productBriefs: {
       mct: 'A ready logistics control tower for transport requests, transporter records, document verification, quote coordination, status tracking, and operational reporting.',
-      'nbc': 'An early-stage BIM control product for model information, issue ownership, evidence, and decision readiness.',
+      'nbc': 'A mid-stage BIM control product for model information, issue ownership, evidence, and decision readiness.',
     },
     goals: [
       { title: 'Make work visible', body: 'Give teams a clearer view of what is happening, what is missing, and what needs attention.' },

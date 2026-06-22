@@ -41,7 +41,7 @@ const NBC_LOGO = '/images/products/nbc-logo.png';
 const productsByLocale: Record<Locale, ProductSummary[]> = {
   en: [
     { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Ready product', tagline: 'A logistics control tower for African multimodal operations.', cardCopy: 'MCT is commercially ready. It brings shipment requests, transporter records, document verification, quotes, corridor status, and decision evidence into one structured logistics environment.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explore MCT', href: '/products/mct' }, liveCta: { label: 'View JARIDAFRICA platform', href: LIVE_MCT_URL } },
-    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Early-stage development', tagline: 'BIM control built for clarity, accountability, and trust.', cardCopy: 'NBC is in early development. It is being shaped around BIM information control: requirements, model quality, issue ownership, evidence, and decision readiness.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Discover NBC', href: '/products/nbc' } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Mid-stage development', tagline: 'BIM control built for clarity, accountability, and trust.', cardCopy: 'NBC is in mid development. It is being shaped around BIM information control: requirements, model quality, issue ownership, evidence, and decision readiness.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Discover NBC', href: '/products/nbc' } },
   ],
   sv: [
     { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Tidigt utvecklingsskede', tagline: 'BIM-kontroll byggd för tydlighet, ansvar och tillit.', cardCopy: 'NBC är i tidig utveckling. Produkten formas kring BIM-informationskontroll: krav, modellkvalitet, ärendeansvar, underlag och beslutsberedskap.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Upptäck NBC', href: '/products/nbc' } },
@@ -260,7 +260,7 @@ const nbcEN = {
   name: 'Nayeli BIM Control',
   acronym: 'NBC',
   seoTitle: 'Nayeli BIM Control | BIM Control Platform',
-  metaDescription: 'NBC is an early-stage BIM control product for coordination, federated model review, model validation, issue ownership, evidence, and decision readiness.',
+  metaDescription: 'NBC is a mid-stage BIM control product for coordination, federated model review, model validation, issue ownership, evidence, and decision readiness.',
   tagline: 'BIM control built for clarity, accountability, and trust.',
   heroImage: NBC_IMAGE,
   logo: NBC_LOGO,
@@ -313,7 +313,7 @@ const nbcEN = {
     { title: 'From model checking to BIM governance', body: 'Checking a model tells you what is wrong today. Governance tells you who owns each issue, what evidence supports a decision, and whether the project is ready to move forward. NBC helps teams make that shift without abandoning the tools they already use.' },
     { title: 'Connecting requirements, issues, and decision readiness', body: 'NBC links information requirements to model quality, issue ownership, and the evidence behind each decision. For example, a requirement can be traced to the issues it raised, the checks that closed them, and the person accountable, so decisions rest on a clear record.' },
     { title: 'Designed to work alongside your existing BIM tools', body: 'NBC is a control layer, not a modelling tool and not a replacement for your authoring or review software. It is designed to sit alongside existing BIM workflows and strengthen the information that flows through them.' },
-    { title: 'Early-stage development and partnership', body: 'NBC is still in early development. We are inviting project teams and partners who want to help shape a more accountable way to control BIM information.' },
+    { title: 'Mid-stage development and partnership', body: 'NBC is still in mid development. We are inviting project teams and partners who want to help shape a more accountable way to control BIM information.' },
   ] as NbcSection[],
 };
 

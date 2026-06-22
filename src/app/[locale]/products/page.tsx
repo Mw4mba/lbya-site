@@ -31,7 +31,7 @@ const productsPageCopyByLocale: Record<Locale, {
     sectionEyebrow: 'Product portfolio',
     sectionHeading: 'Two focused products, each built around control.',
     sectionBody:
-      'MCT is commercially ready for logistics control. NBC is a separate early-stage BIM control product. Each product has its own workflow, audience, and reason to exist.',
+      'MCT is commercially ready for logistics control. NBC is a separate mid-stage BIM control product. Each product has its own workflow, audience, and reason to exist.',
   },
   sv: {
     heroEyebrow: 'Digitala kontrollprodukter',

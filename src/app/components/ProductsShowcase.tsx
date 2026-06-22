@@ -27,7 +27,7 @@ const productShowcaseCopyByLocale: Record<Locale, ProductShowcaseCopy> = {
       'mct':
         'Ready for multimodal logistics coordination, document control, transporter records, quote comparison, status tracking, reporting, and operational evidence.',
       'nbc':
-        'An early-stage BIM control product for teams that need clearer model information, responsibility, and decision evidence.',
+        'A mid-stage BIM control product for teams that need clearer model information, responsibility, and decision evidence.',
     },
   },
   sv: {

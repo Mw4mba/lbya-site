@@ -13,6 +13,7 @@ import HeaderAccountActions from './subscription/HeaderAccountActions';
 type SidebarNavCopy = {
   solutions: string;
   products: string;
+  resources: string;
   academicPilot: string;
   career: string;
   about: string;
@@ -23,6 +24,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   en: {
     solutions: 'Solutions',
     products: 'Products',
+    resources: 'Resources',
     academicPilot: 'Academic Pilot',
     career: 'Career',
     about: 'About',
@@ -31,6 +33,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   sv: {
     solutions: 'L\u00f6sningar',
     products: 'Produkter',
+    resources: 'Resurser',
     academicPilot: 'Academic Pilot',
     career: 'Karri\u00e4r',
     about: 'Om oss',
@@ -39,6 +42,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   fr: {
     solutions: 'Solutions',
     products: 'Produits',
+    resources: 'Ressources',
     academicPilot: 'Academic Pilot',
     career: 'Carri\u00e8re',
     about: '\u00c0 propos',
@@ -47,6 +51,7 @@ const sidebarNavCopyByLocale: Record<Locale, SidebarNavCopy> = {
   de: {
     solutions: 'L\u00f6sungen',
     products: 'Produkte',
+    resources: 'Ressourcen',
     academicPilot: 'Academic Pilot',
     career: 'Karriere',
     about: '\u00dcber uns',
@@ -80,6 +85,7 @@ export default function Navbar() {
       '/': 'Home',
       '/products': 'Products',
       '/solutions': 'Solutions',
+      '/resources': 'Resources',
       '/about': 'About',
       '/insights': 'Insights',
       '/careers': 'Career',
@@ -91,6 +97,7 @@ export default function Navbar() {
     // Check for dynamic routes
     if (pathname.startsWith('/products/')) return 'Products';
     if (pathname.startsWith('/solutions/')) return 'Solutions';
+    if (pathname.startsWith('/resources/')) return 'Resources';
     if (pathname.startsWith('/insights/')) return 'Insights';
     return routeMap[pathname] || 'LBYA';
   }, [pathname]);
@@ -218,6 +225,7 @@ export default function Navbar() {
   const menuItems = [
     { label: navCopy.solutions, href: `/${activeLocale}#solutions` },
     { label: navCopy.products, href: `/${activeLocale}/products` },
+    { label: navCopy.resources, href: `/${activeLocale}/resources` },
     { label: navCopy.academicPilot, href: `/${activeLocale}/academic-pilot` },
     { label: navCopy.career, href: `/${activeLocale}/careers` },
     { label: navCopy.about, href: `/${activeLocale}/about` },

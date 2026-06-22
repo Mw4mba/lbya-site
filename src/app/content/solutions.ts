@@ -127,7 +127,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       slug: 'global-bim-control',
       eyebrow: 'NBC solution',
       title: 'Global BIM control',
-      body: 'A focused early-stage BIM control direction for model review, issue ownership, validation governance, and decision evidence across project teams.',
+      body: 'A focused mid-stage BIM control direction for model review, issue ownership, validation governance, and decision evidence across project teams.',
       product: 'Nayeli BIM Control',
       href: '/solutions/global-bim-control',
       seoTitle: 'Global BIM Control Solution | Nayeli BIM Control',
@@ -166,7 +166,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
         { title: 'Validate readiness', body: 'Check whether the model information is complete enough for the next project decision.' },
         { title: 'Keep the evidence', body: 'Preserve the control record so reviews, decisions, and handover discussions stay traceable.' },
       ],
-      proofHeading: 'Early-stage product direction',
+      proofHeading: 'Mid-stage product direction',
       proofBody:
         'NBC is intentionally kept focused while it develops. The public message stays simple: BIM coordination, model-information control, and stronger decision evidence.',
       finalHeading: 'Shape a practical BIM control layer.',

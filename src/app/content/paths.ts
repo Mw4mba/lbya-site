@@ -1,6 +1,6 @@
 import { asLocale, type Locale } from './locale';
 
-const LOCALE_PREFIXES = ['/en', '/sv', '/fr'];
+const LOCALE_PREFIXES = ['/en', '/sv', '/fr', '/de'];
 
 export function localizePath(locale: string | Locale, href: string) {
   if (

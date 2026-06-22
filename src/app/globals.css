@@ -451,6 +451,25 @@ html {
   animation: about-goals-grid-drift 22s linear infinite;
 }
 
+.resources-hero-interactive {
+  --resources-grid-x: 0px;
+  --resources-grid-y: 0px;
+}
+
+.resources-hero-glow {
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.16), rgba(55, 71, 79, 0.9) 48%, rgba(31, 53, 41, 0.95));
+}
+
+.resources-hero-grid {
+  transform: translate3d(var(--resources-grid-x), var(--resources-grid-y), 0);
+  transition: transform 180ms ease-out;
+}
+
+.resources-hero-sweep {
+  background: linear-gradient(110deg, transparent 22%, rgba(129, 212, 250, 0.09) 46%, rgba(165, 214, 167, 0.1) 53%, transparent 76%);
+  animation: about-goals-sweep var(--resources-sweep-duration, 9.2s) ease-in-out infinite;
+}
+
 .hero-core-ring {
   animation: hero-core-turn 22s linear infinite;
   clip-path: polygon(50% 0, 100% 0, 100% 58%, 50% 100%, 0 100%, 0 42%);
@@ -571,7 +590,10 @@ html {
   .about-goals-glow,
   .about-goals-rings,
   .about-goals-sweep,
-  .about-goals-grid {
+  .about-goals-grid,
+  .resources-hero-glow,
+  .resources-hero-grid,
+  .resources-hero-sweep {
     animation: none !important;
     transition: none !important;
   }

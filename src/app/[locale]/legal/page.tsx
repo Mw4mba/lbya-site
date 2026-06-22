@@ -103,7 +103,7 @@ const legalCopyByLocale: Record<Locale, LegalCopy> = {
       {
         title: 'Product lifecycle',
         body:
-          'MCT is commercially ready. NBC is in early development. Features, packaging, availability, and technical requirements may change as products improve, security needs evolve, or customer agreements require specific controls.',
+          'MCT is commercially ready. NBC is in mid development. Features, packaging, availability, and technical requirements may change as products improve, security needs evolve, or customer agreements require specific controls.',
       },
     ],
     contactTitle: 'Legal and privacy contact',
