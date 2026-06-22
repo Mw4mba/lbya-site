@@ -69,7 +69,7 @@ function SingleSolutionCard({
   cta: string;
 }) {
   return (
-    <article className="relative overflow-hidden rounded-[2rem] border border-[#1F3529]/12 bg-white shadow-[0_28px_60px_rgba(31,53,41,0.08)]">
+    <article className="relative overflow-hidden rounded-4xl border border-[#1F3529]/12 bg-white shadow-[0_28px_60px_rgba(31,53,41,0.08)]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(129,212,250,0.18),transparent_45%),radial-gradient(circle_at_bottom_left,rgba(165,214,167,0.16),transparent_34%)]" />
       <div className="relative grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <div className="space-y-6">
@@ -93,7 +93,7 @@ function SingleSolutionCard({
           </div>
         </div>
 
-        <div className="rounded-[1.5rem] bg-[#F7FAF7] p-6 shadow-[0_18px_35px_rgba(31,53,41,0.08)]">
+        <div className="rounded-3xl bg-[#F7FAF7] p-6 shadow-[0_18px_35px_rgba(31,53,41,0.08)]">
           <div className="inline-flex items-center gap-3 rounded-full bg-[#E8F5E9] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#2E7D32]">
             {solution.product}
           </div>

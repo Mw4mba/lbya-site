@@ -29,10 +29,10 @@ export default function AdminSidebar({ activePath }: { activePath: string }) {
   };
 
   return (
-    <aside className="sticky top-0 h-screen border-r border-[#2E7D32]/10 bg-gradient-to-b from-white via-[#F5F5DC]/20 to-white/80 px-6 py-10 shadow-2xl backdrop-blur-sm">
+    <aside className="sticky top-0 h-screen border-r border-[#2E7D32]/10 bg-linear-to-b from-white via-[#F5F5DC]/20 to-white/80 px-6 py-10 shadow-2xl backdrop-blur-sm">
       <div className="mb-8 border-b border-[#2E7D32]/15 pb-6">
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#2E7D32]/70">LBYA Admin</p>
-        <h2 className="mt-3 bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] bg-clip-text text-xl font-black text-transparent">
+        <h2 className="mt-3 bg-linear-to-r from-[#2E7D32] to-[#1b5e20] bg-clip-text text-xl font-black text-transparent">
           {productLabel(activeProduct)}
         </h2>
         <p className="mt-2 text-xs font-medium text-[#37474F]/60">
@@ -46,7 +46,7 @@ export default function AdminSidebar({ activePath }: { activePath: string }) {
           onClick={() => handleProductSwitch('mct')}
           className={`w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-300 ${
             activeProduct === 'mct'
-              ? 'bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-md'
+              ? 'bg-linear-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-md'
               : 'bg-white/40 text-[#37474F]/70 border border-[#2E7D32]/10 hover:bg-[#2E7D32]/8'
           }`}
         >
@@ -56,7 +56,7 @@ export default function AdminSidebar({ activePath }: { activePath: string }) {
           onClick={() => handleProductSwitch('nbc')}
           className={`w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-300 ${
             activeProduct === 'nbc'
-              ? 'bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-md'
+              ? 'bg-linear-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-md'
               : 'bg-white/40 text-[#37474F]/70 border border-[#2E7D32]/10 hover:bg-[#2E7D32]/8'
           }`}
         >
@@ -73,7 +73,7 @@ export default function AdminSidebar({ activePath }: { activePath: string }) {
               href={item.href}
               className={`group relative flex items-center rounded-xl px-5 py-3.5 text-sm font-semibold transition-all duration-300 ${
                 isActive
-                  ? 'bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-lg before:absolute before:inset-0 before:rounded-xl before:bg-white/10 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100'
+                  ? 'bg-linear-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-lg before:absolute before:inset-0 before:rounded-xl before:bg-white/10 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100'
                   : 'text-[#37474F]/70 hover:bg-[#2E7D32]/8 hover:text-[#2E7D32]'
               }`}
             >

@@ -60,7 +60,7 @@ export default async function AcademicPilotPage({ params }: Props) {
             }}
           />
           <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-[45%] items-center pr-8 lg:flex">
-            <div className="relative h-[340px] w-full overflow-hidden rounded-sm border border-white/18 bg-white/[0.05] backdrop-blur-sm">
+            <div className="relative h-[340px] w-full overflow-hidden rounded-sm border border-white/18 bg-white/5 backdrop-blur-sm">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(129,212,250,0.2),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(165,214,167,0.2),transparent_40%)]" />
               <svg className="absolute inset-0 h-full w-full opacity-65" viewBox="0 0 520 340" preserveAspectRatio="none" aria-hidden="true">
                 <path d="M16 278 H500" stroke="rgba(255,255,255,0.35)" strokeWidth="1" />

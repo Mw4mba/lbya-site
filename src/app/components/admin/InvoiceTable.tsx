@@ -7,7 +7,7 @@ export default function InvoiceTable({ rows }: { rows: Invoice[] }) {
     <div className="overflow-x-auto rounded-2xl border border-[#37474F]/10 bg-white shadow-sm">
       <table className="min-w-full border-collapse text-left">
         <thead>
-          <tr className="border-b border-[#37474F]/8 bg-gradient-to-r from-[#2E7D32]/5 to-transparent text-xs font-bold uppercase tracking-[0.12em] text-[#37474F]/70">
+          <tr className="border-b border-[#37474F]/8 bg-linear-to-r from-[#2E7D32]/5 to-transparent text-xs font-bold uppercase tracking-[0.12em] text-[#37474F]/70">
             {['Invoice #','Company','Billing contact','Amount','VAT/tax','Currency','Status','Due date','Payment date','Period','PDF','Send','Actions'].map((h) => (
               <th key={h} className="px-6 py-4">{h}</th>
             ))}

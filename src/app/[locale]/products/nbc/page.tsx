@@ -733,7 +733,7 @@ export default async function NayeliBimControlPage({ params }: Props) {
               </div>
 
               <div className="justify-self-start lg:justify-self-end">
-                <div className="w-full max-w-[420px] border border-white/12 bg-white/[0.06] p-6 shadow-2xl shadow-black/20 backdrop-blur-md">
+                <div className="w-full max-w-[420px] border border-white/12 bg-white/6 p-6 shadow-2xl shadow-black/20 backdrop-blur-md">
                   <Image
                     src={NBC.logo}
                     alt={`${NBC.name} logo`}
@@ -801,11 +801,11 @@ export default async function NayeliBimControlPage({ params }: Props) {
               <h2 className="mt-4 text-3xl font-light leading-tight md:text-5xl">{copy.whyTitle}</h2>
               <p className="mt-6 text-base leading-8 text-white/76 md:text-lg">{copy.whyBody}</p>
             </div>
-            <div className="border border-white/12 bg-white/[0.06] p-6">
+            <div className="border border-white/12 bg-white/6 p-6">
               <h3 className="text-xl font-semibold">{copy.informationTitle}</h3>
               <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {copy.informationItems.map((item) => (
-                  <div key={item} className="flex items-center gap-3 border border-white/10 bg-white/[0.05] px-4 py-3">
+                  <div key={item} className="flex items-center gap-3 border border-white/10 bg-white/5 px-4 py-3">
                     <CheckIcon className="h-4 w-4 shrink-0 text-[#A5D6A7]" />
                     <span className="text-sm text-white/80">{item}</span>
                   </div>

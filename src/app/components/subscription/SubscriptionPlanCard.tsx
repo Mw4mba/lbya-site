@@ -24,7 +24,7 @@ export default function SubscriptionPlanCard({
         {plan.recommended ? <span className="rounded-sm bg-[#A5D6A7] px-2 py-1 text-xs font-semibold text-[#1F3529]">Recommended</span> : null}
       </div>
 
-      <p className={`mt-4 text-sm font-semibold uppercase tracking-[0.1em] ${plan.recommended ? 'text-[#A5D6A7]' : 'text-[#2E7D32]'}`}>
+      <p className={`mt-4 text-sm font-semibold uppercase tracking-widest ${plan.recommended ? 'text-[#A5D6A7]' : 'text-[#2E7D32]'}`}>
         {plan.users}
       </p>
       <p className={`mt-2 text-2xl font-semibold ${plan.recommended ? 'text-white' : 'text-[#1F3529]'}`}>{plan.placeholderPrice}</p>

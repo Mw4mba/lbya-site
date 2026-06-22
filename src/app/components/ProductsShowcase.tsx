@@ -313,15 +313,15 @@ function SingleProductShowcase({
         </div>
       </div>
 
-      <article className="overflow-hidden rounded-[2rem] border border-[#1F3529]/12 bg-[#F7FAF7] shadow-[0_28px_60px_rgba(31,53,41,0.08)]">
-        <div className="relative h-[26rem] overflow-hidden sm:h-[30rem]">
+      <article className="overflow-hidden rounded-4xl border border-[#1F3529]/12 bg-[#F7FAF7] shadow-[0_28px_60px_rgba(31,53,41,0.08)]">
+        <div className="relative h-104 overflow-hidden sm:h-120">
           <Image
             src={product.image}
             alt=""
             fill
             className="object-cover object-center opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#2E7D32]/15 via-[#1F3529]/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-br from-[#2E7D32]/15 via-[#1F3529]/10 to-transparent" />
           <div className="absolute inset-0 flex items-end p-8">
             <div className="w-full rounded-[1.75rem] bg-white/92 p-8 shadow-xl backdrop-blur-sm">
               <div className="flex flex-wrap items-center gap-3">

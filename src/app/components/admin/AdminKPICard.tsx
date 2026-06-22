@@ -27,15 +27,15 @@ export default function AdminKPICard({
   const icon = Object.entries(iconMap).find(([key]) => label.toLowerCase().includes(key.toLowerCase()))?.[1] || '📌';
   
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-[#2E7D32]/15 bg-gradient-to-br from-white via-white to-[#F5F5DC]/40 p-8 shadow-lg transition-all duration-500 hover:shadow-2xl hover:border-[#2E7D32]/40 hover:-translate-y-1">
+    <article className="group relative overflow-hidden rounded-2xl border border-[#2E7D32]/15 bg-linear-to-br from-white via-white to-[#F5F5DC]/40 p-8 shadow-lg transition-all duration-500 hover:shadow-2xl hover:border-[#2E7D32]/40 hover:-translate-y-1">
       <div className="absolute inset-0 -z-10 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-        <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br from-[#2E7D32]/10 to-[#81D4FA]/5 blur-3xl" />
-        <div className="absolute -left-16 -bottom-16 h-40 w-40 rounded-full bg-gradient-to-tr from-[#A5D6A7]/10 to-transparent blur-3xl" />
+        <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-linear-to-br from-[#2E7D32]/10 to-[#81D4FA]/5 blur-3xl" />
+        <div className="absolute -left-16 -bottom-16 h-40 w-40 rounded-full bg-linear-to-tr from-[#A5D6A7]/10 to-transparent blur-3xl" />
       </div>
       <div className="relative z-10 flex items-start justify-between">
         <div className="flex-1">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#37474F]/55">{label}</p>
-          <p className="mt-6 text-5xl font-black bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] bg-clip-text text-transparent">{value}</p>
+          <p className="mt-6 text-5xl font-black bg-linear-to-r from-[#2E7D32] to-[#1b5e20] bg-clip-text text-transparent">{value}</p>
           {delta && (
             <div className={`mt-4 inline-flex items-center gap-2 rounded-lg px-3.5 py-2 text-xs font-bold backdrop-blur-sm transition-all duration-300 ${
               isPositive

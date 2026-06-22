@@ -24,7 +24,7 @@ export default function PackageTierCard({
       <ul className="space-y-3 mb-8 flex-1">
         {tier.features.map((feature, idx) => (
           <li key={idx} className="flex items-start gap-3 text-[#37474F]">
-            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#2E7D32] flex-shrink-0" />
+            <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#2E7D32] shrink-0" />
             <span className="font-light text-sm leading-relaxed">{feature}</span>
           </li>
         ))}
