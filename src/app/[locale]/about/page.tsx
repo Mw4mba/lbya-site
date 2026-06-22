@@ -382,12 +382,12 @@ function SystemVisual({ copy }: { copy: AboutPageCopy }) {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#A5D6A7]">{copy.systemLabel}</p>
             <h2 className="mt-4 max-w-sm text-3xl font-light leading-tight text-white md:text-4xl">{copy.systemTitle}</h2>
           </div>
-          <span className="relative block h-32 w-32 shrink-0">
+          <span className="relative block h-36 w-36 shrink-0">
             <Image
               src="/logoC.svg"
               alt=""
               fill
-              sizes="128px"
+              sizes="144px"
               className="object-contain"
               style={{ filter: 'brightness(0) invert(1)' }}
             />
