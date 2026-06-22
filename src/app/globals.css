@@ -271,6 +271,45 @@ html {
   }
 }
 
+@keyframes about-goals-grid-drift {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -72px 40px;
+  }
+}
+
+@keyframes about-goals-sweep {
+  0% {
+    transform: translate3d(-10%, 0, 0);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: translate3d(8%, 0, 0);
+    opacity: 0.42;
+  }
+
+  100% {
+    transform: translate3d(-10%, 0, 0);
+    opacity: 0.2;
+  }
+}
+
+@keyframes about-goals-rings-breathe {
+
+  0%,
+  100% {
+    opacity: 0.24;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
 @keyframes nbc-bim-scan {
 
   0% {
@@ -375,6 +414,41 @@ html {
 
 .hero-grid-scan {
   animation: hero-grid-pan 16s linear infinite;
+}
+
+.about-goals-interactive {
+  --about-goals-pointer-x: 58%;
+  --about-goals-pointer-y: 32%;
+  --about-goals-grid-x: 0px;
+  --about-goals-grid-y: 0px;
+}
+
+.about-goals-glow {
+  background:
+    radial-gradient(circle at var(--about-goals-pointer-x) var(--about-goals-pointer-y), rgba(165, 214, 167, 0.24), transparent 14rem),
+    radial-gradient(circle at calc(var(--about-goals-pointer-x) + 8rem) calc(var(--about-goals-pointer-y) + 5rem), rgba(129, 212, 250, 0.16), transparent 19rem),
+    radial-gradient(circle at 86% 26%, rgba(46, 125, 50, 0.08), transparent 22rem);
+  transition: background 180ms ease-out;
+}
+
+.about-goals-rings {
+  background:
+    repeating-radial-gradient(circle at var(--about-goals-pointer-x) var(--about-goals-pointer-y), rgba(46, 125, 50, 0.16) 0 1px, transparent 1px 28px),
+    repeating-radial-gradient(circle at 74% 70%, rgba(129, 212, 250, 0.12) 0 1px, transparent 1px 32px);
+  mix-blend-mode: multiply;
+  animation: about-goals-rings-breathe 7.2s ease-in-out infinite;
+}
+
+.about-goals-sweep {
+  background: linear-gradient(110deg, transparent 24%, rgba(129, 212, 250, 0.09) 46%, rgba(165, 214, 167, 0.11) 54%, transparent 76%);
+  filter: blur(18px);
+  animation: about-goals-sweep 8.4s ease-in-out infinite;
+}
+
+.about-goals-grid {
+  transform: translate3d(var(--about-goals-grid-x), var(--about-goals-grid-y), 0);
+  transition: transform 180ms ease-out;
+  animation: about-goals-grid-drift 22s linear infinite;
 }
 
 .hero-core-ring {
@@ -491,6 +565,14 @@ html {
 
   .nbc-hero-interactive svg {
     transform: none !important;
+    transition: none !important;
+  }
+
+  .about-goals-glow,
+  .about-goals-rings,
+  .about-goals-sweep,
+  .about-goals-grid {
+    animation: none !important;
     transition: none !important;
   }
 

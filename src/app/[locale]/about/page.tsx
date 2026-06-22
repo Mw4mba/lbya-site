@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
+import { useEffect, useRef } from 'react';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
 import Wordmark from '@/app/components/Wordmark';
@@ -410,6 +411,40 @@ function SystemVisual({ copy }: { copy: AboutPageCopy }) {
 export default function AboutPage() {
   const activeLocale = asLocale(useLocale());
   const copy = aboutPageCopyByLocale[activeLocale];
+  const goalsSectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = goalsSectionRef.current;
+    if (!section) return;
+
+    const updatePointer = (event: PointerEvent) => {
+      const bounds = section.getBoundingClientRect();
+      const x = (event.clientX - bounds.left) / Math.max(bounds.width, 1);
+      const y = (event.clientY - bounds.top) / Math.max(bounds.height, 1);
+      const clampedX = Math.min(Math.max(x, 0), 1);
+      const clampedY = Math.min(Math.max(y, 0), 1);
+
+      section.style.setProperty('--about-goals-pointer-x', `${(clampedX * 100).toFixed(2)}%`);
+      section.style.setProperty('--about-goals-pointer-y', `${(clampedY * 100).toFixed(2)}%`);
+      section.style.setProperty('--about-goals-grid-x', `${((clampedX - 0.5) * 18).toFixed(2)}px`);
+      section.style.setProperty('--about-goals-grid-y', `${((clampedY - 0.5) * 12).toFixed(2)}px`);
+    };
+
+    const resetPointer = () => {
+      section.style.setProperty('--about-goals-pointer-x', '58%');
+      section.style.setProperty('--about-goals-pointer-y', '32%');
+      section.style.setProperty('--about-goals-grid-x', '0px');
+      section.style.setProperty('--about-goals-grid-y', '0px');
+    };
+
+    section.addEventListener('pointermove', updatePointer, { passive: true });
+    section.addEventListener('pointerleave', resetPointer, { passive: true });
+
+    return () => {
+      section.removeEventListener('pointermove', updatePointer);
+      section.removeEventListener('pointerleave', resetPointer);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-white text-[#37474F]">
@@ -518,7 +553,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section id="about-goals" className="relative overflow-hidden bg-white py-16 sm:py-20">
+        <section ref={goalsSectionRef} id="about-goals" className="about-goals-interactive relative overflow-hidden bg-white py-16 sm:py-20">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-y-0 z-0 overflow-hidden opacity-70"
@@ -527,8 +562,11 @@ export default function AboutPage() {
               right: 'clamp(1.5rem, calc(11.43vw - 1.286rem), 9rem)',
             }}
           >
+            <div className="about-goals-glow absolute inset-0" />
+            <div className="about-goals-rings absolute inset-0" />
+            <div className="about-goals-sweep absolute inset-0" />
             <div
-              className="hero-grid-scan absolute inset-y-0 right-0 hidden w-[70%] opacity-25 lg:block"
+              className="about-goals-grid absolute inset-y-0 right-0 hidden w-[70%] opacity-25 lg:block"
               style={{
                 backgroundImage:
                   'linear-gradient(rgba(129, 212, 250, 0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(46, 125, 50, 0.10) 1px, transparent 1px)',
