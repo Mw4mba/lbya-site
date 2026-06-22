@@ -320,6 +320,12 @@ html {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
+/* Swedish homepage: enforce rectangular edges for structural boxes only. */
+.sv-home-rectangles
+  :where(article, section, aside, div, ul, ol, li, nav, form, fieldset, figure)[class*="rounded"]:not(.rounded-full):not(.rounded-l-full):not(.rounded-r-full):not(.rounded-t-full):not(.rounded-b-full) {
+  border-radius: 0 !important;
+}
+
 .animate-in-left {
   animation: slideInLeft 0.8s ease-out forwards;
 }

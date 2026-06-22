@@ -7,6 +7,7 @@ import { asLocale, type Locale } from '../content/locale';
 import { getProducts } from '../content/products';
 import { getSolutions } from '../content/solutions';
 import Wordmark from './Wordmark';
+import FooterAccountLinks from './subscription/FooterAccountLinks';
 
 const LINKEDIN_URL = 'https://www.linkedin.com/company/lbya';
 
@@ -38,7 +39,7 @@ const footerCopyByLocale: Record<Locale, FooterCopy> = {
     companyTitle: 'Company',
     academicPilot: 'Academic Pilot',
     contactTitle: 'Contact',
-    career: 'Career',
+    career: 'Careers',
     about: 'About LBYA',
     contact: 'Contact form',
     privacy: 'Privacy',
@@ -196,7 +197,7 @@ export default function Footer() {
               'radial-gradient(360px circle at var(--footer-fx-x) var(--footer-fx-y), rgba(129,212,250,0.24), transparent 62%), radial-gradient(420px circle at calc(var(--footer-fx-x) - 18%) calc(var(--footer-fx-y) + 14%), rgba(165,214,167,0.18), transparent 66%)',
           }}
         />
-        <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-[#A5D6A7]/60 to-transparent" />
+        <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-[#A5D6A7]/60 to-transparent" />
 
         {/* Mobile: compact organic terrain */}
         <svg className="absolute inset-x-0 bottom-0 h-28 w-full sm:hidden" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
@@ -319,37 +320,17 @@ export default function Footer() {
                 {copy.companyTitle}
               </h2>
               <nav className="mt-5 flex flex-col gap-3" aria-label={copy.companyTitle}>
-                <FooterLink href={localizePath(activeLocale, '/academic-pilot')}>{copy.academicPilot}</FooterLink>
+                <FooterLink href={localizePath(activeLocale, '/about')}>About us</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/careers')}>{copy.career}</FooterLink>
-                <FooterLink href={localizePath(activeLocale, '/about')}>{copy.about}</FooterLink>
-                <a
-                  href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={copy.linkedIn}
-                  className="group inline-flex w-fit items-center gap-2 text-sm font-semibold leading-6 text-white/72 transition-colors hover:text-[#A5D6A7]"
-                >
-                  <span className="flex h-8 w-8 items-center justify-center rounded-sm border border-white/16 bg-white/6 text-white transition-colors group-hover:border-[#A5D6A7]/50">
-                    <LinkedInIcon />
-                  </span>
-                  <span>{copy.linkedIn}</span>
-                </a>
+                <FooterLink href={localizePath(activeLocale, '/academic-pilot')}>{copy.academicPilot}</FooterLink>
+                <FooterLink href={localizePath(activeLocale, '/contact')}>Contact us</FooterLink>
+                <FooterLink href={localizePath(activeLocale, '/legal')}>{copy.policiesTerms}</FooterLink>
+                <FooterLink href={localizePath(activeLocale, '/privacy')}>{copy.privacy}</FooterLink>
               </nav>
               </div>
             </section>
 
-            <section aria-labelledby="footer-contact">
-              <div className="h-full bg-[#37474F] p-6 sm:p-7">
-              <h2 id="footer-contact" className="text-sm font-semibold uppercase tracking-[0.16em] text-[#A5D6A7]">
-                {copy.contactTitle}
-              </h2>
-              <div className="mt-5 flex flex-col gap-3">
-                <FooterLink href="mailto:info@lbya.se">info@lbya.se</FooterLink>
-                <FooterLink href={localizePath(activeLocale, '/contact')}>{copy.contact}</FooterLink>
-                <address className="max-w-60 whitespace-pre-line text-sm not-italic leading-6 text-white/58">{copy.address}</address>
-              </div>
-              </div>
-            </section>
+            <FooterAccountLinks locale={activeLocale} />
         </div>
 
         <div className="flex flex-col gap-4 border-t border-white/12 py-6 text-sm text-white/50 md:flex-row md:items-center md:justify-between">
@@ -359,6 +340,15 @@ export default function Footer() {
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <FooterLink href={localizePath(activeLocale, '/legal')}>{copy.policiesTerms}</FooterLink>
             <FooterLink href={localizePath(activeLocale, '/privacy')}>{copy.privacy}</FooterLink>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={copy.linkedIn}
+              className="inline-flex items-center text-white/68 transition-colors hover:text-[#A5D6A7]"
+            >
+              <LinkedInIcon />
+            </a>
             <FooterLink href={localizePath(activeLocale, '/privacy#cookies')}>{copy.cookies}</FooterLink>
             <FooterLink href={localizePath(activeLocale, '/consent')}>{copy.consent}</FooterLink>
           </div>

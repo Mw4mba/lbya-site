@@ -8,6 +8,7 @@ import gsap from 'gsap';
 import { useTheme } from '../context/ThemeContext';
 import Wordmark from './Wordmark';
 import { asLocale, type Locale } from '../content/locale';
+import HeaderAccountActions from './subscription/HeaderAccountActions';
 
 type SidebarNavCopy = {
   solutions: string;
@@ -307,7 +308,7 @@ export default function Navbar() {
       {/* Mobile Menu Overlay - Slide from Top */}
       <div
         ref={menuRef}
-        className="fixed top-0 left-0 h-screen w-full bg-[#2E7D32] z-[60] lg:hidden shadow-2xl flex flex-col justify-center items-center px-8 pt-20"
+        className="fixed top-0 left-0 h-screen w-full bg-[#2E7D32] z-60 lg:hidden shadow-2xl flex flex-col justify-center items-center px-8 pt-20"
         style={{ transform: 'translateY(-100%)', pointerEvents: 'none' }}
       >
         <nav className="flex flex-col gap-8 text-center">
@@ -354,7 +355,7 @@ export default function Navbar() {
         ref={desktopMenuRef}
         id="desktop-sidebar-menu"
         aria-hidden={!isMenuOpen}
-        className="fixed right-14 top-0 z-[60] hidden h-screen w-80 bg-[#37474F] shadow-2xl lg:block"
+        className="fixed right-14 top-0 z-60 hidden h-screen w-80 bg-[#37474F] shadow-2xl lg:block"
         style={{ transform: 'translateX(384px)', pointerEvents: 'none' }}
       >
         <div className="flex flex-col h-full justify-center px-12">
@@ -381,7 +382,7 @@ export default function Navbar() {
       {/* Top Bar - Language Selector (COWI minimalist style) */}
       <div
         suppressHydrationWarning
-        className="fixed top-0 left-0 right-0 lg:right-14 h-20 bg-[#2E7D32] backdrop-blur-md z-[70] lg:z-50 flex items-center justify-between px-6 border-b border-white/10"
+        className="fixed top-0 left-0 right-0 lg:right-14 h-20 bg-[#2E7D32] backdrop-blur-md z-70 lg:z-50 flex items-center justify-between px-6 border-b border-white/10"
       >
         {/* Language Selection (Left) - URL-based locale links */}
         <div className="flex items-center gap-1">
@@ -466,26 +467,40 @@ export default function Navbar() {
           </span>
         </TransitionLink>
 
-        {/* Mobile Hamburger (Right) */}
-        <button
-          onClick={handleMenuClick}
-          className="lg:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-        >
-          <span
-            className={`h-0.5 w-6 bg-white rounded transition-transform origin-center ${isMenuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white rounded transition-opacity ${isMenuOpen ? 'opacity-0' : ''
-              }`}
-          />
-          <span
-            className={`h-0.5 w-6 bg-white rounded transition-transform origin-center ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
-          />
-        </button>
+        <div className="flex items-center gap-2">
+          <HeaderAccountActions locale={activeLocale} />
+
+          <a
+            href={`/${activeLocale}/signin`}
+            className="inline-flex items-center rounded-sm border border-white/28 px-2 py-2 text-white/88 md:hidden"
+            aria-label="Sign in"
+          >
+            <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.75 6.75a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 19.5a7.5 7.5 0 0 1 15 0" />
+            </svg>
+          </a>
+
+          {/* Mobile Hamburger (Right) */}
+          <button
+            onClick={handleMenuClick}
+            className="lg:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+          >
+            <span
+              className={`h-0.5 w-6 bg-white rounded transition-transform origin-center ${isMenuOpen ? 'rotate-45 translate-y-2' : ''
+                }`}
+            />
+            <span
+              className={`h-0.5 w-6 bg-white rounded transition-opacity ${isMenuOpen ? 'opacity-0' : ''
+                }`}
+            />
+            <span
+              className={`h-0.5 w-6 bg-white rounded transition-transform origin-center ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''
+                }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Spacer for fixed navbar */}

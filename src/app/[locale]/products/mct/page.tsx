@@ -895,6 +895,7 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
   const copy: MctPageCopy = { ...mctPageCopyByLocale[activeLocale], ...commercialCopy.page };
   const packageLinkCopy = mctPackageLinkCopyByLocale[activeLocale];
   const demoHref = localizePath(activeLocale, '/contact');
+  const comparePlansHref = localizePath(activeLocale, '/subscriptions');
 
   return (
     <div className="min-h-screen bg-white text-[#37474F]">
@@ -950,13 +951,23 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
 
               <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-5">
                 <a
-                  href={demoHref}
+                  href={localizePath(activeLocale, '/cart?product=mct')}
                   className="inline-flex items-center justify-center gap-3 rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-[#1F3529] transition-colors hover:bg-[#A5D6A7] sm:px-6 sm:py-3"
                 >
-                  <span>{copy.primaryCta}</span>
+                  <span>{packageLinkCopy.buyNow}</span>
+                  <ArrowIcon />
+                </a>
+                <a
+                  href={comparePlansHref}
+                  className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/28 px-5 py-2.5 text-sm font-semibold text-white/90 transition-colors hover:bg-white/10 sm:px-6 sm:py-3"
+                >
+                  <span>Compare Plans</span>
                   <ArrowIcon />
                 </a>
               </div>
+              <p className="mt-3 text-xs leading-5 text-white/70">
+                Create an LBYA account to purchase, manage subscriptions, invite users, and access invoices.
+              </p>
             </aside>
           </div>
         </section>
@@ -1087,7 +1098,7 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
           <div className="mct-home-frame" style={mctHomeFrameStyle}>
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <SectionIntro eyebrow={copy.packagesEyebrow} heading={copy.packagesHeading} body={copy.packagesBody} />
-              <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end lg:min-w-[28rem] lg:grid-cols-1">
+              <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end lg:min-w-md lg:grid-cols-1">
                 <MctCurrencySwitcher locale={activeLocale} />
                 <a
                   href={localizePath(activeLocale, '/products/mct/pricing')}
@@ -1101,6 +1112,16 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
             <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
               {copy.packages.map((tier) => {
                 const tierSlug = tier.name.replace('MCT ', '').toLowerCase();
+                const tierPlanMap: Record<string, 'starter' | 'professional' | 'business' | 'enterprise'> = {
+                  basic: 'starter',
+                  professional: 'professional',
+                  premium: 'business',
+                  enterprise: 'enterprise',
+                };
+                const mappedPlan = tierPlanMap[tierSlug] ?? 'professional';
+                const buyHref = tierSlug === 'enterprise'
+                  ? localizePath(activeLocale, '/checkout?product=mct&plan=enterprise&request=quote')
+                  : localizePath(activeLocale, `/cart?product=mct&plan=${mappedPlan}`);
                 return (
                   <article
                     key={tier.name}
@@ -1141,7 +1162,7 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
                     </ul>
                     <div className="mt-auto grid gap-3 pt-7">
                       <a
-                        href={localizePath(activeLocale, `/contact?product=mct&package=${tierSlug}`)}
+                        href={buyHref}
                         className={`inline-flex items-center justify-center gap-3 rounded-sm px-5 py-3 text-sm font-semibold transition-colors ${
                           tier.featured
                             ? 'bg-white text-[#1F3529] hover:bg-[#A5D6A7]'
@@ -1162,6 +1183,20 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
                         <span>{packageLinkCopy.learnMore}</span>
                         <ArrowIcon />
                       </a>
+                      <a
+                        href={comparePlansHref}
+                        className={`inline-flex items-center justify-center gap-3 rounded-sm border px-5 py-3 text-sm font-semibold transition-colors ${
+                          tier.featured
+                            ? 'border-white/24 text-white hover:border-[#A5D6A7] hover:bg-white/10'
+                            : 'border-[#1F3529]/14 text-[#37474F] hover:border-[#1F3529]/30 hover:bg-[#F4F7F6]'
+                        }`}
+                      >
+                        <span>Compare Plans</span>
+                        <ArrowIcon />
+                      </a>
+                      <p className={`text-xs leading-5 ${tier.featured ? 'text-white/64' : 'text-[#37474F]/64'}`}>
+                        Create an LBYA account to purchase, manage subscriptions, invite users, and access invoices.
+                      </p>
                     </div>
                   </article>
                 );

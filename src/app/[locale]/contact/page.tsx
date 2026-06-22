@@ -9,8 +9,6 @@ import Footer from '@/app/components/Footer';
 import { asLocale, type Locale } from '@/app/content/locale';
 import { localizePath } from '@/app/content/paths';
 
-const LINKEDIN_URL = 'https://www.linkedin.com/company/lbya';
-
 type ContactPath = {
   title: string;
   detail: string;
@@ -48,13 +46,14 @@ type ContactPageCopy = {
   contactTitle: string;
   contactBody: string;
   emailTitle: string;
+  phoneTitle: string;
   addressTitle: string;
-  linkedinTitle: string;
   responseTitle: string;
   responseBody: string;
   nextTitle: string;
   nextItems: string[];
   address: string;
+  phone: string;
 };
 
 const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
@@ -82,7 +81,6 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     inquiryOptions: [
       'Request MCT access',
       'Join NBC early access',
-      'Compare MCT and NBC',
       'Request a product demo',
       'Discuss product integration',
       'Discuss product partnership',
@@ -99,17 +97,18 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     submit: 'Send message',
     submitted: 'Message noted',
     successTitle: 'Thank you. Your message is ready for follow-up.',
-    successBody: 'LBYA normally responds within two business days. You can also email info@lbya.se directly.',
+    successBody: 'LBYA normally responds within one business day. You can also email sales@lbya.se directly.',
     contactTitle: 'Direct contact',
-    contactBody: 'Prefer a shorter route? Use email or LinkedIn, and include the product you want to discuss.',
+    contactBody: 'Prefer a shorter route? Use email or phone, and include the product you want to discuss.',
     emailTitle: 'Email',
+    phoneTitle: 'Phone',
     addressTitle: 'Address',
-    linkedinTitle: 'LinkedIn',
     responseTitle: 'Response time',
-    responseBody: 'Usually within two business days.',
+    responseBody: 'Usually within one business day.',
     nextTitle: 'Helpful details to include',
     nextItems: ['Product interest: MCT, NBC, or both', 'Workflow or pilot context', 'Company size and country', 'Preferred timeline for a demo or discussion'],
     address: 'Gamla Enköpingsvägen 150\n174 64 Sundbyberg',
+    phone: '+46 76 596 0161',
   },
   sv: {
     eyebrow: 'Kontakta LBYA',
@@ -135,7 +134,6 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     inquiryOptions: [
       'Beg\u00e4r MCT-\u00e5tkomst',
       'G\u00e5 med i NBC:s tidiga \u00e5tkomst',
-      'J\u00e4mf\u00f6r MCT och NBC',
       'Beg\u00e4r en produktdemo',
       'Diskutera produktintegration',
       'Diskutera produktpartnerskap',
@@ -152,17 +150,18 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     submit: 'Skicka meddelande',
     submitted: 'Meddelande noterat',
     successTitle: 'Tack. Ditt meddelande \u00e4r redo f\u00f6r uppf\u00f6ljning.',
-    successBody: 'LBYA svarar normalt inom tv\u00e5 arbetsdagar. Du kan ocks\u00e5 mejla info@lbya.se direkt.',
+    successBody: 'LBYA svarar normalt inom en arbetsdag. Du kan ocks\u00e5 mejla sales@lbya.se direkt.',
     contactTitle: 'Direktkontakt',
-    contactBody: 'Vill du ta en kortare v\u00e4g? Anv\u00e4nd e-post eller LinkedIn och ange vilken produkt du vill diskutera.',
+    contactBody: 'Vill du ta en kortare väg? Använd e-post eller telefon och ange vilken produkt du vill diskutera.',
     emailTitle: 'E-post',
+    phoneTitle: 'Telefon',
     addressTitle: 'Adress',
-    linkedinTitle: 'LinkedIn',
     responseTitle: 'Svarstid',
-    responseBody: 'Vanligtvis inom tv\u00e5 arbetsdagar.',
+    responseBody: 'Vanligtvis inom en arbetsdag.',
     nextTitle: 'Bra detaljer att skicka med',
-    nextItems: ['Produktintresse: MCT, NBC eller b\u00e5da', 'Arbetsfl\u00f6de eller pilotkontext', 'F\u00f6retagsstorlek och land', '\u00d6nskad tidpunkt f\u00f6r demo eller samtal'],
-    address: 'Gamla Enk\u00f6pingsv\u00e4gen 150\n174 64 Sundbyberg',
+    nextItems: ['Produktintresse: MCT, NBC eller båda', 'Arbetsflöde eller pilotkontext', 'Företagsstorlek och land', 'Önskad tidpunkt för demo eller samtal'],
+    address: 'Gamla Enköpingsvägen 150\n174 64 Sundbyberg',
+    phone: '+46 76 596 0161',
   },
   fr: {
     eyebrow: 'Contacter LBYA',
@@ -188,11 +187,12 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     inquiryOptions: [
       'Demander un acc\u00e8s MCT',
       'Rejoindre l\u2019acc\u00e8s anticip\u00e9 NBC',
-      'Comparer MCT et NBC',
-      'Demander une d\u00e9monstration produit',
-      'Discuter d\u2019une int\u00e9gration produit',
-      'Discuter d\u2019un partenariat produit',
-      'Demande g\u00e9n\u00e9rale',
+      'Demander un accès MCT',
+      'Rejoindre l\'accès anticipé NBC',
+      'Demander une démonstration produit',
+      'Discuter d\'une intégration produit',
+      'Discuter d\'un partenariat produit',
+      'Demande générale',
     ],
     nameLabel: 'Nom',
     namePlaceholder: 'Votre nom',
@@ -201,21 +201,22 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     companyLabel: 'Entreprise',
     companyPlaceholder: 'Entreprise ou organisation',
     messageLabel: 'Message',
-    messagePlaceholder: 'Parlez-nous de votre flux de travail, de votre int\u00e9r\u00eat produit, de votre calendrier ou de votre besoin pilote.',
+    messagePlaceholder: 'Parlez-nous de votre flux de travail, de votre intérêt produit, de votre calendrier ou de votre besoin pilote.',
     submit: 'Envoyer le message',
-    submitted: 'Message not\u00e9',
-    successTitle: 'Merci. Nous avons les \u00e9l\u00e9ments pour vous r\u00e9pondre.',
-    successBody: 'LBYA r\u00e9pond normalement sous deux jours ouvrables. Vous pouvez aussi \u00e9crire directement \u00e0 info@lbya.se.',
+    submitted: 'Message noté',
+    successTitle: 'Merci. Nous avons les éléments pour vous répondre.',
+    successBody: 'LBYA répond normalement sous un jour ouvrable. Vous pouvez aussi écrire directement à sales@lbya.se.',
     contactTitle: 'Contact direct',
-    contactBody: 'Vous pr\u00e9f\u00e9rez une voie plus directe ? Utilisez l\u2019e-mail ou LinkedIn et indiquez le produit que vous souhaitez discuter.',
+    contactBody: 'Vous préférez une voie plus directe ? Utilisez l\'e-mail ou le téléphone et indiquez le produit que vous souhaitez discuter.',
     emailTitle: 'E-mail',
+    phoneTitle: 'Téléphone',
     addressTitle: 'Adresse',
-    linkedinTitle: 'LinkedIn',
-    responseTitle: 'D\u00e9lai de r\u00e9ponse',
-    responseBody: 'G\u00e9n\u00e9ralement sous deux jours ouvrables.',
-    nextTitle: 'D\u00e9tails utiles \u00e0 inclure',
-    nextItems: ['Produit vis\u00e9 : MCT, NBC ou les deux', 'Contexte du flux de travail ou du pilote', 'Taille de l\u2019entreprise et pays', 'Calendrier souhait\u00e9 pour une d\u00e9mo ou un \u00e9change'],
-    address: 'Gamla Enk\u00f6pingsv\u00e4gen 150\n174 64 Sundbyberg',
+    responseTitle: 'Délai de réponse',
+    responseBody: 'Généralement sous un jour ouvrable.',
+    nextTitle: 'Détails utiles à inclure',
+    nextItems: ['Produit visé : MCT, NBC ou les deux', 'Contexte du flux de travail ou du pilote', 'Taille de l\'entreprise et pays', 'Calendrier souhaité pour une démo ou un échange'],
+    address: 'Gamla Enköpingsvägen 150\n174 64 Sundbyberg',
+    phone: '+46 76 596 0161',
   },
   de: {
     eyebrow: 'LBYA kontaktieren',
@@ -241,7 +242,7 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     inquiryOptions: [
       'MCT-Zugang anfragen',
       'Fr\u00fchen NBC-Zugang anfragen',
-      'MCT und NBC vergleichen',
+
       'Produktdemo anfragen',
       'Produktintegration besprechen',
       'Produktpartnerschaft besprechen',
@@ -258,17 +259,18 @@ const contactPageCopyByLocale: Record<Locale, ContactPageCopy> = {
     submit: 'Nachricht senden',
     submitted: 'Nachricht notiert',
     successTitle: 'Danke. Ihre Nachricht ist bereit f\u00fcr die Nachverfolgung.',
-    successBody: 'LBYA antwortet normalerweise innerhalb von zwei Arbeitstagen. Sie k\u00f6nnen auch direkt an info@lbya.se schreiben.',
+    successBody: 'LBYA antwortet normalerweise innerhalb eines Arbeitstags. Sie k\u00f6nnen auch direkt an sales@lbya.se schreiben.',
     contactTitle: 'Direkter Kontakt',
-    contactBody: 'Bevorzugen Sie einen k\u00fcrzeren Weg? Nutzen Sie E-Mail oder LinkedIn und nennen Sie das Produkt, das Sie besprechen m\u00f6chten.',
+    contactBody: 'Bevorzugen Sie einen kürzeren Weg? Nutzen Sie E-Mail oder Telefon und nennen Sie das Produkt, das Sie besprechen möchten.',
     emailTitle: 'E-Mail',
+    phoneTitle: 'Telefon',
     addressTitle: 'Adresse',
-    linkedinTitle: 'LinkedIn',
     responseTitle: 'Antwortzeit',
-    responseBody: 'Normalerweise innerhalb von zwei Arbeitstagen.',
+    responseBody: 'Normalerweise innerhalb eines Arbeitstags.',
     nextTitle: 'Hilfreiche Angaben',
-    nextItems: ['Produktinteresse: MCT, NBC oder beide', 'Workflow- oder Pilotkontext', 'Unternehmensgr\u00f6\u00dfe und Land', 'Gew\u00fcnschter Zeitpunkt f\u00fcr Demo oder Gespr\u00e4ch'],
-    address: 'Gamla Enk\u00f6pingsv\u00e4gen 150\n174 64 Sundbyberg',
+    nextItems: ['Produktinteresse: MCT, NBC oder beide', 'Workflow- oder Pilotkontext', 'Unternehmensgröße und Land', 'Gewünschter Zeitpunkt für Demo oder Gespräch'],
+    address: 'Gamla Enköpingsvägen 150\n174 64 Sundbyberg',
+    phone: '+46 76 596 0161',
   },
 };
 
@@ -297,10 +299,10 @@ function PinIcon({ className = 'h-5 w-5' }: { className?: string }) {
   );
 }
 
-function LinkedInIcon({ className = 'h-5 w-5' }: { className?: string }) {
+function PhoneIcon({ className = 'h-5 w-5' }: { className?: string }) {
   return (
-    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d="M6.94 8.98H3.56V20h3.38V8.98ZM5.25 4C4.17 4 3.3 4.86 3.3 5.92c0 1.08.87 1.93 1.95 1.93s1.95-.85 1.95-1.93C7.2 4.86 6.33 4 5.25 4ZM20.7 13.68c0-3.32-1.78-4.86-4.15-4.86a3.58 3.58 0 0 0-3.22 1.77h-.05V8.98h-3.24V20h3.37v-5.45c0-1.44.27-2.83 2.05-2.83 1.76 0 1.78 1.64 1.78 2.92V20h3.37l.09-6.32Z" />
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 0 1 2-2h3.28a1 1 0 0 1 .948.684l1.498 4.493a1 1 0 0 1-.502 1.21l-2.257 1.13a11.042 11.042 0 0 0 5.516 5.516l1.13-2.257a1 1 0 0 1 1.21-.502l4.493 1.498a1 1 0 0 1 .684.949V19a2 2 0 0 1-2 2h-1C9.716 21 3 14.284 3 6V5Z" />
     </svg>
   );
 }
@@ -405,9 +407,9 @@ export default function ContactPage() {
             <aside className="border-l-2 border-[#A5D6A7] bg-[#37474F]/42 p-5 text-white shadow-[0_20px_70px_rgba(0,0,0,0.18)] backdrop-blur-sm lg:justify-self-end">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A5D6A7]">{copy.responseTitle}</p>
               <p className="mt-3 text-2xl font-semibold leading-tight">{copy.responseBody}</p>
-              <a href="mailto:info@lbya.se" className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors hover:text-[#A5D6A7]">
+              <a href="mailto:sales@lbya.se" className="mt-5 inline-flex items-center gap-3 text-sm font-semibold text-white transition-colors hover:text-[#A5D6A7]">
                 <MailIcon className="h-4 w-4" />
-                info@lbya.se
+                sales@lbya.se
               </a>
             </aside>
           </div>
@@ -565,23 +567,23 @@ export default function ContactPage() {
                 <p className="mt-4 text-sm leading-7 text-[#37474F]/72">{copy.contactBody}</p>
 
                 <div className="mt-7 grid gap-5">
-                  <a href="mailto:info@lbya.se" className="group flex items-start gap-4 text-[#37474F]">
+                  <a href="mailto:sales@lbya.se" className="group flex items-start gap-4 text-[#37474F]">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-white text-[#2E7D32] shadow-[0_10px_28px_rgba(31,53,41,0.08)]">
                       <MailIcon />
                     </span>
                     <span>
                       <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-[#2E7D32]">{copy.emailTitle}</span>
-                      <span className="mt-1 block text-sm font-semibold transition-colors group-hover:text-[#2E7D32]">info@lbya.se</span>
+                      <span className="mt-1 block text-sm font-semibold transition-colors group-hover:text-[#2E7D32]">sales@lbya.se</span>
                     </span>
                   </a>
 
-                  <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="group flex items-start gap-4 text-[#37474F]">
+                  <a href="tel:+46765960161" className="group flex items-start gap-4 text-[#37474F]">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-white text-[#2E7D32] shadow-[0_10px_28px_rgba(31,53,41,0.08)]">
-                      <LinkedInIcon />
+                      <PhoneIcon />
                     </span>
                     <span>
-                      <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-[#2E7D32]">{copy.linkedinTitle}</span>
-                      <span className="mt-1 block text-sm font-semibold transition-colors group-hover:text-[#2E7D32]">linkedin.com/company/lbya</span>
+                      <span className="block text-xs font-semibold uppercase tracking-[0.16em] text-[#2E7D32]">{copy.phoneTitle}</span>
+                      <span className="mt-1 block text-sm font-semibold transition-colors group-hover:text-[#2E7D32]">{copy.phone}</span>
                     </span>
                   </a>
 
