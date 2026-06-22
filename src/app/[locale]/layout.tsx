@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -10,12 +9,6 @@ import { TransitionProvider } from "../context/TransitionContext";
 import CookieConsent from "../components/CookieConsent";
 import CopyProtection from "../components/CopyProtection";
 import PageLabelSidebar from "../components/PageLabelSidebar";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -41,22 +34,15 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Days+One&family=Tektur:wght@400..900&display=swap" rel="stylesheet" />
-      </head>
-      <body className={`${inter.variable} antialiased bg-[#F5F5DC]`}>
-        <CopyProtection />
-        <PageLabelSidebar />
-        <NextIntlClientProvider>
-          <Providers locale={locale}>
-            <TransitionProvider>{children}</TransitionProvider>
-            <CookieConsent />
-          </Providers>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <>
+      <CopyProtection />
+      <PageLabelSidebar />
+      <NextIntlClientProvider>
+        <Providers locale={locale}>
+          <TransitionProvider>{children}</TransitionProvider>
+          <CookieConsent />
+        </Providers>
+      </NextIntlClientProvider>
+    </>
   );
 }

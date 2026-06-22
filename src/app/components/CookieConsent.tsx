@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { useLocale } from 'next-intl';
 import { asLocale } from '../content/locale';
 import { localizePath } from '../content/paths';
+import { useTranslation } from '../i18n/I18nContext';
 
 export default function CookieConsent() {
   const activeLocale = asLocale(useLocale());
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [preferences, setPreferences] = useState({
@@ -80,7 +82,7 @@ export default function CookieConsent() {
               <svg className="w-6 h-6 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
               </svg>
-              <h2 className="text-lg font-semibold text-white">Your privacy choices</h2>
+              <h2 className="text-lg font-semibold text-white">{t.cookieConsent.title}</h2>
             </div>
           </div>
 
@@ -89,12 +91,12 @@ export default function CookieConsent() {
             {!showDetails ? (
               <>
                 <p className="text-[#37474F] leading-relaxed mb-4">
-                  We use essential cookies to keep the site working. With your permission, we may also use optional cookies to remember preferences and understand how the site is used.
+                  {t.cookieConsent.description}
                 </p>
                 <p className="text-sm text-[#37474F]/70 mb-4">
-                  You can change your preferences or learn more in our{' '}
+                  {t.cookieConsent.learnMore}{' '}
                   <Link href={localizePath(activeLocale, '/privacy')} className="text-[#2E7D32] underline hover:text-[#1B5E20]">
-                    Privacy Policy
+                    {t.cookieConsent.privacyPolicy}
                   </Link>
                   .
                 </p>
@@ -105,20 +107,20 @@ export default function CookieConsent() {
                     onClick={handleAcceptAll}
                     className="w-full px-6 py-3 bg-[#2E7D32] text-white font-medium rounded-sm hover:bg-[#1B5E20] transition-colors shadow-md"
                   >
-                    Accept all
+                    {t.cookieConsent.acceptAll}
                   </button>
                   <div className="flex gap-3">
                     <button
                       onClick={handleRejectAll}
                       className="flex-1 px-6 py-3 bg-white text-[#37474F] font-medium rounded-sm border border-[#37474F]/20 hover:bg-[#F5F5DC] transition-colors"
                     >
-                      Reject all
+                      {t.cookieConsent.rejectAll}
                     </button>
                     <button
                       onClick={() => setShowDetails(true)}
                       className="flex-1 px-6 py-3 bg-[#F5F5DC] text-[#2E7D32] font-medium rounded-sm hover:bg-[#A5D6A7] transition-colors"
                     >
-                      Customize
+                      {t.cookieConsent.customize}
                     </button>
                   </div>
                 </div>
@@ -126,7 +128,7 @@ export default function CookieConsent() {
             ) : (
               <>
                 <p className="text-sm text-[#37474F] mb-4">
-                  Choose which types of cookies you want to accept. Essential cookies cannot be disabled because the site needs them to work.
+                  {t.cookieConsent.detailsDescription}
                 </p>
 
                 {/* Cookie Categories */}
@@ -135,9 +137,9 @@ export default function CookieConsent() {
                   <div className="border border-[#37474F]/10 rounded-sm p-4 bg-[#F5F5DC]/30">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex-1">
-                        <h3 className="font-medium text-[#37474F] mb-1">Essential Cookies</h3>
+                        <h3 className="font-medium text-[#37474F] mb-1">{t.cookieConsent.essential.title}</h3>
                         <p className="text-sm text-[#37474F]/70">
-                          Required for the website to work. Cannot be disabled.
+                          {t.cookieConsent.essential.description}
                         </p>
                       </div>
                       <div className="ml-4">
@@ -152,9 +154,9 @@ export default function CookieConsent() {
                   <div className="border border-[#37474F]/10 rounded-sm p-4">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex-1">
-                        <h3 className="font-medium text-[#37474F] mb-1">Functional Cookies</h3>
+                        <h3 className="font-medium text-[#37474F] mb-1">{t.cookieConsent.functional.title}</h3>
                         <p className="text-sm text-[#37474F]/70">
-                          Remember choices such as language or consent settings, where those features are enabled.
+                          {t.cookieConsent.functional.description}
                         </p>
                       </div>
                       <button
@@ -175,9 +177,9 @@ export default function CookieConsent() {
                   <div className="border border-[#37474F]/10 rounded-sm p-4">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex-1">
-                        <h3 className="font-medium text-[#37474F] mb-1">Analytics Cookies</h3>
+                        <h3 className="font-medium text-[#37474F] mb-1">{t.cookieConsent.analytics.title}</h3>
                         <p className="text-sm text-[#37474F]/70">
-                          Help us understand how people use the website, if analytics tools are enabled.
+                          {t.cookieConsent.analytics.description}
                         </p>
                       </div>
                       <button
@@ -198,9 +200,9 @@ export default function CookieConsent() {
                   <div className="border border-[#37474F]/10 rounded-sm p-4">
                     <div className="flex items-start justify-between mb-2">
                       <div className="flex-1">
-                        <h3 className="font-medium text-[#37474F] mb-1">Marketing Cookies</h3>
+                        <h3 className="font-medium text-[#37474F] mb-1">{t.cookieConsent.marketing.title}</h3>
                         <p className="text-sm text-[#37474F]/70">
-                          Used only if LBYA enables marketing tools that need your consent.
+                          {t.cookieConsent.marketing.description}
                         </p>
                       </div>
                       <button
@@ -224,13 +226,13 @@ export default function CookieConsent() {
                     onClick={handleSavePreferences}
                     className="w-full px-6 py-3 bg-[#2E7D32] text-white font-medium rounded-sm hover:bg-[#1B5E20] transition-colors shadow-md"
                   >
-                    Save preferences
+                    {t.cookieConsent.savePreferences}
                   </button>
                   <button
                     onClick={() => setShowDetails(false)}
                     className="w-full px-6 py-3 bg-white text-[#37474F] font-medium rounded-sm border border-[#37474F]/20 hover:bg-[#F5F5DC] transition-colors"
                   >
-                    Back
+                    {t.cookieConsent.back}
                   </button>
                 </div>
               </>
@@ -240,9 +242,9 @@ export default function CookieConsent() {
           {/* Footer */}
           <div className="bg-[#F5F5DC] px-6 py-3 text-xs text-[#37474F]/60 border-t border-[#37474F]/10">
             <p>
-              Learn more about how we handle your data in our{' '}
+              {t.cookieConsent.learnMore}{' '}
               <Link href={localizePath(activeLocale, '/privacy')} className="text-[#2E7D32] underline hover:text-[#1B5E20]">
-                Privacy Policy
+                {t.cookieConsent.privacyPolicy}
               </Link>
               .
             </p>

@@ -50,6 +50,34 @@ export interface Translations {
       privacy: string;
     };
   };
+  cookieConsent: {
+    title: string;
+    description: string;
+    detailsDescription: string;
+    acceptAll: string;
+    rejectAll: string;
+    customize: string;
+    savePreferences: string;
+    back: string;
+    learnMore: string;
+    privacyPolicy: string;
+    essential: {
+      title: string;
+      description: string;
+    };
+    functional: {
+      title: string;
+      description: string;
+    };
+    analytics: {
+      title: string;
+      description: string;
+    };
+    marketing: {
+      title: string;
+      description: string;
+    };
+  };
 }
 
 export const translations: Record<Language, Translations> = {
@@ -74,6 +102,34 @@ export const translations: Record<Language, Translations> = {
       resources: { insights: 'Insights' },
       legal: { privacy: 'Privacy Policy' },
     },
+    cookieConsent: {
+      title: 'Your privacy choices',
+      description: 'We use essential cookies to keep the site working. With your permission, we may also use optional cookies to remember preferences and understand how the site is used.',
+      detailsDescription: 'Choose which types of cookies you want to accept. Essential cookies cannot be disabled because the site needs them to work.',
+      acceptAll: 'Accept all',
+      rejectAll: 'Reject all',
+      customize: 'Customize',
+      savePreferences: 'Save preferences',
+      back: 'Back',
+      learnMore: 'You can change your preferences or learn more in our',
+      privacyPolicy: 'Privacy Policy',
+      essential: {
+        title: 'Essential Cookies',
+        description: 'Required for the website to work. Cannot be disabled.',
+      },
+      functional: {
+        title: 'Functional Cookies',
+        description: 'Remember choices such as language or consent settings, where those features are enabled.',
+      },
+      analytics: {
+        title: 'Analytics Cookies',
+        description: 'Help us understand how people use the website, if analytics tools are enabled.',
+      },
+      marketing: {
+        title: 'Marketing Cookies',
+        description: 'Used only if LBYA enables marketing tools that need your consent.',
+      },
+    },
   },
   FR: {
     navbar: { products: 'Produits', services: 'Services', about: 'À propos', insights: 'Analyses', careers: 'Carrières', contact: 'Contact' },
@@ -95,6 +151,34 @@ export const translations: Record<Language, Translations> = {
       company: { title: 'Entreprise', about: 'À Propos', careers: 'Carrières', contact: 'Contact' },
       resources: { insights: 'Analyses' },
       legal: { privacy: 'Politique de Confidentialité' },
+    },
+    cookieConsent: {
+      title: 'Vos choix de confidentialité',
+      description: 'Nous utilisons les cookies essentiels pour que le site fonctionne. Avec votre permission, nous pouvons également utiliser des cookies supplémentaires pour mémoriser les préférences et comprendre comment le site est utilisé.',
+      detailsDescription: 'Choisissez les types de cookies que vous acceptez. Les cookies essentiels ne peuvent pas être désactivés car le site en a besoin pour fonctionner.',
+      acceptAll: 'Accepter tous',
+      rejectAll: 'Refuser tous',
+      customize: 'Personnaliser',
+      savePreferences: 'Enregistrer les préférences',
+      back: 'Retour',
+      learnMore: 'Vous pouvez modifier vos préférences ou en savoir plus dans notre',
+      privacyPolicy: 'Politique de Confidentialité',
+      essential: {
+        title: 'Cookies Essentiels',
+        description: 'Obligatoires pour que le site fonctionne. Ne peut pas être désactivé.',
+      },
+      functional: {
+        title: 'Cookies Fonctionnels',
+        description: 'Mémorisez les choix tels que la langue ou les paramètres de consentement, où ces fonctionnalités sont activées.',
+      },
+      analytics: {
+        title: 'Cookies Analytiques',
+        description: 'Nous aider à comprendre comment les gens utilisent le site web, si les outils d\'analyse sont activés.',
+      },
+      marketing: {
+        title: 'Cookies Marketing',
+        description: 'Utilisé uniquement si LBYA active des outils marketing qui nécessitent votre consentement.',
+      },
     },
   },
   SV: {
@@ -118,6 +202,34 @@ export const translations: Record<Language, Translations> = {
       resources: { insights: 'Insikter' },
       legal: { privacy: 'Integritetspolicy' },
     },
+    cookieConsent: {
+      title: 'Dina sekretessalternativ',
+      description: 'Vi använder väsentliga cookies för att hålla webbplatsen igång. Med ditt tillstånd kan vi också använda valfria cookies för att komma ihåg inställningar och förstå hur webbplatsen används.',
+      detailsDescription: 'Välj vilka typer av cookies du vill acceptera. Väsentliga cookies kan inte inaktiveras eftersom webbplatsen behöver dem för att fungera.',
+      acceptAll: 'Acceptera alla',
+      rejectAll: 'Avvisa alla',
+      customize: 'Anpassa',
+      savePreferences: 'Spara inställningar',
+      back: 'Tillbaka',
+      learnMore: 'Du kan ändra dina inställningar eller läsa mer i vår',
+      privacyPolicy: 'Integritetspolicy',
+      essential: {
+        title: 'Väsentliga Cookies',
+        description: 'Krävs för att webbplatsen ska fungera. Kan inte inaktiveras.',
+      },
+      functional: {
+        title: 'Funktionella Cookies',
+        description: 'Kom ihåg val som språk eller medgivandeinställningar, där dessa funktioner är aktiverade.',
+      },
+      analytics: {
+        title: 'Analyskökies',
+        description: 'Hjälpa oss förstå hur människor använder webbplatsen, om analysverktygen är aktiverade.',
+      },
+      marketing: {
+        title: 'Marknadsföringscookies',
+        description: 'Endast använt om LBYA möjliggör marknadsföringsverktyg som behöver ditt medgivande.',
+      },
+    },
   },
   DE: {
     navbar: { products: 'Produkte', services: 'Dienstleistungen', about: 'Über uns', insights: 'Einblicke', careers: 'Karriere', contact: 'Kontakt' },
@@ -139,6 +251,34 @@ export const translations: Record<Language, Translations> = {
       company: { title: 'Unternehmen', about: 'Über uns', careers: 'Karriere', contact: 'Kontakt' },
       resources: { insights: 'Einblicke' },
       legal: { privacy: 'Datenschutzerklärung' },
+    },
+    cookieConsent: {
+      title: 'Ihre Datenschutzoptionen',
+      description: 'Wir verwenden wesentliche Cookies, um die Website zu betreiben. Mit Ihrer Genehmigung können wir auch optionale Cookies verwenden, um Vorlieben zu merken und zu verstehen, wie die Website verwendet wird.',
+      detailsDescription: 'Wählen Sie, welche Cookie-Typen Sie akzeptieren möchten. Wesentliche Cookies können nicht deaktiviert werden, da die Website sie zum Funktionieren benötigt.',
+      acceptAll: 'Alle akzeptieren',
+      rejectAll: 'Alle ablehnen',
+      customize: 'Anpassen',
+      savePreferences: 'Einstellungen speichern',
+      back: 'Zurück',
+      learnMore: 'Sie können Ihre Einstellungen ändern oder mehr in unserer',
+      privacyPolicy: 'Datenschutzerklärung',
+      essential: {
+        title: 'Wesentliche Cookies',
+        description: 'Erforderlich damit die Website funktioniert. Kann nicht deaktiviert werden.',
+      },
+      functional: {
+        title: 'Funktionale Cookies',
+        description: 'Denken Sie an Entscheidungen wie Sprach- oder Zustimmungseinstellungen, sofern diese Funktionen aktiviert sind.',
+      },
+      analytics: {
+        title: 'Analyse-Cookies',
+        description: 'Hilf uns zu verstehen, wie Benutzer die Website nutzen, wenn Analyse-Tools aktiviert sind.',
+      },
+      marketing: {
+        title: 'Marketing-Cookies',
+        description: 'Wird nur verwendet, wenn LBYA Marketing-Tools aktiviert, die Ihre Zustimmung erfordern.',
+      },
     },
   },
 };

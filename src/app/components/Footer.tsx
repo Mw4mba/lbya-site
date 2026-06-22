@@ -320,10 +320,10 @@ export default function Footer() {
                 {copy.companyTitle}
               </h2>
               <nav className="mt-5 flex flex-col gap-3" aria-label={copy.companyTitle}>
-                <FooterLink href={localizePath(activeLocale, '/about')}>About us</FooterLink>
+                <FooterLink href={localizePath(activeLocale, '/about')}>{copy.about}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/careers')}>{copy.career}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/academic-pilot')}>{copy.academicPilot}</FooterLink>
-                <FooterLink href={localizePath(activeLocale, '/contact')}>Contact us</FooterLink>
+                <FooterLink href={localizePath(activeLocale, '/contact')}>{copy.contact}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/legal')}>{copy.policiesTerms}</FooterLink>
                 <FooterLink href={localizePath(activeLocale, '/privacy')}>{copy.privacy}</FooterLink>
               </nav>
@@ -338,8 +338,6 @@ export default function Footer() {
             {currentYear} {copy.registered}. {copy.rights}
           </p>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <FooterLink href={localizePath(activeLocale, '/legal')}>{copy.policiesTerms}</FooterLink>
-            <FooterLink href={localizePath(activeLocale, '/privacy')}>{copy.privacy}</FooterLink>
             <a
               href={LINKEDIN_URL}
               target="_blank"

@@ -10,6 +10,7 @@ const localeToLanguage: Record<string, Language> = {
   en: 'EN',
   fr: 'FR',
   sv: 'SV',
+  de: 'DE',
 };
 
 export function localeToLang(locale: string): Language {

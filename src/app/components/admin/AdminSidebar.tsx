@@ -1,4 +1,7 @@
+"use client";
+
 import React from 'react';
+import { useProduct, type Product } from './ProductContext';
 
 type SidebarItem = { label: string; href: string };
 
@@ -19,26 +22,62 @@ const items: SidebarItem[] = [
 ];
 
 export default function AdminSidebar({ activePath }: { activePath: string }) {
+  const { activeProduct, setActiveProduct, productLabel } = useProduct();
+
+  const handleProductSwitch = (product: Product) => {
+    setActiveProduct(product);
+  };
+
   return (
-    <aside className="sticky top-0 h-screen border-r border-[#E3E7E8] bg-white px-4 py-6">
-      <div className="mb-6 border-b border-[#E3E7E8] pb-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#2E7D32]">LBYA Admin</p>
-        <h2 className="mt-2 text-lg font-semibold text-[#1F3529]">MCT Control Center</h2>
+    <aside className="sticky top-0 h-screen border-r border-[#2E7D32]/10 bg-gradient-to-b from-white via-[#F5F5DC]/20 to-white/80 px-6 py-10 shadow-2xl backdrop-blur-sm">
+      <div className="mb-8 border-b border-[#2E7D32]/15 pb-6">
+        <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#2E7D32]/70">LBYA Admin</p>
+        <h2 className="mt-3 bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] bg-clip-text text-xl font-black text-transparent">
+          {productLabel(activeProduct)}
+        </h2>
+        <p className="mt-2 text-xs font-medium text-[#37474F]/60">
+          {activeProduct === 'mct' ? '✓ Commercialized' : '🔄 Early Stage'}
+        </p>
       </div>
-      <nav className="space-y-1">
+
+      <div className="mb-8 space-y-2">
+        <p className="text-xs font-bold uppercase tracking-[0.15em] text-[#37474F]/60">Switch Product</p>
+        <button
+          onClick={() => handleProductSwitch('mct')}
+          className={`w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+            activeProduct === 'mct'
+              ? 'bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-md'
+              : 'bg-white/40 text-[#37474F]/70 border border-[#2E7D32]/10 hover:bg-[#2E7D32]/8'
+          }`}
+        >
+          Malaika Control Tower
+        </button>
+        <button
+          onClick={() => handleProductSwitch('nbc')}
+          className={`w-full rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+            activeProduct === 'nbc'
+              ? 'bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-md'
+              : 'bg-white/40 text-[#37474F]/70 border border-[#2E7D32]/10 hover:bg-[#2E7D32]/8'
+          }`}
+        >
+          Nayeli BIM Control
+        </button>
+      </div>
+
+      <nav className="space-y-2">
         {items.map((item) => {
           const isActive = activePath === item.href;
           return (
             <a
               key={item.href}
               href={item.href}
-              className={`block rounded-sm px-3 py-2 text-sm font-medium transition-colors ${
+              className={`group relative flex items-center rounded-xl px-5 py-3.5 text-sm font-semibold transition-all duration-300 ${
                 isActive
-                  ? 'bg-[#E8F5E9] text-[#1F5B25]'
-                  : 'text-[#37474F]/78 hover:bg-[#F2F5F5] hover:text-[#1F3529]'
+                  ? 'bg-gradient-to-r from-[#2E7D32] to-[#1b5e20] text-white shadow-lg before:absolute before:inset-0 before:rounded-xl before:bg-white/10 before:opacity-0 before:transition-opacity before:duration-300 hover:before:opacity-100'
+                  : 'text-[#37474F]/70 hover:bg-[#2E7D32]/8 hover:text-[#2E7D32]'
               }`}
             >
-              {item.label}
+              <span className="relative z-10">{item.label}</span>
             </a>
           );
         })}
