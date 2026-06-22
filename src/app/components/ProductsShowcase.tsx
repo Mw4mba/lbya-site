@@ -319,6 +319,7 @@ function SingleProductShowcase({
             src={product.image}
             alt=""
             fill
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center opacity-30"
           />
           <div className="absolute inset-0 bg-linear-to-br from-[#2E7D32]/15 via-[#1F3529]/10 to-transparent" />
