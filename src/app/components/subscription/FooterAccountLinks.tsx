@@ -8,7 +8,6 @@ type FooterAccountCopy = {
   signIn: string;
   createAccount: string;
   mctSubscriptions: string;
-  billingInvoices: string;
   contactSales: string;
   requestQuote: string;
 };
@@ -20,7 +19,6 @@ const footerAccountCopyByLocale: Record<Locale, FooterAccountCopy> = {
     signIn: 'Sign in',
     createAccount: 'Create account',
     mctSubscriptions: 'MCT subscriptions',
-    billingInvoices: 'Billing & invoices',
     contactSales: 'Contact sales',
     requestQuote: 'Request quote',
   },
@@ -30,7 +28,6 @@ const footerAccountCopyByLocale: Record<Locale, FooterAccountCopy> = {
     signIn: 'Logga in',
     createAccount: 'Skapa konto',
     mctSubscriptions: 'MCT-prenumerationer',
-    billingInvoices: 'Fakturering & fakturor',
     contactSales: 'Kontakta försäljning',
     requestQuote: 'Begär offert',
   },
@@ -40,7 +37,6 @@ const footerAccountCopyByLocale: Record<Locale, FooterAccountCopy> = {
     signIn: 'Se connecter',
     createAccount: 'Créer un compte',
     mctSubscriptions: 'Abonnements MCT',
-    billingInvoices: 'Facturation & factures',
     contactSales: 'Contacter les ventes',
     requestQuote: 'Demander un devis',
   },
@@ -50,7 +46,6 @@ const footerAccountCopyByLocale: Record<Locale, FooterAccountCopy> = {
     signIn: 'Anmelden',
     createAccount: 'Konto erstellen',
     mctSubscriptions: 'MCT-Abonnements',
-    billingInvoices: 'Abrechnung & Rechnungen',
     contactSales: 'Vertrieb kontaktieren',
     requestQuote: 'Angebot anfordern',
   },
@@ -82,7 +77,6 @@ export default function FooterAccountLinks({ locale }: { locale: Locale }) {
           <FooterLink href={localizePath(locale, '/signin')}>{copy.signIn}</FooterLink>
           <FooterLink href={localizePath(locale, '/create-account')}>{copy.createAccount}</FooterLink>
           <FooterLink href={localizePath(locale, '/subscriptions')}>{copy.mctSubscriptions}</FooterLink>
-          <FooterLink href={localizePath(locale, '/account/subscriptions')}>{copy.billingInvoices}</FooterLink>
           <FooterLink href={localizePath(locale, '/contact')}>{copy.contactSales}</FooterLink>
           <FooterLink href={localizePath(locale, '/checkout')}>{copy.requestQuote}</FooterLink>
         </nav>
