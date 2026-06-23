@@ -20,7 +20,7 @@ export interface Customer {
   activeSubscriptions: number;
   mrr: number;
   status: 'Active' | 'Trial' | 'Past Due' | 'Suspended' | 'Cancelled' | 'Enterprise Review';
-  lastPaymentDate: string;
+  lastPaymentDate: string | null;
   owner: string;
 }
 
