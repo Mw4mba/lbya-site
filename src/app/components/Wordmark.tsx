@@ -2,6 +2,7 @@ import Image from 'next/image';
 import type { CSSProperties } from 'react';
 
 type WordmarkProps = {
+  src?: string;
   className?: string;
   imageClassName?: string;
   imageStyle?: CSSProperties;
@@ -10,6 +11,7 @@ type WordmarkProps = {
 };
 
 export default function Wordmark({
+  src = '/lbya-wordmark.png',
   className = '',
   imageClassName = '',
   imageStyle,
@@ -19,15 +21,12 @@ export default function Wordmark({
   return (
     <span className={`relative inline-block overflow-hidden ${className}`}>
       <Image
-        src="/logoC.svg"
+        src={src}
         alt="LBYA"
         fill
         sizes={sizes}
         className={`object-contain ${imageClassName}`}
-        style={{
-          filter: 'brightness(0) saturate(100%)',
-          ...imageStyle,
-        }}
+        style={imageStyle}
         priority={priority}
       />
     </span>

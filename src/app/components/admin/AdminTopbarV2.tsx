@@ -81,6 +81,7 @@ export default function AdminTopbarV2({
               border: `1px solid ${adminColors.lbyaGreen}20`
             }}>
               <Wordmark
+                src="/logoC.svg"
                 className="h-20 w-80 md:h-24 md:w-96"
                 sizes="640px"
               />
