@@ -1,40 +1,64 @@
 import React from 'react';
-import AdminLayout from '@/app/components/admin/AdminLayout';
-import AdminRoleGuard from '@/app/components/admin/AdminRoleGuard';
-import FinanceTransactionTable from '@/app/components/admin/FinanceTransactionTable';
-import { financeTransactions } from '@/app/components/admin/mockData';
-import { getAdminSession } from '@/app/admin/lib/session';
+import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
+import AdminDataTable from '@/app/components/admin/AdminDataTableV2';
+import AdminStatusBadge from '@/app/components/admin/AdminStatusBadgeV2';
+import { mockPayments } from '@/data/mockAdminBilling';
+import { adminColors } from '@/app/components/admin/adminDesignTokens';
 
-export default async function AdminFinancePage() {
-  const session = await getAdminSession();
-
+export default function AdminPaymentsPage() {
   return (
-    <AdminLayout activePath="/admin/finance" title="Finance & Transactions" subtitle="Revenue, payments, refunds, and accounting exports">
-      <AdminRoleGuard role={session?.role ?? 'support-admin'} allowed={['super-admin', 'finance-admin']}>
-        <section className="rounded-2xl border border-[#37474F]/10 bg-white p-8 shadow-sm">
-          <h3 className="mb-6 text-lg font-bold text-[#2E7D32]">Search & Filter</h3>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-            <input 
-              className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15" 
-              placeholder="Search by company, invoice..." 
-            />
-            <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-              <option>Payment status</option>
-            </select>
-            <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-              <option>Payment method</option>
-            </select>
-            <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-              <option>Currency</option>
-            </select>
-            <input 
-              type="date"
-              className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15" 
-            />
-          </div>
-        </section>
-        <FinanceTransactionTable rows={financeTransactions} />
-      </AdminRoleGuard>
-    </AdminLayout>
+    <AdminLayoutV2
+      activePath="/admin/payments"
+      title="Payments"
+      subtitle="Track successful, pending, failed, refunded, disputed, and manually reconciled payments."
+    >
+      <section>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          <input 
+            className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}
+            placeholder="Search payment..." 
+          />
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}>
+            <option>All statuses</option>
+            <option>Succeeded</option>
+            <option>Failed</option>
+            <option>Pending</option>
+          </select>
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}>
+            <option>All methods</option>
+            <option>Card</option>
+            <option>Bank Transfer</option>
+          </select>
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}>
+            <option>Currency</option>
+            <option>EUR</option>
+          </select>
+          <input 
+            type="date"
+            className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}
+          />
+        </div>
+      </section>
+      <section>
+        <AdminDataTable
+          columns={[
+            { key: 'id' as const, label: 'Payment ID', width: '120px' },
+            { key: 'date' as const, label: 'Date', width: '120px' },
+            { key: 'customer' as const, label: 'Customer', width: '180px' },
+            { key: 'amount' as const, label: 'Amount', render: (value: number) => `€${value}`, width: '100px' },
+            { key: 'method' as const, label: 'Method', width: '120px' },
+            { key: 'status' as const, label: 'Status', render: (value: string) => <AdminStatusBadge status={value as any} size="sm" />, width: '120px' },
+          ]}
+          data={mockPayments}
+          keyExtractor={(item) => item.id}
+          striped
+        />
+      </section>
+    </AdminLayoutV2>
   );
 }

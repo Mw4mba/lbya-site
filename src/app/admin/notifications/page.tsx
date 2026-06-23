@@ -1,24 +1,65 @@
 import React from 'react';
-import AdminLayout from '@/app/components/admin/AdminLayout';
-import { notifications } from '@/app/components/admin/mockData';
+import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
+import { adminColors } from '@/app/components/admin/adminDesignTokens';
+
+const mockNotifications = [
+  { id: '1', type: 'warning', message: '3 invoices overdue by 15+ days from Jaridafrica Ltd', timestamp: '2 hours ago' },
+  { id: '2', type: 'warning', message: 'Payment failed for NordBuild AB subscription renewal', timestamp: '4 hours ago' },
+  { id: '3', type: 'info', message: 'ConstructFlow Inc switched from Monthly to Yearly billing', timestamp: '1 day ago' },
+  { id: '4', type: 'warning', message: '2 trial subscriptions expiring in 7 days', timestamp: '1 day ago' },
+  { id: '5', type: 'info', message: 'New customer registered: Tech Solutions GmbH', timestamp: '2 days ago' },
+];
+
+const getAlertColor = (type: string) => {
+  switch(type) {
+    case 'warning': return adminColors.warning;
+    case 'danger': return adminColors.danger;
+    case 'info': return adminColors.info;
+    default: return adminColors.info;
+  }
+};
 
 export default function AdminNotificationsPage() {
   return (
-    <AdminLayout activePath="/admin/notifications" title="System Notifications" subtitle="Critical billing and subscription alerts">
-      <section className="rounded-2xl border border-[#37474F]/10 bg-white p-8 shadow-sm">
-        <div className="mb-8 flex items-center justify-between">
-          <h2 className="text-xl font-bold text-[#2E7D32]">Recent Alerts</h2>
-          <span className="text-xs font-bold uppercase tracking-widest text-[#37474F]/60">{notifications.length} notifications</span>
-        </div>
-        <ul className="space-y-3">
-          {notifications.map((item, idx) => (
-            <li key={idx} className="flex items-start gap-4 rounded-lg border border-[#37474F]/8 bg-linear-to-r from-[#F5F5DC]/50 to-transparent p-4 transition-all duration-200 hover:border-[#D97706]/30 hover:bg-[#D97706]/5">
-              <div className="mt-1.5 h-2.5 w-2.5 rounded-full bg-[#D97706] shrink-0" />
-              <span className="text-sm text-[#37474F]/85 leading-relaxed font-medium">{item}</span>
-            </li>
-          ))}
-        </ul>
+    <AdminLayoutV2
+      activePath="/admin/notifications"
+      title="System Notifications"
+      subtitle="Billing alerts, subscription updates, payment failures, and admin actions."
+    >
+      <section className="space-y-3">
+        {mockNotifications.map((notif) => (
+          <div
+            key={notif.id}
+            className="rounded-lg border p-4 flex items-start gap-3"
+            style={{
+              backgroundColor: adminColors.adminSurface,
+              borderColor: adminColors.adminBorder,
+            }}
+          >
+            <div 
+              className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+              style={{ backgroundColor: getAlertColor(notif.type) }}
+            />
+            <div className="flex-1">
+              <p className="text-sm" style={{ color: adminColors.adminText }}>
+                {notif.message}
+              </p>
+              <p className="text-xs mt-2" style={{ color: adminColors.adminMuted }}>
+                {notif.timestamp}
+              </p>
+            </div>
+            <button 
+              className="text-xs px-2 py-1 rounded border"
+              style={{
+                borderColor: adminColors.adminBorder,
+                color: adminColors.adminText,
+              }}
+            >
+              Dismiss
+            </button>
+          </div>
+        ))}
       </section>
-    </AdminLayout>
+    </AdminLayoutV2>
   );
 }

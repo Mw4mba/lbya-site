@@ -1,30 +1,69 @@
 import React from 'react';
-import AdminLayout from '@/app/components/admin/AdminLayout';
-import SubscribersTable from '@/app/components/admin/SubscribersTable';
-import { subscribers } from '@/app/components/admin/mockData';
+import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
+import AdminDataTable from '@/app/components/admin/AdminDataTableV2';
+import AdminStatusBadge from '@/app/components/admin/AdminStatusBadgeV2';
+import { mockCustomers } from '@/data/mockAdminBilling';
+import { adminColors } from '@/app/components/admin/adminDesignTokens';
 
-export default function AdminSubscribersPage() {
+export default function AdminCustomersPage() {
   return (
-    <AdminLayout activePath="/admin/subscribers" title="Subscriber Management" subtitle="Search, filter, and administer customer subscriptions">
-      <section className="rounded-2xl border border-[#37474F]/10 bg-white p-8 shadow-sm">
-        <h3 className="mb-6 text-lg font-bold text-[#2E7D32]">Search & Filter</h3>
+    <AdminLayoutV2
+      activePath="/admin/customers"
+      title="Customers"
+      subtitle="Manage customer accounts, billing contacts, subscriptions, invoices, seats, and product access."
+    >
+      <section>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <input 
-            className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15" 
-            placeholder="Search by company, email, invoice" 
+            className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{
+              borderColor: adminColors.adminBorder,
+              backgroundColor: adminColors.adminSurface,
+              color: adminColors.adminText,
+            }}
+            placeholder="Search company or email..." 
           />
-          <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-            <option>Filter by plan</option>
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{
+              borderColor: adminColors.adminBorder,
+              backgroundColor: adminColors.adminSurface,
+              color: adminColors.adminText,
+            }}>
+            <option>All statuses</option>
+            <option>Active</option>
+            <option>Trial</option>
           </select>
-          <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-            <option>Filter by status</option>
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{
+              borderColor: adminColors.adminBorder,
+              backgroundColor: adminColors.adminSurface,
+              color: adminColors.adminText,
+            }}>
+            <option>All countries</option>
           </select>
-          <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-            <option>Filter by country</option>
-          </select>
+          <button
+            className="rounded-lg px-4 py-2 text-sm font-medium text-white"
+            style={{ backgroundColor: adminColors.lbyaGreen }}
+          >
+            Export
+          </button>
         </div>
       </section>
-      <SubscribersTable rows={subscribers} />
-    </AdminLayout>
+      <section>
+        <AdminDataTable
+          columns={[
+            { key: 'name' as const, label: 'Contact', width: '160px' },
+            { key: 'company' as const, label: 'Company', width: '200px' },
+            { key: 'country' as const, label: 'Country', width: '100px' },
+            { key: 'activeSubscriptions' as const, label: 'Subscriptions', width: '120px' },
+            { key: 'mrr' as const, label: 'MRR', render: (value: number) => `€${value.toLocaleString()}`, width: '120px' },
+            { key: 'status' as const, label: 'Status', render: (value: string) => <AdminStatusBadge status={value as any} size="sm" />, width: '140px' },
+          ]}
+          data={mockCustomers}
+          keyExtractor={(item) => item.id}
+          striped
+        />
+      </section>
+    </AdminLayoutV2>
   );
 }

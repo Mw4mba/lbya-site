@@ -1,34 +1,69 @@
 import React from 'react';
-import AdminLayout from '@/app/components/admin/AdminLayout';
-import SubscribersTable from '@/app/components/admin/SubscribersTable';
-import { subscribers } from '@/app/components/admin/mockData';
+import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
+import AdminDataTable from '@/app/components/admin/AdminDataTableV2';
+import AdminStatusBadge from '@/app/components/admin/AdminStatusBadgeV2';
+import { mockSubscriptions } from '@/data/mockAdminBilling';
+import { adminColors } from '@/app/components/admin/adminDesignTokens';
 
 export default function AdminSubscriptionsPage() {
   return (
-    <AdminLayout activePath="/admin/subscriptions" title="Subscription Management" subtitle="Plan changes, seats, cancellations, and renewals">
-      <section className="rounded-2xl border border-[#2E7D32]/20 bg-linear-to-r from-[#2E7D32]/8 to-transparent p-6">
-        <p className="text-sm font-medium text-[#37474F]/80">💡 Use this section to manage plan changes, add/remove seats, cancel renewals, and trigger reactivation for active subscriptions.</p>
+    <AdminLayoutV2
+      activePath="/admin/subscriptions"
+      title="Subscriptions"
+      subtitle="Monitor active, trial, past-due, cancelled, and enterprise subscriptions across LBYA AB products."
+    >
+      <section
+        className="rounded-lg border p-4"
+        style={{
+          borderColor: adminColors.lbyaGreenLight,
+          backgroundColor: adminColors.lbyaGreenSoft,
+        }}
+      >
+        <p className="text-sm font-medium" style={{ color: adminColors.lbyaGreen }}>
+          💡 Manage plan changes, add/remove seats, renewals, and reactivations.
+        </p>
       </section>
-      <section className="rounded-2xl border border-[#37474F]/10 bg-white p-8 shadow-sm">
-        <h3 className="mb-6 text-lg font-bold text-[#2E7D32]">Search & Filter</h3>
+      <section>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           <input 
-            className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15" 
-            placeholder="Search..." 
+            className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}
+            placeholder="Search subscriptions..." 
           />
-          <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-            <option>Subscription status</option>
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}>
+            <option>All statuses</option>
+            <option>Active</option>
+            <option>Trial</option>
+            <option>Past Due</option>
           </select>
-          <select className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15">
-            <option>Current plan</option>
+          <select className="rounded-lg border px-4 py-2 text-sm outline-none transition-all"
+            style={{ borderColor: adminColors.adminBorder, backgroundColor: adminColors.adminSurface, color: adminColors.adminText }}>
+            <option>All products</option>
+            <option>NBC</option>
+            <option>MCT</option>
           </select>
-          <input 
-            type="date"
-            className="rounded-lg border border-[#37474F]/15 bg-[#F5F5DC] px-4 py-3 text-sm outline-none transition-all duration-200 focus:border-[#2E7D32] focus:bg-white focus:ring-2 focus:ring-[#2E7D32]/15" 
-          />
+          <button className="rounded-lg px-4 py-2 text-sm font-medium text-white" style={{ backgroundColor: adminColors.lbyaGreen }}>
+            Export
+          </button>
         </div>
       </section>
-      <SubscribersTable rows={subscribers} />
-    </AdminLayout>
+      <section>
+        <AdminDataTable
+          columns={[
+            { key: 'customer' as const, label: 'Customer', width: '180px' },
+            { key: 'product' as const, label: 'Product', width: '80px' },
+            { key: 'plan' as const, label: 'Plan', width: '180px' },
+            { key: 'seats' as const, label: 'Seats', width: '80px' },
+            { key: 'billingTerm' as const, label: 'Billing Term', width: '120px' },
+            { key: 'amount' as const, label: 'Amount', render: (value: number, row: any) => `€${value} ${row.currency}`, width: '120px' },
+            { key: 'status' as const, label: 'Status', render: (value: string) => <AdminStatusBadge status={value as any} size="sm" />, width: '120px' },
+          ]}
+          data={mockSubscriptions}
+          keyExtractor={(item) => item.id}
+          striped
+        />
+      </section>
+    </AdminLayoutV2>
   );
 }
