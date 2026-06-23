@@ -165,30 +165,11 @@ export default function Footer() {
   const products = getProducts(activeLocale);
   const solutions = getSolutions(activeLocale);
   const currentYear = new Date().getFullYear();
-  const footerRef = React.useRef<HTMLElement>(null);
-
-  const handlePointerMove = React.useCallback((event: React.PointerEvent<HTMLElement>) => {
-    const footer = footerRef.current;
-    if (!footer) return;
-    const rect = footer.getBoundingClientRect();
-    footer.style.setProperty('--footer-fx-x', `${event.clientX - rect.left}px`);
-    footer.style.setProperty('--footer-fx-y', `${event.clientY - rect.top}px`);
-  }, []);
-
-  const handlePointerLeave = React.useCallback(() => {
-    const footer = footerRef.current;
-    if (!footer) return;
-    footer.style.setProperty('--footer-fx-x', '50%');
-    footer.style.setProperty('--footer-fx-y', '0%');
-  }, []);
 
   return (
     <footer
-      ref={footerRef}
       id="site-footer"
       className="relative overflow-hidden border-t border-white/10 bg-[#37474F] text-white"
-      onPointerMove={handlePointerMove}
-      onPointerLeave={handlePointerLeave}
       style={{
         '--footer-fx-x': '50%',
         '--footer-fx-y': '0%',

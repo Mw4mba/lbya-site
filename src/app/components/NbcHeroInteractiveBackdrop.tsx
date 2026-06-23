@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 const modelSlabs = [
   'M742 228 L1056 274 L1268 154 L954 108 Z',
@@ -78,35 +78,13 @@ const roomOutlines = [
 export default function NbcHeroInteractiveBackdrop() {
   const rootRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const updatePointer = (event: PointerEvent) => {
-      const bounds = root.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / Math.max(bounds.width, 1);
-      const y = (event.clientY - bounds.top) / Math.max(bounds.height, 1);
-      const clampedX = Math.min(Math.max(x, 0), 1);
-      const clampedY = Math.min(Math.max(y, 0), 1);
-      root.style.setProperty('--nbc-pointer-x', clampedX.toFixed(3));
-      root.style.setProperty('--nbc-pointer-y', clampedY.toFixed(3));
-      root.style.setProperty('--nbc-offset-x', `${((clampedX - 0.5) * -22).toFixed(2)}px`);
-      root.style.setProperty('--nbc-offset-y', `${((clampedY - 0.5) * -12).toFixed(2)}px`);
-      root.style.setProperty('--nbc-grid-x', `${((clampedX - 0.5) * 18).toFixed(2)}px`);
-      root.style.setProperty('--nbc-grid-y', `${((clampedY - 0.5) * 10).toFixed(2)}px`);
-    };
-
-    window.addEventListener('pointermove', updatePointer, { passive: true });
-    return () => window.removeEventListener('pointermove', updatePointer);
-  }, []);
-
   return (
     <div
       ref={rootRef}
       className="nbc-hero-interactive pointer-events-none absolute inset-0 z-0 overflow-hidden"
       aria-hidden="true"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_calc(var(--nbc-pointer-x,0.74)*100%)_calc(var(--nbc-pointer-y,0.24)*100%),rgba(165,214,167,0.24),transparent_23%),radial-gradient(circle_at_76%_34%,rgba(129,212,250,0.2),transparent_31%),linear-gradient(135deg,rgba(46,125,50,0.22),rgba(55,71,79,0.95)_44%,rgba(31,53,41,0.98))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_74%_24%,rgba(165,214,167,0.24),transparent_23%),radial-gradient(circle_at_76%_34%,rgba(129,212,250,0.2),transparent_31%),linear-gradient(135deg,rgba(46,125,50,0.22),rgba(55,71,79,0.95)_44%,rgba(31,53,41,0.98))]" />
 
       <div
         className="hero-grid-scan absolute bottom-[-22%] right-[-8%] hidden h-[72%] w-[72%] opacity-35 md:block"

@@ -1,28 +1,11 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 export default function MctHeroInteractiveBackdrop() {
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const root = rootRef.current;
-    if (!root) return;
-
-    const updatePointer = (event: PointerEvent) => {
-      const x = event.clientX / Math.max(window.innerWidth, 1);
-      const y = event.clientY / Math.max(window.innerHeight, 1);
-      root.style.setProperty('--mct-pointer-x', x.toFixed(3));
-      root.style.setProperty('--mct-pointer-y', y.toFixed(3));
-    };
-
-    window.addEventListener('pointermove', updatePointer, { passive: true });
-    return () => window.removeEventListener('pointermove', updatePointer);
-  }, []);
-
   return (
-    <div ref={rootRef} className="mct-hero-interactive pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_calc(var(--mct-pointer-x,0.72)*100%)_calc(var(--mct-pointer-y,0.36)*100%),rgba(165,214,167,0.22),transparent_24%),radial-gradient(circle_at_74%_38%,rgba(129,212,250,0.14),transparent_26%)]" />
+    <div className="mct-hero-interactive pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_36%,rgba(165,214,167,0.22),transparent_24%),radial-gradient(circle_at_74%_38%,rgba(129,212,250,0.14),transparent_26%)]" />
       <div
         className="hero-grid-scan absolute inset-y-16 right-0 hidden w-[58%] opacity-35 md:block"
         style={{
