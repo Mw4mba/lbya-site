@@ -90,6 +90,25 @@ export interface AuditEvent {
   status: 'Success' | 'Failed' | 'Pending';
 }
 
+export interface PackagePricing {
+  id: string;
+  product: 'NBC' | 'MCT';
+  plan: string;
+  status: 'Active' | 'Hidden' | 'Deprecated';
+  monthlyPrice: string;
+  yearlyPrice: string;
+  seats: string;
+}
+
+export interface ClientAccountSubscription {
+  id: string;
+  accountEmail: string;
+  plan: string;
+  renewalDate: string;
+  paymentStatus: string;
+  users: number;
+}
+
 export const adminOverviewKPIs: AdminKPI[] = [
   {
     label: 'Monthly Recurring Revenue',
@@ -349,6 +368,51 @@ export const mockSubscriptions: Subscription[] = [
   },
 ];
 
+export const packagePricingCatalog: PackagePricing[] = [
+  { id: 'price_nbc_essential', product: 'NBC', plan: 'NBC Essential', status: 'Active', monthlyPrice: 'EUR 79', yearlyPrice: 'EUR 790', seats: '5' },
+  { id: 'price_nbc_professional', product: 'NBC', plan: 'NBC Professional', status: 'Active', monthlyPrice: 'EUR 199', yearlyPrice: 'EUR 1990', seats: '20' },
+  { id: 'price_nbc_enterprise', product: 'NBC', plan: 'NBC Enterprise', status: 'Active', monthlyPrice: 'Quote', yearlyPrice: 'Quote', seats: 'Custom' },
+  { id: 'price_mct_basic', product: 'MCT', plan: 'MCT Basic', status: 'Active', monthlyPrice: 'EUR 59', yearlyPrice: 'EUR 590', seats: '5' },
+  { id: 'price_mct_professional', product: 'MCT', plan: 'MCT Professional', status: 'Active', monthlyPrice: 'EUR 149', yearlyPrice: 'EUR 1490', seats: '25' },
+  { id: 'price_mct_business', product: 'MCT', plan: 'MCT Business', status: 'Active', monthlyPrice: 'EUR 179', yearlyPrice: 'EUR 1790', seats: '30' },
+  { id: 'price_mct_enterprise', product: 'MCT', plan: 'MCT Enterprise', status: 'Active', monthlyPrice: 'Quote', yearlyPrice: 'Quote', seats: 'Custom' },
+];
+
+export const mockClientAccountSubscriptions: ClientAccountSubscription[] = [
+  {
+    id: 'acct_sub_001',
+    accountEmail: 'account@lbya.se',
+    plan: 'MCT Professional',
+    renewalDate: '2027-06-30',
+    paymentStatus: 'Paid',
+    users: 8,
+  },
+  {
+    id: 'acct_sub_002',
+    accountEmail: 'account@lbya.se',
+    plan: 'MCT Business',
+    renewalDate: '2027-09-30',
+    paymentStatus: 'Invoice requested',
+    users: 21,
+  },
+  {
+    id: 'acct_sub_003',
+    accountEmail: 'billing@jaridafrica.example',
+    plan: 'MCT Professional',
+    renewalDate: '2027-02-12',
+    paymentStatus: 'Paid',
+    users: 58,
+  },
+  {
+    id: 'acct_sub_004',
+    accountEmail: 'billing@jaridafrica.example',
+    plan: 'NBC Enterprise',
+    renewalDate: '2026-08-01',
+    paymentStatus: 'Paid',
+    users: 32,
+  },
+];
+
 export const mockPayments: Payment[] = [
   {
     id: 'pay_001',
@@ -487,6 +551,14 @@ export const mockInvoices: Invoice[] = [
 ];
 
 export const mockAdminUsers: AdminUser[] = [
+  {
+    id: 'admin_000',
+    email: 'silhady@lbya.se',
+    name: 'Silhady',
+    role: 'Owner',
+    invitedDate: '2026-06-23',
+    lastActive: '2026-06-23',
+  },
   {
     id: 'admin_001',
     email: 'sarah@lbya.example',

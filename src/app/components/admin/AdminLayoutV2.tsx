@@ -31,7 +31,7 @@ export default function AdminLayoutV2({
         <div className="flex flex-col">
           <AdminTopbarV2 title={title} subtitle={subtitle} role={role} email={email} />
           <main
-            className="flex-1 overflow-auto px-6 py-8 md:px-8 lg:px-12"
+            className="flex-1 overflow-auto px-6 py-10 md:px-8 lg:px-12"
             style={{ backgroundColor: adminColors.adminBg }}
           >
             <div className="mx-auto max-w-7xl space-y-8">

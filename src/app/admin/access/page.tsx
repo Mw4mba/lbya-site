@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
 import AdminDataTable from '@/app/components/admin/AdminDataTableV2';

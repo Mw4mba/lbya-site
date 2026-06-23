@@ -13,6 +13,11 @@ const intlMiddleware = createMiddleware(routing);
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
+  // Allow admin auth pages (e.g. login) without requiring an existing admin key.
+  if (pathname.startsWith('/admin-auth')) {
+    return NextResponse.next();
+  }
+
   if (pathname.startsWith('/admin')) {
     const enabled = isAdminFeatureEnabled({
       nodeEnv: process.env.NODE_ENV,

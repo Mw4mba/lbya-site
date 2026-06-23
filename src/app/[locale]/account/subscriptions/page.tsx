@@ -9,6 +9,7 @@ import { pageFrameStyle } from '@/app/components/LayoutFrame';
 import { asLocale } from '@/app/content/locale';
 import { localizePath } from '@/app/content/paths';
 import { getAccountSession } from '@/app/lib/subscriptionAuth';
+import { getAccountSubscriptionsWithPricing } from '@/lib/billingStore';
 
 export default async function AccountSubscriptionsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -19,6 +20,8 @@ export default async function AccountSubscriptionsPage({ params }: { params: Pro
   if (!session) {
     redirect(localizePath(activeLocale, '/signin?redirect=/account/subscriptions'));
   }
+
+  const accountSubscriptionsWithPricing = await getAccountSubscriptionsWithPricing(session.email);
 
   return (
     <div className="min-h-screen bg-white text-[#1F3529]">
@@ -34,8 +37,26 @@ export default async function AccountSubscriptionsPage({ params }: { params: Pro
         </section>
 
         <div className="mt-6 grid gap-4">
-          <SubscriptionManagementCard planName="MCT Professional" renewalDate="2027-06-30" paymentStatus="Paid" users={8} />
-          <SubscriptionManagementCard planName="MCT Business" renewalDate="2027-09-30" paymentStatus="Invoice requested" users={21} />
+          {accountSubscriptionsWithPricing.length > 0 ? (
+            accountSubscriptionsWithPricing.map((subscription) => (
+              <div key={subscription.id}>
+                <SubscriptionManagementCard
+                  planName={subscription.plan}
+                  renewalDate={subscription.renewalDate}
+                  paymentStatus={subscription.paymentStatus}
+                  users={subscription.users}
+                />
+                <div className="mt-2 rounded-sm border border-[#DCE3E0] bg-[#F8FBF9] px-4 py-3 text-sm text-[#37474F]">
+                  Linked pricing: <span className="font-semibold text-[#1F3529]">{subscription.monthlyPrice}</span> monthly,{' '}
+                  <span className="font-semibold text-[#1F3529]">{subscription.yearlyPrice}</span> yearly.
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="rounded-sm border border-[#DCE3E0] bg-white p-5 text-sm text-[#37474F]">
+              No subscriptions are currently linked to this account.
+            </div>
+          )}
         </div>
 
         <section className="mt-6 rounded-sm border border-[#DCE3E0] bg-white p-5 shadow-[0_18px_50px_rgba(31,53,41,0.08)]">

@@ -19,12 +19,15 @@ export default function Wordmark({
   return (
     <span className={`relative inline-block overflow-hidden ${className}`}>
       <Image
-        src="/lbya-wordmark.png"
+        src="/logoC.svg"
         alt="LBYA"
         fill
         sizes={sizes}
         className={`object-contain ${imageClassName}`}
-        style={imageStyle}
+        style={{
+          filter: 'brightness(0) saturate(100%)',
+          ...imageStyle,
+        }}
         priority={priority}
       />
     </span>

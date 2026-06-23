@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
 import AdminDataTable from '@/app/components/admin/AdminDataTableV2';
@@ -8,7 +10,7 @@ import { adminColors } from '@/app/components/admin/adminDesignTokens';
 export default function AdminCustomersPage() {
   return (
     <AdminLayoutV2
-      activePath="/admin/customers"
+      activePath="/admin/subscribers"
       title="Customers"
       subtitle="Manage customer accounts, billing contacts, subscriptions, invoices, seats, and product access."
     >

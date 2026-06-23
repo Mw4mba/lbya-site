@@ -6,7 +6,10 @@ import { subscribers } from '@/app/components/admin/mockData';
 
 export default async function AdminSubscriberDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const subscriber = subscribers.find((item) => item.id === id);
+  const subscriber = subscribers.find((item, index) => {
+    const numericId = String(index + 1);
+    return item.id === id || numericId === id;
+  });
 
   if (!subscriber) {
     notFound();
