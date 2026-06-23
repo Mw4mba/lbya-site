@@ -20,7 +20,7 @@ export interface Customer {
   activeSubscriptions: number;
   mrr: number;
   status: 'Active' | 'Trial' | 'Past Due' | 'Suspended' | 'Cancelled' | 'Enterprise Review';
-  lastPaymentDate: string;
+  lastPaymentDate: string | null;
   owner: string;
 }
 
@@ -254,7 +254,7 @@ export const mockSubscriptions: Subscription[] = [
     customer: 'Jaridafrica Ltd',
     product: 'MCT',
     plan: 'MCT Professional',
-    billingTerm: 'Annual',
+    billingTerm: 'Yearly',
     seats: 58,
     addOns: ['Advanced Analytics', 'Custom Reports'],
     startDate: '2025-02-12',
@@ -268,7 +268,7 @@ export const mockSubscriptions: Subscription[] = [
     customer: 'Jaridafrica Ltd',
     product: 'NBC',
     plan: 'NBC Enterprise',
-    billingTerm: 'Annual',
+    billingTerm: 'Yearly',
     seats: 32,
     addOns: ['Secure Offline Setup'],
     startDate: '2025-08-01',
@@ -310,7 +310,7 @@ export const mockSubscriptions: Subscription[] = [
     customer: 'ConstructFlow Inc',
     product: 'NBC',
     plan: 'NBC Enterprise',
-    billingTerm: 'Annual',
+    billingTerm: 'Yearly',
     seats: 32,
     addOns: ['Custom Integrations', 'Priority Support'],
     startDate: '2026-03-15',
