@@ -951,17 +951,24 @@ export default async function MalaikaControlTowerPage({ params }: Props) {
 
               <div className="mt-4 flex flex-wrap items-center gap-3 sm:mt-5">
                 <a
-                  href={localizePath(activeLocale, '/cart?product=mct')}
+                  href={localizePath(activeLocale, '/products/mct/apply?intent=request_access')}
                   className="inline-flex items-center justify-center gap-3 rounded-sm bg-white px-5 py-2.5 text-sm font-semibold text-[#1F3529] transition-colors hover:bg-[#A5D6A7] sm:px-6 sm:py-3"
                 >
-                  <span>{packageLinkCopy.buyNow}</span>
+                  <span>Request access</span>
                   <ArrowIcon />
                 </a>
                 <a
-                  href={comparePlansHref}
+                  href={localizePath(activeLocale, '/products/mct/apply?intent=request_demo')}
                   className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/28 px-5 py-2.5 text-sm font-semibold text-white/90 transition-colors hover:bg-white/10 sm:px-6 sm:py-3"
                 >
-                  <span>Compare Plans</span>
+                  <span>Request demo</span>
+                  <ArrowIcon />
+                </a>
+                <a
+                  href={localizePath(activeLocale, '/products/mct/apply?intent=enterprise_use')}
+                  className="inline-flex items-center justify-center gap-3 rounded-sm border border-[#A5D6A7]/70 px-5 py-2.5 text-sm font-semibold text-[#A5D6A7] transition-colors hover:bg-[#A5D6A7] hover:text-[#1F3529] sm:px-6 sm:py-3"
+                >
+                  <span>Discuss enterprise use</span>
                   <ArrowIcon />
                 </a>
               </div>

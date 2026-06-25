@@ -73,7 +73,7 @@ const aboutPageCopyByLocale: Record<Locale, AboutPageCopy> = {
       'Our goal is to build useful digital control platforms for industries where information moves across many people, places, documents, and decisions.',
     productStatus: {
       mct: 'Ready product',
-      'nbc': 'Mid-stage development',
+      'nbc': 'Access by request',
     },
     productBriefs: {
       mct: 'A ready logistics control tower for transport requests, transporter records, document verification, quote coordination, status tracking, and operational reporting.',

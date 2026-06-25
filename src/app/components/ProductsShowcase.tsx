@@ -20,14 +20,14 @@ const productShowcaseCopyByLocale: Record<Locale, ProductShowcaseCopy> = {
   en: {
     eyebrow: 'Products',
     heading: 'Products built for control, not noise.',
-    body: 'Start with the product that matches your work. MCT is ready to demo for logistics control; NBC is still taking shape as a focused BIM control product.',
+    body: 'Start with the product that matches your work. MCT is ready to demo for logistics control; NBC is available by request as a focused BIM control product.',
     learnMoreCta: 'Learn more',
     requestDemoCta: 'Request demo',
     briefBySlug: {
       'mct':
         'Ready for multimodal logistics coordination, document control, transporter records, quote comparison, status tracking, reporting, and operational evidence.',
       'nbc':
-        'A mid-stage BIM control product for teams that need clearer model information, responsibility, and decision evidence.',
+        'A BIM control product for teams that need clearer model information, responsibility, and decision records.',
     },
   },
   sv: {

@@ -12,7 +12,7 @@ export default function SignInCard({ locale, redirectPath }: { locale: Locale; r
 
   const target = useMemo(() => {
     if (!redirectPath || !redirectPath.startsWith('/')) {
-      return localizePath(locale, '/checkout');
+      return localizePath(locale, '/cart?product=mct');
     }
     return localizePath(locale, redirectPath);
   }, [locale, redirectPath]);

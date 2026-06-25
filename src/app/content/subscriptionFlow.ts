@@ -140,5 +140,5 @@ export function getBillingTerm(termId: string | undefined): BillingTerm {
 }
 
 export function getCheckoutRedirectPath(locale: Locale) {
-  return `/${locale}/checkout`;
+  return `/${locale}/cart?product=mct`;
 }

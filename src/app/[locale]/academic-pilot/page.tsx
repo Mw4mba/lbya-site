@@ -91,7 +91,7 @@ export default async function AcademicPilotPage({ params }: Props) {
               issue tracking, and digital construction workflows.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a href="#application" className="inline-flex items-center gap-3 rounded-sm bg-white px-7 py-3.5 text-sm font-semibold text-[#2E7D32] transition-colors hover:bg-[#A5D6A7]">
+              <a href={localizePath(activeLocale, '/academic-pilot/apply')} className="inline-flex items-center gap-3 rounded-sm bg-white px-7 py-3.5 text-sm font-semibold text-[#2E7D32] transition-colors hover:bg-[#A5D6A7]">
                 <span>Apply for Pilot Access</span>
                 <ArrowIcon />
               </a>
@@ -185,7 +185,7 @@ export default async function AcademicPilotPage({ params }: Props) {
             <div>
               <h2 className="text-3xl font-light md:text-5xl">Why NBC Offers This Program</h2>
               <p className="mt-5 text-base leading-8 text-[#37474F]/82 md:text-lg">
-                NBC is being developed as a practical BIM control and digital construction platform. By opening
+                NBC is a practical BIM control and digital construction platform. By opening
                 selected pilot access to students, NBC can receive valuable feedback from future professionals while
                 helping students gain hands-on experience with modern digital workflows used in architecture,
                 engineering, and construction.
@@ -280,7 +280,7 @@ export default async function AcademicPilotPage({ params }: Props) {
               The Academic Pilot Program gives students the opportunity to test NBC early, explore real digital
               construction workflows, and contribute feedback that can help improve the platform before wider release.
             </p>
-            <a href="#application" className="mt-7 inline-flex items-center justify-center gap-3 rounded-sm bg-[#2E7D32] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1F5B25]">
+            <a href={localizePath(activeLocale, '/academic-pilot/apply')} className="mt-7 inline-flex items-center justify-center gap-3 rounded-sm bg-[#2E7D32] px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[#1F5B25]">
               <span>Apply Now</span>
               <ArrowIcon />
             </a>

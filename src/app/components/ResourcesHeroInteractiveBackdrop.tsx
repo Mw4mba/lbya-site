@@ -8,7 +8,6 @@ export type ResourcesHeroVariant =
   | 'problem-library'
   | 'integrations'
   | 'research-thesis'
-  | 'release-notes'
   | 'help-guides';
 
 type VariantConfig = {
@@ -60,14 +59,6 @@ const variantConfigs: Record<ResourcesHeroVariant, VariantConfig> = {
     primarySignal: 'M0 336 C170 296 288 336 448 292 C602 248 710 290 844 242 C986 190 1082 234 1200 204',
     secondarySignal: 'M0 402 C188 360 320 412 478 368 C636 324 776 372 918 328 C1038 292 1132 318 1200 300',
     tertiarySignal: 'M96 188 L310 238 L530 196 L750 228 L960 194 L1132 232',
-  },
-  'release-notes': {
-    gridOpacity: 0.34,
-    signalOpacity: 0.6,
-    sweepDuration: '8.9s',
-    primarySignal: 'M0 298 C148 262 286 300 438 260 C598 216 716 262 856 218 C986 178 1088 214 1200 192',
-    secondarySignal: 'M0 372 C180 330 316 382 468 338 C626 294 768 342 914 298 C1032 262 1128 284 1200 272',
-    tertiarySignal: 'M88 160 L292 210 L516 170 L742 202 L954 168 L1134 206',
   },
   'help-guides': {
     gridOpacity: 0.24,

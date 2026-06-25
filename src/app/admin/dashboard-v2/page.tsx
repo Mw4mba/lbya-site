@@ -14,6 +14,13 @@ import {
 } from '@/data/mockAdminBilling';
 import { adminColors } from '@/app/components/admin/adminDesignTokens';
 
+function formatEuro(value: number): string {
+  const sign = value < 0 ? '-' : '';
+  const [intPart, decimalPart] = Math.abs(value).toString().split('.');
+  const groupedInt = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return `€${sign}${groupedInt}${decimalPart ? `.${decimalPart}` : ''}`;
+}
+
 export default function AdminDashboardV2Page() {
   return (
     <AdminLayoutV2
@@ -128,7 +135,7 @@ export default function AdminDashboardV2Page() {
             {
               key: 'mrr' as const,
               label: 'MRR',
-              render: (value: number) => `€${value.toLocaleString()}`,
+              render: (value: number) => formatEuro(value),
               width: '120px',
             },
             {
@@ -190,7 +197,7 @@ export default function AdminDashboardV2Page() {
             {
               key: 'amount' as const,
               label: 'Amount',
-              render: (value: number, row: any) => `€${value} ${row.currency}`,
+              render: (value: number) => formatEuro(value),
               width: '120px',
             },
             {
@@ -309,7 +316,7 @@ export default function AdminDashboardV2Page() {
             {
               key: 'amount' as const,
               label: 'Amount',
-              render: (value: number, row: any) => `€${value}`,
+              render: (value: number) => formatEuro(value),
               width: '100px',
             },
             {

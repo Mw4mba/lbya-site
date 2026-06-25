@@ -12,6 +12,7 @@ const items: SidebarItem[] = [
   { label: 'Finance', href: '/admin/finance' },
   { label: 'Invoices', href: '/admin/invoices' },
   { label: 'Quotes', href: '/admin/quotes' },
+  { label: 'Applications & Requests', href: '/admin/applications' },
   { label: 'Plans & Pricing', href: '/admin/plans' },
   { label: 'Add-ons', href: '/admin/add-ons' },
   { label: 'Access Management', href: '/admin/access' },

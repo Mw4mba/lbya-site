@@ -27,10 +27,13 @@ const navigationGroups: NavGroup[] = [
   {
     label: 'Customers & Billing',
     items: [
-      { label: 'Customers', href: '/admin/subscribers', icon: '👥' },
+      { label: 'Customers', href: '/admin/customers', icon: '👥' },
       { label: 'Subscriptions', href: '/admin/subscriptions', icon: '📝' },
       { label: 'Invoices', href: '/admin/invoices', icon: '🧾' },
-      { label: 'Payments & Finance', href: '/admin/finance', icon: '💳' },
+      { label: 'Payments', href: '/admin/payments', icon: '💳' },
+      { label: 'Failed Payments', href: '/admin/failed-payments', icon: '⚠️' },
+      { label: 'Renewals', href: '/admin/renewals', icon: '🔁' },
+      { label: 'Revenue', href: '/admin/revenue', icon: '💶' },
     ],
   },
   {
@@ -38,12 +41,14 @@ const navigationGroups: NavGroup[] = [
     items: [
       { label: 'Plans & Pricing', href: '/admin/plans', icon: '💰' },
       { label: 'Add-ons', href: '/admin/add-ons', icon: '➕' },
-      { label: 'Product Access', href: '/admin/access', icon: '🔐' },
+      { label: 'Product Access', href: '/admin/product-access', icon: '🔐' },
     ],
   },
   {
     label: 'Operations & Insights',
     items: [
+      { label: 'Applications & Requests', href: '/admin/applications', icon: '🗂️' },
+      { label: 'Project Management', href: '/admin/projects', icon: '📌' },
       { label: 'Quotes & Requests', href: '/admin/quotes', icon: '📋' },
       { label: 'Reports & Analytics', href: '/admin/reports', icon: '📈' },
       { label: 'Notifications', href: '/admin/notifications', icon: '🔔' },
@@ -52,7 +57,7 @@ const navigationGroups: NavGroup[] = [
   {
     label: 'Administration',
     items: [
-      { label: 'Audit Log', href: '/admin/audit-logs', icon: '📋' },
+      { label: 'Audit Log', href: '/admin/audit-log', icon: '📋' },
       { label: 'Admin Users', href: '/admin/access', icon: '👨‍💼' },
       { label: 'Settings', href: '/admin/settings', icon: '⚙️' },
     ],

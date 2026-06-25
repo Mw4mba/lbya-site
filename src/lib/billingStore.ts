@@ -60,13 +60,14 @@ async function ensureBillingTables() {
 
   const planCountRows = (await prisma.$queryRawUnsafe(
     'SELECT COUNT(*) as count FROM plan_pricing'
-  )) as Array<{ count: number }>;
+  )) as Array<{ count: bigint | number }>;
 
-  if ((planCountRows[0]?.count ?? 0) === 0) {
+  if (Number(planCountRows[0]?.count ?? 0) === 0) {
     for (const plan of packagePricingCatalog) {
       await prisma.$executeRawUnsafe(
-        `INSERT OR IGNORE INTO plan_pricing (id, product, plan, status, monthly_price, yearly_price, seats)
-         VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO plan_pricing (id, product, plan, status, monthly_price, yearly_price, seats)
+         VALUES ($1, $2, $3, $4, $5, $6, $7)
+         ON CONFLICT (id) DO NOTHING`,
         plan.id,
         plan.product,
         plan.plan,
@@ -80,13 +81,14 @@ async function ensureBillingTables() {
 
   const accountCountRows = (await prisma.$queryRawUnsafe(
     'SELECT COUNT(*) as count FROM account_subscriptions'
-  )) as Array<{ count: number }>;
+  )) as Array<{ count: bigint | number }>;
 
-  if ((accountCountRows[0]?.count ?? 0) === 0) {
+  if (Number(accountCountRows[0]?.count ?? 0) === 0) {
     for (const sub of mockClientAccountSubscriptions) {
       await prisma.$executeRawUnsafe(
-        `INSERT OR IGNORE INTO account_subscriptions (id, account_email, plan, renewal_date, payment_status, users)
-         VALUES (?, ?, ?, ?, ?, ?)`,
+        `INSERT INTO account_subscriptions (id, account_email, plan, renewal_date, payment_status, users)
+         VALUES ($1, $2, $3, $4, $5, $6)
+         ON CONFLICT (id) DO NOTHING`,
         sub.id,
         sub.accountEmail,
         sub.plan,
@@ -163,7 +165,7 @@ export async function updatePlanPricingById(
   const existingRows = (await prisma.$queryRawUnsafe(
     `SELECT id, product, plan, status, monthly_price, yearly_price, seats
      FROM plan_pricing
-     WHERE id = ?
+     WHERE id = $1
      LIMIT 1`,
     id
   )) as Array<{
@@ -194,7 +196,7 @@ export async function updatePlanPricingById(
 
 export async function deletePlanPricingById(id: string): Promise<void> {
   await ensureBillingTables();
-  await prisma.$executeRawUnsafe('DELETE FROM plan_pricing WHERE id = ?', id);
+  await prisma.$executeRawUnsafe('DELETE FROM plan_pricing WHERE id = $1', id);
 }
 
 export async function getAccountSubscriptionsWithPricing(
@@ -214,7 +216,7 @@ export async function getAccountSubscriptionsWithPricing(
       COALESCE(p.yearly_price, 'N/A') as yearly_price
      FROM account_subscriptions s
      LEFT JOIN plan_pricing p ON p.plan = s.plan
-     WHERE lower(s.account_email) = lower(?)
+     WHERE lower(s.account_email) = lower($1)
      ORDER BY s.renewal_date ASC`,
     email
   )) as Array<{

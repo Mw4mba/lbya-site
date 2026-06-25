@@ -12,6 +12,7 @@ const intlMiddleware = createMiddleware(routing);
 
 export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  const isDev = process.env.NODE_ENV !== 'production';
 
   // Allow admin auth pages (e.g. login) without requiring an existing admin key.
   if (pathname.startsWith('/admin-auth')) {
@@ -19,6 +20,11 @@ export default function proxy(request: NextRequest) {
   }
 
   if (pathname.startsWith('/admin')) {
+    // Keep local admin iteration frictionless while preserving production gate checks.
+    if (isDev) {
+      return NextResponse.next();
+    }
+
     const enabled = isAdminFeatureEnabled({
       nodeEnv: process.env.NODE_ENV,
       adminDashboardEnabled: process.env.ADMIN_DASHBOARD_ENABLED,

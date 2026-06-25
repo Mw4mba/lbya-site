@@ -154,10 +154,10 @@ const en: SiteContent = {
   contact: {
     headline: 'Tell us what you want to explore.',
     paragraph:
-      'Share what you need: MCT access, NBC early access, a product demo, a comparison, or a pilot conversation.',
+      'Share what you need: MCT access, NBC access, a product demo, a comparison, or a pilot conversation.',
     inquiryTypes: [
       'Request MCT access',
-      'Join NBC early access',
+      'Request NBC access',
       'Compare MCT and NBC',
       'Request a product demo',
       'Discuss product integration',
@@ -181,7 +181,7 @@ const en: SiteContent = {
       heading: 'Our product vision',
       points: [
         { title: 'Malaika Control Tower', detail: 'A ready logistics control product for connected African trade, available for demo requests.' },
-        { title: 'Nayeli BIM Control', detail: 'A BIM control product in mid development, built to make model information more accountable.' },
+        { title: 'Nayeli BIM Control', detail: 'A BIM control product built to make model information more accountable.' },
         { title: 'Global ambition', detail: 'Products lead the company, with room to grow into connected industries worldwide.' },
       ],
     },

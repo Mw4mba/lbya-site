@@ -3,9 +3,9 @@ import Image from 'next/image';
 import { setRequestLocale } from 'next-intl/server';
 import Navbar from '@/app/components/Navbar';
 import Footer from '@/app/components/Footer';
+import ControlDashboardMockup from '@/app/components/ControlDashboardMockup';
 import NbcHeroInteractiveBackdrop from '@/app/components/NbcHeroInteractiveBackdrop';
 import { pageFrameStyle } from '@/app/components/LayoutFrame';
-import { getNbc } from '@/app/content/products';
 import { asLocale, type Locale } from '@/app/content/locale';
 import { localizePath } from '@/app/content/paths';
 
@@ -50,6 +50,19 @@ type NbcCopy = {
   controlTitle: string;
   controlIntro: string;
   controls: { title: string; body: string }[];
+  controlLevelsEyebrow: string;
+  controlLevelsTitle: string;
+  controlLevelsIntro: string;
+  projectControlTitle: string;
+  projectControlDescription: string;
+  projectControlsItems: string[];
+  projectControlQuestion: string;
+  enterpriseControlTitle: string;
+  enterpriseControlDescription: string;
+  enterpriseControlsItems: string[];
+  enterpriseControlQuestion: string;
+  cdeStatement: string;
+  cdeShortForm: string;
   audienceEyebrow: string;
   audienceTitle: string;
   audienceIntro: string;
@@ -94,37 +107,224 @@ type NbcCopy = {
   footerLine: string;
 };
 
+const sectorHighlights = [
+  {
+    title: 'Real-estate',
+    label: 'Model Health Overview',
+    type: 'real-estate' as const,
+    image: '/images/products/nbc-sector-building.png',
+    description: 'Control design readiness, client review packages, handover information, and long-term asset data for buildings, campuses, hospitals, offices, residential developments, and mixed-use projects.',
+    issues: [
+      { label: 'Duct Clash', level: 'Moderate Issue', loc: 'Level 06' },
+      { label: 'Structural Conflict', level: 'Critical Issue', loc: 'Level 07' },
+      { label: 'MEP Congestion', level: 'Warning', loc: 'Level 03' },
+      { label: 'Pipe Penetration', level: 'Moderate Issue', loc: 'Level 01' },
+      { label: 'Wall Alignment', level: 'Warning', loc: 'Level 02' },
+    ],
+  },
+  {
+    title: 'Infrastructure',
+    label: 'Bridge BIM Health Overview',
+    type: 'infrastructure' as const,
+    image: '/images/products/nbc-sector-bridge.png',
+    description: 'Track readiness across corridors, sections, packages, systems, structures, stations, spans, and evidence-based review milestones.',
+    issues: [
+      { label: 'Deck Alignment', level: 'Warning', loc: 'S14–S15' },
+      { label: 'Bearing Issue', level: 'Moderate Issue', loc: 'Pier P2' },
+      { label: 'Cable Tension Anomaly', level: 'Warning', loc: 'C23–C28' },
+      { label: 'Pier Reinforcement', level: 'Critical Issue', loc: 'Pier P3' },
+      { label: 'Clash Around Utilities', level: 'Critical Issue', loc: 'Bay 27' },
+    ],
+  },
+  {
+    title: 'Industry',
+    label: 'Model Health Overview',
+    type: 'industry' as const,
+    image: '/images/products/nbc-sector-industrial.png',
+    description: 'Manage multidisciplinary model data, equipment information, process systems, safety-critical documentation, commissioning evidence, and operations handover readiness.',
+    issues: [
+      { label: 'Pipe Clash', level: 'Critical Issue', loc: 'Level 16' },
+      { label: 'Access Clearance', level: 'Warning', loc: 'Level 12' },
+      { label: 'Equipment Support', level: 'Moderate Issue', loc: 'Level 07' },
+      { label: 'Overloaded Service Zone', level: 'Moderate Issue', loc: 'Level 03' },
+      { label: 'Fire Separation', level: 'Warning', loc: 'Level 01' },
+    ],
+  },
+];
+
+const readinessStatuses = [
+  { label: 'Ready', tone: 'bg-[#D7F7D4] text-[#1F3529]' },
+  { label: 'Under review', tone: 'bg-[#FFF9DB] text-[#92400E]' },
+  { label: 'Needs attention', tone: 'bg-[#FDE8E8] text-[#9B1C1C]' },
+  { label: 'Not ready', tone: 'bg-[#E8F4F8] text-[#0F4C75]' },
+  { label: 'Not assessed', tone: 'bg-[#F7FAF7] text-[#37474F]' },
+];
+
+const readinessCards = [
+  {
+    title: 'Readiness Passport',
+    body: 'A Readiness Passport is NBC\'s structured record showing whether a model, package, discipline, zone, section, system, asset area, or project stage is ready for its next intended decision.',
+  },
+  {
+    title: 'Decision Gates',
+    body: 'Decision Gates help project teams check whether information is ready to support the next milestone, review, package release, handover, or operational decision.',
+  },
+  {
+    title: 'Evidence Packs',
+    body: 'Evidence Packs connect file verification, model validation, issue status, reviewer notes, audit history, and readiness results into traceable proof for project decisions.',
+  },
+  {
+    title: 'No Black Box Validation',
+    body: 'NBC makes readiness scores explainable by showing source files, rule sets, warnings, failures, reviewer status, and evidence links.',
+  },
+  {
+    title: 'NBC Insight Studio',
+    body: 'NBC Insight Studio is a construction-specific intelligence workspace for readiness, evidence, risk, and decision analytics. Power BI visualizes data. NBC Insight Studio explains construction readiness. NBC Insight Studio provides construction-native insight inside NBC. Enterprise teams can later export structured readiness and evidence data to Power BI or other analytics platforms.',
+  },
+];
+
+const projectControlModules = [
+  'Command Center',
+  'Model Validation',
+  'File Verification',
+  'Issue Intelligence',
+  'Readiness Passport',
+  'Decision Gates',
+  'Evidence Pack',
+  '3D Asset Readiness',
+  'Reports & Evidence',
+  'Project Memory',
+  'Client Overview',
+  'NBC Insight Studio',
+];
+
+const enterpriseControlModules = [
+  'Portfolio Control',
+  'Enterprise Settings',
+  'Rule Set Versioning',
+  'Sector Templates',
+  'Role & Permission Management',
+  'Secure Review Room',
+  'Executive Weekly Brief',
+  'Integration Management',
+  'Audit Log',
+  'Subscription & Product Access',
+];
+
+type NbcUiCopy = {
+  modulesEyebrow: string;
+  modulesTitle: string;
+  projectModulesTitle: string;
+  enterpriseModulesTitle: string;
+  resourcesEyebrow: string;
+  resourcesTitle: string;
+  resourcesBody: string;
+  resourcesFilters: string[];
+};
+
+const nbcUiCopyByLocale: Record<Locale, NbcUiCopy> = {
+  en: {
+    modulesEyebrow: 'Product modules',
+    modulesTitle: 'Project Control Modules and Enterprise Control Modules.',
+    projectModulesTitle: 'Project Control Modules',
+    enterpriseModulesTitle: 'Enterprise Control Modules',
+    resourcesEyebrow: 'Resources',
+    resourcesTitle:
+      'Resources explain the problems, workflows, research, integrations, and sector-specific control logic behind NBC as a project and enterprise BIM control platform.',
+    resourcesBody:
+      'NBC is not just a dashboard. NBC is a project and enterprise BIM control platform for readiness, evidence, risk, and decision governance across the built environment.',
+    resourcesFilters: [
+      'All',
+      'Real-estate',
+      'Infrastructure',
+      'Industry',
+      'Project BIM Control',
+      'Enterprise BIM Governance',
+      'Evidence Control',
+      'Information Trust',
+      'Integrations',
+    ],
+  },
+  sv: {
+    modulesEyebrow: 'Produktmoduler',
+    modulesTitle: 'Projektkontrollmoduler och Enterprise-kontrollmoduler.',
+    projectModulesTitle: 'Projektkontrollmoduler',
+    enterpriseModulesTitle: 'Enterprise-kontrollmoduler',
+    resourcesEyebrow: 'Resurser',
+    resourcesTitle:
+      'Resurser beskriver problemen, arbetsflödena, forskningen, integrationerna och den sektorsspecifika kontrolllogiken bakom NBC som en BIM-kontrollplattform för projekt och enterprise.',
+    resourcesBody:
+      'NBC är inte bara en dashboard. NBC är en BIM-kontrollplattform för projekt och enterprise för beredskap, underlag, risk och beslutsstyrning i den byggda miljön.',
+    resourcesFilters: [
+      'Alla',
+      'Fastigheter',
+      'Infrastruktur',
+      'Industri',
+      'Projekt-BIM-kontroll',
+      'Enterprise-BIM-styrning',
+      'Underlagskontroll',
+      'Informationsförtroende',
+      'Integrationer',
+    ],
+  },
+  fr: {
+    modulesEyebrow: 'Modules produit',
+    modulesTitle: 'Modules de contrôle projet et modules de contrôle Enterprise.',
+    projectModulesTitle: 'Modules de contrôle projet',
+    enterpriseModulesTitle: 'Modules de contrôle Enterprise',
+    resourcesEyebrow: 'Ressources',
+    resourcesTitle:
+      'Les ressources expliquent les problèmes, workflows, recherches, intégrations et logiques de contrôle sectorielles derrière NBC en tant que plateforme de contrôle BIM projet et Enterprise.',
+    resourcesBody:
+      'NBC n\'est pas seulement un tableau de bord. NBC est une plateforme de contrôle BIM projet et Enterprise pour la maturité, les preuves, le risque et la gouvernance décisionnelle dans l\'environnement bâti.',
+    resourcesFilters: [
+      'Toutes',
+      'Immobilier',
+      'Infrastructure',
+      'Industrie',
+      'Contrôle BIM Projet',
+      'Gouvernance BIM Enterprise',
+      'Contrôle des preuves',
+      'Confiance informationnelle',
+      'Intégrations',
+    ],
+  },
+  de: {} as NbcUiCopy,
+};
+
+nbcUiCopyByLocale.de = nbcUiCopyByLocale.en;
+
 const nbcCopyByLocale: Record<Locale, NbcCopy> = {
   en: {
-    heroEyebrow: 'A product by LBYA',
-    heroTitle: 'NBC - Nayeli BIM Control',
-    heroSubtitle: 'BIM governance, project readiness, and construction intelligence for complex delivery teams.',
+    heroEyebrow: 'A product by LBYA AB',
+    heroTitle: 'NBC — Nayeli BIM Control',
+    heroSubtitle: 'Project and enterprise BIM control for the built environment.',
     heroBody:
-      'NBC is a BIM control platform under development for organizations that need a clearer, more reliable view of model quality, coordination risk, delivery readiness, project evidence, and client decision-making.',
-    heroLine: 'Know what is ready. See what is at risk. Control the next decision.',
-    primaryCta: 'Explore packages',
-    secondaryCta: 'Request private introduction',
-    productNote: 'Designed for BIM managers, contractors, consultants, public clients, infrastructure owners, and asset owners.',
+      'NBC helps organizations control BIM readiness, evidence, risks, responsibilities, and decisions across projects and portfolios.',
+    heroLine: 'Know what is ready. See what is risky. Control what matters.',
+    primaryCta: 'Explore NBC',
+    secondaryCta: 'View control areas',
+    productNote: 'Designed for project owners, delivery teams, consultants, public clients, infrastructure owners, and asset owners managing structural and model readiness.',
     heroSignals: ['Ready', 'Risk', 'Owner'],
-    summaryTitle: 'A control layer for BIM information, risk, and readiness.',
+    summaryTitle: 'A control layer for delivery information, risk, and readiness across the built environment.',
     summaryBody: [
-      'NBC helps construction teams move from scattered BIM activity to structured project intelligence, with clearer visibility over model health, issue ownership, coordination risk, delivery readiness, reporting, and evidence.',
-      'It is being developed for organizations that need stronger BIM control without adding unnecessary complexity, while continuing to work alongside existing authoring, review, collaboration, and Common Data Environment tools.',
+      'NBC helps teams move from scattered model and project data to a structured delivery picture with clearer visibility over quality, ownership, risk, and reporting.',
+      'It is designed to strengthen control without adding unnecessary complexity, while fitting alongside existing authoring, review, collaboration, and Common Data Environment tools.',
     ],
     nameEyebrow: 'About the name',
     nameTitle: 'A name shaped by responsibility for the built environment.',
     nameBody: [
       'NBC stands for Nayeli BIM Control. Nayeli means "I love you", but here the meaning is used quietly and professionally: as a reminder that care, responsibility, and quality belong inside project information.',
-      'Projects deserve care. Information deserves control. Decisions deserve clarity. Buildings and infrastructure become hospitals, homes, schools, transport systems, industrial facilities, and public spaces. NBC is being developed to help teams protect the quality of what they know before they decide what to build.',
+      'Projects deserve care. Information deserves control. Decisions deserve clarity. Urban developments, transport networks, industrial sites, and public infrastructure all need trusted readiness before work begins. NBC helps teams protect the quality of what they know before they decide what to deliver.',
     ],
-    whyEyebrow: 'Why NBC is being developed',
-    whyTitle: 'BIM information is expanding. Control must catch up.',
+    whyEyebrow: 'Why NBC exists',
+    whyTitle: 'Project information is expanding. Control must keep pace.',
     whyBody:
-      'Modern projects generate models, drawings, issues, revisions, reports, approvals, client requirements, coordination decisions, and handover data. As delivery becomes more complex, teams need a trusted way to see what is reliable, what changed, what remains unresolved, and whether the project is ready for the next stage.',
-    informationTitle: 'NBC is being designed to support',
+      'Modern delivery programs generate models, drawings, issues, revisions, reports, approvals, client requirements, coordination decisions, and handover data. As projects become more complex, teams need a trusted way to see what is reliable, what changed, what remains unresolved, and whether the delivery is ready for the next stage.',
+    informationTitle: 'NBC is designed to support',
     informationItems: [
-      'BIM governance',
-      'model health visibility',
+      'information governance',
+      'information health visibility',
       'coordination risk tracking',
       'issue responsibility',
       'delivery readiness',
@@ -134,9 +334,43 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       'secure project control',
     ],
     controlEyebrow: 'Control areas',
-    controlTitle: 'What NBC is being shaped to control',
+    controlTitle: 'What NBC controls',
     controlIntro:
-      'NBC is not a modelling tool and is not intended to replace existing BIM authoring, checking, collaboration, or CDE platforms. It sits as a BIM control layer around the work teams already do, helping them understand readiness, risk, evidence, and ownership with greater confidence.',
+      'NBC is not a modelling tool and is not intended to replace existing authoring, checking, collaboration, or CDE platforms. It sits as a control layer around the work teams already do, helping them understand readiness, risk, evidence, and ownership with greater confidence.',
+    // Project Control vs Enterprise Control
+    controlLevelsEyebrow: 'Control levels',
+    controlLevelsTitle: 'From project readiness to enterprise BIM governance.',
+    controlLevelsIntro: 'NBC is designed to support both daily project control and portfolio-level BIM governance, helping teams move from scattered information to trusted decision control.',
+    projectControlTitle: 'Project BIM Control',
+    projectControlDescription: 'For teams managing one project, package, asset area, milestone, or client review.',
+    projectControlsItems: [
+      'Model validation',
+      'File verification',
+      'Issue responsibility',
+      'Readiness Passport',
+      'Decision Gates',
+      'Evidence Pack',
+      '3D Asset Readiness',
+      'Client Overview',
+      'Project Memory',
+      'NBC Insight Studio',
+    ],
+    projectControlQuestion: 'Is this project ready for the next decision?',
+    enterpriseControlTitle: 'Enterprise BIM Control',
+    enterpriseControlDescription: 'For organizations managing many projects, assets, teams, standards, clients, and governance requirements.',
+    enterpriseControlsItems: [
+      'Portfolio readiness',
+      'Multi-project risk',
+      'Enterprise templates',
+      'Rule-set governance',
+      'Audit evidence',
+      'Role-based permissions',
+      'Secure review workflows',
+      'Executive reporting',
+      'Integration roadmap',
+    ],
+    enterpriseControlQuestion: 'Where does leadership need to act before risk becomes expensive?',
+
     controls: [
       { title: 'Model Health', body: 'Review the reliability, completeness, and readiness of BIM information before it supports coordination, delivery, client review, or handover.' },
       { title: 'Issue Intelligence', body: 'Track BIM-related issues with severity, responsibility, deadlines, project impact, and decision relevance.' },
@@ -145,56 +379,58 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       { title: 'Reports & Evidence', body: 'Create a clearer reporting basis for project teams, clients, milestone reviews, and internal governance.' },
       { title: 'Client Visibility', body: 'Give clients and decision-makers a simplified view of project readiness without exposing unnecessary technical complexity.' },
       { title: 'Portfolio Control', body: 'Help organizations managing several projects compare readiness, risk levels, and BIM control status.' },
-      { title: 'Enterprise Governance', body: 'Being designed around role-based access, permissions, audit visibility, controlled workflows, and enterprise deployment needs.' },
+      { title: 'Enterprise Governance', body: 'Built around role-based access, permissions, audit visibility, controlled workflows, and enterprise deployment needs.' },
     ],
-    audienceEyebrow: 'Built for construction industry teams',
-    audienceTitle: 'BIM control for delivery teams. Executive clarity for decision-makers.',
+    
+    // CDE positioning (displayed in UI)
+    cdeStatement: 'NBC does not replace your CDE, model authoring tools, issue platforms, or reporting systems. NBC helps verify, interpret, and communicate readiness across the information they produce.',
+    cdeShortForm: 'Keep your project systems. Use NBC to control readiness, evidence, and decisions across them.',
+audienceEyebrow: 'Built for delivery teams and asset owners',
+    audienceTitle: 'Control for delivery teams. Executive clarity for decision-makers.',
     audienceIntro:
-      'NBC is intended to help technical teams manage information with discipline while giving leadership a clearer view of readiness, risk, and accountability.',
+      'NBC is intended to help technical and delivery teams manage information with discipline while giving leadership a clearer view of readiness, risk, and accountability.',
     audienceGroups: [
-      'BIM managers',
-      'BIM coordinators',
-      'architects',
-      'structural engineers',
-      'MEP teams',
-      'contractors',
+      'technical coordinators',
       'project managers',
+      'consultants',
+      'contractors',
       'public-sector clients',
-      'real estate developers',
+      'real-estate developers',
+      'infrastructure owners',
+      'industrial operators',
       'asset owners',
-      'infrastructure teams',
-      'enterprise construction organizations',
+      'enterprise delivery organizations',
     ],
     valueTitle: 'Value by role',
     values: [
-      { title: 'For BIM managers', body: 'Monitor model health, issue status, readiness, reporting, and information quality across teams and projects.' },
-      { title: 'For project managers', body: 'See what is blocking progress, which issues require attention, and whether the project is ready for the next decision point.' },
-      { title: 'For consultants', body: 'Present a clearer record of model quality, coordination status, and delivery readiness.' },
-      { title: 'For contractors', body: 'Detect coordination risks, unresolved issues, and information gaps before they affect construction.' },
+      { title: 'For delivery leads', body: 'Monitor information health, issue status, readiness, reporting, and quality across teams and projects.' },
+      { title: 'For project managers', body: 'See what is blocking progress, which issues require attention, and whether the delivery is ready for the next decision point.' },
+      { title: 'For consultants', body: 'Present a clearer record of information quality, coordination status, and delivery readiness.' },
+      { title: 'For contractors', body: 'Detect coordination risks, unresolved issues, and information gaps before they affect delivery.' },
       { title: 'For clients and asset owners', body: 'Understand progress, information readiness, risks, approvals, and next actions in a cleaner decision view.' },
-      { title: 'For enterprise organizations', body: 'Standardize how BIM governance, project risk, reporting, and evidence are monitored across multiple projects.' },
+      { title: 'For enterprise organizations', body: 'Standardize how governance, project risk, reporting, and evidence are monitored across multiple projects.' },
     ],
     packagesEyebrow: 'NBC packages',
-    packagesTitle: 'Select the right level of BIM control for your organization',
+    packagesTitle: 'Select the right level of delivery control for your organization',
     packagesIntro:
-      'NBC package conversations are handled through a private introduction. Public pricing is not displayed while the product is being shaped with qualified teams; final availability depends on project context, organization needs, and security requirements.',
+      'NBC package discussions are handled through a private introduction. Public pricing is not displayed while the product is refined with qualified teams; final availability depends on project context, organization needs, and security requirements.',
     packageSuitableLabel: 'Suitable for',
     packageIncludesLabel: 'Includes',
     packages: [
       {
         name: 'NBC Essential',
-        kicker: 'For early validation, pilots, and smaller BIM offices.',
+        kicker: 'For small teams, pilot projects, and early project-level BIM readiness control.',
         summary:
-          'Create a dependable project view with model uploads, basic health signals, open issues, and a client-ready snapshot.',
+          'For small teams, pilot projects, and early project-level BIM readiness control.',
         suitable: ['small BIM teams', 'BIM consultants', 'architecture offices', 'engineering offices', 'pilot projects', 'internal BIM quality reviews'],
         includes: ['project command center', 'model upload overview', 'basic model health indicators', 'issue tracking overview', 'delivery readiness snapshot', 'client-friendly project summary', 'basic readiness snapshot', 'basic issue overview', 'basic file tracking', 'simple report preview', 'Readiness Passport preview'],
         cta: 'Request Essential Introduction',
       },
       {
         name: 'NBC Professional',
-        kicker: 'For live coordination across disciplines.',
+        kicker: 'For active project teams managing model validation, issue responsibility, evidence, decision gates, and project readiness.',
         summary:
-          'Add ownership, due dates, validation context, risk indicators, and export-ready reporting for active delivery.',
+          'For active project teams managing model validation, issue responsibility, evidence, decision gates, and project readiness.',
         suitable: ['BIM coordination teams', 'engineering consultants', 'multidisciplinary design teams', 'contractors', 'project managers', 'client-facing delivery teams'],
         includes: ['advanced command center', 'model validation overview', 'issue intelligence dashboard', 'responsibility and due-date tracking', 'coordination risk indicators', 'export-ready report structure', 'Readiness Passport', 'Decision Gates', 'Evidence Pack', 'What Changed Since Last Review', 'Next Best Action', 'single-project 3D Asset Readiness Snapshot'],
         inheritance: 'Includes all Essential controls.',
@@ -202,9 +438,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
       {
         name: 'NBC Enterprise',
-        kicker: 'For portfolios, public clients, and large delivery organizations.',
+        kicker: 'For organizations managing BIM control across multiple projects, assets, teams, standards, evidence workflows, and governance requirements.',
         summary:
-          'Standardize governance across projects with portfolio visibility, audit evidence, role structures, and integration-ready workspaces.',
+          'For organizations managing BIM control across multiple projects, assets, teams, standards, evidence workflows, and governance requirements.',
         suitable: ['large contractors', 'public-sector clients', 'infrastructure owners', 'real estate developers', 'enterprise BIM departments', 'multi-project organizations'],
         includes: ['portfolio control dashboard', 'multi-project risk overview', 'enterprise role structure', 'audit evidence overview', 'executive reporting structure', 'integration-ready workspace', 'portfolio decision gates', 'multi-project evidence packs', 'executive weekly brief', 'secure review room', 'project memory', 'custom rule set templates', 'local standards templates', 'advanced 3D Asset Readiness filtering'],
         inheritance: 'Includes all Professional controls.',
@@ -212,9 +448,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
       {
         name: 'NBC Secure Offline',
-        kicker: 'For sensitive projects that cannot depend on open cloud access.',
+        kicker: 'For restricted, sensitive, critical infrastructure, industrial, public-sector, or high-security environments requiring controlled offline BIM governance.',
         summary:
-          'Keep model review, issue tracking, reporting, and evidence exports under local control for restricted environments.',
+          'For restricted, sensitive, critical infrastructure, industrial, public-sector, or high-security environments requiring controlled offline BIM governance.',
         suitable: ['sensitive public infrastructure', 'secure government projects', 'hospitals', 'airports', 'rail and metro projects', 'data centers', 'air-gapped IT networks'],
         includes: ['local project control', 'local model validation overview', 'local issue and risk tracking', 'local report generation', 'local evidence export', 'controlled update process', 'offline evidence packs', 'local project memory', 'deterministic validation records', 'no black box validation', 'local rule set versioning', 'local 3D Asset Readiness Snapshot', 'zero telemetry', 'controlled update cycle'],
         inheritance: 'Includes selected Enterprise capabilities for restricted environments.',
@@ -222,9 +458,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
     ],
     fileSupportEyebrow: 'Global file support',
-    fileSupportTitle: 'Multi-format BIM control without forcing teams into one tool.',
+    fileSupportTitle: 'Multi-format delivery control without forcing teams into one tool.',
     fileSupportIntro:
-      'NBC is being shaped around the file reality of BIM delivery: open standards, issue files, information requirements, reports, native-model references, and evidence packs. The level of validation depends on the package and the technical access available for each project.',
+      'NBC is built around the file reality of modern delivery: open standards, issue exchange files, information requirements, reports, native asset references, and evidence packs. The level of validation depends on the package and the technical access available for each project.',
     fileSupportPackageTitle: 'File support by package',
     fileSupportPackageLabel: 'Package',
     fileSupportApproachLabel: 'File support approach',
@@ -248,7 +484,7 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
     deploymentEyebrow: 'Security and deployment positioning',
     deploymentTitle: 'Designed for controlled collaboration, private governance, and secure environments.',
     deploymentBody: [
-      'NBC is being designed with flexible deployment needs in mind. Some teams need fast cloud-based collaboration. Larger organizations may require private governance environments. Sensitive projects may require offline operation and strict local control.',
+      'NBC is designed for flexible deployment. Some teams need fast cloud-based collaboration. Larger organizations may require private governance environments. Sensitive projects may need offline operation and strict local control.',
       'Deployment options may vary by package, project requirements, and technical feasibility. Enterprise and secure offline options are intended for qualified use cases only.',
     ],
     deploymentDirectionTitle: 'Deployment direction under consideration',
@@ -260,30 +496,31 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       'Controlled access and permission structures',
       'Audit-ready reporting and evidence export',
     ],
+
     chooseEyebrow: 'Why choose NBC?',
-    chooseTitle: 'A governance-grade control layer for high-stakes BIM decisions.',
+    chooseTitle: 'A governance-grade control layer for high-stakes delivery decisions.',
     choosePoints: [
-      { title: 'Clarity for project teams', body: 'Understand what is ready, what is missing, what is exposed to risk, and who must act next.' },
+      { title: 'Clarity for delivery teams', body: 'Understand what is ready, what is missing, what is exposed to risk, and who must act next.' },
       { title: 'Confidence for clients', body: 'Give clients a clearer view of progress, coordination status, readiness, and key decisions.' },
-      { title: 'Control for BIM managers', body: 'Support model health visibility, issue intelligence, delivery readiness, and structured reporting.' },
-      { title: 'Governance for large organizations', body: 'Standardize how BIM quality, risk, responsibilities, and evidence are monitored across projects.' },
+      { title: 'Control for technical leads', body: 'Support information health visibility, issue intelligence, delivery readiness, and structured reporting.' },
+      { title: 'Governance for large organizations', body: 'Standardize how quality, risk, responsibilities, and evidence are monitored across projects.' },
       { title: 'Security options for sensitive projects', body: 'Support restricted environments through secure offline deployment options designed for qualified use cases.' },
-      { title: 'Built around responsibility', body: 'Better information control leads to better project decisions and stronger built outcomes.' },
+      { title: 'Built around responsibility', body: 'Better information control leads to better project decisions and stronger delivery outcomes.' },
     ],
     ctaTitle: 'Explore NBC privately',
     ctaBody:
-      'NBC is currently being developed for project teams, consultants, contractors, public clients, and enterprise construction organizations that need better BIM control. Request a private introduction to discuss project fit, package direction, and how NBC could support your organization.',
+      'NBC is intended for project teams, consultants, contractors, public clients, and enterprise owners who need better control over real-estate, infrastructure, and industrial delivery. Request a private introduction to discuss project fit, package direction, and how NBC can support your organization.',
     ctaPrimary: 'Request private introduction',
     ctaSecondary: 'View packages',
-    footerLine: 'NBC - Nayeli BIM Control. A product by LBYA.',
+    footerLine: '© 2026 NBC — Nayeli BIM Control. A product by LBYA AB.',
   },
   sv: {
-    heroEyebrow: 'En produkt från LBYA',
-    heroTitle: 'NBC - Nayeli BIM Control',
-    heroSubtitle: 'BIM-styrning, projektberedskap och byggintelligens för komplexa leveransteam.',
+    heroEyebrow: 'En produkt från LBYA AB',
+    heroTitle: 'NBC — Nayeli BIM Control',
+    heroSubtitle: 'Projekt- och enterprise-BIM-kontroll för den byggda miljön.',
     heroBody:
-      'NBC är en BIM-kontrollplattform under utveckling för organisationer som behöver en tydligare och mer tillförlitlig bild av modellkvalitet, samordningsrisk, leveransberedskap, projektunderlag och kundbeslut.',
-    heroLine: 'Se vad som är redo. Förstå vad som är utsatt för risk. Kontrollera nästa beslut.',
+      'NBC hjälper team inom fastigheter, infrastruktur och industri att kontrollera beredskap, underlag, risker, ansvar och beslut inom projekt och portföljer.',
+    heroLine: 'Se vad som är redo. Förstå vad som är utsatt för risk. Kontrollera vad som räknas.',
     primaryCta: 'Utforska paketen',
     secondaryCta: 'Begär privat introduktion',
     productNote: 'Utformad för BIM-ansvariga, entreprenörer, konsulter, offentliga beställare, infrastrukturägare och fastighetsägare.',
@@ -329,8 +566,8 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       { title: 'Portföljkontroll', body: 'Hjälp organisationer med flera projekt jämföra beredskap, risknivåer och BIM-kontrollstatus.' },
       { title: 'Enterprise-styrning', body: 'Utformas kring rollbaserad åtkomst, behörigheter, revisionssynlighet, kontrollerade arbetsflöden och enterprise-behov.' },
     ],
-    audienceEyebrow: 'Byggd för byggbranschens team',
-    audienceTitle: 'BIM-kontroll för leveransteam. Tydligare ledningsbild för beslutsfattare.',
+    audienceEyebrow: 'Byggd för leveransteam och tillgångsägare',
+    audienceTitle: 'Kontroll för leveransteam. Tydlighet för beslutsfattare.',
     audienceIntro:
       'NBC är avsett att hjälpa tekniska team hantera information med disciplin och samtidigt ge ledningen en tydligare bild av beredskap, risk och ansvar.',
     audienceGroups: [
@@ -365,18 +602,18 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
     packages: [
       {
         name: 'NBC Essential',
-        kicker: 'För tidig validering, pilotprojekt och mindre BIM-kontor.',
+        kicker: 'För små team, pilotprojekt och tidig BIM-beredskapskontroll på projektnivå.',
         summary:
-          'Skapa en tillförlitlig projektvy med modelluppladdningar, grundläggande hälsosignaler, öppna ärenden och en kundredo översikt.',
+          'För små team, pilotprojekt och tidig BIM-beredskapskontroll på projektnivå.',
         suitable: ['små BIM-team', 'BIM-konsulter', 'arkitektkontor', 'teknikkonsulter', 'pilotprojekt', 'interna BIM-kvalitetsgranskningar'],
         includes: ['projektkommandocenter', 'översikt för modelluppladdning', 'grundläggande modellhälsoindikatorer', 'ärendeöversikt', 'leveransberedskap', 'kundvänlig projektsammanfattning', 'grundläggande beredskapssnapshot', 'grundläggande ärendeöversikt', 'grundläggande filspårning', 'enkel rapportförhandsvisning', 'Readiness Passport-förhandsvisning'],
         cta: 'Begär Essential-introduktion',
       },
       {
         name: 'NBC Professional',
-        kicker: 'För aktiv samordning mellan discipliner.',
+        kicker: 'För aktiva projektteam som hanterar modellvalidering, ärendeansvar, underlag, beslutspunkter och projektberedskap.',
         summary:
-          'Lägg till ansvar, datum, valideringskontext, riskindikatorer och exportrapporter för pågående leverans.',
+          'För aktiva projektteam som hanterar modellvalidering, ärendeansvar, underlag, beslutspunkter och projektberedskap.',
         suitable: ['BIM-samordningsteam', 'teknikkonsulter', 'multidisciplinära designteam', 'entreprenörer', 'projektledare', 'kundnära leveransteam'],
         includes: ['avancerat kommandocenter', 'modellvalideringsöversikt', 'ärendeintelligens', 'ansvars- och datumspårning', 'riskindikatorer', 'exportrapportstruktur', 'Readiness Passport', 'Decision Gates', 'Evidence Pack', 'Vad som förändrats sedan senaste granskning', 'Nästa bästa åtgärd', 'enskilt projekts 3D Asset Readiness Snapshot'],
         inheritance: 'Innehåller alla kontroller från Essential.',
@@ -384,9 +621,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
       {
         name: 'NBC Enterprise',
-        kicker: 'För portföljer, offentliga beställare och stora leveransorganisationer.',
+        kicker: 'För organisationer som hanterar BIM-kontroll över flera projekt, tillgångar, team, standarder, underlagsflöden och styrningskrav.',
         summary:
-          'Standardisera styrning mellan projekt med portföljöversikt, revisionsunderlag, rollstruktur och integrationsredo arbetsytor.',
+          'För organisationer som hanterar BIM-kontroll över flera projekt, tillgångar, team, standarder, underlagsflöden och styrningskrav.',
         suitable: ['stora entreprenörer', 'offentliga beställare', 'infrastrukturägare', 'fastighetsutvecklare', 'enterprise BIM-avdelningar', 'organisationer med flera projekt'],
         includes: ['portföljdashboard', 'risköversikt över flera projekt', 'enterprise-rollstruktur', 'översikt för revisionsunderlag', 'ledningsrapportering', 'integrationsredo arbetsyta', 'portföljbeslutsgrindar', 'underlagspaket för flera projekt', 'exekutivt veckobrev', 'säkert granskningsrum', 'projektminne', 'anpassade regeluppsättningsmallar', 'lokala standardmallar', 'avancerad 3D Asset Readiness-filtrering'],
         inheritance: 'Innehåller alla kontroller från Professional.',
@@ -394,9 +631,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
       {
         name: 'NBC Secure Offline',
-        kicker: 'För känsliga projekt som inte kan vara beroende av öppen molnåtkomst.',
+        kicker: 'För begränsade, känsliga, samhällskritiska, industriella, offentliga eller högsäkerhetsmiljöer som kräver kontrollerad offline BIM-styrning.',
         summary:
-          'Håll modellgranskning, ärendespårning, rapportering och underlagsexport under lokal kontroll i begränsade miljöer.',
+          'För begränsade, känsliga, samhällskritiska, industriella, offentliga eller högsäkerhetsmiljöer som kräver kontrollerad offline BIM-styrning.',
         suitable: ['känslig offentlig infrastruktur', 'säkra myndighetsprojekt', 'sjukhus', 'flygplatser', 'järnväg och tunnelbana', 'datacenter', 'air-gapped IT-nät'],
         includes: ['lokal projektkontroll', 'lokal modellvalideringsöversikt', 'lokal ärende- och riskspårning', 'lokal rapportgenerering', 'lokal underlagsexport', 'kontrollerad uppdateringsprocess', 'offlineunderlagspaket', 'lokalt projektminne', 'deterministiska valideringsposter', 'ingen svart låda-validering', 'lokal regeluppsättningsversionshantering', 'lokal 3D Asset Readiness Snapshot', 'nolltelemetri', 'kontrollerad uppdateringscykel'],
         inheritance: 'Innehåller utvalda Enterprise-funktioner för begränsade miljöer.',
@@ -457,15 +694,50 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       'NBC utvecklas för projektteam, konsulter, entreprenörer, offentliga beställare och enterprise-organisationer inom bygg som behöver bättre BIM-kontroll. Begär en privat introduktion för att diskutera projektpassning, paketinriktning och hur NBC kan stödja er organisation.',
     ctaPrimary: 'Begär privat introduktion',
     ctaSecondary: 'Visa paket',
-    footerLine: 'NBC - Nayeli BIM Control. En produkt från LBYA.',
+    footerLine: '© 2026 NBC — Nayeli BIM Control. En produkt från LBYA AB.',
+    // Control levels (same as EN)
+    controlLevelsEyebrow: 'Kontrollnivåer',
+    controlLevelsTitle: 'Från projektberedskap till enterprise BIM-styrning.',
+    controlLevelsIntro: 'NBC är utformad för att stödja både daglig projektkontroll och portfölj-nivå BIM-styrning, vilket hjälper team att gå från spridd information till betrodd beslutskontroll.',
+    projectControlTitle: 'Projekt BIM-kontroll',
+    projectControlDescription: 'För team som hanterar ett projekt, paket, tillgångsområde, milstolpe eller klientgranskning.',
+    projectControlsItems: [
+      'Modellvalidering',
+      'Filverifiering',
+      'Ägandeansvar',
+      'Beredskapspass',
+      'Beslutsgrindar',
+      'Bevispaket',
+      '3D-tillgångsberedskap',
+      'Klientöversikt',
+      'Projektminne',
+      'NBC Insight Studio',
+    ],
+    projectControlQuestion: 'Är detta projekt redo för nästa beslut?',
+    enterpriseControlTitle: 'Enterprise BIM-kontroll',
+    enterpriseControlDescription: 'För organisationer som hanterar många projekt, tillgångar, team, standarder, klienter och styrningskrav.',
+    enterpriseControlsItems: [
+      'Portföljberedskap',
+      'Flertal-projekt risk',
+      'Enterprise-mallar',
+      'Regeluppsättningsstyrning',
+      'Granskningsbevis',
+      'Rollbaserade behörigheter',
+      'Säkra granskningsarbetsflöden',
+      'Rapportering för ledning',
+      'Integrationskarta',
+    ],
+    enterpriseControlQuestion: 'Var behöver ledningen agera innan risken blir dyr?',
+    cdeStatement: 'NBC ersätter inte din CDE, modelleringsverktyg, problemplattformar eller rapporteringssystem. NBC hjälper till att verifiera, tolka och kommunicera beredskap över informationen de producerar.',
+    cdeShortForm: 'Behåll dina projektsystem. Använd NBC för att styra beredskap, bevis och beslut över dem.',
   },
   fr: {
-    heroEyebrow: 'Un produit de LBYA',
-    heroTitle: 'NBC - Nayeli BIM Control',
-    heroSubtitle: 'Gouvernance BIM, maturité projet et intelligence construction pour les équipes complexes.',
+    heroEyebrow: 'Un produit de LBYA AB',
+    heroTitle: 'NBC — Nayeli BIM Control',
+    heroSubtitle: 'Contrôle BIM projet et enterprise pour l\'environnement bâti.',
     heroBody:
-      'NBC est une plateforme de contrôle BIM en développement pour les organisations qui ont besoin d’une vision plus claire et plus fiable de la qualité des modèles, des risques de coordination, de la maturité des livrables, des preuves projet et des décisions client.',
-    heroLine: 'Savoir ce qui est prêt. Voir ce qui est exposé au risque. Contrôler la prochaine décision.',
+      'NBC aide les équipes d\'immobilier, d\'infrastructure et d\'industrie à contrôler la maturité, les preuves, les risques, les responsabilités et les décisions dans les projets et les portefeuilles.',
+    heroLine: 'Savoir ce qui est prêt. Voir ce qui est exposé au risque. Contrôler ce qui compte.',
     primaryCta: 'Explorer les offres',
     secondaryCta: 'Demander une introduction privée',
     productNote: 'Conçu pour BIM managers, entrepreneurs, consultants, clients publics, propriétaires d’infrastructures et maîtres d’ouvrage.',
@@ -511,8 +783,8 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       { title: 'Contrôle portefeuille', body: 'Aider les organisations multi-projets à comparer maturité, niveaux de risque et statut du contrôle BIM.' },
       { title: 'Gouvernance Enterprise', body: 'Conçu autour des accès par rôle, permissions, visibilité d’audit, workflows contrôlés et besoins de déploiement Enterprise.' },
     ],
-    audienceEyebrow: 'Conçu pour les équipes de construction',
-    audienceTitle: 'Contrôle BIM pour les équipes de livraison. Clarté exécutive pour les décideurs.',
+    audienceEyebrow: 'Conçu pour les équipes de livraison et les maîtres d’ouvrage',
+    audienceTitle: 'Contrôle pour les équipes de livraison. Clarté pour les décideurs.',
     audienceIntro:
       'NBC vise à aider les équipes techniques à gérer l’information avec discipline, tout en donnant à la direction une vue plus claire de la maturité, du risque et des responsabilités.',
     audienceGroups: [
@@ -547,18 +819,18 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
     packages: [
       {
         name: 'NBC Essential',
-        kicker: 'Pour la validation initiale, les pilotes et les petites structures BIM.',
+        kicker: 'Pour les petites équipes, les projets pilotes et le contrôle initial de la maturité BIM au niveau projet.',
         summary:
-          'Créer une vue projet fiable avec téléversements de modèles, premiers signaux de santé, sujets ouverts et synthèse prête pour le client.',
+          'Pour les petites équipes, les projets pilotes et le contrôle initial de la maturité BIM au niveau projet.',
         suitable: ['petites équipes BIM', 'consultants BIM', 'agences d’architecture', 'bureaux d’ingénierie', 'projets pilotes', 'revues qualité BIM internes'],
         includes: ['centre de commande projet', 'vue des téléversements de modèles', 'indicateurs de santé de base', 'vue des sujets', 'instantané de maturité livraison', 'résumé projet côté client', 'instantané de maturité de base', 'vue des sujets de base', 'suivi de fichiers de base', 'aperçu de rapport simple', 'aperçu Readiness Passport'],
         cta: 'Demander une introduction Essential',
       },
       {
         name: 'NBC Professional',
-        kicker: 'Pour la coordination active entre disciplines.',
+        kicker: 'Pour les équipes projet actives qui gèrent la validation des modèles, la responsabilité des sujets, les preuves, les jalons de décision et la maturité projet.',
         summary:
-          'Ajouter responsabilités, échéances, contexte de validation, indicateurs de risque et reporting exportable pour la livraison en cours.',
+          'Pour les équipes projet actives qui gèrent la validation des modèles, la responsabilité des sujets, les preuves, les jalons de décision et la maturité projet.',
         suitable: ['équipes de coordination BIM', 'consultants ingénierie', 'équipes de conception multidisciplinaires', 'entrepreneurs', 'chefs de projet', 'équipes de livraison client'],
         includes: ['centre de commande avancé', 'vue de validation modèle', 'tableau d’intelligence des sujets', 'suivi responsabilités et échéances', 'indicateurs de risque', 'structure de rapport exportable', 'Readiness Passport', 'Decision Gates', 'Evidence Pack', 'Ce qui a changé depuis la dernière revue', 'Prochaine meilleure action', 'instantané 3D Asset Readiness mono-projet'],
         inheritance: 'Inclut tous les contrôles Essential.',
@@ -566,9 +838,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
       {
         name: 'NBC Enterprise',
-        kicker: 'Pour portefeuilles, clients publics et grandes organisations de livraison.',
+        kicker: 'Pour les organisations qui gèrent le contrôle BIM sur plusieurs projets, actifs, équipes, standards, workflows de preuves et exigences de gouvernance.',
         summary:
-          'Standardiser la gouvernance entre projets avec visibilité portefeuille, preuves d’audit, structure de rôles et espaces prêts pour intégrations.',
+          'Pour les organisations qui gèrent le contrôle BIM sur plusieurs projets, actifs, équipes, standards, workflows de preuves et exigences de gouvernance.',
         suitable: ['grands entrepreneurs', 'clients publics', 'propriétaires d’infrastructures', 'développeurs immobiliers', 'départements BIM Enterprise', 'organisations multi-projets'],
         includes: ['dashboard portefeuille', 'vue risque multi-projets', 'structure de rôles Enterprise', 'vue preuves d’audit', 'reporting exécutif', 'espace prêt pour intégrations', 'jalons de décision portefeuille', 'packs de preuves multi-projets', 'bref exécutif hebdomadaire', 'salle de revue sécurisée', 'mémoire projet', 'modèles de règles personnalisées', 'modèles de standards locaux', 'filtrage avancé 3D Asset Readiness'],
         inheritance: 'Inclut tous les contrôles Professional.',
@@ -576,9 +848,9 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       },
       {
         name: 'NBC Secure Offline',
-        kicker: 'Pour les projets sensibles qui ne peuvent pas dépendre d’un accès cloud ouvert.',
+        kicker: 'Pour les environnements restreints, sensibles, d’infrastructure critique, industriels, publics ou à haute sécurité qui exigent une gouvernance BIM hors ligne contrôlée.',
         summary:
-          'Garder revue modèle, suivi des sujets, reporting et export des preuves sous contrôle local dans les environnements restreints.',
+          'Pour les environnements restreints, sensibles, d’infrastructure critique, industriels, publics ou à haute sécurité qui exigent une gouvernance BIM hors ligne contrôlée.',
         suitable: ['infrastructures publiques sensibles', 'projets gouvernementaux sécurisés', 'hôpitaux', 'aéroports', 'rail et métro', 'data centers', 'réseaux IT air-gapped'],
         includes: ['contrôle projet local', 'vue locale de validation modèle', 'suivi local sujets et risques', 'génération locale de rapports', 'export local des preuves', 'processus de mise à jour contrôlé', 'packs de preuves hors ligne', 'mémoire projet locale', 'enregistrements de validation déterministes', 'aucune validation boîte noire', 'versionnage local des règles', 'instantané 3D Asset Readiness local', 'zéro télémétrie', 'cycle de mise à jour contrôlé'],
         inheritance: 'Inclut certaines capacités Enterprise pour les environnements restreints.',
@@ -639,7 +911,42 @@ const nbcCopyByLocale: Record<Locale, NbcCopy> = {
       'NBC est actuellement développé pour les équipes projet, consultants, entrepreneurs, clients publics et organisations construction Enterprise qui ont besoin d’un meilleur contrôle BIM. Demandez une introduction privée pour discuter de l’adéquation projet, de l’orientation des offres et de la manière dont NBC pourrait soutenir votre organisation.',
     ctaPrimary: 'Demander une introduction privée',
     ctaSecondary: 'Voir les offres',
-    footerLine: 'NBC - Nayeli BIM Control. Un produit de LBYA.',
+    footerLine: '© 2026 NBC — Nayeli BIM Control. Un produit de LBYA AB.',
+    // Control levels (same as EN with FR translation)
+    controlLevelsEyebrow: 'Niveaux de contrôle',
+    controlLevelsTitle: 'De la maturité du projet à la gouvernance BIM enterprise.',
+    controlLevelsIntro: 'NBC est conçu pour soutenir à la fois le contrôle quotidien des projets et la gouvernance BIM au niveau du portefeuille, aidant les équipes à passer d\'informations dispersées à un contrôle de décision fiable.',
+    projectControlTitle: 'Contrôle BIM Projet',
+    projectControlDescription: 'Pour les équipes gérant un projet, un paquet, une zone d\'actifs, un jalon ou une révision client.',
+    projectControlsItems: [
+      'Validation du modèle',
+      'Vérification des fichiers',
+      'Responsabilité des problèmes',
+      'Passeport de maturité',
+      'Portes de décision',
+      'Paquet de preuves',
+      'Maturité des actifs 3D',
+      'Aperçu client',
+      'Mémoire du projet',
+      'NBC Insight Studio',
+    ],
+    projectControlQuestion: 'Ce projet est-il prêt pour la prochaine décision?',
+    enterpriseControlTitle: 'Contrôle BIM Enterprise',
+    enterpriseControlDescription: 'Pour les organisations gérant de nombreux projets, actifs, équipes, normes, clients et exigences de gouvernance.',
+    enterpriseControlsItems: [
+      'Maturité du portefeuille',
+      'Risque multi-projets',
+      'Modèles enterprise',
+      'Gouvernance de l\'ensemble de règles',
+      'Preuves d\'audit',
+      'Permissions basées sur les rôles',
+      'Flux de travail de révision sécurisés',
+      'Rapports exécutifs',
+      'Feuille de route d\'intégration',
+    ],
+    enterpriseControlQuestion: 'Où la direction doit-elle agir avant que le risque ne devienne onéreux?',
+    cdeStatement: 'NBC ne remplace pas votre CDE, vos outils de modélisation, vos plateformes de problèmes ou vos systèmes de rapports. NBC aide à vérifier, interpréter et communiquer la maturité sur l\'information qu\'ils produisent.',
+    cdeShortForm: 'Conservez vos systèmes de projet. Utilisez NBC pour contrôler la maturité, les preuves et les décisions sur l\'ensemble de vos systèmes.',
   },
   de: {} as NbcCopy,
 };
@@ -685,8 +992,8 @@ export default async function NayeliBimControlPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const activeLocale = asLocale(locale);
-  const NBC = getNbc(locale);
   const copy = nbcCopyByLocale[activeLocale];
+  const uiCopy = nbcUiCopyByLocale[activeLocale];
   const contactHref = localizePath(activeLocale, '/contact');
 
   return (
@@ -716,43 +1023,51 @@ export default async function NayeliBimControlPage({ params }: Props) {
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4">
                   <a
-                    href="#packages"
+                    href={localizePath(activeLocale, '/products/nbc/apply?intent=early_access')}
                     className="inline-flex items-center justify-center gap-3 rounded-sm bg-white px-7 py-3.5 text-sm font-semibold text-[#2E7D32] transition-colors hover:bg-[#A5D6A7]"
                   >
-                    <span>{copy.primaryCta}</span>
+                    <span>Request access</span>
                     <ArrowIcon />
                   </a>
                   <a
-                    href={contactHref}
+                    href={localizePath(activeLocale, '/products/nbc/apply?intent=enterprise_introduction')}
                     className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/50 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-[#2E7D32]"
                   >
-                    <span>{copy.secondaryCta}</span>
+                    <span>Request enterprise introduction</span>
+                    <ArrowIcon />
+                  </a>
+                  <a
+                    href={localizePath(activeLocale, '/products/nbc/apply?intent=pilot_project')}
+                    className="inline-flex items-center justify-center gap-3 rounded-sm border border-[#A5D6A7]/70 px-7 py-3.5 text-sm font-semibold text-[#A5D6A7] transition-colors hover:bg-[#A5D6A7] hover:text-[#1F3529]"
+                  >
+                    <span>Discuss pilot access</span>
                     <ArrowIcon />
                   </a>
                 </div>
               </div>
 
               <div className="justify-self-start lg:justify-self-end">
-                <div className="w-full max-w-[420px] border border-white/12 bg-white/6 p-6 shadow-2xl shadow-black/20 backdrop-blur-md">
-                  <Image
-                    src={NBC.logo}
-                    alt={`${NBC.name} logo`}
-                    width={840}
-                    height={280}
-                    className="h-auto w-full object-contain"
-                    priority
-                    unoptimized
-                  />
-                  <div className="mt-7 grid grid-cols-3 gap-px overflow-hidden bg-white/12 text-center">
-                    {copy.heroSignals.map((item) => (
-                      <div key={item} className="bg-[#37474F]/80 px-3 py-4">
-                        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#A5D6A7]">
-                          {item}
+                <div className="grid gap-6 lg:max-w-[420px]">
+                  <div className="border border-white/12 bg-white/6 p-6 shadow-2xl shadow-black/10 backdrop-blur-md">
+                      <div className="rounded-none border border-[#2E7D32]/10 bg-[#F7FAF7] p-5 text-[#1F3529]">
+                        <div className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                          Delivery readiness
+                        </div>
+                        <p className="mt-3 text-sm leading-6 text-[#37474F]/84">
+                          A structural model view for buildings, infrastructure, and industrial delivery.
                         </p>
                       </div>
-                    ))}
+                      <div className="mt-6 grid grid-cols-3 gap-px overflow-hidden bg-white/12 text-center">
+                        {copy.heroSignals.map((item) => (
+                          <div key={item} className="bg-[#37474F]/80 px-3 py-4">
+                            <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-[#A5D6A7]">
+                              {item}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <p className="mt-5 text-sm leading-7 text-white/72">{copy.productNote}</p>
                   </div>
-                  <p className="mt-5 text-sm leading-7 text-white/72">{copy.productNote}</p>
                 </div>
               </div>
             </div>
@@ -770,6 +1085,107 @@ export default async function NayeliBimControlPage({ params }: Props) {
                   <p key={paragraph}>{paragraph}</p>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16 lg:py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                {copy.controlLevelsEyebrow}
+              </p>
+              <h2 className="mt-4 text-3xl font-light leading-tight text-[#1F3529] md:text-5xl">
+                {copy.controlLevelsTitle}
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[#37474F]/74 md:text-lg">
+                {copy.controlLevelsIntro}
+              </p>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <article className="rounded-sm border border-[#DCE3E0] bg-[#F7FAF7] p-7 shadow-[0_18px_30px_rgba(31,53,41,0.06)]">
+                <h3 className="text-2xl font-semibold text-[#1F3529]">{copy.projectControlTitle}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#37474F]/74">{copy.projectControlDescription}</p>
+                <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {copy.projectControlsItems.map((item) => (
+                    <li key={item} className="rounded-sm border border-[#DCE3E0] bg-white px-3 py-2 text-sm text-[#37474F]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 border-l-2 border-[#2E7D32] pl-3 text-sm font-semibold text-[#1F3529]">
+                  {copy.projectControlQuestion}
+                </p>
+              </article>
+
+              <article className="rounded-sm border border-[#DCE3E0] bg-[#37474F] p-7 text-white shadow-[0_18px_30px_rgba(31,53,41,0.12)]">
+                <h3 className="text-2xl font-semibold">{copy.enterpriseControlTitle}</h3>
+                <p className="mt-3 text-sm leading-7 text-white/78">{copy.enterpriseControlDescription}</p>
+                <ul className="mt-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {copy.enterpriseControlsItems.map((item) => (
+                    <li key={item} className="rounded-sm border border-white/20 bg-white/10 px-3 py-2 text-sm text-white/92">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 border-l-2 border-[#A5D6A7] pl-3 text-sm font-semibold text-white">
+                  {copy.enterpriseControlQuestion}
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16 lg:py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-3xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                Sectors
+              </p>
+              <h2 className="mt-4 text-3xl font-light leading-tight text-[#1F3529] md:text-5xl">
+                Built for complex project information across the built environment.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[#37474F]/74 md:text-lg">
+                NBC supports teams working across real-estate, infrastructure, and industrial projects where readiness, issue responsibility, evidence, and decision control are critical.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+              {sectorHighlights.map((sector) => (
+                <article key={sector.type} className="overflow-hidden rounded-sm border border-[#DCE3E0] bg-white shadow-[0_18px_30px_rgba(31,53,41,0.06)]">
+                  <div className="relative w-full bg-white" style={{ aspectRatio: '16/9' }}>
+                    <Image
+                      src={sector.image}
+                      alt={`${sector.title} — ${sector.label}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-contain p-2"
+                    />
+                  </div>
+                  <div className="border-t border-[#DCE3E0] bg-[#F7FAF7] px-5 py-4">
+                    <div className="flex items-center gap-2">
+                      <span className="h-2 w-2 rounded-full bg-[#2E7D32]" />
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#2E7D32]">{sector.label}</p>
+                    </div>
+                    <div className="mt-3 grid grid-cols-1 gap-1.5">
+                      {sector.issues.map((issue) => (
+                        <div key={issue.label} className="flex items-center justify-between gap-3">
+                          <span className="text-xs text-[#37474F]/80">{issue.label} <span className="text-[#37474F]/50">— {issue.loc}</span></span>
+                          <span className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                            issue.level === 'Critical Issue' ? 'bg-[#FDEDED] text-[#C62828]' :
+                            issue.level === 'Moderate Issue' ? 'bg-[#FEF3E2] text-[#E65100]' :
+                            'bg-[#FFFDE7] text-[#F57F17]'
+                          }`}>{issue.level}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-sm font-semibold text-[#1F3529]">{sector.title}</p>
+                    <p className="mt-2 text-sm leading-7 text-[#37474F]/74">{sector.description}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -815,7 +1231,7 @@ export default async function NayeliBimControlPage({ params }: Props) {
           </div>
         </section>
 
-        <section className="bg-white py-16 lg:py-20">
+        <section id="controls" className="bg-white py-16 lg:py-20">
           <div className="content-frame" style={pageFrameStyle}>
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
@@ -833,6 +1249,94 @@ export default async function NayeliBimControlPage({ params }: Props) {
                   <span className="mb-6 block h-1.5 w-10 rounded-sm bg-[#2E7D32]" />
                   <h3 className="text-lg font-semibold text-[#1F3529]">{control.title}</h3>
                   <p className="mt-3 text-sm leading-7 text-[#37474F]/72">{control.body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#F7FAF7] py-16 lg:py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                {uiCopy.modulesEyebrow}
+              </p>
+              <h2 className="mt-4 text-3xl font-light leading-tight text-[#1F3529] md:text-5xl">
+                {uiCopy.modulesTitle}
+              </h2>
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2">
+              <article className="rounded-sm border border-[#DCE3E0] bg-white p-6">
+                <h3 className="text-xl font-semibold text-[#1F3529]">{uiCopy.projectModulesTitle}</h3>
+                <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {projectControlModules.map((moduleName) => (
+                    <li key={moduleName} className="rounded-sm border border-[#DCE3E0] bg-[#F7FAF7] px-3 py-2 text-sm text-[#37474F]">
+                      {moduleName}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+
+              <article className="rounded-sm border border-[#DCE3E0] bg-white p-6">
+                <h3 className="text-xl font-semibold text-[#1F3529]">{uiCopy.enterpriseModulesTitle}</h3>
+                <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                  {enterpriseControlModules.map((moduleName) => (
+                    <li key={moduleName} className="rounded-sm border border-[#DCE3E0] bg-[#F7FAF7] px-3 py-2 text-sm text-[#37474F]">
+                      {moduleName}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-white py-16 lg:py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-4xl rounded-sm border border-[#1F3529]/10 bg-[#F7FAF7] p-8">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                CDE positioning
+              </p>
+              <h2 className="mt-4 text-2xl font-light leading-tight text-[#1F3529] md:text-4xl">
+                Keep your project systems. Use NBC to control readiness, evidence, and decisions across them.
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[#37474F]/74 md:text-lg">{copy.cdeStatement}</p>
+              <p className="mt-4 border-l-2 border-[#2E7D32] pl-4 text-sm font-semibold text-[#1F3529]">
+                {copy.cdeShortForm}
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#F7FAF7] py-16 lg:py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-4xl">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                  Asset-neutral readiness
+                </p>
+                <h2 className="mt-4 text-3xl font-light leading-tight text-[#1F3529] md:text-5xl">
+                  NBC supports buildings, bridges, stations, plants, zones and packages.
+                </h2>
+                <p className="mt-5 text-base leading-8 text-[#37474F]/74 md:text-lg">
+                  Use one structure across different asset types: zones, spans, systems, equipment groups, and handover packages.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-2 xl:flex-nowrap xl:items-center">
+                  {readinessStatuses.map((status) => (
+                    <div key={status.label} className={`rounded-sm border border-[#DCE3E0] ${status.tone} px-3 py-2 xl:flex-1 xl:text-center`}>
+                      <p className="text-xs font-semibold leading-none whitespace-nowrap">{status.label}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-10 grid gap-5 sm:grid-cols-3">
+              {readinessCards.map((card) => (
+                <article key={card.title} className="rounded-sm border border-[#DCE3E0] bg-white p-6 shadow-[0_18px_30px_rgba(31,53,41,0.06)]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">{card.title}</p>
+                  <p className="mt-4 text-sm leading-7 text-[#37474F]/76">{card.body}</p>
                 </article>
               ))}
             </div>
@@ -1048,6 +1552,29 @@ export default async function NayeliBimControlPage({ params }: Props) {
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#F7FAF7] py-16 lg:py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="max-w-4xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">
+                {uiCopy.resourcesEyebrow}
+              </p>
+              <h2 className="mt-4 text-3xl font-light leading-tight text-[#1F3529] md:text-5xl">
+                {uiCopy.resourcesTitle}
+              </h2>
+              <p className="mt-5 text-base leading-8 text-[#37474F]/74 md:text-lg">
+                {uiCopy.resourcesBody}
+              </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              {uiCopy.resourcesFilters.map((filterLabel) => (
+                <span key={filterLabel} className="rounded-full border border-[#1F3529]/10 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.08em] text-[#37474F]/80">
+                  {filterLabel}
+                </span>
+              ))}
             </div>
           </div>
         </section>

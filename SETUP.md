@@ -119,6 +119,38 @@ git push -u origin main
 - In Vercel project settings → Domains
 - Add your domain and follow DNS instructions
 
+#### Neon Postgres Setup (Recommended for Vercel)
+
+Use Neon as the production database backend for Prisma.
+
+1. Create a Neon project and copy the pooled connection string.
+2. In Vercel Project Settings -> Environment Variables, set:
+
+```bash
+DATABASE_URL=postgresql://USER:PASSWORD@HOST/DBNAME?sslmode=require
+NEXTAUTH_URL=https://your-domain.vercel.app
+NEXTAUTH_SECRET=your-long-random-secret
+GOOGLE_CLIENT_ID=...
+GOOGLE_CLIENT_SECRET=...
+```
+
+3. Deploy schema migrations to Neon:
+
+```bash
+npx prisma migrate deploy
+```
+
+4. Optional local verification:
+
+```bash
+npx prisma generate
+npm run build
+```
+
+Notes:
+- Do not use SQLite for Vercel production in this project.
+- If Prisma generate fails on Windows with an EPERM DLL rename error, stop active Node/Next processes and run again.
+
 ### Option 2: Docker Deployment
 
 Create `Dockerfile`:

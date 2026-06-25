@@ -71,7 +71,7 @@ export default function AdminLoginPage() {
       >
         <div className="mb-14 flex items-center justify-center">
           <Wordmark
-            src="/logoC.svg"
+            src="/logoA.svg"
             className="h-40 w-full max-w-2xl"
             priority
             sizes="1200px"

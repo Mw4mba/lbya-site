@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
   relationMode = "foreignKeys"
 }
@@ -64,4 +64,55 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model AdminPermission {
+  id              String   @id @default(cuid())
+  email           String   @unique
+  name            String
+  permissionLevel String
+  status          String   @default("Active")
+  deepWorkReminderProfile String?
+  invitedDate     DateTime @default(now())
+  lastActive      DateTime?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model ProjectGoal {
+  id         String   @id @default(cuid())
+  title      String
+  owner      String
+  targetDate DateTime
+  progress   Int      @default(0)
+  status     String   @default("Planned")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model ProjectWorkItem {
+  id        String   @id @default(cuid())
+  project   String
+  title     String
+  owner     String
+  dueDate   DateTime
+  effort    Int
+  priority  String
+  status    String
+  rank      Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AdminAuditEvent {
+  id        String   @id @default(cuid())
+  timestamp DateTime @default(now())
+  adminUser String
+  action    String
+  entity    String
+  entityId  String
+  customer  String?
+  details   String
+  source    String   @default("Admin Console")
+  status    String   @default("Success")
 }

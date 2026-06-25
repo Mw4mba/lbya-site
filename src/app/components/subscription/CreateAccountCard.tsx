@@ -21,7 +21,7 @@ export default function CreateAccountCard({
 
   const target = useMemo(() => {
     if (!redirectPath || !redirectPath.startsWith('/')) {
-      return localizePath(locale, '/checkout');
+      return localizePath(locale, '/cart?product=mct');
     }
     return localizePath(locale, redirectPath);
   }, [locale, redirectPath]);

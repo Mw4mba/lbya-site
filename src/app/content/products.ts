@@ -41,18 +41,18 @@ const NBC_LOGO = '/images/products/nbc-logo.png';
 const productsByLocale: Record<Locale, ProductSummary[]> = {
   en: [
     { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Ready product', tagline: 'A logistics control tower for African multimodal operations.', cardCopy: 'MCT is commercially ready. It brings shipment requests, transporter records, document verification, quotes, corridor status, and decision evidence into one structured logistics environment.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explore MCT', href: '/products/mct' }, liveCta: { label: 'View JARIDAFRICA platform', href: LIVE_MCT_URL } },
-    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Mid-stage development', tagline: 'BIM control built for clarity, accountability, and trust.', cardCopy: 'NBC is in mid development. It is being shaped around BIM information control: requirements, model quality, issue ownership, evidence, and decision readiness.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Discover NBC', href: '/products/nbc' } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Access by request', tagline: 'Project and enterprise BIM control platform.', cardCopy: 'NBC is a project and enterprise BIM control platform for readiness, evidence, risk, and decision governance across real-estate, infrastructure, and industrial projects.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Discover NBC', href: '/products/nbc' } },
   ],
   sv: [
-    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Tidigt utvecklingsskede', tagline: 'BIM-kontroll byggd för tydlighet, ansvar och tillit.', cardCopy: 'NBC är i tidig utveckling. Produkten formas kring BIM-informationskontroll: krav, modellkvalitet, ärendeansvar, underlag och beslutsberedskap.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Upptäck NBC', href: '/products/nbc' } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Tidigt utvecklingsskede', tagline: 'BIM-kontroll för beredskap, ansvar och tillit.', cardCopy: 'NBC är i tidig utveckling. Produkten formas kring BIM-informationskontroll, leveransberedskap, ansvar, underlag och beslutsberedskap över byggnader, infrastruktur och industri.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Upptäck NBC', href: '/products/nbc' } },
   ],
   fr: [
     { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Produit prêt', tagline: 'Une tour de contrôle logistique pour les opérations multimodales africaines.', cardCopy: "MCT est commercialement prêt. Il réunit demandes d'expédition, dossiers transporteurs, vérification documentaire, devis, statut de corridor et preuves de décision dans un environnement logistique structuré.", href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'Explorer MCT', href: '/products/mct' }, liveCta: { label: 'Voir la plateforme JARIDAFRICA', href: LIVE_MCT_URL } },
-    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Développement initial', tagline: 'Contrôle BIM conçu pour la clarté, la responsabilité et la confiance.', cardCopy: "NBC est en phase de développement initial. Le produit se construit autour du contrôle de l'information BIM : exigences, qualité du modèle, responsabilité des points à traiter, preuves et préparation à la décision.", href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Découvrir NBC', href: '/products/nbc' } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Développement initial', tagline: 'Contrôle de maturité BIM pour l’immobilier, l’infrastructure et l’industrie.', cardCopy: "NBC est en phase de développement initial. Le produit se construit autour du contrôle d'information, de la maturité de livraison, des preuves et du soutien à la décision pour les projets immobiliers, d'infrastructure et industriels.", href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'Découvrir NBC', href: '/products/nbc' } },
   ],
   de: [
     { slug: 'mct', name: 'Malaika Control Tower', acronym: 'MCT', status: 'Fertiges Produkt', tagline: 'Ein logistischer Control Tower für afrikanische multimodale Abläufe.', cardCopy: 'MCT ist kommerziell bereit. Es bündelt Sendungsanfragen, Transporteurdaten, Dokumentenverifizierung, Angebote, Korridorstatus und Entscheidungsnachweise in einer strukturierten Logistikumgebung.', href: '/products/mct', image: MCT_IMAGE, logo: MCT_LOGO, primaryCta: { label: 'MCT entdecken', href: '/products/mct' }, liveCta: { label: 'JARIDAFRICA-Plattform ansehen', href: LIVE_MCT_URL } },
-    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Frühe Entwicklungsphase', tagline: 'BIM-Kontrolle für Klarheit, Verantwortung und Vertrauen.', cardCopy: 'NBC befindet sich in früher Entwicklung. Das Produkt wird rund um BIM-Informationskontrolle aufgebaut: Anforderungen, Modellqualität, Themenverantwortung, Nachweise und Entscheidungsreife.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'NBC entdecken', href: '/products/nbc' } },
+    { slug: 'nbc', name: 'Nayeli BIM Control', acronym: 'NBC', status: 'Frühe Entwicklungsphase', tagline: 'BIM-Kontrolle für Bereitstellung, Verantwortung und industrielle Infrastruktur.', cardCopy: 'NBC befindet sich in früher Entwicklung. Das Produkt wird rund um Informationskontrolle, Lieferbereitschaft, Nachweise und Entscheidungsunterstützung für Immobilien, Infrastruktur und Industrie aufgebaut.', href: '/products/nbc', image: NBC_IMAGE, logo: NBC_LOGO, primaryCta: { label: 'NBC entdecken', href: '/products/nbc' } },
   ],
 };
 
@@ -260,16 +260,16 @@ const nbcEN = {
   name: 'Nayeli BIM Control',
   acronym: 'NBC',
   seoTitle: 'Nayeli BIM Control | BIM Control Platform',
-  metaDescription: 'NBC is a mid-stage BIM control product for coordination, federated model review, model validation, issue ownership, evidence, and decision readiness.',
+  metaDescription: 'NBC is a BIM control product for coordination, federated model review, model validation, issue ownership, evidence, and decision readiness.',
   tagline: 'BIM control built for clarity, accountability, and trust.',
   heroImage: NBC_IMAGE,
   logo: NBC_LOGO,
-  heroPositioning: 'Nayeli BIM Control is being shaped around BIM coordination, federated model review, model validation, issue ownership, and decision readiness. It is separate from MCT and focused only on BIM control.',
-  supporting: 'NBC gives project teams a clearer way to manage BIM information from requirements to coordinated, validated, construction-ready decisions. It brings model quality, issue ownership, and evidence into one workflow so teams can reduce uncertainty and move forward with confidence.',
-  primaryCta: { label: 'Join the early access list', href: '/contact' },
+  heroPositioning: 'Nayeli BIM Control focuses on BIM coordination, federated model review, model validation, issue ownership, and decision readiness. It is separate from MCT and dedicated to BIM control.',
+  supporting: 'NBC gives project teams a clearer way to manage BIM information from requirements through coordinated and validated delivery decisions. It connects model quality, issue ownership, and evidence in one workflow so teams can reduce uncertainty and move forward with confidence.',
+  primaryCta: { label: 'Start an NBC conversation', href: '/contact' },
   secondaryCta: { label: 'Compare product fit', href: '/products' },
   honestStatus: 'NBC is still in the early stages of development. LBYA is inviting BIM managers, consultants, contractors, and client teams to shape pilot workflows.',
-  controlsIntro: 'NBC is a BIM control layer for architecture, engineering, construction, and client teams. It is not a modelling tool, and it does not replace Revit, Solibri, Autodesk Construction Cloud, BIMcollab, or a CDE. It helps teams understand whether BIM information is reliable, traceable, assigned, reviewed, and ready for decisions.',
+  controlsIntro: 'NBC is a BIM control layer for architecture, engineering, construction, and client teams. It is not a modelling tool, and it does not replace Revit, Solibri, Autodesk Construction Cloud, BIMcollab, or a CDE. It helps teams understand whether BIM information is reliable, traceable, assigned, reviewed, and decision-ready.',
   controls: [
     'BIM requirements and information needs',
     'Model health and quality indicators',
@@ -303,7 +303,7 @@ const nbcEN = {
   ] as ProductModule[],
   packagesIntro: 'Start with a simple BIM control dashboard, then add stronger governance, reporting, permissions, client views, and integrations as the workflow matures.',
   packages: [
-    { name: 'NBC Basic', bestFor: 'Small BIM teams needing a simple control dashboard.', positioning: 'Create the first reliable project view with requirements, uploads, issues, and readiness status.', features: ['Project dashboard', 'Basic requirements list', 'Model upload log', 'Issue list', 'Basic readiness status', 'Simple reports'], cta: 'Join early access' },
+    { name: 'NBC Basic', bestFor: 'Small BIM teams needing a simple control dashboard.', positioning: 'Create the first reliable project view with requirements, uploads, issues, and readiness status.', features: ['Project dashboard', 'Basic requirements list', 'Model upload log', 'Issue list', 'Basic readiness status', 'Simple reports'], cta: 'Request access' },
     { name: 'NBC Professional', bestFor: 'Consultants and project teams managing multiple disciplines.', positioning: 'Add accountable follow-up across requirements, model health, issue assignment, reports, and user roles.', features: ['Everything in Basic', 'Requirement tracking', 'Issue assignment', 'Model health metrics', 'Review reports', 'Role-based access'], cta: 'Request product demo' },
     { name: 'NBC Premium', bestFor: 'BIM managers and contractors needing stronger control.', positioning: 'Strengthen coordination with risk boards, delivery readiness, evidence, permissions, and client overview.', features: ['Everything in Professional', 'Coordination risk board', 'Delivery readiness tracker', 'Evidence centre', 'Advanced permissions', 'Client overview portal'], cta: 'Discuss a pilot project' },
     { name: 'NBC Enterprise', bestFor: 'Large organisations, public clients, and multi-project programmes.', positioning: 'Configure NBC around multi-project governance, integrations, templates, reporting, and enterprise permissions.', features: ['Everything in Premium', 'Custom workflows', 'Integrations', 'Multi-project reporting', 'Enterprise templates', 'Dedicated support'], cta: 'Discuss enterprise needs' },
@@ -313,7 +313,7 @@ const nbcEN = {
     { title: 'From model checking to BIM governance', body: 'Checking a model tells you what is wrong today. Governance tells you who owns each issue, what evidence supports a decision, and whether the project is ready to move forward. NBC helps teams make that shift without abandoning the tools they already use.' },
     { title: 'Connecting requirements, issues, and decision readiness', body: 'NBC links information requirements to model quality, issue ownership, and the evidence behind each decision. For example, a requirement can be traced to the issues it raised, the checks that closed them, and the person accountable, so decisions rest on a clear record.' },
     { title: 'Designed to work alongside your existing BIM tools', body: 'NBC is a control layer, not a modelling tool and not a replacement for your authoring or review software. It is designed to sit alongside existing BIM workflows and strengthen the information that flows through them.' },
-    { title: 'Mid-stage development and partnership', body: 'NBC is still in mid development. We are inviting project teams and partners who want to help shape a more accountable way to control BIM information.' },
+    { title: 'Product partnership', body: 'NBC invites project teams and partners who want to help shape a more accountable way to control BIM information.' },
   ] as NbcSection[],
 };
 

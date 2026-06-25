@@ -10,7 +10,7 @@ import { localizePath } from '../content/paths';
 import Wordmark from './Wordmark';
 
 const heroStatusByLocale: Record<Locale, string> = {
-  en: 'MCT is ready for demo. NBC is in mid development.',
+  en: 'MCT is ready for demo. NBC access is available by request.',
   sv: 'NBC \u00e4r i tidig utveckling f\u00f6r BIM-kontroll.',
   fr: 'MCT est pr\u00eat pour une d\u00e9mo. NBC est en d\u00e9veloppement pr\u00e9coce.',
   de: 'MCT ist demo-bereit. NBC befindet sich in fr\u00fcher Entwicklung.',

@@ -16,7 +16,7 @@ export default function AdminLayout({
   subtitle?: string;
   children: React.ReactNode;
 }) {
-  const { role, email } = useAdminSession();
+  const { role, email, name } = useAdminSession();
 
   return (
     <div className="min-h-screen bg-linear-to-br from-[#F5F5DC] via-white to-[#F5F5DC] text-[#37474F]">
@@ -27,7 +27,7 @@ export default function AdminLayout({
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[320px_1fr]">
         <AdminSidebar activePath={activePath} />
         <div className="flex flex-col">
-          <AdminTopbar title={title} subtitle={subtitle} role={role} email={email} />
+          <AdminTopbar title={title} subtitle={subtitle} role={role} email={email} name={name} />
           <main className="flex-1 overflow-auto bg-linear-to-b from-transparent via-[#FAFAF8]/40 to-transparent px-8 py-12 md:px-12 lg:px-16">
             <div className="mx-auto max-w-7xl space-y-12">{children}</div>
           </main>

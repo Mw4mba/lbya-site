@@ -6,6 +6,7 @@ import type { AdminRole } from './types';
 type AdminSession = {
   role: AdminRole;
   email: string;
+  name: string;
 };
 
 const AdminSessionContext = createContext<AdminSession | null>(null);
@@ -13,13 +14,15 @@ const AdminSessionContext = createContext<AdminSession | null>(null);
 export function AdminSessionProvider({
   role,
   email,
+  name,
   children,
 }: {
   role: AdminRole;
   email: string;
+  name: string;
   children: React.ReactNode;
 }) {
-  return <AdminSessionContext.Provider value={{ role, email }}>{children}</AdminSessionContext.Provider>;
+  return <AdminSessionContext.Provider value={{ role, email, name }}>{children}</AdminSessionContext.Provider>;
 }
 
 export function useAdminSession() {

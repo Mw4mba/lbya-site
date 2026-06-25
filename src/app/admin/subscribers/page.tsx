@@ -7,6 +7,13 @@ import AdminStatusBadge from '@/app/components/admin/AdminStatusBadgeV2';
 import { mockCustomers } from '@/data/mockAdminBilling';
 import { adminColors } from '@/app/components/admin/adminDesignTokens';
 
+function formatEuro(value: number): string {
+  const sign = value < 0 ? '-' : '';
+  const [intPart, decimalPart] = Math.abs(value).toString().split('.');
+  const groupedInt = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return `€${sign}${groupedInt}${decimalPart ? `.${decimalPart}` : ''}`;
+}
+
 export default function AdminCustomersPage() {
   return (
     <AdminLayoutV2
@@ -58,7 +65,7 @@ export default function AdminCustomersPage() {
             { key: 'company' as const, label: 'Company', width: '200px' },
             { key: 'country' as const, label: 'Country', width: '100px' },
             { key: 'activeSubscriptions' as const, label: 'Subscriptions', width: '120px' },
-            { key: 'mrr' as const, label: 'MRR', render: (value: number) => `€${value.toLocaleString()}`, width: '120px' },
+            { key: 'mrr' as const, label: 'MRR', render: (value: number) => formatEuro(value), width: '120px' },
             { key: 'status' as const, label: 'Status', render: (value: string) => <AdminStatusBadge status={value as any} size="sm" />, width: '140px' },
           ]}
           data={mockCustomers}

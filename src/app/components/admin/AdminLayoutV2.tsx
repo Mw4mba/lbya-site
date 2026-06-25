@@ -19,7 +19,7 @@ export default function AdminLayoutV2({
   subtitle,
   children,
 }: AdminLayoutV2Props) {
-  const { role, email } = useAdminSession();
+  const { role, email, name } = useAdminSession();
 
   return (
     <div
@@ -29,7 +29,7 @@ export default function AdminLayoutV2({
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[260px_1fr]">
         <AdminSidebarV2 activePath={activePath} />
         <div className="flex flex-col">
-          <AdminTopbarV2 title={title} subtitle={subtitle} role={role} email={email} />
+          <AdminTopbarV2 title={title} subtitle={subtitle} role={role} email={email} name={name} />
           <main
             className="flex-1 overflow-auto px-6 py-10 md:px-8 lg:px-12"
             style={{ backgroundColor: adminColors.adminBg }}

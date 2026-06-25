@@ -23,7 +23,7 @@ function getCookieOptions() {
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => null) as
-    | { accessKey?: string; email?: string; role?: string }
+    | { accessKey?: string; email?: string; role?: string; name?: string }
     | null;
 
   if (!body) {
@@ -46,6 +46,8 @@ export async function POST(request: Request) {
     : 'super-admin';
 
   const email = (body.email?.trim() || 'internal.admin@lbya.se').toLowerCase();
+  const derivedName = email.split('@')[0].replace(/[._-]+/g, ' ').trim() || 'Administrator';
+  const name = body.name?.trim() || derivedName;
 
   const response = NextResponse.json({ ok: true });
   const cookieOptions = getCookieOptions();
@@ -53,6 +55,7 @@ export async function POST(request: Request) {
   response.cookies.set(ADMIN_KEY_COOKIE, providedKey || 'dev-local-admin', cookieOptions);
   response.cookies.set('lbya_admin_role', role, cookieOptions);
   response.cookies.set('lbya_admin_email', email, cookieOptions);
+  response.cookies.set('lbya_admin_name', name, cookieOptions);
 
   return response;
 }

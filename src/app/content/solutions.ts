@@ -127,12 +127,12 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       slug: 'global-bim-control',
       eyebrow: 'NBC solution',
       title: 'Global BIM control',
-      body: 'A focused mid-stage BIM control direction for model review, issue ownership, validation governance, and decision evidence across project teams.',
+      body: 'A focused mid-stage BIM control direction for model review, issue ownership, validation governance, and decision records across project teams.',
       product: 'Nayeli BIM Control',
       href: '/solutions/global-bim-control',
       seoTitle: 'Global BIM Control Solution | Nayeli BIM Control',
       metaDescription:
-        'Explore the BIM control gap NBC is being shaped to address: model quality, issue ownership, validation governance, evidence, and handover readiness.',
+        'Explore the BIM control gap NBC addresses: model quality, issue ownership, validation governance, evidence, and handover readiness.',
       heroTitle: 'Close the BIM control gap between models, issues, and decisions.',
       heroBody:
         'BIM teams already use powerful authoring, coordination, and common data tools. The gap is often between them: who owns the issue, what was checked, which requirement failed, and whether the model information is ready to support a decision.',
@@ -141,7 +141,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       challengeEyebrow: 'The market gap',
       challengeHeading: 'BIM coordination still loses accountability between tools.',
       challengeBody:
-        'Projects can have models, issue lists, documents, and dashboards without having a clear control record. NBC is being shaped around that missing layer.',
+        'Projects can have models, issue lists, documents, and dashboards without having a clear control record. NBC focuses on that missing layer.',
       challenges: [
         { title: 'Model quality is checked too late', body: 'Information gaps, naming issues, classifications, and requirement failures often appear after decisions have already moved.' },
         { title: 'Issue ownership is fragmented', body: 'Findings can move between meetings, exports, emails, and platforms without a clean responsibility trail.' },
@@ -151,14 +151,14 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       responseEyebrow: 'How NBC is positioned',
       responseHeading: 'A BIM control product direction, separate from logistics.',
       responseBody:
-        'NBC is not MCT and does not manage transport. It is being shaped for BIM teams that need clearer control over model information, coordination issues, validation evidence, and decision readiness.',
+        'NBC is not MCT and does not manage transport. It is designed for BIM teams that need clearer control over model information, coordination issues, validation records, and decision readiness.',
       responseCards: [
         { title: 'Federated model review', body: 'Bring discipline model information into a clearer review structure so teams can inspect readiness, interfaces, and gaps.' },
         { title: 'Issue and action control', body: 'Connect findings to owners, status, evidence, due attention, and follow-up history.' },
         { title: 'Validation governance', body: 'Support checks around requirements, classifications, naming, data completeness, and handover readiness.' },
       ],
       workflowEyebrow: 'NBC control flow',
-      workflowHeading: 'From model question to decision evidence.',
+      workflowHeading: 'From model question to decision records.',
       workflow: [
         { title: 'Review the model context', body: 'Understand discipline inputs, coordination scope, information requirements, and project priorities.' },
         { title: 'Identify issues', body: 'Turn clashes, missing data, requirement gaps, and coordination findings into controlled items.' },
@@ -168,7 +168,7 @@ const solutionsByLocale: Record<Locale, SolutionDetail[]> = {
       ],
       proofHeading: 'Mid-stage product direction',
       proofBody:
-        'NBC is intentionally kept focused while it develops. The public message stays simple: BIM coordination, model-information control, and stronger decision evidence.',
+        'NBC is intentionally kept focused while it develops. The public message stays simple: BIM coordination, model-information control, and stronger decision records.',
       finalHeading: 'Shape a practical BIM control layer.',
       finalBody:
         'Talk with LBYA if your team wants to discuss BIM coordination gaps, early access, or the product direction behind NBC.',

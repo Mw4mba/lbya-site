@@ -395,6 +395,13 @@ export default function ContactPage() {
                   <ArrowIcon />
                 </a>
                 <Link
+                  href={localizePath(activeLocale, '/contact/application')}
+                  className="inline-flex items-center justify-center gap-3 rounded-sm bg-[#2E7D32] px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-[#1F5B25]"
+                >
+                  <span>Submit request</span>
+                  <ArrowIcon />
+                </Link>
+                <Link
                   href={localizePath(activeLocale, '/products/nbc')}
                   className="inline-flex items-center justify-center gap-3 rounded-sm border border-white/28 px-6 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:border-[#A5D6A7] hover:bg-white/10"
                 >

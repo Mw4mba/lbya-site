@@ -33,6 +33,18 @@ function getSessionFromRequest(request: NextRequest): AdminApiSession {
 
 export function withAdminGuard(handler: GuardedHandler, allowedRoles?: AdminRole[]) {
   return async function guardedRoute(request: NextRequest) {
+    const isDev = process.env.NODE_ENV !== 'production';
+
+    if (isDev) {
+      const session = getSessionFromRequest(request);
+
+      if (allowedRoles && !allowedRoles.includes(session.role)) {
+        return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+      }
+
+      return handler(request, session);
+    }
+
     const providedAccessKey =
       request.headers.get(ADMIN_KEY_HEADER) ?? request.cookies.get(ADMIN_KEY_COOKIE)?.value;
 

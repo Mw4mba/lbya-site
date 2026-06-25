@@ -12,14 +12,14 @@ import { resourceAreas } from '@/data/mockResources';
 type Props = { params: Promise<{ locale: string }> };
 
 const heroStats = [
-  { label: 'Focus', value: 'BIM readiness' },
+  { label: 'Focus', value: 'Delivery readiness' },
   { label: 'Lens', value: 'Information trust' },
   { label: 'Path', value: 'Evidence and integrations' },
 ];
 
 export const metadata: Metadata = {
   title: 'Resources | LBYA',
-  description: 'Resources for better control, BIM readiness, information trust, integrations, and research around NBC and LBYA.',
+  description: 'Resources for better control, delivery readiness, information trust, integrations, and research around NBC and LBYA.',
 };
 
 function ArrowIcon() {
@@ -50,8 +50,8 @@ export default async function ResourcesPage({ params }: Props) {
               control products.
             </p>
             <p className="mt-5 max-w-3xl text-base leading-7 text-white/78 md:text-lg">
-              For NBC, Resources focus on BIM readiness, information trust, issue responsibility, evidence, and the
-              software ecosystem that construction teams already use.
+              For NBC, resources focus on delivery readiness, information trust, issue responsibility, evidence, and the
+              software ecosystem that real-estate, infrastructure, and industrial teams already use.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link

@@ -21,6 +21,11 @@ type CareerCopy = {
   body: string;
   primaryCta: string;
   secondaryCta: string;
+  lifeBalanceTitle: string;
+  lifeBalanceSubtitle: string;
+  lifeBalanceBody: string[];
+  lifeBalanceCards: TextItem[];
+  lifeBalanceValues: string[];
   focusTitle: string;
   focusBody: string;
   focusAreas: TextItem[];
@@ -72,6 +77,40 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     body: 'We are building MCT and NBC with people who care about useful software, clear information, and products that make complex work easier to trust.',
     primaryCta: 'Apply now',
     secondaryCta: 'View focus areas',
+    lifeBalanceTitle: 'Life balance, responsibility, and meaningful work',
+    lifeBalanceSubtitle:
+      'At LBYA AB, balance is not a benefit added on top of work. It is one of the foundations of how we want to build, lead, and grow.',
+    lifeBalanceBody: [
+      'At LBYA AB, we believe that strong work comes from people who have balance, trust, and space to think clearly.',
+      'We want work to feel meaningful, structured, and motivating - not something people simply endure. Our aim is to build an environment where people can take responsibility, grow through challenges, contribute with pride, and still protect the rhythm of life outside work.',
+      'Our culture is based on trust, ownership, collaboration, clear communication, and respect for people\'s time. We believe quality is built through focus and sustainable ambition, not unnecessary pressure or a constant-availability mindset.',
+      'For us, life balance is not the opposite of ambition. It is part of long-term performance, creativity, loyalty, and building a company people are proud to belong to.',
+    ],
+    lifeBalanceCards: [
+      {
+        title: 'Trust and ownership',
+        detail: 'We believe people do their best work when they are trusted, respected, and given clear responsibility.',
+      },
+      {
+        title: 'Focused work',
+        detail: 'We value clarity, structure, and deep work. The goal is not to look busy, but to create work that matters.',
+      },
+      {
+        title: 'Sustainable ambition',
+        detail: 'We want to build with ambition, but in a way that keeps people creative, motivated, and strong over time.',
+      },
+    ],
+    lifeBalanceValues: [
+      'Trust',
+      'Ownership',
+      'Focused work',
+      'Clear communication',
+      'Collaboration',
+      'Respect for time',
+      'Meaningful contribution',
+      'Sustainable ambition',
+      'Learning and growth',
+    ],
     focusTitle: 'Where we are looking for talent',
     focusBody: 'LBYA is small and product-led, so strong applications connect directly to the products we are building.',
     focusAreas: [
@@ -84,7 +123,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     rolesBody: 'We are not listing fixed vacancies today, but we welcome focused applications for the product areas below.',
     roles: [
       { title: 'MCT product and logistics', meta: 'Ready product', detail: 'For people who can help improve logistics workflows, customer onboarding, verification, and product operations.' },
-      { title: 'NBC BIM control', meta: 'Mid development', detail: 'For BIM specialists and product thinkers who can help shape requirements, model quality, issues, and evidence workflows.' },
+      { title: 'NBC BIM control', meta: 'Open role', detail: 'For BIM specialists and product thinkers who can help shape requirements, model quality, issues, and evidence workflows.' },
       { title: 'Software and product engineering', meta: 'Product build', detail: 'For developers who enjoy practical interfaces, clean workflows, data structure, integrations, and reliable product details.' },
     ],
     processTitle: 'Application process',
@@ -125,7 +164,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
       cv: 'Shareable CV link',
       message: 'Tell us what you want to build, what you are good at, and which product area fits you.',
     },
-    roleOptions: ['MCT product and logistics', 'NBC BIM control', 'Software and product engineering', 'Product design and growth', 'Internship or thesis', 'Open application'],
+    roleOptions: ['Frontend Engineer', 'Backend Engineer', 'Full-Stack Engineer', 'DevOps Engineer', 'QA Engineer', 'UI/UX Designer', 'Product Manager', 'Sales', 'Internship or thesis'],
     workModeOptions: ['Remote', 'Hybrid in Sweden', 'On-site by agreement', 'Flexible'],
     emailSubject: 'Career application to LBYA',
   },
@@ -135,6 +174,40 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     body: 'Vi bygger MCT och NBC med människor som bryr sig om användbar mjukvara, tydlig information och produkter som gör komplext arbete lättare att lita på.',
     primaryCta: 'Ansök nu',
     secondaryCta: 'Se fokusområden',
+    lifeBalanceTitle: 'Life balance, responsibility, and meaningful work',
+    lifeBalanceSubtitle:
+      'At LBYA AB, balance is not a benefit added on top of work. It is one of the foundations of how we want to build, lead, and grow.',
+    lifeBalanceBody: [
+      'At LBYA AB, we believe that strong work comes from people who have balance, trust, and space to think clearly.',
+      'We want work to feel meaningful, structured, and motivating - not something people simply endure. Our aim is to build an environment where people can take responsibility, grow through challenges, contribute with pride, and still protect the rhythm of life outside work.',
+      'Our culture is based on trust, ownership, collaboration, clear communication, and respect for people\'s time. We believe quality is built through focus and sustainable ambition, not unnecessary pressure or a constant-availability mindset.',
+      'For us, life balance is not the opposite of ambition. It is part of long-term performance, creativity, loyalty, and building a company people are proud to belong to.',
+    ],
+    lifeBalanceCards: [
+      {
+        title: 'Trust and ownership',
+        detail: 'We believe people do their best work when they are trusted, respected, and given clear responsibility.',
+      },
+      {
+        title: 'Focused work',
+        detail: 'We value clarity, structure, and deep work. The goal is not to look busy, but to create work that matters.',
+      },
+      {
+        title: 'Sustainable ambition',
+        detail: 'We want to build with ambition, but in a way that keeps people creative, motivated, and strong over time.',
+      },
+    ],
+    lifeBalanceValues: [
+      'Trust',
+      'Ownership',
+      'Focused work',
+      'Clear communication',
+      'Collaboration',
+      'Respect for time',
+      'Meaningful contribution',
+      'Sustainable ambition',
+      'Learning and growth',
+    ],
     focusTitle: 'Där vi söker talang',
     focusBody: 'LBYA är litet och produktdrivet, så starka ansökningar kopplar tydligt till produkterna vi bygger.',
     focusAreas: [
@@ -147,7 +220,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     rolesBody: 'Vi listar inga fasta tjänster just nu, men välkomnar fokuserade ansökningar inom produktområdena nedan.',
     roles: [
       { title: 'MCT produkt och logistik', meta: 'Färdig produkt', detail: 'För dig som kan förbättra logistikflöden, kundintroduktion, verifiering och produktoperation.' },
-      { title: 'NBC BIM-kontroll', meta: 'Tidig utveckling', detail: 'För BIM-specialister och produktpersoner som kan forma krav, modellkvalitet, ärenden och underlagsflöden.' },
+      { title: 'NBC BIM-kontroll', meta: 'Öppen roll', detail: 'För BIM-specialister och produktpersoner som kan forma krav, modellkvalitet, ärenden och underlagsflöden.' },
       { title: 'Mjukvara och produktutveckling', meta: 'Produktbygge', detail: 'För utvecklare som gillar praktiska gränssnitt, rena flöden, datastruktur, integrationer och pålitliga produktdetaljer.' },
     ],
     processTitle: 'Ansökningsprocess',
@@ -188,7 +261,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
       cv: 'Delbar CV-länk',
       message: 'Berätta vad du vill bygga, vad du är bra på och vilket produktområde som passar dig.',
     },
-    roleOptions: ['MCT produkt och logistik', 'NBC BIM-kontroll', 'Mjukvara och produktutveckling', 'Produktdesign och tillväxt', 'Praktik eller examensarbete', 'Öppen ansökan'],
+    roleOptions: ['Frontend-utvecklare', 'Backend-utvecklare', 'Fullstack-utvecklare', 'DevOps-ingenjör', 'QA-ingenjör', 'UI/UX-designer', 'Produktchef', 'Sälj', 'Praktik eller examensarbete'],
     workModeOptions: ['Distans', 'Hybrid i Sverige', 'På plats enligt överenskommelse', 'Flexibelt'],
     emailSubject: 'Karriäransökan till LBYA',
   },
@@ -198,6 +271,40 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     body: 'Nous développons MCT et NBC avec des personnes qui aiment les logiciels utiles, l’information claire et les produits qui rendent le travail complexe plus fiable.',
     primaryCta: 'Postuler',
     secondaryCta: 'Voir les domaines',
+    lifeBalanceTitle: 'Life balance, responsibility, and meaningful work',
+    lifeBalanceSubtitle:
+      'At LBYA AB, balance is not a benefit added on top of work. It is one of the foundations of how we want to build, lead, and grow.',
+    lifeBalanceBody: [
+      'At LBYA AB, we believe that strong work comes from people who have balance, trust, and space to think clearly.',
+      'We want work to feel meaningful, structured, and motivating - not something people simply endure. Our aim is to build an environment where people can take responsibility, grow through challenges, contribute with pride, and still protect the rhythm of life outside work.',
+      'Our culture is based on trust, ownership, collaboration, clear communication, and respect for people\'s time. We believe quality is built through focus and sustainable ambition, not unnecessary pressure or a constant-availability mindset.',
+      'For us, life balance is not the opposite of ambition. It is part of long-term performance, creativity, loyalty, and building a company people are proud to belong to.',
+    ],
+    lifeBalanceCards: [
+      {
+        title: 'Trust and ownership',
+        detail: 'We believe people do their best work when they are trusted, respected, and given clear responsibility.',
+      },
+      {
+        title: 'Focused work',
+        detail: 'We value clarity, structure, and deep work. The goal is not to look busy, but to create work that matters.',
+      },
+      {
+        title: 'Sustainable ambition',
+        detail: 'We want to build with ambition, but in a way that keeps people creative, motivated, and strong over time.',
+      },
+    ],
+    lifeBalanceValues: [
+      'Trust',
+      'Ownership',
+      'Focused work',
+      'Clear communication',
+      'Collaboration',
+      'Respect for time',
+      'Meaningful contribution',
+      'Sustainable ambition',
+      'Learning and growth',
+    ],
     focusTitle: 'Les talents que nous recherchons',
     focusBody: 'LBYA est une entreprise petite et orientée produit. Les meilleures candidatures se relient donc directement aux produits que nous construisons.',
     focusAreas: [
@@ -210,7 +317,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     rolesBody: 'Nous n’affichons pas de postes fixes aujourd’hui, mais nous accueillons les candidatures ciblées dans les domaines ci-dessous.',
     roles: [
       { title: 'Produit MCT et logistique', meta: 'Produit prêt', detail: 'Pour les personnes capables d’améliorer les flux logistiques, la prise en main client, la vérification et les opérations produit.' },
-      { title: 'Contrôle BIM NBC', meta: 'Développement précoce', detail: 'Pour les spécialistes BIM et profils produit capables de façonner les exigences, la qualité du modèle, les problèmes et les preuves.' },
+      { title: 'Contrôle BIM NBC', meta: 'Rôle ouvert', detail: 'Pour les spécialistes BIM et profils produit capables de façonner les exigences, la qualité du modèle, les problèmes et les preuves.' },
       { title: 'Logiciel et ingénierie produit', meta: 'Construction produit', detail: 'Pour les développeurs qui aiment les interfaces pratiques, les flux clairs, la structure des données, les intégrations et les détails fiables.' },
     ],
     processTitle: 'Processus de candidature',
@@ -251,7 +358,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
       cv: 'Lien CV partageable',
       message: 'Dites-nous ce que vous voulez construire, vos points forts et le domaine produit qui vous correspond.',
     },
-    roleOptions: ['Produit MCT et logistique', 'Contrôle BIM NBC', 'Logiciel et ingénierie produit', 'Design produit et croissance', 'Stage ou mémoire', 'Candidature ouverte'],
+    roleOptions: ['Ingénieur Frontend', 'Ingénieur Backend', 'Ingénieur Full-Stack', 'Ingénieur DevOps', 'Ingénieur QA', 'Designer UI/UX', 'Chef de produit', 'Ventes', 'Stage ou mémoire'],
     workModeOptions: ['À distance', 'Hybride en Suède', 'Sur site selon accord', 'Flexible'],
     emailSubject: 'Candidature carrière LBYA',
   },
@@ -261,6 +368,40 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     body: 'Wir entwickeln MCT und NBC mit Menschen, die nützliche Software, klare Informationen und Produkte schätzen, die komplexe Arbeit verlässlicher machen.',
     primaryCta: 'Jetzt bewerben',
     secondaryCta: 'Fokusbereiche ansehen',
+    lifeBalanceTitle: 'Life balance, responsibility, and meaningful work',
+    lifeBalanceSubtitle:
+      'At LBYA AB, balance is not a benefit added on top of work. It is one of the foundations of how we want to build, lead, and grow.',
+    lifeBalanceBody: [
+      'At LBYA AB, we believe that strong work comes from people who have balance, trust, and space to think clearly.',
+      'We want work to feel meaningful, structured, and motivating - not something people simply endure. Our aim is to build an environment where people can take responsibility, grow through challenges, contribute with pride, and still protect the rhythm of life outside work.',
+      'Our culture is based on trust, ownership, collaboration, clear communication, and respect for people\'s time. We believe quality is built through focus and sustainable ambition, not unnecessary pressure or a constant-availability mindset.',
+      'For us, life balance is not the opposite of ambition. It is part of long-term performance, creativity, loyalty, and building a company people are proud to belong to.',
+    ],
+    lifeBalanceCards: [
+      {
+        title: 'Trust and ownership',
+        detail: 'We believe people do their best work when they are trusted, respected, and given clear responsibility.',
+      },
+      {
+        title: 'Focused work',
+        detail: 'We value clarity, structure, and deep work. The goal is not to look busy, but to create work that matters.',
+      },
+      {
+        title: 'Sustainable ambition',
+        detail: 'We want to build with ambition, but in a way that keeps people creative, motivated, and strong over time.',
+      },
+    ],
+    lifeBalanceValues: [
+      'Trust',
+      'Ownership',
+      'Focused work',
+      'Clear communication',
+      'Collaboration',
+      'Respect for time',
+      'Meaningful contribution',
+      'Sustainable ambition',
+      'Learning and growth',
+    ],
     focusTitle: 'Wo wir Talent suchen',
     focusBody: 'LBYA ist klein und produktorientiert. Starke Bewerbungen stellen deshalb einen klaren Bezug zu unseren Produkten her.',
     focusAreas: [
@@ -273,7 +414,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
     rolesBody: 'Wir listen aktuell keine festen Stellen, freuen uns aber über fokussierte Bewerbungen für die folgenden Produktbereiche.',
     roles: [
       { title: 'MCT Produkt und Logistik', meta: 'Fertiges Produkt', detail: 'Für Menschen, die Logistikworkflows, Kundeneinführung, Verifizierung und Produktbetrieb verbessern können.' },
-      { title: 'NBC BIM-Kontrolle', meta: 'Frühe Entwicklung', detail: 'Für BIM-Spezialisten und Produktdenker, die Anforderungen, Modellqualität, Themen und Nachweisabläufe mitgestalten können.' },
+      { title: 'NBC BIM-Kontrolle', meta: 'Offene Rolle', detail: 'Für BIM-Spezialisten und Produktdenker, die Anforderungen, Modellqualität, Themen und Nachweisabläufe mitgestalten können.' },
       { title: 'Software und Produktentwicklung', meta: 'Produktaufbau', detail: 'Für Entwickler, die praktische Oberflächen, klare Workflows, Datenstruktur, Integrationen und verlässliche Produktdetails mögen.' },
     ],
     processTitle: 'Bewerbungsprozess',
@@ -314,7 +455,7 @@ const careersCopyByLocale: Record<Locale, CareerCopy> = {
       cv: 'Teilbarer Lebenslauf-Link',
       message: 'Sagen Sie uns, was Sie bauen möchten, worin Sie gut sind und welcher Produktbereich zu Ihnen passt.',
     },
-    roleOptions: ['MCT Produkt und Logistik', 'NBC BIM-Kontrolle', 'Software und Produktentwicklung', 'Produktdesign und Wachstum', 'Praktikum oder Abschlussarbeit', 'Initiativbewerbung'],
+    roleOptions: ['Frontend-Entwickler', 'Backend-Entwickler', 'Full-Stack-Entwickler', 'DevOps-Ingenieur', 'QA-Ingenieur', 'UI/UX-Designer', 'Produktmanager', 'Vertrieb', 'Praktikum oder Abschlussarbeit'],
     workModeOptions: ['Remote', 'Hybrid in Schweden', 'Vor Ort nach Vereinbarung', 'Flexibel'],
     emailSubject: 'Karrierebewerbung bei LBYA',
   },
@@ -438,7 +579,7 @@ export default function CareersPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a
-                href="#application"
+                href={localizePath(activeLocale, '/careers/apply')}
                 className="inline-flex items-center gap-3 rounded-sm bg-white px-6 py-3.5 text-sm font-semibold text-[#1F3529] transition-colors hover:bg-[#A5D6A7]"
               >
                 <span>{copy.primaryCta}</span>
@@ -457,6 +598,46 @@ export default function CareersPage() {
       </section>
 
       <main>
+        <section className="bg-[#F1F6F2] py-20">
+          <div className="content-frame" style={pageFrameStyle}>
+            <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#2E7D32]">{copy.eyebrow}</p>
+                <h2 className="mt-4 text-4xl font-light leading-tight text-[#1F3529] md:text-5xl">
+                  {copy.lifeBalanceTitle}
+                </h2>
+                <p className="mt-5 max-w-3xl text-lg leading-8 text-[#2D3F34]">
+                  {copy.lifeBalanceSubtitle}
+                </p>
+                <div className="mt-6 space-y-5 text-base leading-8 text-[#37474F]/80">
+                  {copy.lifeBalanceBody.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="grid gap-4">
+                  {copy.lifeBalanceCards.map((card) => (
+                    <article key={card.title} className="border border-[#2E7D32]/18 bg-white p-6 shadow-[0_14px_34px_rgba(38,66,53,0.08)]">
+                      <h3 className="text-xl font-light text-[#1F3529]">{card.title}</h3>
+                      <p className="mt-3 text-sm leading-7 text-[#2D3F34]">{card.detail}</p>
+                    </article>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  {copy.lifeBalanceValues.map((value) => (
+                    <span key={value} className="inline-flex rounded-full border border-[#2E7D32]/20 bg-white px-3 py-1.5 text-xs font-semibold tracking-[0.04em] text-[#1F3529]">
+                      {value}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="focus-areas" className="content-frame py-20" style={pageFrameStyle}>
           <div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
             <div>
@@ -509,7 +690,7 @@ export default function CareersPage() {
                     <h3 className="mt-5 text-2xl font-light leading-tight text-[#1F3529]">{role.title}</h3>
                     <p className="mt-4 text-sm leading-7 text-[#37474F]/72">{role.detail}</p>
                   </div>
-                  <a href="#application" className="mt-8 inline-flex w-fit items-center gap-3 border-b border-[#2E7D32]/35 py-2 text-sm font-semibold text-[#2E7D32] transition-colors hover:border-[#2E7D32] hover:text-[#1F5B25]">
+                  <a href={localizePath(activeLocale, '/careers/apply')} className="mt-8 inline-flex w-fit items-center gap-3 border-b border-[#2E7D32]/35 py-2 text-sm font-semibold text-[#2E7D32] transition-colors hover:border-[#2E7D32] hover:text-[#1F5B25]">
                     <span>{copy.primaryCta}</span>
                     <ArrowIcon />
                   </a>

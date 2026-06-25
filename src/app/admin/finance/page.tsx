@@ -7,6 +7,13 @@ import AdminStatusBadge from '@/app/components/admin/AdminStatusBadgeV2';
 import { mockPayments } from '@/data/mockAdminBilling';
 import { adminColors } from '@/app/components/admin/adminDesignTokens';
 
+function formatEuro(value: number): string {
+  const sign = value < 0 ? '-' : '';
+  const [intPart, decimalPart] = Math.abs(value).toString().split('.');
+  const groupedInt = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return `€${sign}${groupedInt}${decimalPart ? `.${decimalPart}` : ''}`;
+}
+
 export default function AdminPaymentsPage() {
   return (
     <AdminLayoutV2
@@ -52,7 +59,7 @@ export default function AdminPaymentsPage() {
             { key: 'id' as const, label: 'Payment ID', width: '120px' },
             { key: 'date' as const, label: 'Date', width: '120px' },
             { key: 'customer' as const, label: 'Customer', width: '180px' },
-            { key: 'amount' as const, label: 'Amount', render: (value: number) => `€${value}`, width: '100px' },
+            { key: 'amount' as const, label: 'Amount', render: (value: number) => formatEuro(value), width: '100px' },
             { key: 'method' as const, label: 'Method', width: '120px' },
             { key: 'status' as const, label: 'Status', render: (value: string) => <AdminStatusBadge status={value as any} size="sm" />, width: '120px' },
           ]}

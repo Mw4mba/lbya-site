@@ -39,12 +39,6 @@ export type ResearchPillar = {
   summary: string;
 };
 
-export type ReleaseNote = {
-  id: string;
-  title: string;
-  summary: string;
-};
-
 export type GuideTopic = {
   id: string;
   title: string;
@@ -55,14 +49,14 @@ export const resourceAreas: ResourceArea[] = [
   {
     id: 'insights',
     title: 'Insights',
-    description: 'Short articles on BIM readiness, information trust, project evidence, issue ownership, and digital construction control.',
+    description: 'Short articles on delivery readiness, information trust, project evidence, issue ownership, and digital delivery control.',
     cta: 'Read insights',
     href: '/resources/insights',
   },
   {
     id: 'problem-library',
     title: 'Problem Library',
-    description: 'A structured view of the recurring problems NBC is designed to address, from siloed BIM data to weak evidence before approval.',
+    description: 'A structured view of the recurring problems NBC is designed to address, from siloed project data to weak evidence before approval.',
     cta: 'Explore problems',
     href: '/resources/problem-library',
   },
@@ -87,13 +81,6 @@ export const resourceAreas: ResourceArea[] = [
     cta: 'Open guides',
     href: '/resources/help-guides',
   },
-  {
-    id: 'release-notes',
-    title: 'Release Notes',
-    description: 'Follow what is taking shape as the NBC direction develops.',
-    cta: 'See release notes',
-    href: '/resources/release-notes',
-  },
 ];
 
 export const nbcInsightArticles: NbcInsightArticle[] = [
@@ -104,7 +91,7 @@ export const nbcInsightArticles: NbcInsightArticle[] = [
     readTime: '6 min read',
     tags: ['OpenBIM', 'Interoperability', 'Information Trust'],
     summary:
-      'Project information often lives across authoring tools, CDEs, issue trackers, spreadsheets, reports, and emails. NBC is being shaped to help teams understand what is reliable, complete, and ready for decision.',
+      'Project information often lives across authoring tools, CDEs, issue trackers, spreadsheets, reports, and emails. NBC helps teams understand what is reliable, complete, and ready for decision.',
   },
   {
     id: 'late-stage-compliance',
@@ -158,7 +145,7 @@ export const nbcInsightArticles: NbcInsightArticle[] = [
     readTime: '5 min read',
     tags: ['Explainability', 'Rule Sets', 'Trust'],
     summary:
-      'BIM professionals need to know why a score exists. NBC is being shaped so readiness indicators can be explainable, traceable, reviewable, and linked to evidence.',
+      'BIM professionals need to know why a score exists. NBC helps make readiness indicators explainable, traceable, reviewable, and linked to evidence.',
   },
   {
     id: 'what-changed',
@@ -350,24 +337,6 @@ export const researchPillars: ResearchPillar[] = [
     id: 'no-black-box-validation',
     title: 'No Black Box Validation',
     summary: 'How can scoring and verification stay explainable so BIM teams can audit the outcome instead of trusting a hidden result?',
-  },
-];
-
-export const releaseNotes: ReleaseNote[] = [
-  {
-    id: 'v0-3',
-    title: 'NBC Prototype v0.3',
-    summary: 'Resources direction added',
-  },
-  {
-    id: 'v0-2',
-    title: 'NBC Prototype v0.2',
-    summary: '3D Asset Readiness View added',
-  },
-  {
-    id: 'v0-1',
-    title: 'NBC Prototype v0.1',
-    summary: 'Command Center, File Verification, Issue Intelligence, and Reports prototype',
   },
 ];
 

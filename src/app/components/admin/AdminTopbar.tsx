@@ -6,12 +6,16 @@ export default function AdminTopbar({
   subtitle,
   role,
   email,
+  name,
 }: {
   title: string;
   subtitle?: string;
   role: AdminRole;
   email: string;
+  name: string;
 }) {
+  const displayName = (name || email?.split('@')[0] || 'Administrator').toUpperCase();
+
   return (
     <header className="relative border-b border-[#81D4FA]/20 bg-linear-to-r from-white/90 via-[#F5F5DC]/30 to-white/90 backdrop-blur-xl px-8 py-8 shadow-lg">
       <div className="absolute inset-0 -z-10">
@@ -41,10 +45,10 @@ export default function AdminTopbar({
           </button>
           <div className="flex items-center gap-3 rounded-xl border border-[#2E7D32]/15 bg-white/40 backdrop-blur-sm px-4 py-3 transition-all duration-300 hover:border-[#2E7D32]/30 hover:bg-white/60">
             <div className="h-10 w-10 rounded-full bg-linear-to-br from-[#2E7D32] via-[#1b5e20] to-[#0d3a1a] flex items-center justify-center text-white font-bold text-sm shadow-md">
-              {email?.charAt(0).toUpperCase()}
+              {displayName.charAt(0)}
             </div>
             <div className="text-left">
-              <p className="font-bold text-[#2E7D32] text-xs">{email?.split('@')[0]?.toUpperCase()}</p>
+              <p className="font-bold text-[#2E7D32] text-xs">{displayName}</p>
               <p className="text-xs font-medium text-[#37474F]/60">{role}</p>
             </div>
           </div>

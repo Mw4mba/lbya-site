@@ -12,11 +12,48 @@ import { asLocale } from '@/app/content/locale';
 import { localizePath } from '@/app/content/paths';
 import { getPlan, getBillingTerm } from '@/app/content/subscriptionFlow';
 import { getAccountSession } from '@/app/lib/subscriptionAuth';
+import { calculateServerCheckoutSummary } from '@/lib/billing/checkout';
+import type { BillingTerm as StripeBillingTerm, CheckoutRequestPayload, ProductCode } from '@/lib/billing/types';
 
 type CheckoutProps = {
   params: Promise<{ locale: string }>;
   searchParams: Promise<{ product?: string; plan?: string; term?: string; seats?: string; request?: string }>;
 };
+
+function mapBillingTerm(term: 'monthly' | 'annual' | 'three-year'): StripeBillingTerm {
+  if (term === 'monthly') return 'monthly';
+  if (term === 'three-year') return 'three_years';
+  return 'yearly';
+}
+
+function mapProductAndPlanCode(product: string | undefined, plan: string | undefined, billingTerm: StripeBillingTerm): { productCode: ProductCode; planCode: string } {
+  const productKey = (product ?? 'mct').toLowerCase();
+  const planKey = (plan ?? 'professional').toLowerCase();
+  const termSuffix = billingTerm === 'monthly' ? 'MONTHLY' : billingTerm === 'yearly' ? 'YEARLY' : 'THREE_YEARS';
+
+  if (productKey === 'nbc') {
+    const base = planKey === 'enterprise'
+      ? 'NBC_ENTERPRISE'
+      : planKey === 'starter'
+      ? 'NBC_ESSENTIAL'
+      : 'NBC_PROFESSIONAL';
+    return {
+      productCode: base as ProductCode,
+      planCode: `${base}_${termSuffix}`,
+    };
+  }
+
+  const base = planKey === 'starter'
+    ? 'MCT_BASIC'
+    : planKey === 'enterprise' || planKey === 'business'
+    ? 'MCT_ENTERPRISE'
+    : 'MCT_PROFESSIONAL';
+
+  return {
+    productCode: base as ProductCode,
+    planCode: `${base}_${termSuffix}`,
+  };
+}
 
 export default async function CheckoutPage({ params, searchParams }: CheckoutProps) {
   const { locale } = await params;
@@ -32,6 +69,23 @@ export default async function CheckoutPage({ params, searchParams }: CheckoutPro
   const selectedPlan = getPlan(query.plan);
   const selectedTerm = getBillingTerm(query.term);
   const selectedSeats = Number(query.seats) > 0 ? Number(query.seats) : 5;
+
+  const billingTerm = mapBillingTerm(selectedTerm);
+  const { productCode, planCode } = mapProductAndPlanCode(query.product, query.plan, billingTerm);
+  const appUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.APP_URL || 'http://localhost:3000';
+
+  const checkoutPayload: CheckoutRequestPayload = {
+    productCode,
+    planCode,
+    billingTerm,
+    seats: selectedSeats,
+    addOns: [],
+    customerEmail: session.email,
+    successUrl: `${appUrl}/checkout/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancelUrl: `${appUrl}/checkout/cancel`,
+  };
+
+  const checkoutSummary = calculateServerCheckoutSummary(checkoutPayload);
 
   return (
     <div className="min-h-screen bg-white text-[#1F3529]">
@@ -65,7 +119,12 @@ export default async function CheckoutPage({ params, searchParams }: CheckoutPro
             <CheckoutPaymentSection plan={selectedPlan.id} />
           </div>
 
-          <CheckoutOrderReview locale={activeLocale} />
+          <CheckoutOrderReview
+            locale={activeLocale}
+            checkoutPayload={checkoutPayload}
+            subtotalEur={checkoutSummary.subtotalEur}
+            renewalEur={checkoutSummary.renewalEur}
+          />
         </div>
       </main>
       <Footer />

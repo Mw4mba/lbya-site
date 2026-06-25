@@ -39,7 +39,7 @@ export default async function ResourcesIntegrationsPage({ params }: Props) {
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">Designed to work beside the tools teams already use.</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-white/84 md:text-xl">
               NBC is not designed to replace authoring tools, CDEs, issue platforms, model checkers, or reporting
-              systems. It is being shaped as a readiness and evidence-control layer around existing project workflows.
+              systems. It is positioned as a readiness and evidence-control layer around existing project workflows.
             </p>
           </div>
         </section>

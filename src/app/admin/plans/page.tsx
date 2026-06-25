@@ -1,9 +1,31 @@
 import React from 'react';
+import Link from 'next/link';
+import { getLocale } from 'next-intl/server';
 import AdminLayoutV2 from '@/app/components/admin/AdminLayoutV2';
 import { adminColors } from '@/app/components/admin/adminDesignTokens';
 import { getAllPlanPricing } from '@/lib/billingStore';
+import { asLocale, type Locale } from '@/app/content/locale';
+
+function getCommercialPackageHref(locale: Locale, product: 'NBC' | 'MCT', plan: string): string {
+  const localePrefix = `/${locale}`;
+  const normalizedPlan = plan.toLowerCase();
+
+  if (product === 'MCT') {
+    if (normalizedPlan.includes('enterprise')) return `${localePrefix}/products/mct/enterprise`;
+    if (normalizedPlan.includes('business')) return `${localePrefix}/products/mct/premium`;
+    if (normalizedPlan.includes('professional')) return `${localePrefix}/products/mct/professional`;
+    if (normalizedPlan.includes('basic') || normalizedPlan.includes('essential')) return `${localePrefix}/products/mct/basic`;
+    return `${localePrefix}/products/mct`;
+  }
+
+  if (normalizedPlan.includes('enterprise')) return `${localePrefix}/products/nbc?plan=enterprise#packages`;
+  if (normalizedPlan.includes('professional')) return `${localePrefix}/products/nbc?plan=professional#packages`;
+  if (normalizedPlan.includes('essential') || normalizedPlan.includes('basic')) return `${localePrefix}/products/nbc?plan=essential#packages`;
+  return `${localePrefix}/products/nbc#packages`;
+}
 
 export default async function AdminPlansPage() {
+  const locale = asLocale(await getLocale());
   const plans = await getAllPlanPricing();
 
   return (
@@ -72,6 +94,17 @@ export default async function AdminPlansPage() {
               >
                 Edit Plan
               </button>
+
+              <Link
+                href={getCommercialPackageHref(locale, p.product, p.plan)}
+                className="mt-3 inline-flex w-full items-center justify-center rounded px-3 py-2 text-sm font-medium"
+                style={{
+                  backgroundColor: adminColors.lbyaGreenSoft,
+                  color: adminColors.lbyaGreen,
+                }}
+              >
+                View Website Package
+              </Link>
             </div>
           ))}
         </div>

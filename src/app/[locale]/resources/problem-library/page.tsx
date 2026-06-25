@@ -27,7 +27,7 @@ export default async function ResourcesProblemLibraryPage({ params }: Props) {
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#A5D6A7]">Problem Library</p>
             <h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">Problems worth controlling.</h1>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-white/84 md:text-xl">
-              NBC is being developed around recurring digital construction problems that affect trust, readiness,
+              NBC addresses recurring digital construction problems that affect trust, readiness,
               responsibility, and decisions.
             </p>
           </div>

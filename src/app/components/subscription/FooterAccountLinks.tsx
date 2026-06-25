@@ -78,7 +78,7 @@ export default function FooterAccountLinks({ locale }: { locale: Locale }) {
           <FooterLink href={localizePath(locale, '/create-account')}>{copy.createAccount}</FooterLink>
           <FooterLink href={localizePath(locale, '/subscriptions')}>{copy.mctSubscriptions}</FooterLink>
           <FooterLink href={localizePath(locale, '/contact')}>{copy.contactSales}</FooterLink>
-          <FooterLink href={localizePath(locale, '/checkout')}>{copy.requestQuote}</FooterLink>
+          <FooterLink href={localizePath(locale, '/cart?product=mct')}>{copy.requestQuote}</FooterLink>
         </nav>
       </div>
     </section>

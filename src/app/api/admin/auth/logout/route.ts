@@ -15,6 +15,7 @@ export async function POST() {
   response.cookies.set(ADMIN_KEY_COOKIE, '', clearCookie);
   response.cookies.set('lbya_admin_role', '', clearCookie);
   response.cookies.set('lbya_admin_email', '', clearCookie);
+  response.cookies.set('lbya_admin_name', '', clearCookie);
 
   return response;
 }
